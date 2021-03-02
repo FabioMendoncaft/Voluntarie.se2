@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --font-primary: "baloo Da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action: "Mulish", serif;
+}
+
+html{
+    scroll-behavior: smooth;
+ }
+
+header {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #290700;
+    animation: zoom 25s;
+}
+
+@keyframes zoom {
+    0%{
+        transform: scale(1.3);
+    }
+
+    100%{
+        transform: (1);
+    }
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+.banne {
+    position: absolute;
+    top: 28%;
+    left: 15%;
+    right: 5%;
+    opacity: 0;
+    animation: moveBanne 1s 0.7s forwards;
+    
+}
+
+.banne h1 {
+    color: #ffffff;
+    font-size: 4.5em;
+    font-family: var(--font-primary);
+    font-weight: 900;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;   
+}
+
+.banne input {
+    border-radius: 5px;
+    padding: 7px;
+    width: 333px;
+}
+
+.esqueciSenha{
+    color: white;
+    margin-left: 70px;
+}
+
+.senhaTeste{
+    margin-top: 15px;
+    width: 345px;
+}
+
+.banne button {
+    font-family: var(--font-action);
+    color: #ffffff;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    opacity: 0;
+    animation: moveBanne 1s 0.9s forwards;
+    outline: none;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+@keyframes moveBanne {
+    0%{
+        transform: translateY(10rem) rotateY(-3deg);
+    }
+
+    100%{
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
+}
+
+                                /*CSS CADASTRO E ESQUICI SENHA*/
+
+.card1-top{
+    margin-bottom: px;
+}
+
+.card1{
+	box-shadow: 1px 1px 10px #ccc;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.card1-group{
+	margin-bottom: 5px;
+}
+
+.card1-group > label{
+	width: 100%;
+	color: rgb(75, 75, 75);
+	display:block; 
+    	
+}
+
+.card1-group > input{
+	width: 100%;
+	height: 20px;
+	padding: 13px;
+    border: solid 1px;
+}
+
+.card1-group > button{
+	background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+	width: 100%;
+	border-radius: 30px;
+	padding: 0.6rem 9rem;
+	color: #ffffff;
+	border: 0px;
+	outline: 0;
+	margin-top: 2px;
+}
+#voltarPagInicial{
+	margin-top: 10px;
+	text-align: center;
+}
+
+#voltarPagInicial a{
+    color: black;
+    text-decoration: underline;
+}
+
+.title{ 
+	color: #CA2700;
+}
+
+#insiriaSeuEmail label{
+    margin-bottom: 10px;
+}
+
+/* TELA MODAL */
+
+/*Cadastro*/
+#bgCadastro{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.8);
+    position: fixed;
+    display: none;
+}
+
+#bgCadastro:target{
+    display: block;
+}
+
+#bgCadastro:target ~ .boxCadastro{
+    top: 30px;
+    transition: all .3s;
+    transition-delay: .2s;
+}
+
+.boxCadastro{
+    width: 400px;
+    height: 650px;
+    position: absolute;
+    margin-left: -200px;
+    left: 50%;
+    top: -810px;
+}
+
+.boxCadastro img{
+    width: 70%;
+    margin-left: 50px;
+}
+
+/*Esqueci senha*/
+#bgSenha{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.8);
+    position: fixed;
+    display: none;
+}
+#bgSenha:target{
+    display: block;
+}
+#bgSenha:target ~ .boxSenha{
+    top: 30px;
+    transition: all .3s;
+    transition-delay: .2s;
+}
+.boxSenha{
+    width: 400px;
+    height: 650px;
+    position: absolute;
+    margin-left: -200px;
+    left: 50%;
+    top: -810px;
+}
+
+.boxSenha img{
+    width: 70%;
+    margin-left: 50px;
+}
+
+/*Botão de close para tela de cadastro e esquici senha*/
+#close{
+    color: white;
+    font-family: 'Arial';
+    text-decoration: none;
+    font-size: 22px;
+    position: absolute;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    right: 0;
+    border-radius: 7px;
+    margin-top: 1px;
+    margin-right: 1px;
+    
+}
+/* FEED */
+
+ #logoFeed{
+    font-family: var(--font-primary) 
+}
+
+.telaFeedPesquisa{
+    width: 300px;
+    float: left;
+    background: rgb(182, 181, 181);
+    height: 652px;
+    padding: 50px;
+}
+
+.telaFeed{
+    background-color: rgb(226, 226, 226);
+    padding: 50px;
+    margin-left: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+

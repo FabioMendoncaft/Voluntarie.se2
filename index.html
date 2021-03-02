@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Voluntarie.se | Bem-vindo ao Voluntarie</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="js/additional-methods.min.js"> </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+
+   
+   <script type="text/javascript">
+        
+        $(document).ready(function(){
+            $("#telefone").mask("(00)00000-0000")
+        })
+        $(document).ready(function(){
+            $("#data").mask("00/00/0000")
+        })
+
+        $(document).ready(function(){
+            $("#esqueciSenhaa").validate({
+                rules:{
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                }
+            })
+        })
+        
+        $(document).ready(function(){
+            $("#cadastro").validate({
+                rules:{
+                    nome:{
+                        required: true,
+                        maxlength: 100,
+                        minlength: 10,
+                        minWords: 2
+                    },
+                    email:{
+                        required: true,
+                        email: true
+                    },
+                    senha:{
+                        required: true,
+                        rangelength: [6,10]
+                    },
+                    confirmar:{
+                        required: true,
+                        equalTo: "#senha"
+                    },
+                    data:{
+
+                    }
+                    
+                },
+                submitHandler: function(form){
+                    alert("Cadastrado com sucesso!")
+                }
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <div class="containe">
+        <header>
+            <!--Tela inicial(login)-->
+            <div class="img-wrapper" >
+                <img src="img/bg.jpg" alt="">
+            </div>           
+        
+            
+                <div class="banne">
+                     
+                        <h1>Voluntarie<strong style="color:#f83600;">.</strong>se</h1>
+                        <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
+                        <br>
+                        <input type="password" name="senha" id="senhaTeste" class="senhaTeste" placeholder="Digite sua senha" required>
+                        <br>
+                        <a href="feed.html"><button>Entrar</button></a> 
+                        <a href="#bgCadastro"><button style="color: #ffffff; text-transform: uppercase; font-family: var(--font-action); background: none; border: 1px solid #ffffff; border-radius: 30px; cursor: pointer; animation: moveBanne 1s 0.9s forwards; text-decoration: none;">Criar conta</button></a>
+                        <br>
+                        <a href="#bgSenha" style="text-decoration: underline; color: #ffffff;" class="esqueciSenha">Esqueci minha senha</a>
+                    </div>
+            
+        
+            <!--Tela de cadastro-->
+            <div id="bgCadastro"></div>
+                <div class="boxCadastro">
+                <form class="form" action="#"  id="cadastro">
+                    <a href="" id="close">X</a>
+                    <div class="card1"> 
+                        <div class="card1-top">
+                            <a href="/"><img class="imglogin" src="img/logo.png" alt="login"></a>
+                        </div>
+                        
+                        <div class="card1-group">
+                            <label>Nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+                        </div>
+        
+                        <div class="card1-group">
+                            <label>E-mail</label>
+                            <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+                        </div>
+        
+                        <div class="card1-group">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone" id="telefone" placeholder="Digite seu telefone">
+                        </div>
+                    
+                        <div class="card1-group">
+                            <label>Senha</label>
+                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                        </div>
+        
+                        <div class="card1-group">
+                            <label>Confirmar</label>
+                            <input type="password" name="confirmar" id="confirmar" placeholder="Confirmar senha" required>
+                        </div>
+        
+                        <div class="card1-group">
+                            <label>Data de nascimento</label>
+                            <input type="text" name="data" id="data" placeholder="Data de nascimento" required>
+                        </div>
+        
+                        <div style="color:  rgb(75, 75, 75); margin-bottom: 10px;">
+                            <label>Sexo</label>
+                            <input type="radio" name="radsex" id="mas" style= "margin-left: 20px;">  
+                            <label for="masc">Masculino</label>
+                            <input type="radio" name="radsex" id="fem" style= "margin-left: 20px;">  
+                            <label for="fem">Feminino</label>	
+                        </div>
+        
+                        <div class="card1-group btn">
+                            <button class="btn btn-danger" type="submit" onclick=" return acessar()">Cadastrar</button>
+                        </div>
+        
+                        <div id="voltarPagInicial">
+                            <a href="index.html">Já possui uma conta? Entrar.</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--Tela de esquici senha-->
+            <div id="bgSenha"></div>
+                <div class="boxSenha">
+                    <form class="form" action="#" id="esqueciSenhaa">
+                        <a href="" id="close">X</a>
+                        <div class="card1"> 
+                            
+                            <div class="card1-top">
+                                <a href="/"><img class="imglogin" src="img/logo.png" alt="login" style="margin-bottom: 13px;"></a>
+                            </div>
+                            
+                            <div class="card1-group" id="insiriaSeuEmail">
+                                <label>Insira seu e-mail para redefinir sua senha</label>
+                                
+                                <input type="email" name="email" id="email" placeholder="E-mail">
+                            </div>
+                            
+                            <div class="card1-group btn">
+                                <button type="submit" onclick="redefinir()" >REDEFINIR</button>
+                            </div>
+                            
+                            <div id="voltarPagInicial">
+                                <a href="index.html">Página inicial</a>
+                            </div>
+                
+                        </div>
+                    </form>   
+            </div>
+        </header>
+    </div>
+    
+   
+</body>   
+</html>
