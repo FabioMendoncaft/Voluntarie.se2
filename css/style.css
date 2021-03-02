@@ -123,6 +123,7 @@ header {
         margin-left: -20px;
     }
 }
+
     /*FIM RESPONSIVIDADE HOME*/
 
 
@@ -267,6 +268,24 @@ header {
     margin-left: 50px;
 }
 
+    /*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
+@media(max-width: 400px){
+    .boxCadastro{
+        width: 280px;
+        height: 550px;
+        margin-left: -138px;
+    }
+    .boxSenha{
+        width: 280px;
+        height: 550px;
+        margin-left: -138px;
+    }
+    .card1-group > button{
+        padding: 0.6rem 5rem;
+    }
+}
+    /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
+
 /*Botão de close para tela de cadastro e esquici senha*/
 #close{
     color: white;
@@ -294,13 +313,12 @@ header {
 }
 
 .telaPrincipal{
+    margin-top: 55px;
     max-width: 1400px;
     display: grid;
     grid-template-columns: 0.4fr 1fr;
     background:rgb(226, 226, 226);
 }
-
-
 
 .telaFeedPesquisa{
     background: rgb(182, 181, 181);
