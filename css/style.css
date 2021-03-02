@@ -69,22 +69,10 @@ header {
     margin-bottom: 1.5rem;   
 }
 
-@media(max-width: 600px){
-    .banne h1{
-        font-size: 2.9em;
-    } 
-}
-    
 .banne input {
     border-radius: 5px;
     padding: 7px;
     width: 333px;
-}
-
-@media(max-width: 600px){
-    .banne input{
-        width: 280px;
-    } 
 }
 
 .esqueciSenha{
@@ -116,12 +104,26 @@ header {
     margin-bottom: 20px;
 }
 
+    /*RESPONSIVIDADE HOME*/
 @media(max-width: 600px){
     .banne button {
         padding: 1rem 1.1rem;
     } 
+    .banne h1{
+        font-size: 2.9em;
+    } 
+    .banne input{
+        width: 280px;
+    } 
 }
 
+@media(max-width: 400px){
+    .banne{
+        margin-top: -80px;
+        margin-left: -20px;
+    }
+}
+    /*FIM RESPONSIVIDADE HOME*/
 
 
 @keyframes moveBanne {
