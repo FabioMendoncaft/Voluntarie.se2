@@ -69,10 +69,22 @@ header {
     margin-bottom: 1.5rem;   
 }
 
+@media(max-width: 600px){
+    .banne h1{
+        font-size: 2.9em;
+    } 
+}
+    
 .banne input {
     border-radius: 5px;
     padding: 7px;
     width: 333px;
+}
+
+@media(max-width: 600px){
+    .banne input{
+        width: 280px;
+    } 
 }
 
 .esqueciSenha{
@@ -103,6 +115,14 @@ header {
     margin-top: 40px;
     margin-bottom: 20px;
 }
+
+@media(max-width: 600px){
+    .banne button {
+        padding: 1rem 1.1rem;
+    } 
+}
+
+
 
 @keyframes moveBanne {
     0%{
@@ -266,31 +286,34 @@ header {
 }
 /* FEED */
 
- #logoFeed{
+
+#logoFeed{
     font-family: var(--font-primary) 
 }
 
+.telaPrincipal{
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+    background:rgb(226, 226, 226);
+}
+
+
+
 .telaFeedPesquisa{
-    width: 300px;
-    float: left;
     background: rgb(182, 181, 181);
-    height: 652px;
+    height: 300px;
     padding: 50px;
 }
 
 .telaFeed{
     background-color: rgb(226, 226, 226);
     padding: 50px;
-    margin-left: 300px;
+    
 }
 
-
-
-
-
-
-
-
-
-
-
+@media(max-width: 750px){
+    .telaPrincipal{
+       grid-template-columns: 1fr;
+    }
+}
