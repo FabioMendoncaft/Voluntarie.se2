@@ -307,7 +307,6 @@ header {
 }
 /* FEED */
 
-
 #logoFeed{
     font-family: var(--font-primary) 
 }
@@ -317,7 +316,7 @@ header {
     max-width: 1400px;
     display: grid;
     grid-template-columns: 0.4fr 1fr;
-    background:rgb(226, 226, 226);
+    background:rgb(182, 181, 181);
 }
 
 .telaFeedPesquisa{
@@ -329,7 +328,6 @@ header {
 .telaFeed{
     background-color: rgb(226, 226, 226);
     padding: 50px;
-    
 }
 
 @media(max-width: 750px){
