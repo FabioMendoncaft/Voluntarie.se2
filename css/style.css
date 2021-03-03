@@ -336,7 +336,7 @@ header {
     margin-top: 35px;
 }
 
-@media(max-width: 750px){
+@media(max-width: 790px){
     .perfilFiltro{
        float: none;
        width: 100%;
@@ -357,7 +357,7 @@ header {
     background: #303338;
     text-align: center;
 }
-@media(max-width: 750px){
+@media(max-width: 750x){
     .perfil{
         margin-top: 27px;
     }
