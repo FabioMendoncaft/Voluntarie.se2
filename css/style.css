@@ -316,31 +316,63 @@ header {
 }
 /* FEED */
 
-#logoFeed{
-    font-family: var(--font-primary) 
+.perfilFiltro{
+    background-color: rgb(179, 179, 179);
+    width: 30%;
+    height: 700px;
+    float: left;
+    position: fixed;
+    text-align: center;
+    padding: 40px;
+    margin-top: 45px;
 }
 
-.telaPrincipal{
-    margin-top: 55px;
-    max-width: 1400px;
-    display: grid;
-    grid-template-columns: 0.4fr 1fr;
-    background:rgb(182, 181, 181);
-}
-
-.telaFeedPesquisa{
-    background: rgb(182, 181, 181);
-    height: 300px;
+.acoes{
+    background: rgb(219, 219, 219);
+    width: 70%;
     padding: 50px;
-}
-
-.telaFeed{
-    background-color: rgb(226, 226, 226);
-    padding: 50px;
+    float: left;
+    margin-left: 30%;
+    margin-top: 35px;
 }
 
 @media(max-width: 750px){
-    .telaPrincipal{
-       grid-template-columns: 1fr;
+    .perfilFiltro{
+       float: none;
+       width: 100%;
+       margin-top: 0px;
+       position: relative;
+    }
+    .acoes{
+        margin-top: 0px;
+        width: 100%;
+        margin-left: 0px;
     }
 }
+
+.perfil{
+    padding: 50px;
+    width: 100%;
+    height: 240px;
+    background: #303338;
+    text-align: center;
+}
+@media(max-width: 750px){
+    .perfil{
+        margin-top: 27px;
+    }
+}
+
+.filtro{
+    padding: 30px;
+    width: 100%;
+    height: 240px;
+    background: #303338;
+    margin-top: 10px;
+    text-align: left;
+    color: white;
+}
+
+
+
+
