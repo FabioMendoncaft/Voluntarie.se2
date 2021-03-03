@@ -319,7 +319,7 @@ header {
 .perfilFiltro{
     background-color: rgb(179, 179, 179);
     width: 30%;
-    height: 700px;
+    height: 100%;
     float: left;
     position: fixed;
     text-align: center;
@@ -353,7 +353,7 @@ header {
 .perfil{
     padding: 50px;
     width: 100%;
-    height: 240px;
+    height: 45%;
     background: #303338;
     text-align: center;
 }
@@ -366,7 +366,7 @@ header {
 .filtro{
     padding: 30px;
     width: 100%;
-    height: 240px;
+    height: 45%;
     background: #303338;
     margin-top: 10px;
     text-align: left;
