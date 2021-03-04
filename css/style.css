@@ -336,31 +336,12 @@ header {
     margin-top: 35px;
 }
 
-@media(max-width: 790px){
-    .perfilFiltro{
-       float: none;
-       width: 100%;
-       margin-top: 0px;
-       position: relative;
-    }
-    .acoes{
-        margin-top: 0px;
-        width: 100%;
-        margin-left: 0px;
-    }
-}
-
 .perfil{
     padding: 50px;
     width: 100%;
     height: 45%;
     background: #303338;
     text-align: center;
-}
-@media(max-width: 750x){
-    .perfil{
-        margin-top: 27px;
-    }
 }
 
 .filtro{
@@ -373,6 +354,49 @@ header {
     color: white;
 }
 
+        /*RESPONSIVIDADE FEED*/
+@media(max-width: 770px){
+    .perfilFiltro{
+       float: none;
+       width: 100%;
+       margin-top: 0px;
+       position: relative;
+    }
+    .acoes{
+        margin-top: 0px;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .perfil{
+        margin-top: 27px;
+        height: 240px;
+    }
+    .filtro{
+        height: 240px;
+    }
+}
 
+@media(max-width:770px){
+    .perfil{
+        margin: auto;
+        width: 65%;
+        margin-top: 50px;
+    }
+    .filtro{
+        margin: auto;
+        width: 65%;
+        margin-top: 10px;
+    }
+}
+
+@media(max-width: 426px){
+    .perfil{
+        width: 100%;
+    }
+    .filtro{
+        width: 100%;
+    }
+}
+        /* FIM RESPONSIVIDADE FEED*/
 
 
