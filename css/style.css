@@ -126,6 +126,41 @@ header {
     } 
 }
 
+@media(min-width: 1600px){
+    .banne button {
+        padding: 1rem 3rem;
+    } 
+    .banne h1{
+        font-size: 4.2em;
+    } 
+    .banne input{
+        width: 400px;
+    } 
+    .esqueciSenha{
+        margin-left: 120px;
+    }
+}
+
+@media(min-width: 2400px){
+    .banne button {
+        padding: 1.3rem 5.3rem;
+        font-size: 30px;
+    } 
+    .banne h1{
+        font-size: 8.5em;
+        margin-bottom: 70px;
+    } 
+    .banne input{
+        width: 700px;
+        padding: 15px;
+        font-size: 30px;
+    } 
+    .esqueciSenha{
+        margin-left: 210px;
+        font-size: 30px;
+    }
+}
+
 @media(max-width: 400px){
     .banne{
         margin-top: -80px;
@@ -147,7 +182,7 @@ header {
     }
 }
 
-                                /*CSS CADASTRO E ESQUICI SENHA*/
+    /*CSS CADASTRO E ESQUICI SENHA*/
 
 .card1-top{
     margin-bottom: px;
@@ -237,7 +272,7 @@ header {
     position: absolute;
     margin-left: -200px;
     left: 50%;
-    top: -810px;
+    top: -1500px;
 }
 
 .boxCadastro img{
@@ -292,11 +327,42 @@ header {
     .card1-group > button{
         padding: 0.6rem 5rem;
     }
+    
+}
+
+@media(min-width: 2400px){
+    .boxCadastro{
+        width: 800px;
+        height: 1250px;
+        margin-left: -400px;
+        font-size: 35px;
+    }
+    .boxSenha{
+        width: 800px;
+        height: 1250px;
+        margin-left: -400px;
+        font-size: 35px;
+    }
+    .card1-group > input{
+        height: 70px;
+    }
+    .card1-group > button{
+        padding: 1rem 19rem;
+        font-size: 35px;
+        
+    }
+    .boxCadastro img{
+       margin-left: 100px;
+    }
+    .boxSenha img{
+        margin-left: 100px;
+     }
+    
 }
     /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
 
 /*Botão de close para tela de cadastro e esquici senha*/
-#close{
+.close{
     color: white;
     font-family: 'Arial';
     text-decoration: none;
@@ -314,6 +380,14 @@ header {
     margin-right: 1px;
     
 }
+@media(min-width: 2400px){
+    .close{
+        width: 55px;
+        height: 55px;
+        font-size: 40px;
+    }
+}
+
 /* FEED */
 
 .perfilFiltro{
