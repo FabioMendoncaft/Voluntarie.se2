@@ -362,7 +362,7 @@ header {
     /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
 
 /*Botão de close para tela de cadastro e esquici senha*/
-.close{
+#close{
     color: white;
     font-family: 'Arial';
     text-decoration: none;
@@ -381,7 +381,7 @@ header {
     
 }
 @media(min-width: 2400px){
-    .close{
+    #close{
         width: 55px;
         height: 55px;
         font-size: 40px;
