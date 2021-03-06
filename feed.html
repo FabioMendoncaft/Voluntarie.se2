@@ -149,13 +149,29 @@
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a href="#" class="btn btn-light" style="background-color: #fe5200; color: white;">Participar</a>
+                    <a href="#" class="btn btn-light botaoAcoesFeed"  style="background-color: #fe5200; color: white;" onclick="participando()" ondblclick="participar()">Participar</a>
                   </div>
                 </div>
               </div> 
           </div>    
         </div>
     </div>
+
+    <script>
+    function participando(){ 
+      var conteudoBotao = document.querySelector(".botaoAcoesFeed")
+        conteudoBotao.textContent = "Participando"
+    }
+
+    function participar(){ 
+      var conteudoBotao = document.querySelector(".botaoAcoesFeed")
+        conteudoBotao.textContent = "Participar"
+        
+    }
+
+    
+
+    </script>
       
   
 
