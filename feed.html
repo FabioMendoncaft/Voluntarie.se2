@@ -16,14 +16,14 @@
 <body>   
     <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a href="/"><img src="img/logo.png" alt="logo" style="width: 130px; margin-top: -6px;"></a>
+          <a href="/"><img src="img/logo.png" alt="logo" style="width: 130px;"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="feed.html">Página inicial</a>
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -52,7 +52,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="#">Meu perfil</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="index.html">Sair</a></li>
+                  <li><a class="dropdown-item" href="#">Sair</a></li>
                 </ul>
               </li>
 
@@ -76,18 +76,10 @@
               <a href="#" class="btn btn-light" style="background-color: #fe5200; color: white;">Meu perfil</a>
               <a href="#" class="btn btn-light" style="background-color: #fe5200; color: white;">Minhas ações</a>
             </div>  
-        </div>
-        
+          </div>
+      
         <div class="filtro">
-            <div id="blocoFiltro">
-              <h1>Filtro de pesquisa</h1>
-              <p>Cidade:</p>
-              <input type="text" id="cidade">
-              <p>Estado:</p>
-              <input type="text" id="estado">
-              <p>Causa:</p>
-              <input type="text" id="causa">
-            </div>
+          
         </div>
       </div>
       
@@ -149,29 +141,13 @@
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a href="#" class="btn btn-light botaoAcoesFeed"  style="background-color: #fe5200; color: white;" onclick="participando()" ondblclick="participar()">Participar</a>
+                    <a href="#" class="btn btn-light" style="background-color: #fe5200; color: white;">Participar</a>
                   </div>
                 </div>
               </div> 
           </div>    
         </div>
     </div>
-
-    <script>
-    function participando(){ 
-      var conteudoBotao = document.querySelector(".botaoAcoesFeed")
-        conteudoBotao.textContent = "Participando"
-    }
-
-    function participar(){ 
-      var conteudoBotao = document.querySelector(".botaoAcoesFeed")
-        conteudoBotao.textContent = "Participar"
-        
-    }
-
-    
-
-    </script>
       
   
 

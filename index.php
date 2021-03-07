@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -64,9 +63,9 @@
                     }
                     
                 },
-                submitHandler: function(form){
+              /*  submitHandler: function(form){
                     alert("Cadastrado com sucesso!")
-                }
+                } */
             })
         })
 
@@ -78,24 +77,27 @@
             <!--Tela inicial(login)-->
             <div class="img-wrapper" >
                 <img src="img/bg.jpg" alt="">
-            </div>   
-
-            <div class="banne">
-                <h1>Voluntarie<strong style="color:#f83600;">.</strong>se</h1>
-                <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
-                    <br>
-                <input type="password" name="senha" id="senhaTeste" class="senhaTeste" placeholder="Digite sua senha" required>
-                    <br>
-                <a href="feed.html"><button>Entrar</button></a> 
-                <a href="#bgCadastro"><button style="color: #ffffff; text-transform: uppercase; font-family: var(--font-action); background: none; border: 1px solid #ffffff; border-radius: 30px; cursor: pointer; animation: moveBanne 1s 0.9s forwards; text-decoration: none;">Criar conta</button></a>
-                    <br>
-                <a href="#bgSenha" style="text-decoration: underline; color: #ffffff;" class="esqueciSenha">Esqueci minha senha</a>
-            </div>
+            </div>           
+        
             
+                <div class="banne">
+                     
+                        <h1>Voluntarie<strong style="color:#f83600;">.</strong>se</h1>
+                        <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
+                        <br>
+                        <input type="password" name="senha" id="senhaTeste" class="senhaTeste" placeholder="Digite sua senha" required>
+                        <br>
+                        <a href="feed.html"><button>Entrar</button></a> 
+                        <a href="#bgCadastro"><button style="color: #ffffff; text-transform: uppercase; font-family: var(--font-action); background: none; border: 1px solid #ffffff; border-radius: 30px; cursor: pointer; animation: moveBanne 1s 0.9s forwards; text-decoration: none;">Criar conta</button></a>
+                        <br>
+                        <a href="#bgSenha" style="text-decoration: underline; color: #ffffff;" class="esqueciSenha">Esqueci minha senha</a>
+                    </div>
+            
+        
             <!--Tela de cadastro-->
             <div id="bgCadastro"></div>
                 <div class="boxCadastro">
-                <form class="form" action="#"  id="cadastro">
+                <form class="form" method="post" action="php/logar.php?acao=cadastrar" id="cadastro" >
                     <a href="" id="close">X</a>
                     <div class="card1"> 
                         <div class="card1-top">
@@ -129,14 +131,14 @@
         
                         <div class="card1-group">
                             <label>Data de nascimento</label>
-                            <input type="text" name="data" id="data" placeholder="Data de nascimento" required>
+                            <input type="text" name="data" id="data_nascimento" placeholder="Data de nascimento" required>
                         </div>
         
                         <div style="color:  rgb(75, 75, 75); margin-bottom: 10px;">
                             <label>Sexo</label>
-                            <input type="radio" name="radsex" id="mas" style= "margin-left: 20px;">  
+                            <input type="radio" name="sexo" id="mas" style= "margin-left: 20px;">  
                             <label for="masc">Masculino</label>
-                            <input type="radio" name="radsex" id="fem" style= "margin-left: 20px;">  
+                            <input type="radio" name="sexo" id="fem" style= "margin-left: 20px;">  
                             <label for="fem">Feminino</label>	
                         </div>
         
@@ -152,28 +154,31 @@
             </div>
             <!--Tela de esquici senha-->
             <div id="bgSenha"></div>
-            <div class="boxSenha">
-                <form class="form" action="#" id="esqueciSenhaa">
-                    <a href="" id="close">X</a>
-                    <div class="card1"> 
-                        <div class="card1-top">
-                            <a href="/"><img class="imglogin" src="img/logo.png" alt="login" style="margin-bottom: 13px;"></a>
+                <div class="boxSenha">
+                    <form class="form" action="#" id="esqueciSenhaa">
+                        <a href="" id="close">X</a>
+                        <div class="card1"> 
+                            
+                            <div class="card1-top">
+                                <a href="/"><img class="imglogin" src="img/logo.png" alt="login" style="margin-bottom: 13px;"></a>
+                            </div>
+                            
+                            <div class="card1-group" id="insiriaSeuEmail">
+                                <label>Insira seu e-mail para redefinir sua senha</label>
+                                
+                                <input type="email" name="email" id="email" placeholder="E-mail">
+                            </div>
+                            
+                            <div class="card1-group btn">
+                                <button type="submit" onclick="redefinir()" >REDEFINIR</button>
+                            </div>
+                            
+                            <div id="voltarPagInicial">
+                                <a href="index.html">Página inicial</a>
+                            </div>
+                
                         </div>
-                    
-                        <div class="card1-group" id="insiriaSeuEmail">
-                            <label>Insira seu e-mail para redefinir sua senha</label>
-                            <input type="email" name="email" id="email" placeholder="E-mail">
-                        </div>
-                        
-                        <div class="card1-group btn">
-                            <button type="submit">REDEFINIR</button>
-                        </div>
-                        
-                        <div id="voltarPagInicial">
-                            <a href="index.html">Página inicial</a>
-                        </div>
-                    </div>
-                </form>   
+                    </form>   
             </div>
         </header>
     </div>

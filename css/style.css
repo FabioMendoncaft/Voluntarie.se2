@@ -327,6 +327,7 @@ header {
     .card1-group > button{
         padding: 0.6rem 5rem;
     }
+    
 }
 
 @media(min-width: 2400px){
@@ -356,6 +357,7 @@ header {
     .boxSenha img{
         margin-left: 100px;
      }
+    
 }
     /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
 
@@ -409,89 +411,22 @@ header {
 }
 
 .perfil{
-    width: 100%;
-    height: 46%;
+     width: 100%;
+    height: 45%;
     background: white;
     text-align: center;
     border-radius: 1.5%;
-}
-
-.perfil #topPerfil{
-    border-radius: 6px;
-    background: rgb(85, 85, 85);
-    width: 100%;
-    height: 25%;
-}
-
-.perfil #blocoFotoPerfil{
-    margin: auto;
-    margin-top: -40px;
-    background: white;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    display: flex;
-}
-
-.perfil #imagemPerfil{
-    padding: 4px;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-}
-
-.dadosPerfil{
-    background: white;
-    width: 100%;
-    height: 45%;
-}
-.dadosPerfil h1{
-    text-align: center;
-    color: #707071;
-    font-size: var(--font-primary);
-    font-size: 20px;
-}
-
-.dadosPerfil a{
-    margin-top: 25px;
-    width: 45%;
-    font-size: 15px;
 }
 
 .filtro{
-    padding: 20px;
+    padding: 30px;
     width: 100%;
-    height: 46%;
+    height: 45%;
     background: white;
     margin-top: 10px;
-    border-radius: 1.5%;
-}
-
-.filtro #blocoFiltro{
-    background: white;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-}
-
-.filtro h1{
-    color: #707071;
-    font-weight: bold;
-    font-size: 17px;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.filtro p{
     text-align: left;
-    color: #707071;
-    margin-bottom: 2px;
-    font-size: 15px;
-}
-
-.filtro input{
-    width: 100%;
-    margin-bottom: 8px;
+    color: black;
+    border-radius: 1.5%;
 }
 
         /*RESPONSIVIDADE FEED*/
@@ -537,11 +472,47 @@ header {
         width: 100%;
     }
 }
+        /* FIM RESPONSIVIDADE FEED*/
 
-@media(max-width: 1123px){
-    .dadosPerfil a{
-        font-size: 13.3px;
-    }
+.perfil #topPerfil{
+    border-radius: 6px;
+    background: rgb(85, 85, 85);
+    width: 100%;
+    height: 25%;
+}
+
+.perfil #blocoFotoPerfil{
+    margin: auto;
+    margin-top: -40px;
+    background: white;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+}
+
+.perfil #imagemPerfil{
+    padding: 4px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+
+.dadosPerfil{
+    padding: 5px;
+    background: white;
+    width: 100%;
+    height: 45%;
+}
+.dadosPerfil h1{
+    text-align: center;
+    color: #707071;
+    font-size: var(--font-primary);
+    font-size: 20px;
+}
+
+.dadosPerfil a{
+    margin-top: 25px;
 }
 
 @media(max-width: 1050px){
@@ -550,32 +521,8 @@ header {
         padding: 3px;
         margin-top: 2px;
         font-size: 15px;
-        margin-bottom: 10px;
     }
 }
-
-@media(max-width: 870px){
-    .filtro h1{
-       font-size: 13.4px;
-    }
-    .filtro p{
-        font-size: 13.4px;
-    }
-}
-
-@media(max-width: 768px){
-    .filtro h1{
-        font-size: 17px;
-    }
-
-    .filtro p{
-        font-size: 15px;
-    }
-}
-
-    /* FIM RESPONSIVIDADE FEED*/
-
-
 
 
 
