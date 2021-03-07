@@ -9,7 +9,7 @@
     text-decoration: none;
 }
 
-:root {
+:root{
     --font-primary: "baloo Da 2", serif;
     --font-secundary: "Josefin Slab", serif;
     --font-action: "Mulish", serif;
@@ -251,7 +251,7 @@ header {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, 0.623);
     position: fixed;
     display: none;
 }
@@ -261,7 +261,7 @@ header {
 }
 
 #bgCadastro:target ~ .boxCadastro{
-    top: 30px;
+    top: 20px;
     transition: all .3s;
     transition-delay: .2s;
 }
@@ -276,9 +276,16 @@ header {
 }
 
 .boxCadastro img{
-    width: 70%;
-    margin-left: 50px;
+    width: 60%;
+    margin-left: 70px;
 }
+
+.boxCadastro select{
+    width: 90%; 
+    margin-top: 10px; 
+    padding: 2px
+}
+
 
 /*Esqueci senha*/
 #bgSenha{
@@ -286,7 +293,7 @@ header {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, 0.623);
     position: fixed;
     display: none;
 }
@@ -294,7 +301,7 @@ header {
     display: block;
 }
 #bgSenha:target ~ .boxSenha{
-    top: 30px;
+    top: 20px;
     transition: all .3s;
     transition-delay: .2s;
 }
@@ -308,8 +315,8 @@ header {
 }
 
 .boxSenha img{
-    width: 70%;
-    margin-left: 50px;
+    width: 60%;
+    margin-left: 70px;
 }
 
     /*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
@@ -327,7 +334,13 @@ header {
     .card1-group > button{
         padding: 0.6rem 5rem;
     }
-    
+    .boxCadastro select{
+       width: 85%;
+    }
+    .boxCadastro img{
+        width: 60%;
+        margin-left: 50px;
+    }
 }
 
 @media(min-width: 2400px){
@@ -357,7 +370,13 @@ header {
     .boxSenha img{
         margin-left: 100px;
      }
-    
+    .boxCadastro select{
+        width:200px;
+     }
+     .boxCadastro option{
+         font-size: 15px;
+         
+     }
 }
     /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
 
@@ -411,22 +430,89 @@ header {
 }
 
 .perfil{
-     width: 100%;
-    height: 45%;
+    width: 100%;
+    height: 46%;
     background: white;
     text-align: center;
     border-radius: 1.5%;
 }
 
-.filtro{
-    padding: 30px;
+.perfil #topPerfil{
+    border-radius: 6px;
+    background: rgb(85, 85, 85);
+    width: 100%;
+    height: 25%;
+}
+
+.perfil #blocoFotoPerfil{
+    margin: auto;
+    margin-top: -40px;
+    background: white;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+}
+
+.perfil #imagemPerfil{
+    padding: 4px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+
+.dadosPerfil{
+    background: white;
     width: 100%;
     height: 45%;
+}
+.dadosPerfil h1{
+    text-align: center;
+    color: #707071;
+    font-size: var(--font-primary);
+    font-size: 20px;
+}
+
+.dadosPerfil a{
+    margin-top: 25px;
+    width: 45%;
+    font-size: 15px;
+}
+
+.filtro{
+    padding: 20px;
+    width: 100%;
+    height: 46%;
     background: white;
     margin-top: 10px;
-    text-align: left;
-    color: black;
     border-radius: 1.5%;
+}
+
+.filtro #blocoFiltro{
+    background: white;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.filtro h1{
+    color: #707071;
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.filtro p{
+    text-align: left;
+    color: #707071;
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+
+.filtro input{
+    width: 100%;
+    margin-bottom: 8px;
 }
 
         /*RESPONSIVIDADE FEED*/
@@ -472,47 +558,11 @@ header {
         width: 100%;
     }
 }
-        /* FIM RESPONSIVIDADE FEED*/
 
-.perfil #topPerfil{
-    border-radius: 6px;
-    background: rgb(85, 85, 85);
-    width: 100%;
-    height: 25%;
-}
-
-.perfil #blocoFotoPerfil{
-    margin: auto;
-    margin-top: -40px;
-    background: white;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    display: flex;
-}
-
-.perfil #imagemPerfil{
-    padding: 4px;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-}
-
-.dadosPerfil{
-    padding: 5px;
-    background: white;
-    width: 100%;
-    height: 45%;
-}
-.dadosPerfil h1{
-    text-align: center;
-    color: #707071;
-    font-size: var(--font-primary);
-    font-size: 20px;
-}
-
-.dadosPerfil a{
-    margin-top: 25px;
+@media(max-width: 1123px){
+    .dadosPerfil a{
+        font-size: 13.3px;
+    }
 }
 
 @media(max-width: 1050px){
@@ -521,8 +571,32 @@ header {
         padding: 3px;
         margin-top: 2px;
         font-size: 15px;
+        margin-bottom: 10px;
     }
 }
+
+@media(max-width: 870px){
+    .filtro h1{
+       font-size: 13.4px;
+    }
+    .filtro p{
+        font-size: 13.4px;
+    }
+}
+
+@media(max-width: 768px){
+    .filtro h1{
+        font-size: 17px;
+    }
+
+    .filtro p{
+        font-size: 15px;
+    }
+}
+
+    /* FIM RESPONSIVIDADE FEED*/
+
+
 
 
 
