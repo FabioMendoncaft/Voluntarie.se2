@@ -3,13 +3,6 @@
 require 'conexao.php';
 require 'usuario.php';
 
-echo 'Estamos aqui normal';
-
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-
-
     $acao = $_GET['acao'];
 
     if($acao == 'cadastrar') {
@@ -28,8 +21,6 @@ echo '</pre>';
 
         $resultado = $usuario->cadastrar();
 
-       echo 'resultadosss';
-       echo  $resultado;
 
     } else if ($acao == 'logar') {
 
@@ -41,12 +32,12 @@ echo '</pre>';
         
         $resultado = $usuario->logar();
 
-        foreach($resultado as $user) {
-            
+        if($resultado == 'ok') {
+            header('location: ../feed.html');
         }
 
 
-
+    
     }
 
 ?>

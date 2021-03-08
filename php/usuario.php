@@ -86,14 +86,23 @@ Class Usuario{
 
     public function logar(){
 
-        $query = 'select id,nome from tb_usuarios where email = :email and senha = :senha';
+        $query = 'select id,nome, email, senha from tb_usuarios where email = :email and senha = :senha';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':email', $this->getEmail());
         $stmt->bindValue(':senha', $this->getSenha());
 
         $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($resultado as $res) {
+            if ($res['email'] == $_POST['email'] && $res['senha'] == $_POST['senha'] ){
+                return 'ok';
+            }else {
+                return 'nok';
+            }
+    
+        }
 
     }
 }
