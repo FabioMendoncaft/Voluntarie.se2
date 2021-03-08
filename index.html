@@ -66,9 +66,7 @@
                         required: true,
                     }
                 },
-                submitHandler: function(form){
-                    alert("Cadastrado com sucesso!")
-                }
+
             })
         })
 
@@ -97,7 +95,7 @@
             <!--Tela de cadastro-->
             <div id="bgCadastro"></div>
                 <div class="boxCadastro">
-                <form class="form" action="#"  id="cadastro">
+                <form class="form" method="post" action="php/logar.php?acao=cadastrar" id="cadastro">
                     <a href="" id="close">X</a>
                     <div class="card1"> 
                         <div class="card1-top">
