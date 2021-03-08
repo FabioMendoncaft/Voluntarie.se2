@@ -547,6 +547,15 @@ header {
 }
 
         /*RESPONSIVIDADE FEED*/
+@media(max-width: 920px){
+    .filtro a{
+        font-size: 11px;
+    }
+    .filtro h1{
+        font-size: 11px;
+    }
+}
+
 @media(max-width: 770px){
     .perfilFiltro{
        float: none;
@@ -562,22 +571,22 @@ header {
     .perfil{
         margin-top: 27px;
         height: 240px;
-    }
-    .filtro{
-        height: 240px;
-    }
-}
-
-@media(max-width:770px){
-    .perfil{
         margin: auto;
         width: 65%;
         margin-top: -250px;
     }
     .filtro{
+        height: 240px;
         margin: auto;
         width: 65%;
         margin-top: 65px;
+    }
+    .filtro a{
+        font-size: 14px;
+    }
+    .filtro h1{
+        font-size: 15px;
+        
     }
 }
 
@@ -606,24 +615,7 @@ header {
     }
 }
 
-@media(max-width: 870px){
-    .filtro h1{
-       font-size: 13.4px;
-    }
-    .filtro p{
-        font-size: 13.4px;
-    }
-}
 
-@media(max-width: 768px){
-    .filtro h1{
-        font-size: 17px;
-    }
-
-    .filtro p{
-        font-size: 15px;
-    }
-}
 
     /* FIM RESPONSIVIDADE FEED*/
 
