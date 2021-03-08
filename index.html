@@ -82,14 +82,16 @@
 
             <div class="banne">
                 <h1>Voluntarie<strong style="color:#f83600;">.</strong>se</h1>
-                <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
-                    <br>
-                <input type="password" name="senha" id="senhaTeste" class="senhaTeste" placeholder="Digite sua senha" required>
-                    <br>
-                <a href="feed.html"><button>Entrar</button></a> 
-                <a href="#bgCadastro"><button style="color: #ffffff; text-transform: uppercase; font-family: var(--font-action); background: none; border: 1px solid #ffffff; border-radius: 30px; cursor: pointer; animation: moveBanne 1s 0.9s forwards; text-decoration: none;">Criar conta</button></a>
-                    <br>
-                <a href="#bgSenha" style="text-decoration: underline; color: #ffffff;" class="esqueciSenha">Esqueci minha senha</a>
+                <form method="post" class="form" action="php/logar.php?acao=logar">
+                    <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
+                        <br>
+                    <input type="password" name="senha" id="senhaTeste" class="senhaTeste" placeholder="Digite sua senha" required>
+                        <br>
+                    <a href="feed.html"><button>Entrar</button></a> 
+                    <a href="#bgCadastro"><button style="color: #ffffff; text-transform: uppercase; font-family: var(--font-action); background: none; border: 1px solid #ffffff; border-radius: 30px; cursor: pointer; animation: moveBanne 1s 0.9s forwards; text-decoration: none;">Criar conta</button></a>
+                        <br>
+                    <a href="#bgSenha" style="text-decoration: underline; color: #ffffff;" class="esqueciSenha">Esqueci minha senha</a>
+                </form>
             </div>
             
             <!--Tela de cadastro-->

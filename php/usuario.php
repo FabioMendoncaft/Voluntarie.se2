@@ -80,11 +80,21 @@ Class Usuario{
         $stmt->bindValue(':data_nascimento', $this->getData());
         $stmt->bindValue(':sexo', $this->getSexo());
 
-
-
         return $stmt->execute();
-
         
+    }
+
+    public function logar(){
+
+        $query = 'select id,nome from tb_usuarios where email = :email and senha = :senha';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':email', $this->getEmail());
+        $stmt->bindValue(':senha', $this->getSenha());
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     }
 }
 

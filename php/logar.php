@@ -31,6 +31,22 @@ echo '</pre>';
        echo 'resultadosss';
        echo  $resultado;
 
+    } else if ($acao == 'logar') {
+
+        $conexao = new Conexao();
+
+        $usuario = new Usuario($conexao);
+        $usuario->setEmail($_POST['email']);
+        $usuario->setSenha($_POST['senha']);
+        
+        $resultado = $usuario->logar();
+
+        foreach($resultado as $user) {
+            
+        }
+
+
+
     }
 
 ?>
