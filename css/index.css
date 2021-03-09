@@ -84,12 +84,13 @@ header {
     padding: 8px;
 }
 
-.esqueciSenha{
-    color: white;
+.banne .esqueciSenha{
+    text-decoration: underline; 
     margin-left: 70px;
+    color: #ffffff;
 }
 
-.senhaTeste{
+.password{
     margin-top: 15px;
     width: 345px;
 }
@@ -113,7 +114,8 @@ header {
     margin-bottom: 20px;
 }
 
-    /*RESPONSIVIDADE HOME*/
+/*RESPONSIVIDADE HOME*/
+
 @media(max-width: 600px){
     .banne button {
         padding: 1rem 1.1rem;
@@ -225,6 +227,12 @@ header {
 	outline: 0;
 	margin-top: 2px;
 }
+
+.card1 .sexo{
+    color:  rgb(75, 75, 75); 
+    margin-bottom: 10px;
+}
+
 #voltarPagInicial{
 	margin-top: 10px;
 	text-align: center;
@@ -286,6 +294,9 @@ header {
     padding: 2px
 }
 
+.card1 .logoEsqueciSenha{
+    margin-bottom: 13px;
+}
 
 /*Esqueci senha*/
 #bgSenha{

@@ -85,13 +85,13 @@
                 <form method="post" class="form" action="php/logar.php?acao=logar">
                     <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
                         <br>
-                    <input type="password" name="senha" id="senhaTeste" class="senhaTeste" placeholder="Digite sua senha" required>
+                    <input type="password" name="senha" id="senhaTeste" class="password" placeholder="Digite sua senha" required>
                         <br>
-                    <a href="feed.html"><button>Entrar</button></a> 
-                    <a href="#bgCadastro"><button style="color: #ffffff; text-transform: uppercase; font-family: var(--font-action); background: none; border: 1px solid #ffffff; border-radius: 30px; cursor: pointer; animation: moveBanne 1s 0.9s forwards; text-decoration: none;">Criar conta</button></a>
-                        <br>
-                    <a href="#bgSenha" style="text-decoration: underline; color: #ffffff;" class="esqueciSenha">Esqueci minha senha</a>
+                    <a href="feed.html" style="float: left;"><button>Entrar</button></a> 
                 </form>
+                    <a href="#bgCadastro" id="botaoCadastro"><button style="margin-left: 3px; color: #ffffff; text-transform: uppercase; font-family: var(--font-action); background: none; border: 1px solid #ffffff; border-radius: 30px; cursor: pointer; animation: moveBanne 1s 0.9s forwards; text-decoration: none;">Criar conta</button></a>
+                        <br>
+                    <a href="#bgSenha" class="esqueciSenha">Esqueci minha senha</a>
             </div>
             
             <!--Tela de cadastro-->
@@ -101,7 +101,7 @@
                     <a href="" id="close">X</a>
                     <div class="card1"> 
                         <div class="card1-top">
-                            <a href="/"><img class="imglogin" src="img/logo.png" alt="login"></a>
+                            <a href="/"><img class="logoCadastro" src="img/logo.png" alt="login"></a>
                         </div>
                         
                         <div class="card1-group">
@@ -134,7 +134,7 @@
                             <input type="text" name="data" id="data" placeholder="Data de nascimento" required>
                         </div>
                         
-                        <div style="color:  rgb(75, 75, 75); margin-bottom: 10px;">
+                        <div class="sexo">
                             <label>Sexo</label>
                                 <select name="sexo" class="opcoes" >
                                     <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
@@ -160,7 +160,7 @@
                     <a href="" id="close">X</a>
                     <div class="card1"> 
                         <div class="card1-top">
-                            <a href="/"><img class="imglogin" src="img/logo.png" alt="login" style="margin-bottom: 13px;"></a>
+                            <a href="/"><img class="logoEsqueciSenha" src="img/logo.png" alt="login"></a>
                         </div>
                     
                         <div class="card1-group" id="insiriaSeuEmail">
@@ -180,7 +180,5 @@
             </div>
         </header>
     </div>
-    
-   
 </body>   
 </html>
