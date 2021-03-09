@@ -114,6 +114,19 @@ header {
     margin-bottom: 20px;
 }
 
+.banne #botaoCadastro{
+    margin-left: 3px; 
+    color: #ffffff; 
+    text-transform: uppercase; 
+    font-family: var(--font-action); 
+    background: none; 
+    border: 1px solid #ffffff;
+    border-radius: 30px; 
+    cursor: pointer; 
+    animation: moveBanne 1s 0.9s forwards; 
+    text-decoration: none;
+}
+
 /*RESPONSIVIDADE HOME*/
 
 @media(max-width: 600px){
