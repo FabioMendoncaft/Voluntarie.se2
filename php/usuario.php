@@ -80,7 +80,10 @@ Class Usuario{
         $stmt->bindValue(':data_nascimento', $this->getData());
         $stmt->bindValue(':sexo', $this->getSexo());
 
-        return $stmt->execute();
+        echo 'entrou na funcao cadastrar';
+
+        $retorno = $stmt->execute();
+        print_r($retorno);
         
     }
 
@@ -105,6 +108,14 @@ Class Usuario{
         }
 
     }
+
+    public function verificaCadastro() {
+        $query = 'select id,nome, email, senha from tb_usuarios where email = :email';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':email', $this->getEmail());
+
+    }
+    
 }
 
 ?>
