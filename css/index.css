@@ -246,16 +246,6 @@ header {
     margin-bottom: 10px;
 }
 
-#voltarPagInicial{
-	margin-top: 10px;
-	text-align: center;
-}
-
-#voltarPagInicial a{
-    color: black;
-    text-decoration: underline;
-}
-
 .title{ 
 	color: #CA2700;
 }
@@ -311,6 +301,42 @@ header {
     margin-bottom: 13px;
 }
 
+.jaPossuiCadastro{
+    margin-left: -450px;
+    margin-right: -450px;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    color: white;
+    text-align: center;
+    margin-top: -22px;
+    margin-bottom: 5px;
+    padding: 1px;
+    font-family: var(--font-primary);
+    font-size: 18px;
+}
+
+.jaPossuiCadastro p{
+   margin-top: 19px;
+   margin-bottom: 11px;
+}
+
+.jaPossuiCadastro #x{
+    position: absolute;
+    color: white;
+    top: -5px;
+    right: 80px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    text-decoration: none;
+    cursor: pointer;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+}
+
 /*Esqueci senha*/
 #bgSenha{
     width: 100%;
@@ -364,6 +390,9 @@ header {
     .boxCadastro img{
         width: 60%;
         margin-left: 50px;
+    }
+    .jaPossuiCadastro #x{
+        right: 20px;
     }
 }
 
