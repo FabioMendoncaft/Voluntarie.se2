@@ -228,3 +228,10 @@ body{
     }
 }
 
+@media(max-width: 344px){
+    .acoes #obterEndereco{
+        width: 85px;
+    }
+}
+
+
