@@ -51,16 +51,7 @@ body{
     position: fixed;
     text-align: center;
     padding: 40px;
-    margin-top: 45px;
-}
-
-.acoes{
-    background: rgb(219, 219, 219);
-    width: 70%;
-    padding: 50px;
-    float: left;
-    margin-left: 30%;
-    margin-top: 35px;
+    margin-top: 22px;
 }
 
 .perfil{
@@ -113,7 +104,8 @@ body{
     font-size: 15px;
 }
 
-/*RESPONSIVIDADE FEED*/
+
+/*RESPONSIVIDADE TELA DIREITA*/
 
 @media(max-width: 770px){
     .perfilFiltro{
@@ -130,15 +122,7 @@ body{
         width: 0%;
         height: 0%;
     }
-    
-    .acoes{
-        margin-left: -1px;
-        width: 100%;
-        float: none;
-        height: 100%;
-    }
 }
-
 
 @media(max-width: 1123px){
     .dadosPerfil a{
@@ -155,3 +139,49 @@ body{
         margin-bottom: 10px;
     }
 }
+
+
+/*TELA FORMULÁRIO DE CRIAÇÃO*/
+
+.acoes{
+    background: rgb(219, 219, 219);
+    width: 70%;
+    padding: 50px;
+    margin-left: 30%;
+    margin-top: 35px;
+}
+
+.blocoCadastro{
+    width: 70%;
+    min-width: 90px;
+}
+
+.acoes p{
+    margin-bottom: 2px;
+}
+
+.acoes input{
+    width: 145%;
+    margin-bottom: 15px;
+} 
+
+.acoes #descricao{
+    width: 145%;
+    margin-bottom: 15px;
+} 
+
+.acoes #obterEndereco{
+    margin-bottom: 15px;
+}
+
+/*RESPONSIVIDADE TELA ESQUERDA*/
+
+@media(max-width: 770px){
+    .acoes{
+        margin-left: 0px;
+        width: 100%;
+        float: none;
+        height: 100%;
+    }
+}
+

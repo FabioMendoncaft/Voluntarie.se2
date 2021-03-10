@@ -56,11 +56,9 @@
                   <li><a class="dropdown-item" href="index.html">Sair</a></li>
                 </ul>
               </li>
-
             </div>
             <div class="form-inline my-2 my-lg-0">
-                
-<a href="criar-acao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i class="fas fa-plus"></i> Criar ação</button></a>
+                <a href="criar-acao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i class="fas fa-plus"></i> Criar ação</button></a>
             </div>
           </div>
         </div>
@@ -85,7 +83,23 @@
       </div>
       
       <div class="acoes">
-          Em desenvolvimento...
+        <div class="blocoCadastro"> 
+          <p>Título:</p>
+            <input type="text">
+            
+          <p>Descrição:</p>
+            <textarea name="" id="descricao" rows="4"></textarea>
+      
+          <p>Data:</p>
+            <input type="date">
+
+          <p>Endereço:</p>
+            <input type="text" id="cep" placeholder=" Cep">   
+              <a href="#" class="btn btn-light corBotao" id="obterEndereco">Obter endereço</a>
+            <input type="text" id="logradouro" placeholder=" Logradouro">  
+
+          
+        </div>      
       </div>
      
 
