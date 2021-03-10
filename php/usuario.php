@@ -70,20 +70,30 @@ Class Usuario{
 
     public function cadastrar(){
 
-        $query = 'insert into tb_usuarios (nome, email, telefone, senha, data_nascimento, sexo) 
-        values (:nome, :email, :telefone, :senha, :data_nascimento, :sexo)';
-        $stmt = $this->conexao->prepare($query);
-        $stmt->bindValue(':nome', $this->getNome());
-        $stmt->bindValue(':email', $this->getEmail());
-        $stmt->bindValue(':telefone', $this->getTelefone());
-        $stmt->bindValue(':senha', $this->getSenha());
-        $stmt->bindValue(':data_nascimento', $this->getData());
-        $stmt->bindValue(':sexo', $this->getSexo());
+        echo 'Entrou na funcao cadastrar';
+        echo '<br>';
 
-        echo 'entrou na funcao cadastrar';
+        $retorno = $this->verificaCadastro();
 
-        $retorno = $stmt->execute();
-        print_r($retorno);
+        if($retorno == 'nao possui cadastro') {
+
+            $query = 'insert into tb_usuarios (nome, email, telefone, senha, data_nascimento, sexo) 
+            values (:nome, :email, :telefone, :senha, :data_nascimento, :sexo)';
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(':nome', $this->getNome());
+            $stmt->bindValue(':email', $this->getEmail());
+            $stmt->bindValue(':telefone', $this->getTelefone());
+            $stmt->bindValue(':senha', $this->getSenha());
+            $stmt->bindValue(':data_nascimento', $this->getData());
+            $stmt->bindValue(':sexo', $this->getSexo());
+
+            $retorno = $stmt->execute();
+
+        } else {
+            print_r($retorno);
+            return $retorno;
+            
+        }
         
     }
 
@@ -110,9 +120,28 @@ Class Usuario{
     }
 
     public function verificaCadastro() {
-        $query = 'select id,nome, email, senha from tb_usuarios where email = :email';
+        
+        $query = 'select email from tb_usuarios where email = :email';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':email', $this->getEmail());
+
+        $stmt->execute();
+
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        echo 'verifica cadastro';
+        echo '<pre>';
+        print_r($resultado);
+        echo '</pre>';
+
+        foreach($resultado as $res) {
+            if ($res['email'] == $_POST['email'] ){
+                return 'possui cadastro';
+            }else {
+                return 'nao possui cadastro';
+            }
+    
+        }
 
     }
     

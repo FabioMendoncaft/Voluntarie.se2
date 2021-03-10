@@ -15,12 +15,15 @@ require 'usuario.php';
         $usuario->setEmail($_POST['email']);
         $usuario->setTelefone($_POST['telefone']);
         $usuario->setSenha($_POST['senha']);
-        $usuario->setData($_POST['data']);
+        $usuario->setData(str_replace('/', '', $_POST['data']));
         $usuario->setSexo($_POST['sexo']);
     
 
         $resultado = $usuario->cadastrar();
 
+        if($resultado == 'possui cadastro') {
+            header('Location: ../#bgCadastro?acao=ja');
+        }
 
     } else if ($acao == 'logar') {
 
