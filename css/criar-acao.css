@@ -158,23 +158,52 @@ body{
 
 .acoes p{
     margin-bottom: 2px;
+    font-size: 18px;
 }
 
 .acoes input{
     width: 145%;
     margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
 } 
 
 .acoes #descricao{
     width: 145%;
     margin-bottom: 15px;
-} 
-
-.acoes #obterEndereco{
-    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
 }
 
-/*RESPONSIVIDADE TELA ESQUERDA*/
+.acoes #quadrado{
+    border: 1px solid #707071; 
+    padding: 15px; 
+    width: 145%;
+    margin-top: 12px;
+}
+
+.acoes #quadrado input{
+    width: 100%;
+} 
+
+.acoes #quadrado #cep{
+    width: 50%;
+}
+
+.acoes #quadrado legend{
+    font-size: 18px;
+}
+
+.acoes #obterEndereco{
+    margin-top: -4px;
+    margin-left: 10px;
+    position: absolute;
+    width: 200px;
+}
+
+/*RESPONSIVIDADE TELA ESQUERDA(CRIAR AÇÃO)*/
 
 @media(max-width: 770px){
     .acoes{
@@ -182,6 +211,20 @@ body{
         width: 100%;
         float: none;
         height: 100%;
+    }
+}
+
+@media(max-width: 535px){
+    .acoes #obterEndereco{
+        width: 140px;
+    }
+}
+
+@media(max-width: 409px){
+    .acoes #obterEndereco{
+        width: 98px;
+        padding: 1px;
+        margin-top: -10px;
     }
 }
 
