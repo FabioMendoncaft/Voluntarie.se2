@@ -16,6 +16,7 @@ body{
 
 /*Padrão para todos os botões*/
 .corBotao{
+    background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
     color: white;
@@ -153,7 +154,7 @@ body{
 }
 
 .blocoCadastro{
-    width: 70%;
+    width: 100%;
     min-width: 90px;
 }
 
@@ -163,7 +164,7 @@ body{
 }
 
 .acoes input{
-    width: 145%;
+    width: 100%;
     margin-bottom: 15px;
     border-radius: 20px;
     border: 1px solid #afafaf;
@@ -171,18 +172,40 @@ body{
 } 
 
 .acoes #descricao{
-    width: 145%;
+    width: 100%;
     margin-bottom: 15px;
     border-radius: 20px;
     border: 1px solid #afafaf;
     padding: 3px;
 }
 
+.acoes #dataa{
+    float: left;
+    width: 50%;
+    padding: 3px;
+}
+
+.acoes #dataa input{
+    width: 100%;
+}
+
+.acoes #categoriaa{
+    float: left;
+    width: 50%;
+    padding: 3px;
+}
+
+.acoes #categoriaa input{
+    width: 100%;
+}
+
 .acoes #quadrado{
+    margin-top: 90px;
     border: 1px solid #707071; 
     padding: 15px; 
-    width: 145%;
-    margin-top: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 .acoes #quadrado input{
@@ -190,7 +213,7 @@ body{
 } 
 
 .acoes #quadrado #cep{
-    width: 50%;
+    width: 24%;
 }
 
 .acoes #quadrado legend{
@@ -198,13 +221,35 @@ body{
 }
 
 .acoes #obterEndereco{
-    margin-top: -4px;
-    margin-left: 10px;
-    position: absolute;
-    width: 200px;
+    width: 25%;
+    margin-top: -5px;
+}
+
+.acoes #escolherImagem{
+    border-radius: 0%;
+    width: none; 
+    margin-bottom: none; 
+    border: none; 
+    padding: none;
+
+}
+
+.acoes #imagem{
+    width: 241.95px; 
+    height: 174.14px;
 }
 
 /*RESPONSIVIDADE TELA ESQUERDA(CRIAR AÇÃO)*/
+
+@media(max-width: 972px){
+    .acoes #quadrado #cep{
+        width: 69.5%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 29.5%;
+        font-size: 15px;
+    }
+}
 
 @media(max-width: 770px){
     .acoes{
@@ -215,23 +260,50 @@ body{
     }
 }
 
-@media(max-width: 535px){
-    .acoes #obterEndereco{
-        width: 140px;
+@media(max-width: 844px){
+    .acoes #quadrado #obterEndereco{
+        width: 29%;
+        font-size: 13px;
     }
 }
 
-@media(max-width: 409px){
-    .acoes #obterEndereco{
-        width: 98px;
-        padding: 1px;
-        margin-top: -10px;
+@media(max-width: 770px){
+    .acoes #quadrado #cep{
+        width: 69.5%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 29.5%;
+        font-size: 15px;
     }
 }
 
-@media(max-width: 344px){
-    .acoes #obterEndereco{
-        width: 85px;
+@media(max-width: 573px){
+    .acoes #quadrado #cep{
+        width: 60%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 38%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 442px){
+    .acoes #quadrado #cep{
+        width: 50%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 48%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 350px){
+    .acoes #quadrado #cep{
+        width: 58%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 39.5%;
+        font-size: 13px;
     }
 }
 
