@@ -210,7 +210,7 @@ body{
 } 
 
 .acoes #quadrado #cep{
-    width: 24%;
+    width: 50%;
 }
 
 .acoes #quadrado legend{
@@ -218,8 +218,10 @@ body{
 }
 
 .acoes #obterEndereco{
-    width: 25%;
-    margin-top: -5px;
+    margin-top: -4px;
+    margin-left: 10px;
+    position: absolute;
+    width: 200px;
 }
 
 /*RESPONSIVIDADE TELA ESQUERDA(CRIAR AÇÃO)*/
@@ -233,50 +235,23 @@ body{
     }
 }
 
-@media(max-width: 842px){
-    .acoes #quadrado #obterEndereco{
-        width: 25%;
-        font-size: 13px;
+@media(max-width: 535px){
+    .acoes #obterEndereco{
+        width: 140px;
     }
 }
 
-@media(max-width: 768px){
-    .acoes #quadrado #cep{
-        width: 69.5%;
-    }
-    .acoes #quadrado #obterEndereco{
-        width: 29.5%;
-        font-size: 15px;
+@media(max-width: 409px){
+    .acoes #obterEndereco{
+        width: 98px;
+        padding: 1px;
+        margin-top: -10px;
     }
 }
 
-@media(max-width: 570px){
-    .acoes #quadrado #cep{
-        width: 69.5%;
-    }
-    .acoes #quadrado #obterEndereco{
-        width: 29%;
-        font-size: 13px;
-    }
-}
-
-@media(max-width: 471px){
-    .acoes #quadrado #cep{
-        width: 60%;
-    }
-    .acoes #quadrado #obterEndereco{
-        width: 38%;
-        font-size: 13px;
-    }
-}
-
-@media(max-width: 350px){
-    .acoes #quadrado #cep{
-        width: 58%;
-    }
-    .acoes #quadrado #obterEndereco{
-        width: 39.5%;
-        font-size: 13px;
+@media(max-width: 344px){
+    .acoes #obterEndereco{
+        width: 85px;
     }
 }
 
