@@ -60,6 +60,7 @@ body{
     background: white;
     text-align: center;
     border-radius: 1.5%;
+    margin-top: -7px;
 }
 
 .perfil #topPerfil{
@@ -152,29 +153,76 @@ body{
 }
 
 .blocoCadastro{
-    width: 70%;
+    width: 100%;
     min-width: 90px;
 }
 
 .acoes p{
     margin-bottom: 2px;
+    font-size: 18px;
 }
 
 .acoes input{
-    width: 145%;
+    width: 100%;
     margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
 } 
 
 .acoes #descricao{
-    width: 145%;
+    width: 100%;
     margin-bottom: 15px;
-} 
-
-.acoes #obterEndereco{
-    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
 }
 
-/*RESPONSIVIDADE TELA ESQUERDA*/
+.acoes #dataa{
+    float: left;
+    width: 50%;
+    padding: 3px;
+}
+
+.acoes #dataa input{
+    width: 100%;
+}
+
+.acoes #categoriaa{
+    float: left;
+    width: 50%;
+    padding: 3px;
+}
+
+.acoes #categoriaa input{
+    width: 100%;
+}
+
+.acoes #quadrado{
+    margin-top: 80px;
+    border: 1px solid #707071; 
+    padding: 15px; 
+    width: 100%;
+}
+
+.acoes #quadrado input{
+    width: 100%;
+} 
+
+.acoes #quadrado #cep{
+    width: 24%;
+}
+
+.acoes #quadrado legend{
+    font-size: 18px;
+}
+
+.acoes #obterEndereco{
+    width: 25%;
+    margin-top: -5px;
+}
+
+/*RESPONSIVIDADE TELA ESQUERDA(CRIAR AÇÃO)*/
 
 @media(max-width: 770px){
     .acoes{
@@ -184,4 +232,52 @@ body{
         height: 100%;
     }
 }
+
+@media(max-width: 842px){
+    .acoes #quadrado #obterEndereco{
+        width: 25%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 768px){
+    .acoes #quadrado #cep{
+        width: 69.5%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 29.5%;
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 570px){
+    .acoes #quadrado #cep{
+        width: 69.5%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 29%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 471px){
+    .acoes #quadrado #cep{
+        width: 60%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 38%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 350px){
+    .acoes #quadrado #cep{
+        width: 58%;
+    }
+    .acoes #quadrado #obterEndereco{
+        width: 39.5%;
+        font-size: 13px;
+    }
+}
+
 

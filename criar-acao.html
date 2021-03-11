@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +9,50 @@
     <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/criar-acao.css">
-    <style></style>
-    
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="js/additional-methods.min.js"> </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
+    <script type="text/javascript">
+        
+        $(document).ready(function(){
+            $("#criarAcao").validate({
+                rules:{
+                    titulo:{
+                      required: true,
+                    },
+                    descricao:{
+                      required: true,
+                    },
+                    data:{
+                      required: true,
+                    }
+                  },
+                })
+              })
+        $(document).ready(function(){
+            $("#quadrado").validate({
+                rules:{
+                    logradouro:{
+                      required: true,
+                    },
+                    bairro:{
+                      required: true,
+                    },
+                    cidade:{
+                      required: true,
+                    },
+                    uf:{
+                      required: true,
+                    },
+                  },
+                })
+              })              
+</script>
+    
 </head>
 <body>   
     <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light">
@@ -83,32 +124,41 @@
       </div>
       
       <div class="acoes">
-        <div class="blocoCadastro"> 
-          <p>Título:</p>
-            <input type="text">
-            
-          <p>Descrição:</p>
-            <textarea name="" id="descricao" rows="4"></textarea>
-      
-          <p>Data:</p>
-            <input type="date">
-
-          <p>Endereço:</p>
-            <input type="text" id="cep" placeholder=" Cep">   
-              <a href="#" class="btn btn-light corBotao" id="obterEndereco">Obter endereço</a>
-            <input type="text" id="logradouro" placeholder=" Logradouro">  
-
+        <div class="blocoCadastro" id="criarAcao"> 
           
+          <p>Título:</p>
+            <input type="text" name="titulo" id="titulo">
+          
+          <p>Descrição:</p>
+            <textarea name="descricao" id="descricao" rows="4"></textarea>
+          
+          <div  id="dataa">
+            <p>Data:</p>
+              <input type="date" name="data">
+          </div>
+        
+          <div id="categoriaa">
+            <p>Categoria:</p>
+              <input type="text" name="categoria" id="categoria"> 
+          </div>  
+        
+          <div id="quadrado">
+            <legend>Endereço:</legend>
+            <input type="text" id="cep" placeholder=" Cep" name="cep">   
+              <a href="#" class="btn btn-light corBotao" id="obterEndereco" onclick="endereco()">Obter dados</a>
+            <input type="text" id="logradouro" placeholder=" Logradouro" name="logradouro">  
+            <input type="text" id="complemento" placeholder=" Complemento" name="complemento"> 
+            <input type="text" id="bairro" placeholder=" Bairro" name="bairro">
+            <input type="text" id="localidade" placeholder=" Cidade">
+            <input type="text" id="uf" placeholder=" UF" name="uf">
+          </div> 
+
         </div>      
       </div>
      
 
 
-
-
-
-
-
+    <script src="JavaScript/criar-acao.js"></script>
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
     <script type="text/javascript" src="js/bootstrap.min.js"> </script>    
 </body>
