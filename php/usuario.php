@@ -70,15 +70,12 @@ Class Usuario{
 
     public function cadastrar(){
 
-        echo 'Entrou na funcao cadastrar';
-        echo '<br>';
-
         $retorno = $this->verificaCadastro();
 
-        if($retorno == 'nao possui cadastro') {
+        if($retorno == 'nao existe') {
 
             $query = 'insert into tb_usuarios (nome, email, telefone, senha, data_nascimento, sexo) 
-            values (:nome, :email, :telefone, :senha, :data_nascimento, :sexo)';
+                    values (:nome, :email, :telefone, :senha, :data_nascimento, :sexo)';
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(':nome', $this->getNome());
             $stmt->bindValue(':email', $this->getEmail());
@@ -86,13 +83,11 @@ Class Usuario{
             $stmt->bindValue(':senha', $this->getSenha());
             $stmt->bindValue(':data_nascimento', $this->getData());
             $stmt->bindValue(':sexo', $this->getSexo());
-
-            $retorno = $stmt->execute();
+            
+            $teste = $stmt->execute();
 
         } else {
-            print_r($retorno);
             return $retorno;
-            
         }
         
     }
@@ -124,23 +119,14 @@ Class Usuario{
         $query = 'select email from tb_usuarios where email = :email';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':email', $this->getEmail());
-
         $stmt->execute();
 
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = $stmt->fetch(PDO::FETCH_OBJ);
 
-        echo 'verifica cadastro';
-        echo '<pre>';
-        print_r($resultado);
-        echo '</pre>';
-
-        foreach($resultado as $res) {
-            if ($res['email'] == $_POST['email'] ){
-                return 'possui cadastro';
-            }else {
-                return 'nao possui cadastro';
-            }
-    
+        if(empty(!$resultado)) {
+            return 'existe';
+        } else {
+            return 'nao existe';
         }
 
     }

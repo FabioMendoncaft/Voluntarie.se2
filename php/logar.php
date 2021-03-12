@@ -10,20 +10,21 @@ require 'usuario.php';
         $conexao = new Conexao();
 
         $usuario = new Usuario($conexao);
+        //remoção da barra e manipulando para o formato yyyy mm dd
+        $data = explode('/', $_POST['data']);
+        $dia = $data[0];
+        $mes =$data[1];
+        $ano =$data[2];
+        $data_real = $ano . $mes . $dia;
 
         $usuario->setNome($_POST['nome']);
         $usuario->setEmail($_POST['email']);
         $usuario->setTelefone($_POST['telefone']);
         $usuario->setSenha($_POST['senha']);
-        $usuario->setData(str_replace('/', '', $_POST['data']));
+        $usuario->setData($data_real);
         $usuario->setSexo($_POST['sexo']);
-    
 
         $resultado = $usuario->cadastrar();
-
-        if($resultado == 'possui cadastro') {
-            header('Location: ../#bgCadastro?acao=ja');
-        }
 
     } else if ($acao == 'logar') {
 
