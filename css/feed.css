@@ -13,10 +13,6 @@ body{
     background: rgb(219, 219, 219);
 }
 
-.barraMobile{
-    display: none;
-}
-
 /*Padrão para todos os botões*/
 .corBotao{
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
@@ -177,17 +173,13 @@ body{
         margin-left: 0px;
     }
     .perfil{
-        margin-top: 27px;
-        height: 240px;
-        margin: auto;
-        width: 65%;
-        margin-top: -315px;
+       display: none;
     }
     .filtro{
         height: 240px;
         margin: auto;
         width: 65%;
-        margin-top: 65px;
+        margin-top: 52px;
     }
     .filtro a{
         font-size: 14px;
@@ -195,12 +187,6 @@ body{
     .filtro h1{
         font-size: 15px;
         
-    }
-    .barraMobile{
-        display: flex;
-    }
-    #navTop{
-        display: none;
     }
     .acoes{
         margin-bottom: 50px;
@@ -232,3 +218,74 @@ body{
     }
 }
     /* FIM RESPONSIVIDADE FEED*/
+    
+    
+    
+    /* NAV´s BAR MOBILE */
+
+#navTopMobile{
+    display: none;
+    height: 56px;
+}
+
+#navTopMobile #imagem{
+    width: 130px; 
+    margin-top: -6px;
+}
+
+#navBotoomMobile{
+    display: none;
+    padding: 0px;
+    height: 44px;
+}
+
+#navBotoomMobile span{
+    color: black; 
+    font-size: 38px;
+}
+        
+#navBotoomMobile #feed{
+    margin-left: 10px;
+}
+
+#navBotoomMobile #perfil{
+    margin-right: 10px;
+}
+
+/* RESPONSIVIDADE NAV´s BAR MOBILE */
+
+@media(max-width: 770px){
+    #navTop{
+        display: none;
+    }
+    #navTopMobile{
+        display: flex;
+    }
+    #navBotoomMobile{
+        display: flex;
+    }
+        
+}
+@media(max-width: 435px){
+    #navBotoomMobile span{ 
+        font-size: 32px;
+    }
+    #navBotoomMobile #feed{
+        margin-left: 5px;
+    }
+    #navBotoomMobile #perfil{
+        margin-right: 5px;
+    }
+}
+@media(max-width: 350px){
+    #navBotoomMobile span{ 
+        font-size: 28px;
+    }
+}
+
+ /*Nav Bar Mobile*/
+
+
+
+
+

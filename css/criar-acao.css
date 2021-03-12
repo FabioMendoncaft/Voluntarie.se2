@@ -113,20 +113,10 @@ body{
 
 @media(max-width: 770px){
     .perfilFiltro{
-        margin-top: -80px;
-        width: 0%;
-        height: 0%;
-        float: none;
-        position: unset;
-        background: black;
+        display: none;
     }
     .acoes{
         margin-bottom: 50px;
-    }
-    .perfil{
-        margin-top: -300px;
-        width: 0%;
-        height: 0%;
     }
     .barraMobile{
         display: flex;
@@ -295,6 +285,9 @@ body{
         width: 29.5%;
         font-size: 15px;
     }
+    .acoes #criarAcao{
+        margin-top: 0px;
+    }
 }
 
 @media(max-width: 573px){
@@ -326,5 +319,71 @@ body{
         font-size: 13px;
     }
 }
+
+/* NAV´s BAR MOBILE */
+
+    #navTopMobile{
+        display: none;
+        height: 56px;
+    }
+    
+    #navTopMobile #imagem{
+        width: 130px; 
+        margin-top: -6px;
+    }
+    
+    #navBotoomMobile{
+        display: none;
+        padding: 0px;
+        height: 44px;
+    }
+    
+    #navBotoomMobile span{
+        color: black; 
+        font-size: 38px;
+    }
+            
+    #navBotoomMobile #feed{
+        margin-left: 10px;
+    }
+    
+    #navBotoomMobile #perfil{
+        margin-right: 10px;
+    }
+    
+    /* RESPONSIVIDADE NAV´s BAR MOBILE */
+    
+    @media(max-width: 770px){
+        #navTop{
+            display: none;
+        }
+        #navTopMobile{
+            display: flex;
+        }
+        #navBotoomMobile{
+            display: flex;
+        }
+            
+    }
+    @media(max-width: 435px){
+        #navBotoomMobile span{ 
+            font-size: 32px;
+        }
+        #navBotoomMobile #feed{
+            margin-left: 5px;
+        }
+        #navBotoomMobile #perfil{
+            margin-right: 5px;
+        }
+    }
+    @media(max-width: 350px){
+        #navBotoomMobile span{ 
+            font-size: 28px;
+        }
+    }
+    
+/*Nav Bar Mobile*/
+
+
 
 
