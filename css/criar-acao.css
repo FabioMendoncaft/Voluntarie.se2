@@ -253,6 +253,12 @@ body{
     height: 174.14px;
 }
 
+.acoes #botaoCriar{
+    width: 50%;
+    margin-top: 15px;
+    margin-left: 25%;
+}
+
 /*RESPONSIVIDADE TELA ESQUERDA(CRIAR AÇÃO)*/
 
 @media(max-width: 972px){
