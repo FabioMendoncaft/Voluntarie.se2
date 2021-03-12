@@ -1,12 +1,10 @@
 function endereco(){
     var cep = document.getElementById('cep')
     var url = "https://viacep.com.br/ws/" + cep.value + "/json/"
-
     var logradouro = document.getElementById('logradouro')
     var bairro = document.getElementById('bairro')
     var localidade = document.getElementById('localidade')
     var uf = document.getElementById('uf')
-
 
     fetch(url, {method: 'GET'})
         .then(response => {
@@ -30,7 +28,6 @@ function endereco(){
 function previewImagem(){
     var imagem = document.querySelector('input[name=imagem]').files[0]
     var preview = document.querySelector('img[name=imagem]')
-
     var reader = new FileReader();
 
     reader.onloadend = function(){

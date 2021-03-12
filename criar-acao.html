@@ -17,6 +17,10 @@
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
     <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#cep").mask("00000-000")
+        })
        
         $(document).ready(function(){
             $("#criarAcao").validate({
@@ -55,55 +59,65 @@
     
 </head>
 <body>   
-    <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a href="/"><img src="img/logo.png" alt="logo" style="width: 130px; margin-top: -6px;"></a>
-          <!--<a class="navbar-brand" href="#" id="logoFeed">Voluntarie<strong style="color:#f83600;">.se</strong></a>-->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="feed.html">Página inicial</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
+  <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light" id="navTop">
+    <div class="container-fluid">
+      <a href="/"><img src="img/logo.png" alt="logo" style="width: 130px; margin-top: -6px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="feed.html">Página inicial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-            <div>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #707071;">
-                  <span class="material-icons" style="margin-right: 4px;float: left;">account_circle</span>
-                  <label style="margin-right: 1px;">John Galt</label>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Meu perfil</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="index.html">Sair</a></li>
-                </ul>
-              </li>
-            </div>
-            <div class="form-inline my-2 my-lg-0">
-                <a href="criar-acao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i class="fas fa-plus"></i> Criar ação</button></a>
-            </div>
-          </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #707071;">
+              <span class="material-icons" style="margin-right: 4px;float: left;">account_circle</span>
+              <label style="margin-right: 1px;">John Galt</label>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="perfil.html">Meu perfil</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html">Sair</a></li>
+            </ul>
+          </li>
+
         </div>
-      </nav>
+        <div class="form-inline my-2 my-lg-0">
+            <a href="criar-acao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i class="fas fa-plus"></i> Criar ação</button></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--Navbar para Mobile(Barra inferior)-->
+  <nav class="fixed-bottom navbar navbar-light bg-light barraMobile">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        Bootstrap
+      </a>
+    </div>
+  </nav>
+  <!--FIM-->
 
       <div class="perfilFiltro">
         <div class="perfil">
@@ -113,7 +127,7 @@
             </div>
             <div  class="dadosPerfil">
               <h1><strong>John Galt</strong></h1>
-              <a href="#" class="btn btn-light corBotao">Meu perfil</a>
+              <a href="perfil.html" class="btn btn-light corBotao">Meu perfil</a>
               <a href="#" class="btn btn-light btn2">Minhas ações</a>
             </div>  
           </div>
@@ -163,8 +177,6 @@
       </div>
      
     
-    <script src="JavaScript/criar-acao.js"></script>
-    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
-    <script type="text/javascript" src="js/bootstrap.min.js"> </script>    
+    <script src="JavaScript/criar-acao.js"></script>   
 </body>
 </html>

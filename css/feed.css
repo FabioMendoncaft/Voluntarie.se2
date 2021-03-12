@@ -181,7 +181,7 @@ body{
         height: 240px;
         margin: auto;
         width: 65%;
-        margin-top: -250px;
+        margin-top: -315px;
     }
     .filtro{
         height: 240px;
@@ -198,6 +198,12 @@ body{
     }
     .barraMobile{
         display: flex;
+    }
+    #navTop{
+        display: none;
+    }
+    .acoes{
+        margin-bottom: 50px;
     }
 }
 
