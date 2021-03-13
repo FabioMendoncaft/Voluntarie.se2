@@ -77,11 +77,12 @@
 
 <body>
     <div class="containe">
-    <?php if( isset($_GET['acao']) && $_GET['acao'] == 'existe' ) { ?>
-        <div style="background-color: blueviolet; height: 40px;">
-            <p>Usuario ja cadastrado<p>
-        </div>
-    <?php } ?>
+            <?php if( isset($_GET['acao']) && $_GET['acao'] == 'existe' ) { ?>
+                <div id="fecharrAviso" style="background: #fe8c00; height: 50px; color: white; text-align: center; font-size: 20px;");>
+                   <label style="margin-top: 8px">Usuário já cadastrado!</label>
+                </div>
+            <?php } ?>
+
         <header>
             <!--Tela inicial(login)-->
             <div class="img-wrapper">
@@ -106,8 +107,8 @@
             <!--Tela de cadastro-->
             <div id="bgCadastro"></div>
             <div class="boxCadastro">
-
-                <form class="form" method="post" action="php/logar.php?acao=cadastrar" id="cadastro">
+            
+            <form class="form" method="post" action="php/logar.php?acao=cadastrar" id="cadastro">
                     <a href="" id="close">X</a>
                     <div class="card1">
                         <div class="card1-top">
@@ -183,5 +184,14 @@
             </div>
         </header>
     </div>
+    
+    <script>
+        function fechar(){
+            document.getElementById('fecharrAviso').style.display="none"
+        }
+            setTimeout("fechar()", 5000);
+            
+    </script>
+   
 </body>
 </html>
