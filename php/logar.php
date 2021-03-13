@@ -26,6 +26,10 @@ require 'usuario.php';
 
         $resultado = $usuario->cadastrar();
 
+        if ($resultado == 'existe') {
+            header('location: ../index.php?acao=existe');
+        }
+
     } else if ($acao == 'logar') {
 
         $conexao = new Conexao();

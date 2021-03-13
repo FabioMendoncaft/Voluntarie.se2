@@ -77,6 +77,11 @@
 
 <body>
     <div class="containe">
+    <?php if( isset($_GET['acao']) && $_GET['acao'] == 'existe' ) { ?>
+        <div style="background-color: blueviolet; height: 40px;">
+            <p>Usuario ja cadastrado<p>
+        </div>
+    <?php } ?>
         <header>
             <!--Tela inicial(login)-->
             <div class="img-wrapper">
