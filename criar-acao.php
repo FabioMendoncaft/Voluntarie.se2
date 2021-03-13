@@ -1,3 +1,13 @@
+<?php
+
+  session_start();
+  if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
+    header('Location: index.php');
+  }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,27 +15,68 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voluntarie.se | Perfil</title>
+  <title>Voluntarie.se | Feed</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet"
     type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/perfil.css">
+  <link rel="stylesheet" href="css/criar-acao.css">
   <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
   <script type="text/javascript" src="js/bootstrap.min.js"> </script>
   <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
   <script type="text/javascript" src="js/additional-methods.min.js"> </script>
   <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
   <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+      $("#cep").mask("00000-000")
+    })
+
+    $(document).ready(function () {
+      $("#criarAcao").validate({
+        rules: {
+          titulo: {
+            required: true,
+          },
+          descricao: {
+            required: true,
+          },
+          data: {
+            required: true,
+          }
+        },
+      })
+    })
+    $(document).ready(function () {
+      $("#quadrado").validate({
+        rules: {
+          logradouro: {
+            required: true,
+          },
+          bairro: {
+            required: true,
+          },
+          cidade: {
+            required: true,
+          },
+          uf: {
+            required: true,
+          },
+        },
+      })
+    })
+  </script>
+
 </head>
 
 <body>
   <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light" id="navTop">
     <div class="container-fluid">
       <a href="/"><img src="img/logo.png" alt="logo" style="width: 130px; margin-top: -6px;"></a>
-      <!--<a class="navbar-brand" href="#" id="logoFeed">Voluntarie<strong style="color:#f83600;">.se</strong></a>-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -64,13 +115,14 @@
               <label style="margin-right: 1px;">John Galt</label>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Meu perfil</a></li>
+              <li><a class="dropdown-item" href="perfil.html">Meu perfil</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="index.html">Sair</a></li>
             </ul>
           </li>
+
         </div>
         <div class="form-inline my-2 my-lg-0">
           <a href="criar-acao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
@@ -99,7 +151,7 @@
         <span class="material-icons">search</span>
       </a>
 
-      <a href="criar-acao.html">
+      <a href="#">
         <span class="material-icons">add_circle</span>
       </a>
 
@@ -107,17 +159,72 @@
         <span class="material-icons">collections</span>
       </a>
       <div>
-        <a href="#">
+        <a href="perfil.html">
           <span id="perfil" class="material-icons">person</span>
         </a>
   </nav>
   <!--FIM!! Navbar para Mobile(Barra inferior)-->
 
+  <div class="perfilFiltro">
+    <div class="perfil">
+      <div id="topPerfil"></div>
+      <div id="blocoFotoPerfil">
+        <img src="img/íconePerfil.jpg" alt="" class="imagemPerfil">
+      </div>
+      <div class="dadosPerfil">
+        <h1><strong>John Galt</strong></h1>
+        <a href="perfil.html" class="btn btn-light corBotao">Meu perfil</a>
+        <a href="#" class="btn btn-light btn2">Minhas ações</a>
+      </div>
+    </div>
 
+    <div class="filtro">
 
-  <div style="width: 100%; height: 100%; margin-top: 60px; margin-left: 10px; font-size: 20px;"></div>
-  Em desenvolvimento...
+    </div>
   </div>
-</body>
 
+  <div class="acoes">
+    <div class="blocoCadastro" id="criarAcao">
+
+      <p>Título:</p>
+      <input type="text" name="titulo" id="titulo">
+
+      <p>Descrição:</p>
+      <textarea name="descricao" id="descricao" rows="4"></textarea>
+
+      <div id="dataa">
+        <p>Data:</p>
+        <input type="date" name="data">
+      </div>
+
+      <div id="categoriaa">
+        <p>Categoria:</p>
+        <input type="text" name="categoria" id="categoria">
+      </div>
+
+      <div id="quadrado">
+        <legend>Endereço:</legend>
+        <input type="text" id="cep" placeholder=" Cep" name="cep">
+        <a href="#" class="btn btn-light corBotao" id="obterEndereco" onclick="endereco()">Obter endereço</a>
+        <input type="text" id="logradouro" placeholder=" Logradouro" name="logradouro">
+        <input type="text" id="complemento" placeholder=" Complemento" name="complemento">
+        <input type="text" id="bairro" placeholder=" Bairro" name="bairro">
+        <input type="text" id="localidade" placeholder=" Cidade">
+        <input type="text" id="uf" placeholder=" UF" name="uf">
+      </div>
+
+      <p>Imagem:</p>
+      <form method="POST" action="" enctype="multipart/form-data">
+        <input type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
+        <img name="imagem" src="" alt="" id="imagem">
+      </form>
+
+      <a href="" type="submit" class="btn btn-light corBotao" id="botaoCriar">Criar ação</a>
+
+    </div>
+  </div>
+
+
+  <script src="JavaScript/criar-acao.js"></script>
+</body>
 </html>

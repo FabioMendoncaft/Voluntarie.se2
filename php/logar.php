@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require 'conexao.php';
 require 'usuario.php';
 
@@ -41,7 +43,10 @@ require 'usuario.php';
         $resultado = $usuario->logar();
 
         if($resultado == 'ok') {
-            header('location: ../feed.html');
+            $_SESSION['autenticado'] = 'SIM';
+           // header('location: ../feed.html');
+        } else {
+            $_SESSION['autenticado'] = 'NÃO';
         }
 
 
