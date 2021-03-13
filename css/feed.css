@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
-
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
-
 * {
     margin: 0;
     padding: 0;
@@ -9,41 +7,44 @@
     text-decoration: none;
 }
 
-body{
+body {
     background: rgb(219, 219, 219);
 }
 
+
 /*Padrão para todos os botões*/
-.corBotao{
+
+.corBotao {
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
     color: white;
     border-radius: 20px;
 }
 
-.corBotao:hover{
+.corBotao:hover {
     color: white;
 }
 
-.corBotao:not(:hover){
+.corBotao:not(:hover) {
     color: white;
 }
+
+
 /* Fim - Padrão para todos os botões*/
 
-.btn2{
+.btn2 {
     color: rgb(0, 0, 0);
     border: 1px solid #363636;
     border-radius: 20px;
 }
 
-.btn2:hover{
+.btn2:hover {
     color: rgb(44, 44, 44);
     border: 1px solid #5f5f5f;
     border-radius: 20px;
 }
 
-
-.perfilFiltro{
+.perfilFiltro {
     background-color: rgb(199, 198, 198);
     width: 30%;
     height: 100%;
@@ -54,7 +55,7 @@ body{
     margin-top: 45px;
 }
 
-.acoes{
+.acoes {
     background: rgb(219, 219, 219);
     width: 70%;
     padding: 50px;
@@ -63,7 +64,7 @@ body{
     margin-top: 35px;
 }
 
-.perfil{
+.perfil {
     width: 100%;
     height: 46%;
     background: white;
@@ -71,14 +72,14 @@ body{
     border-radius: 1.5%;
 }
 
-.perfil #topPerfil{
+.perfil #topPerfil {
     border-radius: 6px;
     background: rgb(85, 85, 85);
     width: 100%;
     height: 25%;
 }
 
-.perfil #blocoFotoPerfil{
+.perfil #blocoFotoPerfil {
     margin: auto;
     margin-top: -40px;
     background: white;
@@ -88,32 +89,33 @@ body{
     display: flex;
 }
 
-.perfil #imagemPerfil{
+.perfil #imagemPerfil {
     padding: 4px;
     border-radius: 50%;
     width: 90px;
     height: 90px;
 }
 
-.dadosPerfil{
+.dadosPerfil {
     background: white;
     width: 100%;
     height: 45%;
 }
-.dadosPerfil h1{
+
+.dadosPerfil h1 {
     text-align: center;
     color: #707071;
     font-size: var(--font-primary);
     font-size: 20px;
 }
 
-.dadosPerfil a{
+.dadosPerfil a {
     margin-top: 25px;
     width: 45%;
     font-size: 15px;
 }
 
-.filtro{
+.filtro {
     padding: 20px;
     width: 100%;
     height: 46%;
@@ -122,27 +124,27 @@ body{
     border-radius: 1.5%;
 }
 
-.filtro #blocoFiltro{
+.filtro #blocoFiltro {
     background: white;
     width: 100%;
     height: 80%;
 }
 
-.filtro h1{
+.filtro h1 {
     color: #707071;
     font-weight: bold;
     font-size: 103%;
     text-align: center;
 }
 
-.filtro p{
+.filtro p {
     text-align: left;
     color: #707071;
     margin-bottom: 1px;
     font-size: 92%;
 }
 
-.filtro input{
+.filtro input {
     width: 100%;
     height: 16%;
     border-radius: 20px;
@@ -150,66 +152,67 @@ body{
     padding-left: 10px;
 }
 
-        /*RESPONSIVIDADE FEED*/
-@media(max-width: 920px){
-    .filtro a{
+
+/*RESPONSIVIDADE FEED*/
+
+@media(max-width: 920px) {
+    .filtro a {
         font-size: 11px;
     }
-    .filtro h1{
+    .filtro h1 {
         font-size: 11px;
     }
 }
 
-@media(max-width: 770px){
-    .perfilFiltro{
-       float: none;
-       width: 100%;
-       margin-top: 0px;
-       position: relative;
+@media(max-width: 770px) {
+    .perfilFiltro {
+        float: none;
+        width: 100%;
+        margin-top: 0px;
+        position: relative;
     }
-    .acoes{
+    .acoes {
         margin-top: 0px;
         width: 100%;
         margin-left: 0px;
     }
-    .perfil{
-       display: none;
+    .perfil {
+        display: none;
     }
-    .filtro{
+    .filtro {
         height: 240px;
         margin: auto;
         width: 65%;
         margin-top: 52px;
     }
-    .filtro a{
+    .filtro a {
         font-size: 14px;
     }
-    .filtro h1{
+    .filtro h1 {
         font-size: 15px;
-        
     }
-    .acoes{
+    .acoes {
         margin-bottom: 50px;
     }
 }
 
-@media(max-width: 426px){
-    .perfil{
+@media(max-width: 426px) {
+    .perfil {
         width: 100%;
     }
-    .filtro{
+    .filtro {
         width: 100%;
     }
 }
 
-@media(max-width: 1123px){
-    .dadosPerfil a{
+@media(max-width: 1123px) {
+    .dadosPerfil a {
         font-size: 13.3px;
     }
 }
 
-@media(max-width: 1050px){
-    .dadosPerfil a{
+@media(max-width: 1050px) {
+    .dadosPerfil a {
         width: 130px;
         padding: 3px;
         margin-top: 2px;
@@ -217,75 +220,74 @@ body{
         margin-bottom: 10px;
     }
 }
-    /* FIM RESPONSIVIDADE FEED*/
-    
-    
-    
-    /* NAV´s BAR MOBILE */
 
-#navTopMobile{
+
+/* FIM RESPONSIVIDADE FEED*/
+
+
+/* NAV´s BAR MOBILE */
+
+#navTopMobile {
     display: none;
     height: 56px;
 }
 
-#navTopMobile #imagem{
-    width: 130px; 
+#navTopMobile #imagem {
+    width: 130px;
     margin-top: -6px;
 }
 
-#navBotoomMobile{
+#navBotoomMobile {
     display: none;
     padding: 0px;
     height: 44px;
 }
 
-#navBotoomMobile span{
-    color: #4f4f50; 
+#navBotoomMobile span {
+    color: #4f4f50;
     font-size: 38px;
 }
-        
-#navBotoomMobile #feed{
+
+#navBotoomMobile #feed {
     margin-left: 10px;
 }
 
-#navBotoomMobile #perfil{
+#navBotoomMobile #perfil {
     margin-right: 10px;
 }
 
+
 /* RESPONSIVIDADE NAV´s BAR MOBILE */
 
-@media(max-width: 770px){
-    #navTop{
+@media(max-width: 770px) {
+    #navTop {
         display: none;
     }
-    #navTopMobile{
+    #navTopMobile {
         display: flex;
     }
-    #navBotoomMobile{
+    #navBotoomMobile {
         display: flex;
     }
-        
 }
-@media(max-width: 435px){
-    #navBotoomMobile span{ 
+
+@media(max-width: 435px) {
+    #navBotoomMobile span {
         font-size: 32px;
     }
-    #navBotoomMobile #feed{
+    #navBotoomMobile #feed {
         margin-left: 5px;
     }
-    #navBotoomMobile #perfil{
+    #navBotoomMobile #perfil {
         margin-right: 5px;
     }
 }
-@media(max-width: 350px){
-    #navBotoomMobile span{ 
+
+@media(max-width: 350px) {
+    #navBotoomMobile span {
         font-size: 28px;
     }
 }
 
- /*Nav Bar Mobile*/
 
-
-
-
-
+/*Nav Bar Mobile*/

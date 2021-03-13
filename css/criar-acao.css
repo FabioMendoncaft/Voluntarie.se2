@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
-
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
-
 * {
     margin: 0;
     padding: 0;
@@ -9,16 +7,18 @@
     text-decoration: none;
 }
 
-body{
+body {
     background: rgb(219, 219, 219);
 }
 
-.barraMobile{
+.barraMobile {
     display: none;
 }
 
+
 /*Padrão para todos os botões*/
-.corBotao{
+
+.corBotao {
     background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
@@ -26,28 +26,30 @@ body{
     border-radius: 20px;
 }
 
-.corBotao:hover{
+.corBotao:hover {
     color: white;
 }
 
-.corBotao:not(:hover){
+.corBotao:not(:hover) {
     color: white;
 }
+
+
 /* Fim - Padrão para todos os botões*/
 
-.btn2{
+.btn2 {
     color: rgb(0, 0, 0);
     border: 1px solid #363636;
     border-radius: 20px;
 }
 
-.btn2:hover{
+.btn2:hover {
     color: rgb(44, 44, 44);
     border: 1px solid #5f5f5f;
     border-radius: 20px;
 }
 
-.perfilFiltro{
+.perfilFiltro {
     background-color: rgb(199, 198, 198);
     width: 30%;
     height: 100%;
@@ -57,7 +59,7 @@ body{
     padding: 40px;
 }
 
-.perfil{
+.perfil {
     width: 100%;
     height: 46%;
     background: white;
@@ -66,14 +68,14 @@ body{
     margin-top: -10px;
 }
 
-.perfil #topPerfil{
+.perfil #topPerfil {
     border-radius: 6px;
     background: rgb(85, 85, 85);
     width: 100%;
     height: 25%;
 }
 
-.perfil #blocoFotoPerfil{
+.perfil #blocoFotoPerfil {
     margin: auto;
     margin-top: -40px;
     background: white;
@@ -83,26 +85,27 @@ body{
     display: flex;
 }
 
-.perfil .imagemPerfil{
+.perfil .imagemPerfil {
     padding: 4px;
     border-radius: 50%;
     width: 90px;
     height: 90px;
 }
 
-.dadosPerfil{
+.dadosPerfil {
     background: white;
     width: 100%;
     height: 45%;
 }
-.dadosPerfil h1{
+
+.dadosPerfil h1 {
     text-align: center;
     color: #707071;
     font-size: var(--font-primary);
     font-size: 20px;
 }
 
-.dadosPerfil a{
+.dadosPerfil a {
     margin-top: 25px;
     width: 45%;
     font-size: 15px;
@@ -111,32 +114,32 @@ body{
 
 /*RESPONSIVIDADE TELA DIREITA*/
 
-@media(max-width: 770px){
-    .perfilFiltro{
+@media(max-width: 770px) {
+    .perfilFiltro {
         display: none;
     }
-    .acoes{
+    .acoes {
         margin-bottom: 50px;
     }
-    .barraMobile{
+    .barraMobile {
         display: flex;
     }
-    #navTop{
-        display:none;
+    #navTop {
+        display: none;
     }
-    .acoes #criarAcao{
+    .acoes #criarAcao {
         margin-top: -70px;
     }
 }
 
-@media(max-width: 1123px){
-    .dadosPerfil a{
+@media(max-width: 1123px) {
+    .dadosPerfil a {
         font-size: 13.3px;
     }
 }
 
-@media(max-width: 1050px){
-    .dadosPerfil a{
+@media(max-width: 1050px) {
+    .dadosPerfil a {
         width: 130px;
         padding: 3px;
         margin-top: 2px;
@@ -148,7 +151,7 @@ body{
 
 /*TELA FORMULÁRIO DE CRIAÇÃO*/
 
-.acoes{
+.acoes {
     background: rgb(219, 219, 219);
     width: 70%;
     padding: 40px;
@@ -156,26 +159,18 @@ body{
     margin-top: 56px;
 }
 
-.blocoCadastro{
+.blocoCadastro {
     width: 100%;
     min-width: 90px;
     margin-top: -17px;
 }
 
-.acoes p{
+.acoes p {
     margin-bottom: 2px;
     font-size: 18px;
 }
 
-.acoes input{
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 20px;
-    border: 1px solid #afafaf;
-    padding: 3px;
-} 
-
-.acoes #descricao{
+.acoes input {
     width: 100%;
     margin-bottom: 15px;
     border-radius: 20px;
@@ -183,86 +178,94 @@ body{
     padding: 3px;
 }
 
-.acoes #dataa{
+.acoes #descricao {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
+}
+
+.acoes #dataa {
     float: left;
     width: 50%;
     padding: 3px;
 }
 
-.acoes #dataa input{
+.acoes #dataa input {
     width: 100%;
 }
 
-.acoes #categoriaa{
+.acoes #categoriaa {
     float: left;
     width: 50%;
     padding: 3px;
 }
 
-.acoes #categoriaa input{
+.acoes #categoriaa input {
     width: 100%;
 }
 
-.acoes #quadrado{
+.acoes #quadrado {
     margin-top: 90px;
-    border: 1px solid #707071; 
-    padding: 15px; 
+    border: 1px solid #707071;
+    padding: 15px;
     width: 100%;
     margin-bottom: 20px;
     border-radius: 5px;
 }
 
-.acoes #quadrado input{
+.acoes #quadrado input {
     width: 100%;
-} 
+}
 
-.acoes #quadrado #cep{
+.acoes #quadrado #cep {
     width: 24%;
 }
 
-.acoes #quadrado legend{
+.acoes #quadrado legend {
     font-size: 18px;
 }
 
-.acoes #obterEndereco{
+.acoes #obterEndereco {
     width: 25%;
     margin-top: -5px;
 }
 
-.acoes #escolherImagem{
+.acoes #escolherImagem {
     border-radius: 0%;
-    width: none; 
-    margin-bottom: none; 
-    border: none; 
+    width: none;
+    margin-bottom: none;
+    border: none;
     padding: none;
-
 }
 
-.acoes #imagem{
-    width: 241.95px; 
+.acoes #imagem {
+    width: 241.95px;
     height: 174.14px;
 }
 
-.acoes #botaoCriar{
+.acoes #botaoCriar {
     width: 50%;
     margin-top: 15px;
     margin-left: 25%;
 }
 
+
 /*RESPONSIVIDADE TELA ESQUERDA(CRIAR AÇÃO)*/
 
-@media(max-width: 972px){
-    .acoes #quadrado #cep{
+@media(max-width: 972px) {
+    .acoes #quadrado #cep {
         width: 69.5%;
     }
-    .acoes #quadrado #obterEndereco{
+    .acoes #quadrado #obterEndereco {
         width: 29.5%;
         font-size: 15px;
     }
 }
 
-@media(max-width: 770px){
-    .acoes{
+@media(max-width: 770px) {
+    .acoes {
         margin-left: 0px;
         width: 100%;
         float: none;
@@ -270,120 +273,120 @@ body{
     }
 }
 
-@media(max-width: 844px){
-    .acoes #quadrado #obterEndereco{
+@media(max-width: 844px) {
+    .acoes #quadrado #obterEndereco {
         width: 29%;
         font-size: 13px;
     }
 }
 
-@media(max-width: 770px){
-    .acoes #quadrado #cep{
+@media(max-width: 770px) {
+    .acoes #quadrado #cep {
         width: 69.5%;
     }
-    .acoes #quadrado #obterEndereco{
+    .acoes #quadrado #obterEndereco {
         width: 29.5%;
         font-size: 15px;
     }
-    .acoes #criarAcao{
+    .acoes #criarAcao {
         margin-top: 0px;
     }
 }
 
-@media(max-width: 573px){
-    .acoes #quadrado #cep{
+@media(max-width: 573px) {
+    .acoes #quadrado #cep {
         width: 60%;
     }
-    .acoes #quadrado #obterEndereco{
+    .acoes #quadrado #obterEndereco {
         width: 38%;
         font-size: 13px;
     }
 }
 
-@media(max-width: 442px){
-    .acoes #quadrado #cep{
+@media(max-width: 442px) {
+    .acoes #quadrado #cep {
         width: 50%;
     }
-    .acoes #quadrado #obterEndereco{
+    .acoes #quadrado #obterEndereco {
         width: 48%;
         font-size: 13px;
     }
 }
 
-@media(max-width: 350px){
-    .acoes #quadrado #cep{
+@media(max-width: 350px) {
+    .acoes #quadrado #cep {
         width: 58%;
     }
-    .acoes #quadrado #obterEndereco{
+    .acoes #quadrado #obterEndereco {
         width: 39.5%;
         font-size: 13px;
     }
 }
 
+
 /* NAV´s BAR MOBILE */
 
-    #navTopMobile{
+#navTopMobile {
+    display: none;
+    height: 56px;
+}
+
+#navTopMobile #imagem {
+    width: 130px;
+    margin-top: -6px;
+}
+
+#navBotoomMobile {
+    display: none;
+    padding: 0px;
+    height: 44px;
+}
+
+#navBotoomMobile span {
+    color: #4f4f50;
+    font-size: 38px;
+}
+
+#navBotoomMobile #feed {
+    margin-left: 10px;
+}
+
+#navBotoomMobile #perfil {
+    margin-right: 10px;
+}
+
+
+/* RESPONSIVIDADE NAV´s BAR MOBILE */
+
+@media(max-width: 770px) {
+    #navTop {
         display: none;
-        height: 56px;
     }
-    
-    #navTopMobile #imagem{
-        width: 130px; 
-        margin-top: -6px;
+    #navTopMobile {
+        display: flex;
     }
-    
-    #navBotoomMobile{
-        display: none;
-        padding: 0px;
-        height: 44px;
+    #navBotoomMobile {
+        display: flex;
     }
-    
-    #navBotoomMobile span{
-        color: #4f4f50; 
-        font-size: 38px;
+}
+
+@media(max-width: 435px) {
+    #navBotoomMobile span {
+        font-size: 32px;
     }
-            
-    #navBotoomMobile #feed{
-        margin-left: 10px;
+    #navBotoomMobile #feed {
+        margin-left: 5px;
     }
-    
-    #navBotoomMobile #perfil{
-        margin-right: 10px;
+    #navBotoomMobile #perfil {
+        margin-right: 5px;
     }
-    
-    /* RESPONSIVIDADE NAV´s BAR MOBILE */
-    
-    @media(max-width: 770px){
-        #navTop{
-            display: none;
-        }
-        #navTopMobile{
-            display: flex;
-        }
-        #navBotoomMobile{
-            display: flex;
-        }
-            
+}
+
+@media(max-width: 350px) {
+    #navBotoomMobile span {
+        font-size: 28px;
     }
-    @media(max-width: 435px){
-        #navBotoomMobile span{ 
-            font-size: 32px;
-        }
-        #navBotoomMobile #feed{
-            margin-left: 5px;
-        }
-        #navBotoomMobile #perfil{
-            margin-right: 5px;
-        }
-    }
-    @media(max-width: 350px){
-        #navBotoomMobile span{ 
-            font-size: 28px;
-        }
-    }
-    
+}
+
+
 /*Nav Bar Mobile*/
-
-
-
-

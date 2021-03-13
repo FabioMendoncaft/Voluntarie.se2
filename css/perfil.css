@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
-
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
-
 * {
     margin: 0;
     padding: 0;
@@ -9,12 +7,14 @@
     text-decoration: none;
 }
 
-body{
+body {
     background: rgb(219, 219, 219);
 }
 
+
 /*Padrão para todos os botões*/
-.corBotao{
+
+.corBotao {
     background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
@@ -22,87 +22,81 @@ body{
     border-radius: 20px;
 }
 
-.corBotao:hover{
+.corBotao:hover {
     color: white;
 }
 
-.corBotao:not(:hover){
+.corBotao:not(:hover) {
     color: white;
 }
+
+
 /* Fim - Padrão para todos os botões*/
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* NAV´s BAR MOBILE */
 
-    #navTopMobile{
+#navTopMobile {
+    display: none;
+    height: 56px;
+}
+
+#navTopMobile #imagem {
+    width: 130px;
+    margin-top: -6px;
+}
+
+#navBotoomMobile {
+    display: none;
+    padding: 0px;
+    height: 44px;
+}
+
+#navBotoomMobile span {
+    color: #4f4f50;
+    font-size: 38px;
+}
+
+#navBotoomMobile #feed {
+    margin-left: 10px;
+}
+
+#navBotoomMobile #perfil {
+    margin-right: 10px;
+}
+
+
+/* RESPONSIVIDADE NAV´s BAR MOBILE */
+
+@media(max-width: 770px) {
+    #navTop {
         display: none;
-        height: 56px;
     }
-    
-    #navTopMobile #imagem{
-        width: 130px; 
-        margin-top: -6px;
+    #navTopMobile {
+        display: flex;
     }
-    
-    #navBotoomMobile{
-        display: none;
-        padding: 0px;
-        height: 44px;
+    #navBotoomMobile {
+        display: flex;
     }
-    
-    #navBotoomMobile span{
-        color: #4f4f50; 
-        font-size: 38px;
+}
+
+@media(max-width: 435px) {
+    #navBotoomMobile span {
+        font-size: 32px;
     }
-            
-    #navBotoomMobile #feed{
-        margin-left: 10px;
+    #navBotoomMobile #feed {
+        margin-left: 5px;
     }
-    
-    #navBotoomMobile #perfil{
-        margin-right: 10px;
+    #navBotoomMobile #perfil {
+        margin-right: 5px;
     }
-    
-    /* RESPONSIVIDADE NAV´s BAR MOBILE */
-    
-    @media(max-width: 770px){
-        #navTop{
-            display: none;
-        }
-        #navTopMobile{
-            display: flex;
-        }
-        #navBotoomMobile{
-            display: flex;
-        }
-            
+}
+
+@media(max-width: 350px) {
+    #navBotoomMobile span {
+        font-size: 28px;
     }
-    @media(max-width: 435px){
-        #navBotoomMobile span{ 
-            font-size: 32px;
-        }
-        #navBotoomMobile #feed{
-            margin-left: 5px;
-        }
-        #navBotoomMobile #perfil{
-            margin-right: 5px;
-        }
-    }
-    @media(max-width: 350px){
-        #navBotoomMobile span{ 
-            font-size: 28px;
-        }
-    }
-    
-     /*Nav Bar Mobile*/
+}
+
+
+/*Nav Bar Mobile*/

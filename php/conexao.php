@@ -4,10 +4,10 @@
 
 class Conexao {
 
-	private $host = 'localhost';
-	private $dbname = 'baseteste';
-	private $user = 'root';
-	private $pass = '';
+	private $host = 'sql312.epizy.com';
+	private $dbname = 'epiz_28053525_voluntariese';
+	private $user = 'epiz_28053525';
+	private $pass = 'rctDbFUOTpkklc';
 
 	public function conectar() {
 		try {
