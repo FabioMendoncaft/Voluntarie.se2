@@ -85,10 +85,12 @@ Class Usuario{
             $stmt->bindValue(':sexo', $this->getSexo());
             
             $teste = $stmt->execute();
+            return $retorno;
 
         } else {
             return $retorno;
         }
+        
         
     }
 

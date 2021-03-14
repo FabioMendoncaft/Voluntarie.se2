@@ -30,6 +30,8 @@ require 'usuario.php';
 
         if ($resultado == 'existe') {
             header('location: ../index.php?acao=existe');
+        } else if ($resultado == 'nao existe'){
+            header('location: ../index.php?acao=nexiste');
         }
 
     } else if ($acao == 'logar') {

@@ -83,6 +83,12 @@
                 </div>
             <?php } ?>
 
+            <?php if( isset($_GET['acao']) && $_GET['acao'] == 'nexiste' ) { ?>
+                <div id="fecharrAvisoCadastro" style="background: #fe8c00; height: 50px; color: white; text-align: center; font-size: 20px;");>
+                   <label style="margin-top: 8px">Cadastro realizado com sucesso!</label>
+                </div>
+            <?php } ?>   
+
         <header>
             <!--Tela inicial(login)-->
             <div class="img-wrapper">
@@ -191,6 +197,12 @@
         }
             setTimeout("fechar()", 5000);
             
+
+            function fecharCadastro(){
+            document.getElementById('fecharrAvisoCadastro').style.display="none"
+        }
+            setTimeout("fecharCadastro()", 5000);
+
     </script>
    
 </body>
