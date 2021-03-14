@@ -15,6 +15,7 @@ body {
 /*Padrão para todos os botões*/
 
 .corBotao {
+    background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
     color: white;
@@ -32,16 +33,20 @@ body {
 
 /* Fim - Padrão para todos os botões*/
 
-.btn2 {
-    color: rgb(0, 0, 0);
-    border: 1px solid #363636;
-    border-radius: 20px;
+.minhasAcoes {
+    background: rgb(219, 219, 219);
+    width: 70%;
+    padding: 50px;
+    float: left;
+    margin-left: 30%;
+    margin-top: 35px;
 }
 
-.btn2:hover {
-    color: rgb(44, 44, 44);
-    border: 1px solid #5f5f5f;
-    border-radius: 20px;
+.minhasAcoes #tituloMobile {
+    text-align: center;
+    color: #707071;
+    margin-bottom: 30px;
+    display: none;
 }
 
 .perfilFiltro {
@@ -52,16 +57,6 @@ body {
     position: fixed;
     text-align: center;
     padding: 40px;
-    margin-top: 45px;
-}
-
-.acoes {
-    background: rgb(219, 219, 219);
-    width: 70%;
-    padding: 50px;
-    float: left;
-    margin-left: 30%;
-    margin-top: 35px;
 }
 
 .perfil {
@@ -70,6 +65,7 @@ body {
     background: white;
     text-align: center;
     border-radius: 1.5%;
+    margin-top: 45px;
 }
 
 .perfil #topPerfil {
@@ -89,7 +85,7 @@ body {
     display: flex;
 }
 
-.perfil #imagemPerfil {
+.perfil .imagemPerfil {
     padding: 4px;
     border-radius: 50%;
     width: 90px;
@@ -115,101 +111,31 @@ body {
     font-size: 15px;
 }
 
-.filtro {
-    padding: 20px;
-    width: 100%;
-    height: 46%;
-    background: white;
-    margin-top: 10px;
-    border-radius: 1.5%;
-}
 
-.filtro #blocoFiltro {
-    background: white;
-    width: 100%;
-    height: 80%;
-}
-
-.filtro h1 {
-    color: #707071;
-    font-weight: bold;
-    font-size: 103%;
-    text-align: center;
-}
-
-.filtro p {
-    text-align: left;
-    color: #707071;
-    margin-bottom: 1px;
-    font-size: 92%;
-}
-
-.filtro input {
-    width: 100%;
-    height: 16%;
-    border-radius: 20px;
-    border: 1px solid #afafaf;
-    padding-left: 10px;
-}
-
-.filtro select {
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 20px;
-    border: 1px solid #afafaf;
-    padding: 3px;
-}
-
-
-/*RESPONSIVIDADE FEED*/
-
-@media(max-width: 920px) {
-    .filtro a {
-        font-size: 11px;
-    }
-    .filtro h1 {
-        font-size: 11px;
-    }
-}
+/*RESPONSIVIDADE TELA DIREITA*/
 
 @media(max-width: 770px) {
     .perfilFiltro {
-        float: none;
-        width: 100%;
-        margin-top: 0px;
-        position: relative;
+        display: none;
     }
-    .acoes {
-        margin-top: 0px;
+    .minhasAcoes {
+        margin-bottom: 50px;
+        margin-top: 50px;
         width: 100%;
         margin-left: 0px;
     }
-    .perfil {
+    .barraMobile {
+        display: flex;
+    }
+    #navTop {
         display: none;
     }
-    .filtro {
-        height: 240px;
-        margin: auto;
-        width: 65%;
-        margin-top: 52px;
+    .acoes #criarAcao {
+        margin-top: -70px;
     }
-    .filtro a {
-        font-size: 14px;
-    }
-    .filtro h1 {
-        font-size: 15px;
-    }
-    .acoes {
-        margin-bottom: 50px;
-    }
-}
-
-@media(max-width: 426px) {
-    .perfil {
-        width: 100%;
-    }
-    .filtro {
-        width: 100%;
+    .minhasAcoes #tituloMobile {
+        margin-top: -12px;
+        display: block;
     }
 }
 
@@ -228,9 +154,6 @@ body {
         margin-bottom: 10px;
     }
 }
-
-
-/* FIM RESPONSIVIDADE FEED*/
 
 
 /* NAV´s BAR MOBILE */
@@ -299,3 +222,31 @@ body {
 
 
 /*Nav Bar Mobile*/
+
+
+/*Botões das ações(Açterar e excluir)*/
+
+.botoes-Cards {
+    width: 100%;
+}
+
+.botoes-Cards a {
+    width: 48.6%;
+}
+
+@media(max-width: 1028px) {
+    .botoes-Cards a {
+        width: 100%;
+        margin-top: 7px;
+    }
+}
+
+@media(max-width:768px) {
+    .botoes-Cards a {
+        width: 48.6%;
+        margin-top: 0px;
+    }
+}
+
+
+/*FIM / Botões das ações(Açterar e excluir)*/

@@ -114,7 +114,7 @@
         <span class="material-icons">add_circle</span>
       </a>
 
-      <a href="">
+      <a href="minhas-acoes.php">
         <span class="material-icons">collections</span>
       </a>
       <div>

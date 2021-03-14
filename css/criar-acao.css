@@ -65,7 +65,7 @@ body {
     background: white;
     text-align: center;
     border-radius: 1.5%;
-    margin-top: -10px;
+    margin-top: -11px;
 }
 
 .perfil #topPerfil {
@@ -163,6 +163,12 @@ body {
     width: 100%;
     min-width: 90px;
     margin-top: -17px;
+}
+
+.acoes #tituloMobile {
+    text-align: center;
+    color: #707071;
+    display: none;
 }
 
 .acoes p {
@@ -298,6 +304,9 @@ body {
     }
     .acoes #criarAcao {
         margin-top: 0px;
+    }
+    .acoes #tituloMobile {
+        display: block;
     }
 }
 
