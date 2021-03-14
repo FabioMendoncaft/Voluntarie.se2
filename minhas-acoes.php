@@ -1,9 +1,9 @@
 <?php
 
-  session_start();
-  if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
-    header('Location: index.php');
-  }
+session_start();
+if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
+header('Location: index.php');
+}
 
 
 ?>
@@ -31,6 +31,13 @@
         </script>
         <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
         <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#cep").mask("00000-000")
+            })
+        </script>
+
     </head>
 
     <body>
@@ -39,7 +46,7 @@
                 <a href="/"><img src="img/logo.png" alt="logo" style="width: 130px; margin-top: -6px;"></a>
                 <!--<a class="navbar-brand" href="#" id="logoFeed">Voluntarie<strong style="color:#f83600;">.se</strong></a>-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span></button>
+<span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -80,7 +87,7 @@
                     </div>
                     <div class="form-inline my-2 my-lg-0">
                         <a href="criar-acao.php"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
-                class="fas fa-plus"></i> Criar ação</button></a>
+                        class="fas fa-plus"></i> Criar ação</button></a>
                     </div>
                 </div>
             </div>
@@ -149,33 +156,7 @@
                             <h5 class="card-title ">Card title</h5>
                             <p class="card-text ">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             <div class="botoes-Cards">
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Alterar</a>
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Excluir</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col ">
-                    <div class="card h-100 ">
-                        <img src="img/acaoSocial2.jpg " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h5 class="card-title ">Card title</h5>
-                            <p class="card-text ">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="botoes-Cards">
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Alterar</a>
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Excluir</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col ">
-                    <div class="card h-100 ">
-                        <img src="img/acaoSocial2.jpg " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h5 class="card-title ">Card title</h5>
-                            <p class="card-text ">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="botoes-Cards">
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Alterar</a>
+                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ativarModal">Alterar</a>
                                 <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Excluir</a>
                             </div>
                         </div>
@@ -186,10 +167,10 @@
         </div>
 
         <div id="modal-editar" class="modal-containe">
-            <div class="modall" style="position: relative;">
+            <div class="modall">
                 <div class="acoes">
                     <div class="blocoCadastro" id="criarAcao">
-
+                        <button class="close">X</button>
                         <div id="titulooo">
                             <p>Título:</p>
                             <input type="text" name="titulo" id="titulo">
@@ -197,8 +178,8 @@
 
                         <div id="ceppp">
                             <p>Cep:</p>
-                            <input type="text " id="cep" placeholder=" Cep " name="cep ">
-                            <a href="# " class="btn btn-light corBotao " id="pesquisar" onclick="endereco() ">Pesquisar CEP</a>
+                            <input type="text " id="cep" placeholder=" Cep " name="cep">
+                            <a href="# " class="btn btn-light corBotao " id="pesquisar" onclick="endereco()">Pesquisar CEP</a>
                         </div>
 
                         <p>Descrição:</p>
@@ -206,11 +187,11 @@
 
                         <div id="quadrado">
                             <legend>Endereço:</legend>
-                            <input type="text " id="logradouro " placeholder=" Logradouro " name="logradouro ">
-                            <input type="text " id="complemento " placeholder=" Complemento " name="complemento ">
-                            <input type="text " id="bairro " placeholder=" Bairro " name="bairro ">
-                            <input type="text " id="localidade " placeholder=" Cidade ">
-                            <input type="text " id="uf " placeholder=" UF " name="uf ">
+                            <input type="text" id="logradouro" placeholder=" Logradouro " name="logradouro">
+                            <input type="text" id="complemento" placeholder=" Complemento " name="complemento">
+                            <input type="text" id="bairro" placeholder=" Bairro " name="bairro ">
+                            <input type="text" id="localidade" placeholder=" Cidade ">
+                            <input type="text" id="uf" placeholder="UF" name="uf">
                         </div>
 
                         <div id="dataa">
@@ -221,22 +202,22 @@
                         <div id="categoriaa">
                             <p>Categoria:</p>
                             <select name="categoria">
-              <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
-              <option>Visitações</option>
-              <option>Doação de sangue</option>
-              <option>Doação de suprimentos</option>
-              <option>Distribuição suprimentos</option>
-              <option>Adoção de animais</option>
-              <option>Passeio com animais</option>
-            </select>
+                                <option disabled="disabled"selected="selected">-- Selecione uma opção</option>
+                                <option>Visitações</option>
+                                <option>Doação de sangue</option>
+                                <option>Doação de suprimentos</option>
+                                <option>Distribuição suprimentos</option>
+                                <option>Adoção de animais</option>
+                                <option>Passeio com animais</option>
+                            </select>
                         </div>
 
                         <p>Imagem:</p>
-                        <form method="POST " action=" " enctype="multipart/form-data ">
-                            <input type="file " name="imagem " id="escolherImagem " onchange="previewImagem() ">
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <input type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
                         </form>
 
-                        <a href=" " type="submit " class="btn btn-light corBotao " id="botaoCriar">Criar ação</a>
+                        <a href="" type="submit" class="btn btn-light corBotao" id="botaoCriar">Salvar</a>
 
                     </div>
 
@@ -245,8 +226,7 @@
             </div>
         </div>
 
-
-
+        <script src="JavaScript/minhas-acoes.js"></script>
     </body>
 
     </html>

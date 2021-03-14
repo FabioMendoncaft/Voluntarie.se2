@@ -1,406 +1,481 @@
-    @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
-    * {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        text-decoration: none;
-    }
-    
-    body {
-        background: rgb(219, 219, 219);
-    }
-    /*Padrão para todos os botões*/
-    
-    .corBotao {
-        background: #fe0000;
-        background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
-        background: linear-gradient(to right, #f83600, #fe5200);
-        color: white;
-        border-radius: 20px;
-    }
-    
-    .corBotao:hover {
-        color: white;
-    }
-    
-    .corBotao:not(:hover) {
-        color: white;
-    }
-    /* Fim - Padrão para todos os botões*/
-    
-    .minhasAcoes {
-        background: rgb(219, 219, 219);
-        width: 70%;
-        padding: 50px;
-        float: left;
-        margin-left: 30%;
-        margin-top: 35px;
-    }
-    
-    .minhasAcoes #tituloMobile {
-        text-align: center;
-        color: #707071;
-        margin-bottom: 30px;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background: rgb(219, 219, 219);
+}
+
+
+/*Padrão para todos os botões*/
+
+.corBotao {
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    color: white;
+    border-radius: 20px;
+}
+
+.corBotao:hover {
+    color: white;
+}
+
+.corBotao:not(:hover) {
+    color: white;
+}
+
+
+/* Fim - Padrão para todos os botões*/
+
+.minhasAcoes {
+    background: rgb(219, 219, 219);
+    width: 70%;
+    padding: 50px;
+    float: left;
+    margin-left: 30%;
+    margin-top: 35px;
+}
+
+.minhasAcoes #tituloMobile {
+    text-align: center;
+    color: #707071;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.perfilFiltro {
+    background-color: rgb(199, 198, 198);
+    width: 30%;
+    height: 100%;
+    float: left;
+    position: fixed;
+    text-align: center;
+    padding: 40px;
+}
+
+.perfil {
+    width: 100%;
+    height: 46%;
+    background: white;
+    text-align: center;
+    border-radius: 1.5%;
+    margin-top: 45px;
+}
+
+.perfil #topPerfil {
+    border-radius: 6px;
+    background: rgb(85, 85, 85);
+    width: 100%;
+    height: 25%;
+}
+
+.perfil #blocoFotoPerfil {
+    margin: auto;
+    margin-top: -40px;
+    background: white;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+}
+
+.perfil .imagemPerfil {
+    padding: 4px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+
+.dadosPerfil {
+    background: white;
+    width: 100%;
+    height: 45%;
+}
+
+.dadosPerfil h1 {
+    text-align: center;
+    color: #707071;
+    font-size: var(--font-primary);
+    font-size: 20px;
+}
+
+.dadosPerfil a {
+    margin-top: 25px;
+    width: 45%;
+    font-size: 15px;
+}
+
+
+/*RESPONSIVIDADE TELA DIREITA*/
+
+@media(max-width: 770px) {
+    .perfilFiltro {
         display: none;
     }
-    
-    .perfilFiltro {
-        background-color: rgb(199, 198, 198);
-        width: 30%;
-        height: 100%;
-        float: left;
-        position: fixed;
-        text-align: center;
-        padding: 40px;
-    }
-    
-    .perfil {
+    .minhasAcoes {
+        margin-bottom: 50px;
+        margin-top: 50px;
         width: 100%;
-        height: 46%;
-        background: white;
-        text-align: center;
-        border-radius: 1.5%;
-        margin-top: 45px;
+        margin-left: 0px;
     }
-    
-    .perfil #topPerfil {
-        border-radius: 6px;
-        background: rgb(85, 85, 85);
-        width: 100%;
-        height: 25%;
-    }
-    
-    .perfil #blocoFotoPerfil {
-        margin: auto;
-        margin-top: -40px;
-        background: white;
-        border-radius: 50%;
-        width: 90px;
-        height: 90px;
+    .barraMobile {
         display: flex;
     }
-    
-    .perfil .imagemPerfil {
-        padding: 4px;
-        border-radius: 50%;
-        width: 90px;
-        height: 90px;
+    #navTop {
+        display: none;
     }
-    
-    .dadosPerfil {
-        background: white;
-        width: 100%;
-        height: 45%;
+    .acoes #criarAcao {
+        margin-top: -70px;
     }
-    
-    .dadosPerfil h1 {
-        text-align: center;
-        color: #707071;
-        font-size: var(--font-primary);
-        font-size: 20px;
+    .minhasAcoes #tituloMobile {
+        margin-top: -12px;
+        display: block;
     }
-    
+}
+
+@media(max-width: 1123px) {
     .dadosPerfil a {
-        margin-top: 25px;
-        width: 45%;
-        font-size: 15px;
+        font-size: 13.3px;
     }
-    /*RESPONSIVIDADE TELA DIREITA*/
-    
-    @media(max-width: 770px) {
-        .perfilFiltro {
-            display: none;
-        }
-        .minhasAcoes {
-            margin-bottom: 50px;
-            margin-top: 50px;
-            width: 100%;
-            margin-left: 0px;
-        }
-        .barraMobile {
-            display: flex;
-        }
-        #navTop {
-            display: none;
-        }
-        .acoes #criarAcao {
-            margin-top: -70px;
-        }
-        .minhasAcoes #tituloMobile {
-            margin-top: -12px;
-            display: block;
-        }
-    }
-    
-    @media(max-width: 1123px) {
-        .dadosPerfil a {
-            font-size: 13.3px;
-        }
-    }
-    
-    @media(max-width: 1050px) {
-        .dadosPerfil a {
-            width: 130px;
-            padding: 3px;
-            margin-top: 2px;
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-    }
-    /* NAV´s BAR MOBILE */
-    
-    #navTopMobile {
-        display: none;
-        height: 56px;
-    }
-    
-    #navTopMobile #imagem {
+}
+
+@media(max-width: 1050px) {
+    .dadosPerfil a {
         width: 130px;
-        margin-top: -6px;
+        padding: 3px;
+        margin-top: 2px;
+        font-size: 15px;
+        margin-bottom: 10px;
     }
-    
-    #navBotoomMobile {
+}
+
+
+/* NAV´s BAR MOBILE */
+
+#navTopMobile {
+    display: none;
+    height: 56px;
+}
+
+#navTopMobile #imagem {
+    width: 130px;
+    margin-top: -6px;
+}
+
+#navBotoomMobile {
+    display: none;
+    padding: 0px;
+    height: 44px;
+}
+
+#navBotoomMobile span {
+    color: #4f4f50;
+    font-size: 38px;
+}
+
+#navBotoomMobile #feed {
+    margin-left: 10px;
+}
+
+#navBotoomMobile #perfil {
+    margin-right: 10px;
+}
+
+
+/* RESPONSIVIDADE NAV´s BAR MOBILE */
+
+@media(max-width: 770px) {
+    #navTop {
         display: none;
-        padding: 0px;
-        height: 44px;
     }
-    
+    #navTopMobile {
+        display: flex;
+    }
+    #navBotoomMobile {
+        display: flex;
+    }
+}
+
+@media(max-width: 435px) {
     #navBotoomMobile span {
-        color: #4f4f50;
-        font-size: 38px;
+        font-size: 32px;
     }
-    
     #navBotoomMobile #feed {
-        margin-left: 10px;
+        margin-left: 5px;
     }
-    
     #navBotoomMobile #perfil {
-        margin-right: 10px;
+        margin-right: 5px;
     }
-    /* RESPONSIVIDADE NAV´s BAR MOBILE */
-    
-    @media(max-width: 770px) {
-        #navTop {
-            display: none;
-        }
-        #navTopMobile {
-            display: flex;
-        }
-        #navBotoomMobile {
-            display: flex;
-        }
+}
+
+@media(max-width: 350px) {
+    #navBotoomMobile span {
+        font-size: 28px;
     }
-    
-    @media(max-width: 435px) {
-        #navBotoomMobile span {
-            font-size: 32px;
-        }
-        #navBotoomMobile #feed {
-            margin-left: 5px;
-        }
-        #navBotoomMobile #perfil {
-            margin-right: 5px;
-        }
-    }
-    
-    @media(max-width: 350px) {
-        #navBotoomMobile span {
-            font-size: 28px;
-        }
-    }
-    /*Nav Bar Mobile*/
-    /*Botões das ações(Açterar e excluir)*/
-    
-    .botoes-Cards {
+}
+
+
+/*Nav Bar Mobile*/
+
+
+/*Botões das ações(Açterar e excluir)*/
+
+.botoes-Cards {
+    width: 100%;
+}
+
+.botoes-Cards a {
+    width: 48.6%;
+}
+
+@media(max-width: 1028px) {
+    .botoes-Cards a {
         width: 100%;
+        margin-top: 7px;
     }
-    
+}
+
+@media(max-width:768px) {
     .botoes-Cards a {
         width: 48.6%;
+        margin-top: 0px;
     }
-    
-    @media(max-width: 1028px) {
-        .botoes-Cards a {
-            width: 100%;
-            margin-top: 7px;
-        }
-    }
-    
-    @media(max-width:768px) {
-        .botoes-Cards a {
-            width: 48.6%;
-            margin-top: 0px;
-        }
-    }
-    /*FIM / Botões das ações(Açterar e excluir)*/
-    
-    .modal-containe {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        background: rgba(0, 0, 0, .5);
-        z-index: 2000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .modall {
-        background: white;
-        width: 60%;
-        min-width: 300px;
-        padding: 30px;
-        margin-top: -15px;
-    }
-    
-    .blocoCadastro {
-        width: 100%;
-        min-width: 90px;
-        margin-top: -17px;
-    }
-    
-    .acoes p {
-        margin-bottom: 1px;
-        font-size: 18px;
-    }
-    
+}
+
+
+/*FIM / Botões das ações(Açterar e excluir)*/
+
+
+/*Tela MODAL ALTERAR AÇÕES*/
+
+@media(max-width:500px) {
     .acoes input {
-        width: 100%;
-        border-radius: 20px;
-        border: 1px solid #afafaf;
-        padding: 3px;
+        font-size: 13px;
     }
-    
-    .acoes #titulooo {
-        float: left;
-        width: 50%;
-        padding: 3px;
+    .acoes a {
+        font-size: 13px;
     }
-    
-    .acoes #titulooo input {
-        width: 100%;
-    }
-    
-    .acoes #ceppp {
-        float: left;
-        width: 50%;
-        padding: 3px;
-    }
-    
-    .acoes #ceppp input {
-        width: 50%;
-    }
-    
-    .acoes #pesquisar {
-        width: 40%;
-        padding: 3px;
-        margin-top: -3px;
-    }
-    
     .acoes select {
+        font-size: 13px;
+    }
+}
+
+.modal-containe {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, .5);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-containe.mostrar {
+    display: flex;
+}
+
+.modall {
+    background: white;
+    width: 60%;
+    min-width: 300px;
+    padding: 30px;
+    margin-top: -15px;
+    position: relative;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mostrar .modall {
+    animation: modal .3s;
+}
+
+.close {
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.blocoCadastro {
+    width: 100%;
+    min-width: 90px;
+    margin-top: -17px;
+}
+
+.acoes p {
+    margin-bottom: 1px;
+    font-size: 18px;
+}
+
+.acoes input {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
+}
+
+.acoes #titulooo {
+    float: left;
+    width: 50%;
+    padding: 3px;
+}
+
+.acoes #titulooo input {
+    width: 100%;
+}
+
+.acoes #ceppp {
+    float: left;
+    width: 50%;
+    padding: 3px;
+}
+
+.acoes #ceppp input {
+    width: 50%;
+}
+
+.acoes #pesquisar {
+    width: 40%;
+    padding: 3px;
+    margin-top: -3px;
+}
+
+.acoes select {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
+}
+
+.acoes #descricao {
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
+}
+
+.acoes #dataa {
+    float: left;
+    width: 50%;
+    padding: 3px;
+    margin-bottom: -37px;
+}
+
+.acoes #dataa input {
+    width: 100%;
+}
+
+.acoes #categoriaa {
+    float: left;
+    width: 50%;
+    padding: 3px;
+}
+
+.acoes #categoriaa input {
+    width: 100%;
+}
+
+.acoes #quadrado {
+    border: 1px solid #707071;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.acoes #quadrado input {
+    width: 48%;
+    margin-bottom: 3px;
+}
+
+.acoes #quadrado #cep {
+    width: 24%;
+}
+
+.acoes #quadrado legend {
+    font-size: 18px;
+}
+
+.acoes #escolherImagem {
+    border-radius: 0%;
+    width: none;
+    margin-bottom: none;
+    border: none;
+    padding: none;
+}
+
+.acoes #botaoCriar {
+    width: 50%;
+    margin-top: 15px;
+    margin-left: 25%;
+}
+
+
+/*RESPONSIVIDADE MODAL(ALTERAR AÇÃO)*/
+
+@media (max-width: 1004px) {
+    .acoes #ceppp input {
         width: 100%;
-        margin-bottom: 15px;
-        border-radius: 20px;
-        border: 1px solid #afafaf;
-        padding: 3px;
     }
-    
-    .acoes #descricao {
+    .acoes #pesquisar {
         width: 100%;
-        margin-bottom: 8px;
-        border-radius: 20px;
-        border: 1px solid #afafaf;
-        padding: 3px;
+        margin-top: 5px;
+        margin-bottom: -22px;
     }
-    
-    .acoes #dataa {
-        float: left;
-        width: 50%;
-        padding: 3px;
-        margin-bottom: -37px;
-    }
-    
-    .acoes #dataa input {
+}
+
+@media(max-width: 770px) {
+    .acoes {
+        margin-left: 0px;
         width: 100%;
+        float: none;
+        height: 100%;
     }
-    
-    .acoes #categoriaa {
-        float: left;
-        width: 50%;
-        padding: 3px;
-    }
-    
-    .acoes #categoriaa input {
-        width: 100%;
-    }
-    
-    .acoes #quadrado {
-        border: 1px solid #707071;
-        padding: 5px;
-        width: 100%;
-        margin-bottom: 5px;
-        border-radius: 5px;
-    }
-    
-    .acoes #quadrado input {
-        width: 48%;
-    }
-    
+}
+
+@media(max-width: 770px) {
     .acoes #quadrado #cep {
-        width: 24%;
+        width: 69.5%;
     }
-    
-    .acoes #quadrado legend {
-        font-size: 18px;
+    .acoes #quadrado #pesquisar {
+        width: 29.5%;
+        font-size: 15px;
     }
-    
-    .acoes #escolherImagem {
-        border-radius: 0%;
-        width: none;
-        margin-bottom: none;
-        border: none;
-        padding: none;
+    .acoes #criarAcao {
+        margin-top: 0px;
     }
-    
-    .acoes #botaoCriar {
-        width: 50%;
-        margin-top: 15px;
-        margin-left: 25%;
-    }
-    /*RESPONSIVIDADE TELA ESQUERDA(CRIAR AÇÃO)*/
-    
-    @media (max-width: 1004px) {
-        .acoes #ceppp input {
-            width: 100%;
-        }
-        .acoes #pesquisar {
-            width: 100%;
-            margin-top: 5px;
-            margin-bottom: -22px;
-        }
-    }
-    
-    @media(max-width: 770px) {
-        .acoes {
-            margin-left: 0px;
-            width: 100%;
-            float: none;
-            height: 100%;
-        }
-    }
-    
-    @media(max-width: 770px) {
-        .acoes #quadrado #cep {
-            width: 69.5%;
-        }
-        .acoes #quadrado #pesquisar {
-            width: 29.5%;
-            font-size: 15px;
-        }
-        .acoes #criarAcao {
-            margin-top: 0px;
-        }
-    }
+}
+
+
+/* FIM RESPONSIVIDADE MODAL*/
+
+
+/*Botão de close para tela de modal(Alterar dados da ação)*/
