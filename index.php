@@ -68,7 +68,6 @@
                         required: true,
                     }
                 },
-
             })
         })
 
@@ -78,16 +77,16 @@
 <body>
     <div class="containe">
             <?php if( isset($_GET['acao']) && $_GET['acao'] == 'existe' ) { ?>
-                <div id="fecharrAviso" style="background: #fe8c00; height: 50px; color: white; text-align: center; font-size: 20px;");>
+                <div class="feedback" style="background: #fe8c00; height: 50px; color: white; text-align: center; font-size: 20px;");>
                    <label style="margin-top: 8px">Usuário já cadastrado!</label>
                 </div>
             <?php } ?>
 
             <?php if( isset($_GET['acao']) && $_GET['acao'] == 'nexiste' ) { ?>
-                <div id="fecharrAvisoCadastro" style="background: #fe8c00; height: 50px; color: white; text-align: center; font-size: 20px;");>
+                <div class="feedback" style="background: #fe8c00; height: 50px; color: white; text-align: center; font-size: 20px;");>
                    <label style="margin-top: 8px">Cadastro realizado com sucesso!</label>
                 </div>
-            <?php } ?>   
+            <?php } ?>    
 
         <header>
             <!--Tela inicial(login)-->
@@ -192,16 +191,12 @@
     </div>
     
     <script>
-        function fechar(){
-            document.getElementById('fecharrAviso').style.display="none"
-        }
-            setTimeout("fechar()", 5000);
-            
-
-            function fecharCadastro(){
-            document.getElementById('fecharrAvisoCadastro').style.display="none"
-        }
-            setTimeout("fecharCadastro()", 5000);
+        
+        function feedback(){
+            document.querySelector('.feedback').style.display="none"
+        }    
+        setTimeout("feedback()", 5000);
+        
 
     </script>
    

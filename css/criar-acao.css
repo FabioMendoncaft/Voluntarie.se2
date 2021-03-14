@@ -178,6 +178,14 @@ body {
     padding: 3px;
 }
 
+.acoes select {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    padding: 3px;
+}
+
 .acoes #descricao {
     width: 100%;
     margin-bottom: 15px;

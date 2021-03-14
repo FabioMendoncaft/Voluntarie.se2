@@ -66,6 +66,9 @@
           uf: {
             required: true,
           },
+          categoria:{
+            required: true,
+          }
         },
       })
     })
@@ -199,7 +202,15 @@
 
       <div id="categoriaa">
         <p>Categoria:</p>
-        <input type="text" name="categoria" id="categoria">
+        <select name="categoria">
+          <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+          <option>Visitações</option>
+          <option>Doação de sangue</option>
+          <option>Doação de suprimentos</option>
+          <option>Distribuição suprimentos</option>
+          <option>Adoção de animais</option>
+          <option>Passeio com animais</option>
+        </select>
       </div>
 
       <div id="quadrado">
