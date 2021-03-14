@@ -103,18 +103,15 @@ Class Usuario{
 
         $stmt->execute();
 
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        foreach($resultado as $res) {
-            if ($res['email'] == $_POST['email'] && $res['senha'] == $_POST['senha'] ){
-                return 'ok';
-            }else {
-                return 'nok';
-            }
-    
+        if(empty(!$resultado)) {
+            return 'ok';
+        } else {
+            return 'email ou senha invalidos';
         }
 
-    }
+    }   
 
     public function verificaCadastro() {
         

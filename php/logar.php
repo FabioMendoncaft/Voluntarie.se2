@@ -46,13 +46,11 @@ require 'usuario.php';
 
         if($resultado == 'ok') {
             $_SESSION['autenticado'] = 'SIM';
-           // header('location: ../feed.html');
-        } else {
+            header('location: ../feed.php');
+        } else if ($resultado == 'email ou senha invalidos') {
             $_SESSION['autenticado'] = 'NÃO';
+            header('location: ../index.php?logar=nao');
         }
-
-
-    
     }
 
 ?>
