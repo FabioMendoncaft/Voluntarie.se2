@@ -16,7 +16,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Voluntarie.se | Perfil</title>
+        <title>Voluntarie.se | Minhas-ações</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
@@ -183,6 +183,66 @@
                 </div>
             </div>
         </div>
+        </div>
+
+        <div id="modal-editar" class="modal-containe">
+            <div class="modall" style="position: relative;">
+                <div class="acoes">
+                    <div class="blocoCadastro" id="criarAcao">
+
+                        <div id="titulooo">
+                            <p>Título:</p>
+                            <input type="text" name="titulo" id="titulo">
+                        </div>
+
+                        <div id="ceppp">
+                            <p>Cep:</p>
+                            <input type="text " id="cep" placeholder=" Cep " name="cep ">
+                            <a href="# " class="btn btn-light corBotao " id="pesquisar" onclick="endereco() ">Pesquisar CEP</a>
+                        </div>
+
+                        <p>Descrição:</p>
+                        <textarea name="descricao" id="descricao" rows="2"></textarea>
+
+                        <div id="quadrado">
+                            <legend>Endereço:</legend>
+                            <input type="text " id="logradouro " placeholder=" Logradouro " name="logradouro ">
+                            <input type="text " id="complemento " placeholder=" Complemento " name="complemento ">
+                            <input type="text " id="bairro " placeholder=" Bairro " name="bairro ">
+                            <input type="text " id="localidade " placeholder=" Cidade ">
+                            <input type="text " id="uf " placeholder=" UF " name="uf ">
+                        </div>
+
+                        <div id="dataa">
+                            <p>Data:</p>
+                            <input type="date" name="data">
+                        </div>
+
+                        <div id="categoriaa">
+                            <p>Categoria:</p>
+                            <select name="categoria">
+              <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+              <option>Visitações</option>
+              <option>Doação de sangue</option>
+              <option>Doação de suprimentos</option>
+              <option>Distribuição suprimentos</option>
+              <option>Adoção de animais</option>
+              <option>Passeio com animais</option>
+            </select>
+                        </div>
+
+                        <p>Imagem:</p>
+                        <form method="POST " action=" " enctype="multipart/form-data ">
+                            <input type="file " name="imagem " id="escolherImagem " onchange="previewImagem() ">
+                        </form>
+
+                        <a href=" " type="submit " class="btn btn-light corBotao " id="botaoCriar">Criar ação</a>
+
+                    </div>
+
+                </div>
+
+            </div>
         </div>
 
 
