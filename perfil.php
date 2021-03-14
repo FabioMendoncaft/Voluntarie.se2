@@ -44,7 +44,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="feed.html">Página inicial</a>
+            <a class="nav-link active" aria-current="page" href="feed.php">Página inicial</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -79,12 +79,12 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="index.html">Sair</a></li>
+              <li><a class="dropdown-item" href="index.php">Sair</a></li>
             </ul>
           </li>
         </div>
         <div class="form-inline my-2 my-lg-0">
-          <a href="criar-acao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
+          <a href="criar-acao.php"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
                 class="fas fa-plus"></i> Criar ação</button></a>
         </div>
       </div>
@@ -102,7 +102,7 @@
   <!--Navbar para Mobile(Barra inferior)-->
   <nav class="fixed-bottom navbar navbar-expand-lg navbar-light bg-light" id="navBotoomMobile">
     <div class="container-fluid">
-      <a href="feed.html">
+      <a href="feed.php">
         <span id="feed" class="material-icons">home</span>
       </a>
 
@@ -110,7 +110,7 @@
         <span class="material-icons">search</span>
       </a>
 
-      <a href="criar-acao.html">
+      <a href="criar-acao.php">
         <span class="material-icons">add_circle</span>
       </a>
 

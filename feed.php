@@ -37,7 +37,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="feed.html">Página inicial</a>
+            <a class="nav-link active" aria-current="page" href="feed.php">Página inicial</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -68,17 +68,17 @@
               <label style="margin-right: 1px;">John Galt</label>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="perfil.html">Meu perfil</a></li>
+              <li><a class="dropdown-item" href="perfil.php">Meu perfil</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="index.html">Sair</a></li>
+              <li><a class="dropdown-item" href="index.php">Sair</a></li>
             </ul>
           </li>
 
         </div>
         <div class="form-inline my-2 my-lg-0">
-          <a href="criar-acao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
+          <a href="criar-acao.php"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
                 class="fas fa-plus"></i> Criar ação</button></a>
         </div>
       </div>
@@ -104,7 +104,7 @@
         <span class="material-icons">search</span>
       </a>
 
-      <a href="criar-acao.html">
+      <a href="criar-acao.php">
         <span class="material-icons">add_circle</span>
       </a>
 
@@ -112,7 +112,7 @@
         <span class="material-icons">collections</span>
       </a>
       <div>
-        <a href="perfil.html">
+        <a href="perfil.php">
           <span id="perfil" class="material-icons">person</span>
         </a>
   </nav>
@@ -126,7 +126,7 @@
       </div>
       <div class="dadosPerfil">
         <h1><strong>John Galt</strong></h1>
-        <a href="perfil.html" class="btn btn-light corBotao">Meu perfil</a>
+        <a href="perfil.php" class="btn btn-light corBotao">Meu perfil</a>
         <a href="#" class="btn btn-light btn2">Minhas ações</a>
       </div>
     </div>
