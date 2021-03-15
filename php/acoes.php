@@ -106,6 +106,23 @@ Class Acoes {
     public function getImagem(){
         return $this->imagem;
     }
+
+    public function criarAcao(){
+
+    }
+
+    public function editarAcao(){
+
+    }
+
+    public function excluirAcao(){
+
+    }
+
+    public function listarAcao(){
+        
+    }
+
 }
 
 ?>
