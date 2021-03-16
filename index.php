@@ -111,101 +111,104 @@
                     <br>
                     <button style="float: left;">Entrar</button>
                 </form>
-                <a href="#bgCadastro"><button id="botaoCadastro">Criar conta</button></a>
+                <a href="#bgCadastro"><button id="botaoCadastro" class="ativarModal">Criar conta</button></a>
                 <br>
-                <a href="#bgSenha" class="esqueciSenha">Esqueci minha senha</a>
+                <a href="#bgSenha" class="esqueciSenha ativarModall">Esqueci minha senha</a>
             </div>
 
-            <!--Tela de cadastro-->
-            <div id="bgCadastro"></div>
-            <div class="boxCadastro">
             
-            <form class="form" method="post" action="php/logar.php?acao=cadastrar" id="cadastro">
-                    <a href="" id="close">X</a>
-                    <div class="card1">
-                        <div class="card1-top">
-                            <a href="/"><img class="logoCadastro" src="img/logo.png" alt="login"></a>
+            
+            
+            
+            <!--Tela de cadastro-->
+            <div id="modall-cadastro" class="modall-cadastro">
+                <div class="modall">
+                    <button class="close">X</button>
+                    <form class="form" method="post" action="php/logar.php?acao=cadastrar" id="cadastro">
+                        <div class="card1">
+                            <div class="card1-top">
+                                <a href="/"><img class="logoCadastro" src="img/logo.png" alt="login"></a>
+                            </div>
+    
+                            <div class="card1-group">
+                                <label>Nome</label>
+                                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+                            </div>
+    
+                            <div class="card1-group">
+                                <label>E-mail</label>
+                                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+                            </div>
+    
+                            <div class="card1-group">
+                                <label>Telefone</label>
+                                <input type="text" name="telefone" id="telefone" placeholder="Digite seu telefone">
+                            </div>
+    
+                            <div class="card1-group">
+                                <label>Senha</label>
+                                <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                            </div>
+    
+                            <div class="card1-group">
+                                <label>Confirmar</label>
+                                <input type="password" name="confirmar" id="confirmar" placeholder="Confirmar senha"
+                                    required>
+                            </div>
+    
+                            <div class="card1-group">
+                                <label>Data de nascimento</label>
+                                <input type="text" name="data" id="data" placeholder="Data de nascimento" required>
+                            </div>
+    
+                            <div class="sexo">
+                                <label>Sexo</label>
+                                <select name="sexo" class="opcoes">
+                                    <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+                                    <option>Masculino</option>
+                                    <option>Feminino</option>
+                                </select>
+                            </div>
+    
+                            <div class="card1-group btn">
+                                <button class="btn btn-danger" type="submit">Cadastrar</button>
+                            </div>
+                    
                         </div>
-
-                        <div class="card1-group">
-                            <label>Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
-                        </div>
-
-                        <div class="card1-group">
-                            <label>E-mail</label>
-                            <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
-                        </div>
-
-                        <div class="card1-group">
-                            <label>Telefone</label>
-                            <input type="text" name="telefone" id="telefone" placeholder="Digite seu telefone">
-                        </div>
-
-                        <div class="card1-group">
-                            <label>Senha</label>
-                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
-                        </div>
-
-                        <div class="card1-group">
-                            <label>Confirmar</label>
-                            <input type="password" name="confirmar" id="confirmar" placeholder="Confirmar senha"
-                                required>
-                        </div>
-
-                        <div class="card1-group">
-                            <label>Data de nascimento</label>
-                            <input type="text" name="data" id="data" placeholder="Data de nascimento" required>
-                        </div>
-
-                        <div class="sexo">
-                            <label>Sexo</label>
-                            <select name="sexo" class="opcoes">
-                                <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
-                                <option>Masculino</option>
-                                <option>Feminino</option>
-                            </select>
-                        </div>
-
-                        <div class="card1-group btn">
-                            <button class="btn btn-danger" type="submit">Cadastrar</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>    
+                </div>
             </div>
+
+
+
+
+
             <!--Tela de esquici senha-->
-            <div id="bgSenha"></div>
-            <div class="boxSenha">
-                <form class="form" action="#" id="esqueciSenhaa">
-                    <a href="" id="close">X</a>
-                    <div class="card1">
-                        <div class="card1-top">
-                            <a href="/"><img class="logoEsqueciSenha" src="img/logo.png" alt="login"></a>
+            <div id="modall-esqueci" class="modall-esqueci">
+                <div class="modall-esqSenha">
+                    <button class="close">X</button>
+                    <form class="form" action="#" id="esqueciSenhaa">
+                        <div class="card1">
+                            <div class="card1-top">
+                                <a href="/"><img class="logoEsqueciSenha" src="img/logo.png" alt="login"></a>
+                            </div>
+    
+                            <div class="card1-group" id="insiriaSeuEmail">
+                                <label>Insira seu e-mail para redefinir sua senha</label>
+                                <input type="email" name="email" id="email" placeholder="E-mail">
+                            </div>
+    
+                            <div class="card1-group btn">
+                                <button type="submit">REDEFINIR</button>
+                            </div>
                         </div>
-
-                        <div class="card1-group" id="insiriaSeuEmail">
-                            <label>Insira seu e-mail para redefinir sua senha</label>
-                            <input type="email" name="email" id="email" placeholder="E-mail">
-                        </div>
-
-                        <div class="card1-group btn">
-                            <button type="submit">REDEFINIR</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </header>
     </div>
-    
-    <script>
-        
-        function feedback(){
-            document.querySelector('.feedback').style.display="none"
-        }    
-        setTimeout("feedback()", 5000);
 
+    <script src="JavaScript/index.js"></script>
 
-    </script>
-   
 </body>
 </html>
