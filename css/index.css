@@ -253,32 +253,34 @@ header {
 
 /* TELA MODAL */
 
+
 /*Cadastro*/
 
-.modall-cadastro{
+.modall-cadastro {
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     position: fixed;
     top: 0px;
     left: 0px;
     z-index: 2000;
     display: none;
     justify-content: center;
-    align-items: center;
 }
 
-.modall-cadastro.mostrar{
+.modall-cadastro.mostrar {
     display: flex;
 }
 
-.modall{
+.modall {
     position: relative;
+    margin-top: 15px;
 }
 
-.modall select{
+.modall select {
     width: 100%;
 }
+
 @keyframes modal {
     from {
         opacity: 0;
@@ -294,32 +296,33 @@ header {
     animation: modal .3s;
 }
 
-.modall img{
+.modall img {
     width: 200px;
     margin-left: 23%;
 }
 
+
 /*Esqueci senha*/
 
-.modall-esqueci{
+.modall-esqueci {
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     position: fixed;
     top: 0px;
     left: 0px;
     z-index: 2000;
     display: none;
     justify-content: center;
-    align-items: center;
 }
 
-.modall-esqueci.mostrarr{
+.modall-esqueci.mostrarr {
     display: flex;
 }
 
-.modall-esqSenha{
+.modall-esqSenha {
     position: relative;
+    margin-top: 15px;
 }
 
 @keyframes modal {
@@ -337,7 +340,7 @@ header {
     animation: modal .3s;
 }
 
-.modall-esqSenha img{
+.modall-esqSenha img {
     width: 200px;
     margin-bottom: 10px;
     margin-left: 100px;
@@ -345,9 +348,9 @@ header {
 
 
 /*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
+
 @media(max-width: 440px) {
     .modall {
-        margin-top: -30px;
         width: 280px;
         height: 550px;
     }
@@ -355,10 +358,9 @@ header {
         width: 280px;
         height: 550px;
     }
-    .modall-esqSenha img{
+    .modall-esqSenha img {
         margin-left: 30px;
     }
-    
     .card1-group>button {
         padding: 0.6rem 5rem;
     }
@@ -370,11 +372,14 @@ header {
         margin-left: 50px;
     }
 }
+
+
 /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
 
 
 /*Botão de close para tela de cadastro e esquici senha*/
-.close{
+
+.close {
     position: absolute;
     font-size: 1.2em;
     background: #fe0000;
