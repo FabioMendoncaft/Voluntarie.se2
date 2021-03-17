@@ -72,7 +72,7 @@ Class Acoes {
     } 
 
     public function getUf(){
-        return $thus->uf;
+        return $this->uf;
     }
 
     public function setComplemento($complemento){
@@ -108,7 +108,26 @@ Class Acoes {
     }
 
     public function criarAcao(){
+        
+        $query = 'insert into tb_acoes 
+                (id_usuario, titulo, descricao, logradouro, cidade, bairro, uf,
+                complemento, data_evento, categoria, imagem) 
+                values (:id_usuario, :titulo, :descricao, :logradouro, :cidade, :bairro, :uf,
+                :complemento, :data_evento, :categoria, :imagem )';
+                $stmt = $this->conexao->prepare($query);
+                $stmt->bindValue(':id_usuario', $this->getId_usuario());
+                $stmt->bindValue(':titulo', $this->getTitulo());
+                $stmt->bindValue(':descricao', $this->getDescricao());
+                $stmt->bindValue(':logradouro', $this->getLogradouro());
+                $stmt->bindValue(':cidade', $this->getCidade());
+                $stmt->bindValue(':bairro', $this->getBairro());
+                $stmt->bindValue(':uf', $this->getUf());
+                $stmt->bindValue(':complemento', $this->getComplemento());
+                $stmt->bindValue(':categoria', $this->getCategoria());
+                $stmt->bindValue(':imagem', $this->getImagem());
+                $stmt->bindValue(':data_evento', $this->getData());
 
+                $stmt->execute();
     }
 
     public function editarAcao(){

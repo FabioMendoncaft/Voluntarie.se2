@@ -14,6 +14,10 @@ Class Usuario{
 
 
    //metodos getters e setters
+        public function getId(){
+            return $this->id;
+        }
+    
         public function setNome($nome){
             $this->nome = $nome;
         }
@@ -106,6 +110,8 @@ Class Usuario{
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if(empty(!$resultado)) {
+           $_SESSION['id_usuario'] = $resultado['id']; 
+           $_SESSION['nome'] = $resultado['nome'];
             return 'ok';
         } else {
             return 'email ou senha invalidos';

@@ -186,7 +186,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
             <div id="tituloMobile">
                 <h3>Criar ação</h3>
             </div>
-
+        <form method="post" action="php/acoes-controller.php?acao=criar">
             <p>Título:</p>
             <input type="text" name="titulo" id="titulo">
 
@@ -218,18 +218,18 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                 <input type="text" id="logradouro" placeholder=" Logradouro" name="logradouro">
                 <input type="text" id="complemento" placeholder=" Complemento" name="complemento">
                 <input type="text" id="bairro" placeholder=" Bairro" name="bairro">
-                <input type="text" id="localidade" placeholder=" Cidade">
+                <input type="text" id="localidade" placeholder=" Cidade" name="cidade">
                 <input type="text" id="uf" placeholder=" UF" name="uf">
             </div>
 
             <p>Imagem:</p>
-            <form method="POST" action="" enctype="multipart/form-data">
+       <!--     <form method="POST" action="" enctype="multipart/form-data"> -->
                 <input type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
                 <img name="imagem" src="" alt="" id="imagem">
-            </form>
+           <!-- </form> -->
 
-            <a href="" type="submit" class="btn btn-light corBotao" id="botaoCriar">Criar ação</a>
-
+            <button type="submit" class="btn btn-light corBotao" id="botaoCriar">Criar ação</button>
+        </form>
         </div>
     </div>
 
