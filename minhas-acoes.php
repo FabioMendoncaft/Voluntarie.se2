@@ -5,6 +5,8 @@ if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
 header('Location: index.php');
 }
 
+$acao = 'recuperar';
+require 'php/acoes-controller.php';
 
 ?>
 
@@ -150,17 +152,24 @@ header('Location: index.php');
             </div>
             <div class="row row-cols-1 row-cols-md-3 g-4 ">
                 <div class="col ">
+
+                <?php foreach($minha_acao as $indice => $acoes) { ?>
                     <div class="card h-100 ">
                         <img src="img/acaoSocial2.jpg " class="card-img-top " alt="... ">
                         <div class="card-body ">
-                            <h5 class="card-title ">Card title</h5>
-                            <p class="card-text ">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title ">
+                            <?= $acoes->titulo ?> 
+                            </h5>
+                            <p class="card-text ">
+                            <?= $acoes->descricao ?>
+                            </p>
                             <div class="botoes-Cards">
                                 <a href="# " class="btn btn-light botaoAcoesFeed corBotao ativarModal">Alterar</a>
                                 <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Excluir</a>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

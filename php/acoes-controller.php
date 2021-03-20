@@ -4,9 +4,6 @@ require 'conexao.php';
 require 'acoes.php';
 
 
-print_r($_POST);
-
-
 if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     $conexao = new Conexao();
@@ -26,11 +23,20 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
     $acao->setCategoria($_POST['categoria']);
     $acao->setImagem($_POST['imagem']);
 
-
-
     $acao->criarAcao();
 
+} else if ($acao == 'recuperar') {
+    echo 'chegamos aqui';
+
+
+    $conexao = new Conexao();
+    $acao = new Acoes($conexao);
+    $acao->setId_usuario($_SESSION['id_usuario']);
+
+    $minha_acao = $acao->listarMinhaAcao();
+
 }
+
 
 
 

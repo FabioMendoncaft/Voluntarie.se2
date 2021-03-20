@@ -230,7 +230,7 @@ header {
     background: linear-gradient(to right, #f83600, #fe5200);
     width: 100%;
     border-radius: 30px;
-    padding: 0.6rem 9.7rem;
+    padding: 0.6rem 9rem;
     color: #ffffff;
     border: 0px;
     outline: 0;
@@ -256,120 +256,144 @@ header {
 
 /*Cadastro*/
 
-.modall-cadastro {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, .5);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 2000;
-    display: none;
-    justify-content: center;
-}
-
-.modall-cadastro.mostrar {
-    display: flex;
-}
-
-.modall {
-    position: relative;
-    margin-top: 15px;
-}
-
-.modall select {
+#bgCadastro {
     width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.623);
+    position: fixed;
+    display: none;
 }
 
-@keyframes modal {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -60px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+#bgCadastro:target {
+    display: block;
 }
 
-.mostrar .modall {
-    animation: modal .3s;
+#bgCadastro:target~.boxCadastro {
+    top: 20px;
+    transition: all .3s;
+    transition-delay: .2s;
 }
 
-.modall img {
-    width: 200px;
-    margin-left: 23%;
+.boxCadastro {
+    width: 400px;
+    height: 650px;
+    position: absolute;
+    margin-left: -200px;
+    left: 50%;
+    top: -1500px;
+}
+
+.boxCadastro img {
+    width: 60%;
+    margin-left: 70px;
+}
+
+.boxCadastro select {
+    width: 90%;
+    margin-top: 10px;
+    padding: 2px
+}
+
+.card1 .logoEsqueciSenha {
+    margin-bottom: 13px;
 }
 
 
 /*Esqueci senha*/
 
-.modall-esqueci {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, .5);
+#bgSenha {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.623);
     position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 2000;
     display: none;
-    justify-content: center;
 }
 
-.modall-esqueci.mostrarr {
-    display: flex;
+#bgSenha:target {
+    display: block;
 }
 
-.modall-esqSenha {
-    position: relative;
-    margin-top: 15px;
+#bgSenha:target~.boxSenha {
+    top: 20px;
+    transition: all .3s;
+    transition-delay: .2s;
 }
 
-@keyframes modal {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -60px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+.boxSenha {
+    width: 400px;
+    height: 650px;
+    position: absolute;
+    margin-left: -200px;
+    left: 50%;
+    top: -810px;
 }
 
-.mostrarr .modall-esqSenha {
-    animation: modal .3s;
-}
-
-.modall-esqSenha img {
-    width: 200px;
-    margin-bottom: 10px;
-    margin-left: 100px;
+.boxSenha img {
+    width: 60%;
+    margin-left: 70px;
 }
 
 
 /*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
 
-@media(max-width: 440px) {
-    .modall {
+@media(max-width: 400px) {
+    .boxCadastro {
         width: 280px;
         height: 550px;
+        margin-left: -138px;
     }
-    .modall-esqSenha {
+    .boxSenha {
         width: 280px;
         height: 550px;
-    }
-    .modall-esqSenha img {
-        margin-left: 30px;
+        margin-left: -138px;
     }
     .card1-group>button {
         padding: 0.6rem 5rem;
     }
-    .modall select {
+    .boxCadastro select {
         width: 85%;
     }
-    .modall img {
-        width: 150px;
+    .boxCadastro img {
+        width: 60%;
         margin-left: 50px;
+    }
+}
+
+@media(min-width: 2400px) {
+    .boxCadastro {
+        width: 800px;
+        height: 1250px;
+        margin-left: -400px;
+        font-size: 35px;
+    }
+    .boxSenha {
+        width: 800px;
+        height: 1250px;
+        margin-left: -400px;
+        font-size: 35px;
+    }
+    .card1-group>input {
+        height: 70px;
+    }
+    .card1-group>button {
+        padding: 1rem 19rem;
+        font-size: 35px;
+    }
+    .boxCadastro img {
+        margin-left: 100px;
+    }
+    .boxSenha img {
+        margin-left: 100px;
+    }
+    .boxCadastro select {
+        width: 200px;
+    }
+    .boxCadastro option {
+        font-size: 15px;
     }
 }
 
@@ -379,18 +403,28 @@ header {
 
 /*Botão de close para tela de cadastro e esquici senha*/
 
-.close {
+#close {
+    color: white;
+    font-family: 'Arial';
+    text-decoration: none;
+    font-size: 22px;
     position: absolute;
-    font-size: 1.2em;
     background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
-    top: 0px;
-    right: 0px;
-    color: white;
     width: 30px;
     height: 30px;
-    border: 1px solid;
-    border-radius: 3px;
-    cursor: pointer;
+    text-align: center;
+    right: 0;
+    border-radius: 7px;
+    margin-top: 1px;
+    margin-right: 1px;
+}
+
+@media(min-width: 2400px) {
+    #close {
+        width: 55px;
+        height: 55px;
+        font-size: 40px;
+    }
 }

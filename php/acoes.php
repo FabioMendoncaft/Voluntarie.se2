@@ -138,8 +138,15 @@ Class Acoes {
 
     }
 
-    public function listarAcao(){
-        
+    public function listarMinhaAcao(){
+
+        $query = 'select * from tb_acoes where id_usuario = :id_usuario';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_usuario', $this->getId_usuario());
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
     }
 
 }
