@@ -159,10 +159,11 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
              <?php foreach($minha_acao as $indice => $acoes) { ?>
                 <div class="col">
                     <div class="card h-100">
-                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                        <!--<img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">-->
+                        <img src="<?= echo $acoes->titulo ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $acoes->titulo ?></h5>
-                            <p class="card-text"><?= $acoes->descricao ?></p>
+                            <h5 class="card-title"><?= echo $acoes->titulo ?></h5>
+                            <p class="card-text"><?= echo $acoes->descricao ?></p>
                             <a href="#" class="btn btn-light corBotao"><i class="fas fa-users"></i> Participar</a>
                         </div>
                     </div>
