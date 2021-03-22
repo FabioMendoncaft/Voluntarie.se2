@@ -9,8 +9,6 @@ $acao = 'recuperar';
 require 'php/acoes-controller.php';
 
 ?>
-
-
     <!DOCTYPE html>
     <html lang="pt-BR">
 
@@ -150,14 +148,13 @@ require 'php/acoes-controller.php';
             <div id="tituloMobile">
                 <h3>Minhas ações</h3>
             </div>
-            <div class="row row-cols-1 row-cols-md-3 g-4 ">
-                <div class="col ">
-
+            <div style="margin-bottom: 15px;"class="row row-cols-1 row-cols-md-3 g-4">
                 <?php foreach($minha_acao as $indice => $acoes) { ?>
+                <div class="col ">
                     <div class="card h-100 ">
                         <img src="img/acaoSocial2.jpg " class="card-img-top " alt="... ">
                         <div class="card-body ">
-                            <h5 class="card-title ">
+                            <h5 class="card-tite ">
                             <?= $acoes->titulo ?> 
                             </h5>
                             <p class="card-text ">
@@ -169,8 +166,8 @@ require 'php/acoes-controller.php';
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
                 </div>
+                <?php } ?>
             </div>
         </div>
         </div>
