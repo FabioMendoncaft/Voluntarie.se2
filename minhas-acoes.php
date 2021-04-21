@@ -1,14 +1,4 @@
-<?php
 
-session_start();
-if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
-header('Location: index.php');
-}
-
-$acao = 'recuperar';
-require 'php/acoes-controller.php';
-
-?>
     <!DOCTYPE html>
     <html lang="pt-BR">
 
@@ -17,9 +7,13 @@ require 'php/acoes-controller.php';
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Voluntarie.se | Minhas-ações</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
         <link rel="stylesheet" href="css/minhas-acoes.css">
         <script type="text/javascript" src="js/jquery-3.5.1.min.js">
         </script>
@@ -39,6 +33,18 @@ require 'php/acoes-controller.php';
         </script>
 
     </head>
+
+    <?php
+
+session_start();
+if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
+header('Location: index.php');
+}
+
+$acao = 'recuperar';
+require 'php/acoes-controller.php';
+
+?>
 
     <body>
         <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light" id="navTop">
@@ -77,7 +83,7 @@ require 'php/acoes-controller.php';
                                 <label style="margin-right: 1px;">John Galt</label>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Meu perfil</a></li>
+                                <li><a class="dropdown-item" href="perfil.php">Meu perfil</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -106,10 +112,6 @@ class="fas fa-plus"></i> Criar ação</button></a>
             <div class="container-fluid">
                 <a href="feed.php">
                     <span id="feed" class="material-icons">home</span>
-                </a>
-
-                <a href="">
-                    <span class="material-icons">search</span>
                 </a>
 
                 <a href="criar-acao.php">
