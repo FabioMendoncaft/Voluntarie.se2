@@ -87,7 +87,7 @@ require 'php/acoes-controller.php';
                     </div>
                     <div class="form-inline my-2 my-lg-0">
                         <a href="criar-acao.php"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
-                        class="fas fa-plus"></i> Criar ação</button></a>
+class="fas fa-plus"></i> Criar ação</button></a>
                     </div>
                 </div>
             </div>
@@ -148,20 +148,20 @@ require 'php/acoes-controller.php';
             <div id="tituloMobile">
                 <h3>Minhas ações</h3>
             </div>
-            <div style="margin-bottom: 15px;"class="row row-cols-1 row-cols-md-3 g-4">
+            <div style="margin-bottom: 15px;" class="row row-cols-1 row-cols-md-3 g-4">
                 <?php foreach($minha_acao as $indice => $acoes) { ?>
-                <div class="col ">
+                <div class="col " id="">
                     <div class="card h-100 ">
                         <img src="img/acaoSocial2.jpg " class="card-img-top " alt="... ">
                         <div class="card-body ">
                             <h5 class="card-tite ">
-                            <?= $acoes->titulo ?> 
+                                <?= $acoes->titulo ?>
                             </h5>
                             <p class="card-text ">
-                            <?= $acoes->descricao ?>
+                                <?= $acoes->descricao ?>
                             </p>
                             <div class="botoes-Cards">
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ativarModal">Alterar</a>
+                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao" onclick="alterar(<?= $acoes->id ?>)">Alterar</a>
                                 <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Excluir</a>
                             </div>
                         </div>
@@ -214,7 +214,7 @@ require 'php/acoes-controller.php';
                                 <option>Doação de suprimentos</option>
                                 <option>Distribuição suprimentos</option>
                                 <option>Adoção de animais</option>
-                                <option>Passeio com animais</option>
+                                    <option>Passeio com animais</option>
                             </select>
                         </div>
 

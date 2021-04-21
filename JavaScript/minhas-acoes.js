@@ -53,5 +53,9 @@ function iniciaModal(modalID) {
     }
 }
 
-const ativarModal = document.querySelector('.ativarModal')
+const ativarModal = document.querySelector('')
 ativarModal.addEventListener('click', () => iniciaModal('modal-editar'))
+
+function alterar(joao) {
+    alert(joao)
+}
