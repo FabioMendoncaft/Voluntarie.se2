@@ -163,7 +163,7 @@
 
             <div id="blocoDados">
                 <p class="dados">E-mail:
-                    <p id="email">user@user</p>
+                    <p id="email">fabio.mendonca.f@gmail.com</p>
                 </p>
 
                 <p class="dados">Telefone:
@@ -232,9 +232,7 @@
                             </select>
                         </div>
 
-                        <div class="card1-group btn">
-                            <button class="btn btn-danger" type="submit">ALTERAR</button>
-                        </div>
+                        <button type="submit" class="btn btn-light corBotao botaoEditarDados " id="Alterar">ALTERAR</button>
 
                     </div>
                 </form>
@@ -257,9 +255,7 @@
                         <img name="imagee" id="imagee">
                     </form>
 
-                    <div class="card1-group btn">
-                        <button type="submit">SALVAR</button>
-                    </div>
+                    <button type="submit" class="btn btn-light corBotao botaoEditarFoto" id="salvarFoto">SALVAR</button>
                 </div>
             </div>
         </div>

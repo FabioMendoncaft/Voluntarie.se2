@@ -182,6 +182,66 @@
             margin-top: 15px;
             margin-left: 25%;
         }
+        
+        @media(max-width: 640px) {
+            .blocoPerfil #blocoDados {
+                font-size: 16px;
+            }
+            .blocoPerfil #email {
+                margin-left: 60px;
+            }
+            .blocoPerfil #telefone {
+                margin-left: 70px;
+            }
+            .blocoPerfil #dNascimento {
+                margin-left: 150px;
+            }
+            .blocoPerfil #sexo {
+                margin-left: 50px;
+            }
+        }
+        
+        @media(max-width: 520px) {
+            .blocoPerfil {
+                width: 100%;
+                margin-left: auto;
+            }
+            .blocoPerfil #blocoFotoPerfil {
+                width: 100px;
+                height: 100px;
+            }
+            .blocoPerfil #imagemPerfil {
+                width: 100px;
+                height: 100px;
+            }
+            .blocoPerfil #editarImagem {
+                margin-top: 50px;
+                margin-left: -25px;
+                border: 0px;
+                height: 29px;
+            }
+            .blocoPerfil h1 {
+                font-size: 25px;
+            }
+        }
+        
+        @media(max-width: 330px) {
+            .blocoPerfil #blocoDados {
+                font-size: 14px;
+            }
+            .blocoPerfil #email {
+                margin-left: 48px;
+            }
+            .blocoPerfil #telefone {
+                margin-left: 60px;
+            }
+            .blocoPerfil #dNascimento {
+                margin-left: 132px;
+            }
+            .blocoPerfil #sexo {
+                margin-left: 40px;
+            }
+        }
         /*(MODAL)Editar dados*/
         
         .card1 {
@@ -206,19 +266,6 @@
             height: 20px;
             padding: 13px;
             border: solid 1px;
-        }
-        
-        .card1-group>button {
-            background: #fe0000;
-            background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
-            background: linear-gradient(to right, #f83600, #fe5200);
-            width: 100%;
-            border-radius: 30px;
-            padding: 0.6rem 9.7rem;
-            color: #ffffff;
-            border: 0px;
-            outline: 0;
-            margin-top: 2px;
         }
         
         .card1 .sexo {
@@ -254,6 +301,7 @@
         .modall {
             position: relative;
             margin-top: 15px;
+            width: 420px;
         }
         
         .modall select {
@@ -275,9 +323,9 @@
             animation: modal .3s;
         }
         
-        .modall img {
-            width: 200px;
-            margin-left: 23%;
+        .botaoEditarFoto {
+            width: 100%;
+            margin-top: 15px;
         }
         /*Editar foto*/
         
@@ -316,6 +364,11 @@
             font-family: Arial, Helvetica, sans-serif;
         }
         
+        .botaoEditarDados {
+            width: 100%;
+            margin-top: 15px;
+        }
+        
         @keyframes modal {
             from {
                 opacity: 0;
@@ -331,6 +384,18 @@
             animation: modal .3s;
         }
         /*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
+        
+        @media(max-width: 475px) {
+            .modall {
+                width: 90%;
+            }
+            .modall-editarImg {
+                width: 90%;
+            }
+            .modall-editarImg input {
+                width: 50%;
+            }
+        }
         /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
         
         .close {
