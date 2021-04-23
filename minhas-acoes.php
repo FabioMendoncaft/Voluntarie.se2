@@ -155,16 +155,16 @@ require 'php/acoes-controller.php';
                 <div class="col " id="">
                     <div class="card h-100 ">
                         <img src="img/acaoSocial2.jpg " class="card-img-top " alt="... ">
-                        <div class="card-body ">
+                        <div class="card-body d-flex flex-column align-items-left">
                             <h5 class="card-tite ">
                                 <?= $acoes->titulo ?>
                             </h5>
                             <p class="card-text ">
                                 <?= $acoes->descricao ?>
                             </p>
-                            <div class="botoes-Cards">
+                            <div class="botoes-Cards mt-auto">
                                 <a href="# " class="btn btn-light botaoAcoesFeed corBotao" onclick="alterar(<?= $acoes->id ?>)">Alterar</a>
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao ">Excluir</a>
+                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao">Excluir</a>
                             </div>
                         </div>
                     </div>

@@ -248,10 +248,10 @@ body {
 
 .acoes #escolherImagem {
     border-radius: 0%;
-    width: none;
-    margin-bottom: none;
-    border: none;
-    padding: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
 
 .acoes #imagem {
@@ -368,7 +368,7 @@ body {
     margin-left: 10px;
 }
 
-#navBotoomMobile #criarAcao{
+#navBotoomMobile #criarAcao {
     border-width: medium;
     color: #fe5200;
     border-top: #fe5200;

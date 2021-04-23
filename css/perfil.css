@@ -1,428 +1,446 @@
-        @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none;
-        }
-        
-        body {
-            background: rgb(219, 219, 219);
-        }
-        /*Padrão para todos os botões*/
-        
-        .corBotao {
-            background: #fe0000;
-            background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
-            background: linear-gradient(to right, #f83600, #fe5200);
-            color: white;
-            border-radius: 20px;
-        }
-        
-        .corBotao:hover {
-            color: white;
-        }
-        
-        .corBotao:not(:hover) {
-            color: white;
-        }
-        /* Fim - Padrão para todos os botões*/
-        /* NAV´s BAR MOBILE */
-        
-        #navTopMobile {
-            display: none;
-            height: 56px;
-        }
-        
-        #navTopMobile #imagem {
-            width: 130px;
-            margin-top: -6px;
-        }
-        
-        #navBotoomMobile {
-            display: none;
-            padding: 0px;
-            height: 44px;
-        }
-        
-        #navBotoomMobile span {
-            color: #4f4f50;
-            font-size: 38px;
-        }
-        
-        #navBotoomMobile #feed {
-            margin-left: 10px;
-        }
-        
-        #navBotoomMobile #perfil {
-            margin-right: 10px;
-            color: #fe5200;
-            border-top: #fe5200;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-bottom: none;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
 
-        /* RESPONSIVIDADE NAV´s BAR MOBILE */
-        
-        @media(max-width: 770px) {
-            #navTop {
-                display: none;
-            }
-            #navTopMobile {
-                display: flex;
-            }
-            #navBotoomMobile {
-                display: flex;
-            }
-        }
-        
-        @media(max-width: 435px) {
-            #navBotoomMobile span {
-                font-size: 32px;
-            }
-            #navBotoomMobile #feed {
-                margin-left: 5px;
-            }
-            #navBotoomMobile #perfil {
-                margin-right: 5px;
-            }
-        }
-        
-        @media(max-width: 350px) {
-            #navBotoomMobile span {
-                font-size: 28px;
-            }
-        }
-        /*Nav Bar Mobile*/
-        
-        .blocoPerfil {
-            background-color: white;
-            width: 70%;
-            height: 100%;
-            position: fixed;
-            margin-top: 45px;
-            margin-left: 15%;
-        }
-        
-        .blocoPerfil #topPerfil {
-            border-radius: 6px;
-            background: rgb(85, 85, 85);
-            width: 100%;
-            height: 15%;
-        }
-        
-        .blocoPerfil #blocoFotoPerfil {
-            margin: auto;
-            margin-top: -55px;
-            background: white;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            display: flex;
-        }
-        
-        .blocoPerfil #imagemPerfil {
-            padding: 4px;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-        }
-        
-        .blocoPerfil #editarImagem {
-            margin-top: 60px;
-            margin-left: -25px;
-            border: 0px;
-            height: 29px;
-            background: transparent;
-            border-radius: 50%;
-            
-        }
-        
-        .blocoPerfil span {
-            color: rgb(179, 179, 179);
-            font-size: 30px;
-        }
+body {
+    background: rgb(219, 219, 219);
+}
 
-        .blocoPerfil span:hover{
-            color: rgb(85, 85, 85);
-            font-size: 33px;
-        }
-        
-        .blocoPerfil h1 {
-            text-align: center;
-            color: #707071;
-            font-size: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .blocoPerfil #blocoDados {
-            margin: auto;
-            width: 70%;
-            color: #707071;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-        }
-        
-        .blocoPerfil .dados {
-            float: left;
-        }
-        
-        .blocoPerfil #email {
-            margin-left: 70px;
-            margin-bottom: 25px;
-        }
-        
-        .blocoPerfil #telefone {
-            margin-left: 90px;
-            margin-bottom: 25px;
-        }
-        
-        .blocoPerfil #dNascimento {
-            margin-left: 190px;
-            margin-bottom: 25px;
-        }
-        
-        .blocoPerfil #sexo {
-            margin-left: 60px;
-            margin-bottom: 25px;
-        }
-        
-        .blocoPerfil #editarDados {
-            width: 50%;
-            margin-top: 15px;
-            margin-left: 25%;
-        }
-        
-        @media(max-width: 640px) {
-            .blocoPerfil #blocoDados {
-                font-size: 16px;
-            }
-            .blocoPerfil #email {
-                margin-left: 60px;
-            }
-            .blocoPerfil #telefone {
-                margin-left: 70px;
-            }
-            .blocoPerfil #dNascimento {
-                margin-left: 150px;
-            }
-            .blocoPerfil #sexo {
-                margin-left: 50px;
-            }
-        }
-        
-        @media(max-width: 520px) {
-            .blocoPerfil {
-                width: 100%;
-                margin-left: auto;
-            }
-            .blocoPerfil #blocoFotoPerfil {
-                width: 100px;
-                height: 100px;
-            }
-            .blocoPerfil #imagemPerfil {
-                width: 100px;
-                height: 100px;
-            }
-            .blocoPerfil #editarImagem {
-                margin-top: 50px;
-                margin-left: -25px;
-                border: 0px;
-                height: 29px;
-            }
-            .blocoPerfil h1 {
-                font-size: 25px;
-            }
-        }
-        
-        @media(max-width: 330px) {
-            .blocoPerfil #blocoDados {
-                font-size: 14px;
-            }
-            .blocoPerfil #email {
-                margin-left: 48px;
-            }
-            .blocoPerfil #telefone {
-                margin-left: 60px;
-            }
-            .blocoPerfil #dNascimento {
-                margin-left: 132px;
-            }
-            .blocoPerfil #sexo {
-                margin-left: 40px;
-            }
-        }
-        /*(MODAL)Editar dados*/
-        
-        .card1 {
-            box-shadow: 1px 1px 10px #ccc;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        
-        .card1-group {
-            margin-bottom: 5px;
-        }
-        
-        .card1-group>label {
-            width: 100%;
-            color: rgb(75, 75, 75);
-            display: block;
-        }
-        
-        .card1-group>input {
-            width: 100%;
-            height: 20px;
-            padding: 13px;
-            border: solid 1px;
-        }
-        
-        .card1 .sexo {
-            color: rgb(75, 75, 75);
-            margin-bottom: 10px;
-        }
-        
-        .title {
-            color: #CA2700;
-        }
-        
-        #insiriaSeuEmail label {
-            margin-bottom: 10px;
-        }
-        /*Editar dados*/
-        
-        .modall-editarDados {
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, .5);
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-        }
-        
-        .modall-editarDados.mostrar {
-            display: flex;
-        }
-        
-        .modalEditar {
-            position: relative;
-            margin-top: 15px;
-            width: 420px;
-        }
-        
-        .modalEditar select {
-            width: 100%;
-        }
-        
-        @keyframes modal {
-            from {
-                opacity: 0;
-                transform: translate3d(0, -60px, 0);
-            }
-            to {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
-        
-        .mostrar .modalEditar {
-            animation: modal .3s;
-        }
-        
-        .botaoEditarFoto {
-            width: 100%;
-            margin-top: 15px;
-        }
-        /*Editar foto*/
-        
-        .modall-editarImagem {
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, .5);
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .modall-editarImagem.mostrarr {
-            display: flex;
-        }
-        
-        .modall-editarImg {
-            position: relative;
-            margin-top: 15px;
-        }
-        
-        .modall-editarImg #imagee {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        
-        .modall-editarImg #tituloEditarFoto {
-            color: #707071;
-            font-size: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        .botaoEditarDados {
-            width: 100%;
-            margin-top: 15px;
-        }
-        
-        @keyframes modal {
-            from {
-                opacity: 0;
-                transform: translate3d(0, -60px, 0);
-            }
-            to {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
-        
-        .mostrarr .modall-editarImg {
-            animation: modal .3s;
-        }
-        /*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
-        
-        @media(max-width: 475px) {
-            .modall {
-                width: 90%;
-            }
-            .modall-editarImg {
-                width: 90%;
-            }
-            .modall-editarImg input {
-                width: 50%;
-            }
-        }
-        /* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
-        
-        .close {
-            position: absolute;
-            font-size: 1.2em;
-            background: #fe0000;
-            background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
-            background: linear-gradient(to right, #f83600, #fe5200);
-            top: 0px;
-            right: 0px;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border: 1px solid;
-            border-radius: 3px;
-            cursor: pointer;
-        }
+
+/*Padrão para todos os botões*/
+
+.corBotao {
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    color: white;
+    border-radius: 20px;
+}
+
+.corBotao:hover {
+    color: white;
+}
+
+.corBotao:not(:hover) {
+    color: white;
+}
+
+
+/* Fim - Padrão para todos os botões*/
+
+
+/* NAV´s BAR MOBILE */
+
+#navTopMobile {
+    display: none;
+    height: 56px;
+}
+
+#navTopMobile #imagem {
+    width: 130px;
+    margin-top: -6px;
+}
+
+#navBotoomMobile {
+    display: none;
+    padding: 0px;
+    height: 44px;
+}
+
+#navBotoomMobile span {
+    color: #4f4f50;
+    font-size: 38px;
+}
+
+#navBotoomMobile #feed {
+    margin-left: 10px;
+}
+
+#navBotoomMobile #perfil {
+    margin-right: 10px;
+    color: #fe5200;
+    border-top: #fe5200;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+
+/* RESPONSIVIDADE NAV´s BAR MOBILE */
+
+@media(max-width: 770px) {
+    #navTop {
+        display: none;
+    }
+    #navTopMobile {
+        display: flex;
+    }
+    #navBotoomMobile {
+        display: flex;
+    }
+}
+
+@media(max-width: 435px) {
+    #navBotoomMobile span {
+        font-size: 32px;
+    }
+    #navBotoomMobile #feed {
+        margin-left: 5px;
+    }
+    #navBotoomMobile #perfil {
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 350px) {
+    #navBotoomMobile span {
+        font-size: 28px;
+    }
+}
+
+
+/*Nav Bar Mobile*/
+
+.blocoPerfil {
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    position: fixed;
+    margin-top: 45px;
+    margin-left: 15%;
+}
+
+.blocoPerfil #topPerfil {
+    border-radius: 6px;
+    background: rgb(85, 85, 85);
+    width: 100%;
+    height: 15%;
+}
+
+.blocoPerfil #blocoFotoPerfil {
+    margin: auto;
+    margin-top: -55px;
+    background: white;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+}
+
+.blocoPerfil #imagemPerfil {
+    padding: 4px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.blocoPerfil #editarImagem {
+    margin-top: 60px;
+    margin-left: -25px;
+    border: 0px;
+    height: 29px;
+    background: transparent;
+    border-radius: 50%;
+}
+
+.blocoPerfil span {
+    color: rgb(179, 179, 179);
+    font-size: 30px;
+}
+
+.blocoPerfil span:hover {
+    color: rgb(85, 85, 85);
+    font-size: 33px;
+}
+
+.blocoPerfil h1 {
+    text-align: center;
+    color: #707071;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.blocoPerfil #blocoDados {
+    margin: auto;
+    width: 70%;
+    color: #707071;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.blocoPerfil .dados {
+    float: left;
+}
+
+.blocoPerfil #email {
+    margin-left: 70px;
+    margin-bottom: 25px;
+}
+
+.blocoPerfil #telefone {
+    margin-left: 90px;
+    margin-bottom: 25px;
+}
+
+.blocoPerfil #dNascimento {
+    margin-left: 190px;
+    margin-bottom: 25px;
+}
+
+.blocoPerfil #sexo {
+    margin-left: 60px;
+    margin-bottom: 25px;
+}
+
+.blocoPerfil #editarDados {
+    width: 50%;
+    margin-top: 15px;
+    margin-left: 25%;
+}
+
+@media(max-width: 640px) {
+    .blocoPerfil #blocoDados {
+        font-size: 16px;
+    }
+    .blocoPerfil #email {
+        margin-left: 60px;
+    }
+    .blocoPerfil #telefone {
+        margin-left: 70px;
+    }
+    .blocoPerfil #dNascimento {
+        margin-left: 150px;
+    }
+    .blocoPerfil #sexo {
+        margin-left: 50px;
+    }
+}
+
+@media(max-width: 520px) {
+    .blocoPerfil {
+        width: 100%;
+        margin-left: auto;
+    }
+    .blocoPerfil #blocoFotoPerfil {
+        width: 100px;
+        height: 100px;
+    }
+    .blocoPerfil #imagemPerfil {
+        width: 100px;
+        height: 100px;
+    }
+    .blocoPerfil #editarImagem {
+        margin-top: 50px;
+        margin-left: -25px;
+        border: 0px;
+        height: 29px;
+    }
+    .blocoPerfil h1 {
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 330px) {
+    .blocoPerfil #blocoDados {
+        font-size: 14px;
+    }
+    .blocoPerfil #email {
+        margin-left: 48px;
+    }
+    .blocoPerfil #telefone {
+        margin-left: 60px;
+    }
+    .blocoPerfil #dNascimento {
+        margin-left: 132px;
+    }
+    .blocoPerfil #sexo {
+        margin-left: 40px;
+    }
+}
+
+
+/*(MODAL)Editar dados*/
+
+.card1 {
+    box-shadow: 1px 1px 10px #ccc;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.card1-group {
+    margin-bottom: 5px;
+}
+
+.card1-group>label {
+    width: 100%;
+    color: rgb(75, 75, 75);
+    display: block;
+}
+
+.card1-group>input {
+    width: 100%;
+    height: 20px;
+    padding: 13px;
+    border: solid 1px;
+}
+
+.card1 .sexo {
+    color: rgb(75, 75, 75);
+    margin-bottom: 10px;
+}
+
+.title {
+    color: #CA2700;
+}
+
+#insiriaSeuEmail label {
+    margin-bottom: 10px;
+}
+
+
+/*Editar dados*/
+
+.modall-editarDados {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+}
+
+.modall-editarDados.mostrar {
+    display: flex;
+}
+
+.modalEditar {
+    position: relative;
+    margin-top: 15px;
+    width: 420px;
+}
+
+.modalEditar select {
+    width: 100%;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mostrar .modalEditar {
+    animation: modal .3s;
+}
+
+.botaoEditarFoto {
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+/*Editar foto*/
+
+.modall-editarImagem {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    text-align: center;
+}
+
+.modall-editarImagem.mostrarr {
+    display: flex;
+}
+
+.modall-editarImg {
+    position: relative;
+    margin-top: 15px;
+}
+
+.modall-editarImg #imagee {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.modall-editarImg #tituloEditarFoto {
+    color: #707071;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.botaoEditarDados {
+    width: 100%;
+    margin-top: 15px;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mostrarr .modall-editarImg {
+    animation: modal .3s;
+}
+
+
+/*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
+
+@media(max-width: 470px) {
+    .modalEditar {
+        width: 90%;
+    }
+    .modall-editarImg {
+        width: 90%;
+    }
+    .modall-editarImg input {
+        width: 100%;
+    }
+}
+
+
+/* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
+
+.close {
+    position: absolute;
+    font-size: 1.2em;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    top: 0px;
+    right: 0px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
+}

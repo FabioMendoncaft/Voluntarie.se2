@@ -149,61 +149,61 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
             <div class="col">
                 <div class="card h-100">
                     <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column align-items-left">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-light corBotao"><i class="fas fa-users"></i> Participar</a>
+                        <p class="card-text">This is a longer card with supporting text below.</p>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
                     <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column align-items-left">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a short card.</p>
-                        <a href="#" class="btn btn-light corBotao"><i class="fas fa-users"></i> Participar</a>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
                     <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column align-items-left">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
                         </p>
-                        <a href="#" class="btn btn-light corBotao"><i class="fas fa-users"></i> Participar</a>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
                     <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column align-items-left">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-light corBotao"><i class="fas fa-users"></i> Participar</a>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
                     <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column align-items-left">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-light corBotao"><i class="fas fa-users"></i> Participar</a>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
                     <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column align-items-left">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-light botaoAcoesFeed corBotao"><i class="fas fa-users"></i> Participar</a>
+                        <a href="#" class="btn btn-light botaoAcoesFeed corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
                     </div>
                 </div>
             </div>
