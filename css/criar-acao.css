@@ -370,8 +370,12 @@ body {
 
 #navBotoomMobile #criarAcao{
     border-width: medium;
+    color: #fe5200;
+    border-top: #fe5200;
     border-style: solid;
-    border-color: #000;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
 
 #navBotoomMobile #perfil {
