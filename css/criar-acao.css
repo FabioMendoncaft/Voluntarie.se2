@@ -368,6 +368,12 @@ body {
     margin-left: 10px;
 }
 
+#navBotoomMobile #criarAcao{
+    border-width: medium;
+    border-style: solid;
+    border-color: #000;
+}
+
 #navBotoomMobile #perfil {
     margin-right: 10px;
 }

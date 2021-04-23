@@ -185,8 +185,8 @@
 
 
         <!--(MODAL)Tela de editar dados-->
-        <div id="modall-cadastro" class="modall-cadastro">
-            <div class="modall">
+        <div id="modall-editarDados" class="modall-editarDados">
+            <div class="modalEditar">
                 <button class="close">X</button>
                 <form class="form" method="post" id="cadastro">
                     <div class="card1">

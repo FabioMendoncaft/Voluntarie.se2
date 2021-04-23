@@ -148,7 +148,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
             </a>
 
            <a href="#">
-                <span class="material-icons">add_circle</span>
+                <span id="criarAcao" class="material-icons">add_circle</span>
             </a>
 
             <a href="minhas-acoes.php">

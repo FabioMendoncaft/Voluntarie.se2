@@ -258,6 +258,9 @@ body {
 
 #navBotoomMobile #feed {
     margin-left: 10px;
+    border-width: medium;
+    border-style: solid;
+    border-color: #000;
 }
 
 #navBotoomMobile #perfil {

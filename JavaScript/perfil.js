@@ -11,7 +11,7 @@ function iniciaModal(modalID) {
 }
 
 const ativarModal = document.querySelector('.ativarModal')
-ativarModal.addEventListener('click', () => iniciaModal('modall-cadastro'))
+ativarModal.addEventListener('click', () => iniciaModal('modall-editarDados'))
 
 function iniciaModall(modallID) {
     const modal = document.getElementById(modallID)

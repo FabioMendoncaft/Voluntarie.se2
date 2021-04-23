@@ -57,7 +57,11 @@
         
         #navBotoomMobile #perfil {
             margin-right: 10px;
+            border-width: medium;
+            border-style: solid;
+            border-color: #000;
         }
+
         /* RESPONSIVIDADE NAV´s BAR MOBILE */
         
         @media(max-width: 770px) {
@@ -129,13 +133,19 @@
             margin-left: -25px;
             border: 0px;
             height: 29px;
-            background: white;
+            background: transparent;
             border-radius: 50%;
+            
         }
         
         .blocoPerfil span {
             color: rgb(179, 179, 179);
             font-size: 30px;
+        }
+
+        .blocoPerfil span:hover{
+            color: rgb(85, 85, 85);
+            font-size: 33px;
         }
         
         .blocoPerfil h1 {
@@ -282,7 +292,7 @@
         }
         /*Editar dados*/
         
-        .modall-cadastro {
+        .modall-editarDados {
             width: 100vw;
             height: 100vh;
             background: rgba(0, 0, 0, .5);
@@ -294,17 +304,17 @@
             justify-content: center;
         }
         
-        .modall-cadastro.mostrar {
+        .modall-editarDados.mostrar {
             display: flex;
         }
         
-        .modall {
+        .modalEditar {
             position: relative;
             margin-top: 15px;
             width: 420px;
         }
         
-        .modall select {
+        .modalEditar select {
             width: 100%;
         }
         
@@ -319,7 +329,7 @@
             }
         }
         
-        .mostrar .modall {
+        .mostrar .modalEditar {
             animation: modal .3s;
         }
         
