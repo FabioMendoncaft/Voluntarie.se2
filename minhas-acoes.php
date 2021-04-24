@@ -1,40 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <!DOCTYPE html>
-    <html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntarie.se | Minhas-ações</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Voluntarie.se | Minhas-ações</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/minhas-acoes.css">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js">
+    </script>
+    <script type="text/javascript" src="js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js">
+    </script>
+    <script type="text/javascript" src="js/additional-methods.min.js">
+    </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
-        <link rel="stylesheet" href="css/minhas-acoes.css">
-        <script type="text/javascript" src="js/jquery-3.5.1.min.js">
-        </script>
-        <script type="text/javascript" src="js/bootstrap.min.js">
-        </script>
-        <script type="text/javascript" src="js/jquery.validate.min.js">
-        </script>
-        <script type="text/javascript" src="js/additional-methods.min.js">
-        </script>
-        <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
-        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#cep").mask("00000-000")
+        })
+    </script>
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#cep").mask("00000-000")
-            })
-        </script>
+</head>
 
-    </head>
-
-    <?php
+<?php
 
 session_start();
 if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
@@ -93,7 +92,7 @@ require 'php/acoes-controller.php';
                     </div>
                     <div class="form-inline my-2 my-lg-0">
                         <a href="criar-acao.php"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
-                        class="fas fa-plus"></i> Criar ação</button></a>
+                            class="fas fa-plus"></i> Criar ação</button></a>
                     </div>
                 </div>
             </div>
@@ -163,7 +162,7 @@ require 'php/acoes-controller.php';
                                 <?= $acoes->descricao ?>
                             </p>
                             <div class="botoes-Cards mt-auto">
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao" onclick="alterar(<?= $acoes->id ?>)">Alterar</a>
+                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao editBtn">Alterar</a>
                                 <a href="# " class="btn btn-light botaoAcoesFeed corBotao">Excluir</a>
                             </div>
                         </div>
@@ -174,67 +173,92 @@ require 'php/acoes-controller.php';
         </div>
         </div>
 
-        <div id="modal-editar" class="modal-containe">
-            <div class="modall">
-                <div class="acoes">
-                    <div class="blocoCadastro" id="criarAcao">
-                        <button class="close">X</button>
-                        <div id="titulooo">
-                            <p>Título:</p>
-                            <input type="text" name="titulo" id="titulo">
+        <!--########################################################################################################################-->
+        <!-- MODAL EDITAR -->
+
+        <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="padding: 10px; padding-top: 20px">
+                    <div class="acoes">
+                        <div class="blocoCadastro" id="criarAcao">
+
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                            <!-- AQUI ENTRA O CÓDIGO EM PHP (NESTE FORM) -->
+                            
+                            <form action="">
+                                <div id="titulooo">
+                                    <p>Título:</p>
+                                    <input type="text" name="titulo" id="titulo">
+                                </div>
+
+                                <div id="ceppp">
+                                    <p>Cep:</p>
+                                    <input type="text " id="cep" placeholder=" Cep " name="cep">
+                                    <a href="# " class="btn btn-light corBotao " id="pesquisar" onclick="endereco()">Pesquisar CEP</a>
+                                </div>
+
+                                <p>Descrição:</p>
+                                <textarea name="descricao" id="descricao" rows="2"></textarea>
+
+                                <div id="quadrado">
+                                    <legend>Endereço:</legend>
+                                    <input type="text" id="logradouro" placeholder=" Logradouro " name="logradouro">
+                                    <input type="text" id="complemento" placeholder=" Complemento " name="complemento">
+                                    <input type="text" id="bairro" placeholder=" Bairro " name="bairro ">
+                                    <input type="text" id="localidade" placeholder=" Cidade ">
+                                    <input type="text" id="uf" placeholder="UF" name="uf">
+                                </div>
+
+                                <div id="dataa">
+                                    <p>Data:</p>
+                                    <input type="date" name="data">
+                                </div>
+
+                                <div id="categoriaa">
+                                    <p>Categoria:</p>
+                                    <select name="categoria">
+                                        <option disabled="disabled"selected="selected">-- Selecione uma opção</option>
+                                        <option>Visitações</option>
+                                        <option>Doação de sangue</option>
+                                        <option>Doação de suprimentos</option>
+                                        <option>Distribuição suprimentos</option>
+                                        <option>Adoção de animais</option>
+                                        <option>Passeio com animais</option>
+                                    </select>
+                                </div>
+
+                                <p>Imagem:</p>
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    <input type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
+                                </form>
+
+
+                                <a href="" type="submit" class="btn btn-light corBotao" id="botaoCriar">Salvar</a>
+                            </form>
+
                         </div>
-
-                        <div id="ceppp">
-                            <p>Cep:</p>
-                            <input type="text " id="cep" placeholder=" Cep " name="cep">
-                            <a href="# " class="btn btn-light corBotao " id="pesquisar" onclick="endereco()">Pesquisar CEP</a>
-                        </div>
-
-                        <p>Descrição:</p>
-                        <textarea name="descricao" id="descricao" rows="2"></textarea>
-
-                        <div id="quadrado">
-                            <legend>Endereço:</legend>
-                            <input type="text" id="logradouro" placeholder=" Logradouro " name="logradouro">
-                            <input type="text" id="complemento" placeholder=" Complemento " name="complemento">
-                            <input type="text" id="bairro" placeholder=" Bairro " name="bairro ">
-                            <input type="text" id="localidade" placeholder=" Cidade ">
-                            <input type="text" id="uf" placeholder="UF" name="uf">
-                        </div>
-
-                        <div id="dataa">
-                            <p>Data:</p>
-                            <input type="date" name="data">
-                        </div>
-
-                        <div id="categoriaa">
-                            <p>Categoria:</p>
-                            <select name="categoria">
-                                <option disabled="disabled"selected="selected">-- Selecione uma opção</option>
-                                <option>Visitações</option>
-                                <option>Doação de sangue</option>
-                                <option>Doação de suprimentos</option>
-                                <option>Distribuição suprimentos</option>
-                                <option>Adoção de animais</option>
-                                    <option>Passeio com animais</option>
-                            </select>
-                        </div>
-
-                        <p>Imagem:</p>
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <input type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
-                        </form>
-
-                        <a href="" type="submit" class="btn btn-light corBotao" id="botaoCriar">Salvar</a>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
 
+        <!-- (FIM) MODAL EDITAR -->
+        <!--##############################################################################################################################-->
+
+
+
         <script src="JavaScript/minhas-acoes.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.editBtn').on('click', function() {
+                    $('#modalEdit').modal('show');
+                })
+            })
+        </script>
     </body>
 
-    </html>
+</html>
