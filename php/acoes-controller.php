@@ -26,7 +26,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
     $acao->criarAcao();
 
 } else if ($acao == 'recuperar') {
-    echo 'chegamos aqui';
+    
 
 
     $conexao = new Conexao();

@@ -183,6 +183,16 @@ body {
     margin-left: 10px;
 }
 
+#navBotoomMobile #minhasAcoes {
+    border-width: medium;
+    color: #fe5200;
+    border-top: #fe5200;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
 #navBotoomMobile #perfil {
     margin-right: 10px;
 }

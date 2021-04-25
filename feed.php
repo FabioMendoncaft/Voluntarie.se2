@@ -1,6 +1,5 @@
 <?php
-//inclusão da conexão com o banco
-require 'conexao.php';
+
 session_start();
 if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
     header('Location: index.php');
@@ -17,11 +16,13 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voluntarie.se | Feed</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/feed.css">
-
 </head>
 
 <body>
@@ -94,11 +95,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                 <span id="feed" class="material-icons">home</span>
             </a>
 
-            <a href="">
-                <span class="material-icons">search</span>
-            </a>
-
-            <a href="criar-acao.php">
+           <a href="criar-acao.php">
                 <span class="material-icons">add_circle</span>
             </a>
 
@@ -149,26 +146,67 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
 
     <div class="acoes">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-
-            <?php 
-            //Logíca do feed
-                $conexao = new Conexao();
-                $acao = new Acoes($conexao);
-                $minha_acao = $acao->listaAcoes();
-             ?>
-             <?php foreach($minha_acao as $indice => $acoes) { ?>
-                <div class="col">
-                    <div class="card h-100">
-                        <!--<img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">-->
-                        <img src="<?= echo $acoes->titulo ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= echo $acoes->titulo ?></h5>
-                            <p class="card-text"><?= echo $acoes->descricao ?></p>
-                            <a href="#" class="btn btn-light corBotao"><i class="fas fa-users"></i> Participar</a>
-                        </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column align-items-left">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below.</p>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
                     </div>
                 </div>
-            <?php } ?>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column align-items-left">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a short card.</p>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column align-items-left">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                        </p>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column align-items-left">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column align-items-left">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column align-items-left">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-light botaoAcoesFeed corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>

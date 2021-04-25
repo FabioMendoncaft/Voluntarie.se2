@@ -188,7 +188,7 @@ body {
         display: none;
     }
     .filtro {
-        height: 240px;
+        height: 275px;
         margin: auto;
         width: 65%;
         margin-top: 52px;
@@ -258,6 +258,12 @@ body {
 
 #navBotoomMobile #feed {
     margin-left: 10px;
+    color: #fe5200;
+    border-top: #fe5200;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
 
 #navBotoomMobile #perfil {
