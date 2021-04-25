@@ -148,6 +148,15 @@ Class Acoes {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
 
     }
+    public function ListaAcoes(){
+
+        $query = 'SELECT * FROM tb_acoes ORDER BY id DESC ';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    }    
 
 }
 
