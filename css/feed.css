@@ -32,6 +32,18 @@ body {
 
 /* Fim - Padrão para todos os botões*/
 
+
+/* Imagem LOGO*/
+
+#imagemLogo {
+    width: 130px;
+    margin-top: -6px
+}
+
+#imagemLogo:hover {
+    width: 140px;
+}
+
 .btn2 {
     color: rgb(0, 0, 0);
     border: 1px solid #363636;

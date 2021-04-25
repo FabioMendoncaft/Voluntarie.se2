@@ -46,35 +46,12 @@ require 'php/acoes-controller.php';
 ?>
 
     <body>
+        <!-- NavBar Topo(PC) -->
         <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light" id="navTop">
             <div class="container-fluid">
-                <a href="/"><img src="img/logo.png" alt="logo" style="width: 130px; margin-top: -6px;"></a>
-                <!--<a class="navbar-brand" href="#" id="logoFeed">Voluntarie<strong style="color:#f83600;">.se</strong></a>-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span></button>
+                <a href="feed.php"><img src="img/logo.png" alt="logo" id="imagemLogo"></a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="feed.php">Página inicial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                     <div>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #707071;">
@@ -97,16 +74,20 @@ require 'php/acoes-controller.php';
                 </div>
             </div>
         </nav>
+        <!-- (FIM)NavBar Topo(PC) -->
 
-        <!--Navbar para Mobile(Barra Superior)-->
+        <!--####################################################################################################################-->
+
+        <!-- NavBar MOBILE -->
+        <!-- Navbar para Mobile(Barra Superior) -->
         <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light" id="navTopMobile">
             <div class="container-fluid">
-                <a href="/"><img src="img/logo.png" alt="logo" id="imagem"></a>
+                <a href="#"><img src="img/logo.png" alt="logo" id="imagem"></a>
             </div>
         </nav>
-        <!--FIM!!  Navbar para Mobile(Barra Superior)-->
+        <!-- (FIM)Navbar para Mobile(Barra Superior)-->
 
-        <!--Navbar para Mobile(Barra inferior)-->
+        <!-- Navbar para Mobile(Barra inferior) -->
         <nav class="fixed-bottom navbar navbar-expand-lg navbar-light bg-light" id="navBotoomMobile">
             <div class="container-fluid">
                 <a href="feed.php">
@@ -125,9 +106,11 @@ require 'php/acoes-controller.php';
                         <span id="perfil" class="material-icons">person</span>
                     </a>
         </nav>
-        <!--FIM!! Navbar para Mobile(Barra inferior)-->
+        <!-- (FIM)Navbar para Mobile(Barra inferior) -->
 
+        <!--####################################################################################################################-->
 
+        <!-- Lateral - Dados do usuário(DIREITA) -->
         <div class="perfilFiltro">
             <div class="perfil">
                 <div id="topPerfil"></div>
@@ -144,7 +127,11 @@ require 'php/acoes-controller.php';
 
             </div>
         </div>
+        <!-- (FIM)lateral - Dados do usuário(DIREITA) -->
 
+        <!--####################################################################################################################-->
+
+        <!-- Ações do usuário -->
         <div class="minhasAcoes">
             <div id="tituloMobile">
                 <h3>Minhas ações</h3>
@@ -162,8 +149,8 @@ require 'php/acoes-controller.php';
                                 <?= $acoes->descricao ?>
                             </p>
                             <div class="botoes-Cards mt-auto">
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao editBtn">Alterar</a>
-                                <a href="# " class="btn btn-light botaoAcoesFeed corBotao">Excluir</a>
+                                <a href="#" class="btn btn-light botaoAcoesFeed corBotao editBtn">Alterar</a>
+                                <a href="#" class="btn btn-light botaoAcoesFeed corBotao">Excluir</a>
                             </div>
                         </div>
                     </div>
@@ -172,13 +159,14 @@ require 'php/acoes-controller.php';
             </div>
         </div>
         </div>
+        <!--(FIM)Ações do usuário-->
 
-        <!--########################################################################################################################-->
+        <!--######################################################################################################################-->
+        
         <!-- MODAL EDITAR -->
-
         <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content" style="padding: 10px; padding-top: 20px">
+                <div class="modal-content" style="padding: 10px; padding-top: 30px">
                     <div class="acoes">
                         <div class="blocoCadastro" id="criarAcao">
 
@@ -244,9 +232,10 @@ require 'php/acoes-controller.php';
                 </div>
             </div>
         </div>
-
         <!-- (FIM) MODAL EDITAR -->
-        <!--##############################################################################################################################-->
+
+        <!--######################################################################################################################-->
+
 
 
 

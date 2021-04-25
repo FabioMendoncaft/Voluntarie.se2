@@ -33,6 +33,15 @@ body {
 
 /* Fim - Padrão para todos os botões*/
 
+#imagemLogo {
+    width: 130px;
+    margin-top: -6px
+}
+
+#imagemLogo:hover {
+    width: 140px;
+}
+
 
 /* NAV´s BAR MOBILE */
 

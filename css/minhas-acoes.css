@@ -33,6 +33,15 @@ body {
 
 /* Fim - Padrão para todos os botões*/
 
+#imagemLogo {
+    width: 130px;
+    margin-top: -6px
+}
+
+#imagemLogo:hover {
+    width: 140px;
+}
+
 .minhasAcoes {
     background: rgb(219, 219, 219);
     width: 70%;
@@ -263,59 +272,6 @@ body {
 
 
 /*Tela MODAL ALTERAR AÇÕES*/
-
-@media(max-width:500px) {
-    .acoes input {
-        font-size: 13px;
-    }
-    .acoes a {
-        font-size: 13px;
-    }
-    .acoes select {
-        font-size: 13px;
-    }
-}
-
-.modal-containe {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background: rgba(0, 0, 0, .5);
-    z-index: 2000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-containe.mostrar {
-    display: flex;
-}
-
-.modall {
-    background: white;
-    width: 60%;
-    min-width: 300px;
-    padding: 30px;
-    margin-top: -15px;
-    position: relative;
-}
-
-@keyframes modal {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -60px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.mostrar .modall {
-    animation: modal .3s;
-}
 
 .close {
     background: #fe0000;
