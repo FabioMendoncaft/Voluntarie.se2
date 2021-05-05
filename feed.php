@@ -223,15 +223,17 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     
                                     <label style="float: left;">
-                                        <p id="dataModal" style="float: left;"></p id="dataModal" name="dataModal">00/00/0000</p>
+                                        <p style="float: left;">Data: </p>
+                                        <p id="dataModal" style="float: left; margin-left: 5px;">00/00/0000</p>
                                     </label> 
                                     
                                     <label style="float: left;">
-                                        <p id="cepModal" name="cepModal" style="float: left;"> 00000-000</p> 
+                                        <p style="float: left;">Logradouro: </p>
+                                        <p id="cepModal" name="cepModal" style="float: left; margin-left: 3px;"> 00000-000</p> 
                                             <p style="float: left;">, </p> 
-                                        <p id="ruaModal" name="ruaModal" style="float: left;"> Tabelião João lago 
+                                        <p id="ruaModal" name="ruaModal" style="float: left; margin-left: 3px;"> Tabelião João lago 
                                             <p style="float: left;">, </p> 
-                                        <p id="numeroModal" name="numeroModal" style="float: left;"> 000</p>
+                                        <p id="numeroModal" name="numeroModal" style="float: left; margin-left: 3px;"> 000</p>
                                             <p style="float: left;">.</p>
                                     </label>
 
