@@ -137,7 +137,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
                         <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below.</p></button>
+                            <p class="card-text">This is a longer card with supporting text below.</p>
+                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
                             <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
@@ -148,7 +149,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
                             <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a short card.</p></button>
+                            <p class="card-text">This is a short card.</p>
+                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
                             <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
@@ -158,8 +160,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
                             <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
-                            </p></button>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
                             <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
@@ -169,7 +171,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
                             <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></button>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
                             <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
@@ -179,7 +182,9 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
                             <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></button>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
+                            
                             <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
@@ -189,7 +194,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
                             <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></button>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p id="dataCard" name="dataCard">00/00/0000</p></button>
                             <a href="#" class="btn btn-light botaoAcoesFeed corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
@@ -204,14 +210,35 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
         <!-- MODAL VER DETALHES DA AÇÃO -->
         <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content" style="padding: 10px; padding-top: 30px">
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
+                <div class="modal-content">
                     <!-- AQUI ENTRA O CÓDIGO EM PHP (NESTE FORM) -->
-
                     <form action="">
+                        <div class="col">
+                            <div class="card h-100">
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="card-body d-flex flex-column align-items-left">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    
+                                    <label style="float: left;">
+                                        <p id="dataModal" style="float: left;"></p id="dataModal" name="dataModal">00/00/0000</p>
+                                    </label> 
+                                    
+                                    <label style="float: left;">
+                                        <p id="cepModal" name="cepModal" style="float: left;"> 00000-000</p> 
+                                            <p style="float: left;">, </p> 
+                                        <p id="ruaModal" name="ruaModal" style="float: left;"> Tabelião João lago 
+                                            <p style="float: left;">, </p> 
+                                        <p id="numeroModal" name="numeroModal" style="float: left;"> 000</p>
+                                            <p style="float: left;">.</p>
+                                    </label>
+
+                                    <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
+                                </div>
+                            </div>
+                        </div>
 
                     </form>
                 </div>
