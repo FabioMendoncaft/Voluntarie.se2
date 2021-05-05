@@ -315,5 +315,29 @@ body {
     }
 }
 
+/*  (FIM) RESPONSIVIDADE NAV´s BAR MOBILE */
 
-/*Nav Bar Mobile*/
+
+/* Tela MODAL MOSTRAR DETALHES DAS AÇÕES */
+
+.close {
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* (FIM) Tela MODAL MOSTRAR DETALHES DAS AÇÕES*/
+
+
+
+
+

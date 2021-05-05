@@ -134,64 +134,63 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card h-100">
-                        <button style="border: 0px;"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
+                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
-                        <button style="text-align: left; border: 0px;"><h5 class="card-title">Card title</h5>
+                        <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
                             <p class="card-text">This is a longer card with supporting text below.</p></button>
-                    
-                            <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col">
                     <div class="card h-100">
-                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a short card.</p>
-                            <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a short card.</p></button>
+                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100">
-                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
-                            <h5 class="card-title">Card title</h5>
+                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                            </p></button>
+                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100">
-                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn btn-light corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <button style="border: 0px;"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <button style="text-align: left; border: 0px;"><h5 class="card-title">Card title</h5>
+                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></button>
-                            <a href="#" class="btn btn-light botaoAcoesFeed corBotao mt-auto"><i class="fas fa-users"></i> Participar</a>
+                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
+                        <div class="card-body d-flex flex-column align-items-left">
+                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></button>
+                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
+                        <div class="card-body d-flex flex-column align-items-left">
+                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></button>
+                            <a href="#" class="btn btn-light botaoAcoesFeed corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
                 </div>
@@ -201,12 +200,52 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
         <!-- (FIM)Ações Criadas pelos usuários (ESQUERDA) -->
 
         <!--####################################################################################################################-->
+        
+        <!-- MODAL VER DETALHES DA AÇÃO -->
+        <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="padding: 10px; padding-top: 30px">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <!-- AQUI ENTRA O CÓDIGO EM PHP (NESTE FORM) -->
+
+                    <form action="">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
+
+        <!--######################################################################################################################-->
 
 
+        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-        <script type="text/javascript" src="js/jquery-3.5.1.min.js">
+        <script>
+            
+            $(document).ready(function() {
+                $('.editBtn').on('click', function() {
+                    $('#modalEdit').modal('show');
+                })
+            })
+        
         </script>
-        <script type="text/javascript" src="js/bootstrap.min.js">
+        
+        <script>
+            const ptr = document.querySelector('.ptr')
+            $(document).ready(function() {
+            $('.participar').on('click', function(){
+               if(ptr.innerHTML == "Participar"){
+                ptr.innerHTML = "Participando"
+               }else if(ptr.innerHTML == "Participando"){
+                ptr.innerHTML = "Participar"
+               }
+            })
+        })
         </script>
     </body>
 
