@@ -209,7 +209,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
         
         <!-- MODAL VER DETALHES DA AÇÃO -->
         <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                     <!-- AQUI ENTRA O CÓDIGO EM PHP (NESTE FORM) -->
                     <form action="">
@@ -218,6 +218,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
+                                <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
                                 <div class="card-body d-flex flex-column align-items-left">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -228,10 +229,10 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                                     </label> 
                                     
                                     <label style="float: left;">
-                                        <p style="float: left;">Logradouro: </p>
+                                        <p style="float: left;">Endereço: </p>
                                         <p id="cepModal" name="cepModal" style="float: left; margin-left: 3px;"> 00000-000</p> 
                                             <p style="float: left;">, </p> 
-                                        <p id="ruaModal" name="ruaModal" style="float: left; margin-left: 3px;"> Tabelião João lago 
+                                        <p id="ruaModal" name="ruaModal" style="float: left;"> Tabelião João lago 
                                             <p style="float: left;">, </p> 
                                         <p id="numeroModal" name="numeroModal" style="float: left; margin-left: 3px;"> 000</p>
                                             <p style="float: left;">.</p>
@@ -261,21 +262,29 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                     $('#modalEdit').modal('show');
                 })
             })
-        
-        </script>
-        
-        <script>
+
             const ptr = document.querySelector('.ptr')
             $(document).ready(function() {
             $('.participar').on('click', function(){
                if(ptr.innerHTML == "Participar"){
                 ptr.innerHTML = "Participando"
-               }else if(ptr.innerHTML == "Participando"){
+                ptr.style.background = "#fff"
+                ptr.style.color = "#000"
+                ptr.style.border = "2px solid #f83600"
+                
+                }else if(ptr.innerHTML == "Participando"){
                 ptr.innerHTML = "Participar"
+                ptr.style.background = "-webkit-linear-gradient(to right, #f83600, #fe8c00)"
+                ptr.style.background = "linear-gradient(to right, #f83600, #fe5200)"
+                ptr.style.color = "#fff"
+                ptr.style.border = "0px"
                }
             })
         })
+        
         </script>
+        
+
     </body>
 
     </html>
