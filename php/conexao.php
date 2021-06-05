@@ -5,9 +5,9 @@
 class Conexao {
 
 	private $host = 'localhost';
-	private $dbname = 'index';
+	private $dbname = 'voluntariese';
 	private $user = 'root';
-	private $pass = '';
+	private $pass = '65455665';
 
 	public function conectar() {
 		try {

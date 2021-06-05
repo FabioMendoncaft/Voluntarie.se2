@@ -81,17 +81,23 @@ header {
 }
 
 .banne .esqueciSenha {
+    transition: all 250ms ease;
     text-decoration: underline;
     margin-left: 70px;
     color: #ffffff;
 }
 
+.banne .esqueciSenha:hover{
+    transition: all 250ms ease;
+    font-size: 16.5px;
+}
 .password {
     margin-top: 15px;
     width: 345px;
 }
 
 .banne button {
+    transition: all 400ms ease;
     font-family: var(--font-action);
     color: #ffffff;
     letter-spacing: .1rem;
@@ -110,17 +116,37 @@ header {
     margin-bottom: 20px;
 }
 
+.banne #botaoEntrar:hover{
+    transition: all 400ms ease;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: var(--font-action);
+    background: none;
+    box-shadow: inset 0 0 0 1px #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    animation: moveBanne 1s 0.9s forwards;
+    text-decoration: none;
+}
 .banne #botaoCadastro {
     margin-left: 3px;
     color: #ffffff;
     text-transform: uppercase;
     font-family: var(--font-action);
     background: none;
-    border: 1px solid #ffffff;
+    box-shadow: inset 0 0 0 1px #fff;
     border-radius: 30px;
     cursor: pointer;
     animation: moveBanne 1s 0.9s forwards;
     text-decoration: none;
+}
+
+.banne #botaoCadastro:hover{
+    transition: all 400ms ease;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    box-shadow: inset 0 0 0;
 }
 
 
@@ -194,6 +220,8 @@ header {
 }
 
 
+
+
 /*CSS CADASTRO E ESQUICI SENHA*/
 
 .card1-top {
@@ -222,6 +250,16 @@ header {
     height: 20px;
     padding: 13px;
     border: solid 1px;
+    transition: all 400ms ease;
+}
+
+.card1-group>input:hover{
+    background: #f836009f;
+    transition: all 400ms ease;
+}
+
+.card1-group>input::placeholder:hover{
+    color: white;
 }
 
 .card1-group>button {
@@ -293,7 +331,7 @@ header {
 }
 
 .mostrar .modall {
-    animation: modal .3s;
+    animation: modal .5s;
 }
 
 .modall img {
@@ -337,7 +375,7 @@ header {
 }
 
 .mostrarr .modall-esqSenha {
-    animation: modal .3s;
+    animation: modal .5s;
 }
 
 .modall-esqSenha img {
