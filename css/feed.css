@@ -175,6 +175,12 @@ body {
     border-radius: 20px;
     border: 1px solid #afafaf;
     padding-left: 10px;
+    transition: all 400ms ease;
+}
+
+.filtro input:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
 }
 
 .filtro select {
@@ -183,6 +189,12 @@ body {
     border-radius: 20px;
     border: 1px solid #afafaf;
     padding: 3px;
+    transition: all 400ms ease;
+}
+
+.filtro select:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
 }
 
 

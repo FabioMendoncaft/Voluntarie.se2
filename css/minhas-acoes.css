@@ -15,6 +15,7 @@ body {
 /*Padrão para todos os botões*/
 
 .corBotao {
+    transition: all 500ms ease;
     background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
@@ -23,7 +24,11 @@ body {
 }
 
 .corBotao:hover {
-    color: white;
+    transition: all 600ms ease;
+    color: #363636;
+    box-shadow: inset 0 0 0 1px #363636;
+    border-radius: 20px;
+    background: transparent;
 }
 
 .corBotao:not(:hover) {
@@ -288,6 +293,14 @@ body {
     border: 1px solid;
     border-radius: 3px;
     cursor: pointer;
+    transition: all 600ms ease;
+}
+
+.close:hover {
+    transition: all 600ms ease;
+    color: #363636;
+    box-shadow: inset 0 0 0 0.2px #363636;
+    background: transparent;
 }
 
 .blocoCadastro {
@@ -306,6 +319,12 @@ body {
     border-radius: 20px;
     border: 1px solid #afafaf;
     padding: 3px;
+    transition: all 400ms ease;
+}
+
+.acoes input:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
 }
 
 .acoes #titulooo {
@@ -340,7 +359,14 @@ body {
     border-radius: 20px;
     border: 1px solid #afafaf;
     padding: 3px;
+    transition: all 400ms ease;
 }
+
+.acoes select:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
+}
+
 
 .acoes #descricao {
     width: 100%;
@@ -348,6 +374,11 @@ body {
     border-radius: 20px;
     border: 1px solid #afafaf;
     padding: 3px;
+}
+
+.acoes #descricao:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
 }
 
 .acoes #dataa {
@@ -398,6 +429,10 @@ body {
     margin-bottom: none;
     border: none;
     padding: none;
+}
+
+.acoes #escolherImagem:hover{
+    background: transparent;
 }
 
 .acoes #botaoCriar {

@@ -126,7 +126,7 @@
                     <form class="form" method="post" action="php/logar.php?acao=cadastrar" id="cadastro">
                         <div class="card1">
                             <div class="card1-top">
-                                <a href="/"><img class="logoCadastro" src="img/logo.png" alt="login"></a>
+                                <img class="logoCadastro" src="img/logo.png" alt="login">
                             </div>
     
                             <div class="card1-group">
@@ -189,7 +189,7 @@
                     <form class="form" action="#" id="esqueciSenhaa">
                         <div class="card1">
                             <div class="card1-top">
-                                <a href="/"><img class="logoEsqueciSenha" src="img/logo.png" alt="login"></a>
+                                <img class="logoEsqueciSenha" src="img/logo.png" alt="login">
                             </div>
     
                             <div class="card1-group" id="insiriaSeuEmail">

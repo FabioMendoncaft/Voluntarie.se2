@@ -89,7 +89,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
 
         <!--####################################################################################################################-->
 
-        <!-- Lateral - Dados do usuário e filtro de pesquisa(DIREITA) -->
+        <!-- Lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
         <div class="perfilFiltro">
             <div class="perfil">
                 <div id="topPerfil"></div>
@@ -124,11 +124,11 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                 </div>
             </div>
         </div>
-        <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(DIREITA) -->
+        <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
 
         <!--####################################################################################################################-->
 
-        <!-- Ações Criadas pelos usuários (ESQUERDA) -->
+        <!-- Ações Criadas pelos usuários (DIREITA) -->
         <div class="acoes">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
@@ -202,7 +202,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
             </div>
         </div>
         </div>
-        <!-- (FIM)Ações Criadas pelos usuários (ESQUERDA) -->
+        <!-- (FIM)Ações Criadas pelos usuários (DIREITA) -->
 
         <!--####################################################################################################################-->
         
