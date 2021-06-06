@@ -182,7 +182,20 @@ body {
     text-align: center;
     color: #707071;
     font-size: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+}
+
+.blocoPerfil hr{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.blocoPerfil label{
+    margin-left: 15%;
+    margin-bottom: 25px;
+    color: #707071;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .blocoPerfil #blocoDados {
@@ -190,7 +203,7 @@ body {
     width: 70%;
     color: #707071;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .blocoPerfil .dados {
@@ -199,22 +212,22 @@ body {
 
 .blocoPerfil #email {
     margin-left: 70px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .blocoPerfil #telefone {
     margin-left: 90px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .blocoPerfil #dNascimento {
     margin-left: 190px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .blocoPerfil #sexo {
     margin-left: 60px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .blocoPerfil #editarDados {
@@ -223,25 +236,9 @@ body {
     margin-left: 25%;
 }
 
-@media(max-width: 640px) {
-    .blocoPerfil #blocoDados {
-        font-size: 16px;
-    }
-    .blocoPerfil #email {
-        margin-left: 60px;
-    }
-    .blocoPerfil #telefone {
-        margin-left: 70px;
-    }
-    .blocoPerfil #dNascimento {
-        margin-left: 150px;
-    }
-    .blocoPerfil #sexo {
-        margin-left: 50px;
-    }
-}
 
-@media(max-width: 520px) {
+
+@media(max-width: 773px) {
     .blocoPerfil {
         width: 100%;
         margin-left: auto;
@@ -263,9 +260,33 @@ body {
     .blocoPerfil h1 {
         font-size: 25px;
     }
+
+    .blocoPerfil label{
+        font-size: 18px;
+    }
+
+    .blocoPerfil #blocoDados {
+        font-size: 16px;
+    }
+    .blocoPerfil #email {
+        margin-left: 60px;
+    }
+    .blocoPerfil #telefone {
+        margin-left: 70px;
+    }
+    .blocoPerfil #dNascimento {
+        margin-left: 150px;
+    }
+    .blocoPerfil #sexo {
+        margin-left: 50px;
+    }
 }
 
-@media(max-width: 330px) {
+
+@media(max-width: 420px) {
+    .blocoPerfil label{
+        font-size: 16px;
+    }
     .blocoPerfil #blocoDados {
         font-size: 14px;
     }

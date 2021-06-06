@@ -141,20 +141,26 @@ header('Location: index.php');
             </div>
 
             <h1 id="nome">John Galt</h1>
+            <hr>
+            <strong><label>Sobre Você</label></strong>
 
             <div id="blocoDados">
+                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px;">mail_outline</span>
                 <p class="dados">E-mail:
                     <p id="email">fabio.mendonca.f@gmail.com</p>
                 </p>
 
+                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px"> phone</span>
                 <p class="dados">Telefone:
                     <p id="telefone">(00)00000-0000</p>
                 </p>
 
+                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px"> calendar_today</span>
                 <p class="dados">Data de nascimento:
                     <p id="dNascimento">00/00/0000</p>
                 </p>
 
+                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px"> transgender</span>
                 <p class="dados">Sexo:
                     <p id="sexo">Masculino</p>
                 </p>
