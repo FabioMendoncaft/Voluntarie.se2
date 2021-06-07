@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
-    header('Location: index.php');
-}
-
-
-?>
 
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -23,6 +15,17 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
         <link rel="stylesheet" href="css/feed.css">
     </head>
+
+<?php
+session_start();
+if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
+    header('Location: index.php');
+}
+
+$acao = 'feed';
+require 'php/acoes-controller.php';
+
+?>
 
     <body>
         <!-- NavBar Topo(PC) -->
@@ -109,18 +112,26 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
                     <p>Cidade:</p>
                     <input type="text" id="cidade">
                     <p>Estado:</p>
-                    <input type="text" id="estado">
+                    <select name="estado">
+                        <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+                        <option>AL</option>
+                        <option>AM</option>
+                        <option>BA</option>
+                        <option>CE</option>
+                        <option>PB</option>
+                        <option>PE</option>
+                    </select>
                     <p>Categoria:</p>
                     <select name="categoria">
-                    <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
-                    <option>Visitações</option>
-                    <option>Doação de sangue</option>
-                    <option>Doação de suprimentos</option>
-                    <option>Distribuição suprimentos</option>
-                    <option>Adoção de animais</option>
-                    <option>Passeio com animais</option>
-                </select>
-                    <a href="#" class="btn btn-light corBotao">Aplicar filtros</a>
+                        <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+                        <option>Visitações</option>
+                        <option>Doação de sangue</option>
+                        <option>Doação de suprimentos</option>
+                        <option>Distribuição suprimentos</option>
+                        <option>Adoção de animais</option>
+                        <option>Passeio com animais</option>
+                    </select>
+                    <a href="#" name="btnFiltro" class="btn btn-light corBotao">Aplicar filtros</a>
                 </div>
             </div>
         </div>
@@ -130,76 +141,24 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
 
         <!-- Ações Criadas pelos usuários (DIREITA) -->
         <div class="acoes">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            
+            <div style="margin-bottom: 15px;" class="row row-cols-1 row-cols-md-3 g-4"> 
+                <?php foreach($minha_acao as $indice => $acoes) { ?>
                 <div class="col">
                     <div class="card h-100">
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
                         <div class="card-body d-flex flex-column align-items-left">
-                        <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below.</p>
-                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
+                        <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title"><?= $acoes->titulo ?></h5>
+                            <p class="card-text"><?= $acoes->descricao ?></p>
+                            </p id="dataCard" name="dataCard"><?= $acoes->data_evento ?></p></button>
                             <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
                         </div>
                     </div>
+                    
                 </div>
-                
-                <div class="col">
-                    <div class="card h-100">
-                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a short card.</p>
-                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
-                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
-                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
-                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </p id="dataCard" name="dataCard">00/00/0000</p></button>
-                            
-                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p id="dataCard" name="dataCard">00/00/0000</p></button>
-                            <a href="#" class="btn btn-light botaoAcoesFeed corBotao mt-auto participar ptr">Participar</a>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
+            
         </div>
         </div>
         <!-- (FIM)Ações Criadas pelos usuários (DIREITA) -->
@@ -282,6 +241,24 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
             })
         })
         
+        </script>
+
+        <script type="text/javascript">
+            
+            function atualizarAcao(){
+                $.post('ajax/atualizar.php', function(acoes){
+                    $('#acoes').html('<b>' + acoes.id);
+                }, 'JSON');
+
+            }
+
+            setInterval("atualizarAcao()", 1000);
+
+            $(function(){
+                atualizarAcao();
+            });
+
+
         </script>
         
 

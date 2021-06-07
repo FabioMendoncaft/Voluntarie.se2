@@ -35,6 +35,14 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     $minha_acao = $acao->listarMinhaAcao();
 
+} else if ($acao == 'feed') {
+
+    $conexao = new Conexao();
+    $acao = new Acoes($conexao);
+    $acao->setId_usuario($_SESSION['id_usuario']);
+
+    $minha_acao = $acao->listaAcoes();
+
 }
 
 
