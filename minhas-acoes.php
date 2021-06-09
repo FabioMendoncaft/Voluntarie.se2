@@ -54,9 +54,9 @@ require 'php/acoes-controller.php';
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                     <div>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #707071;">
-                                <span class="material-icons" style="margin-right: 4px;float: left;">account_circle</span>
-                                <label style="margin-right: 1px;">John Galt</label>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="material-icons">account_circle</span>
+                                <label>John Galt</label>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="perfil.php">Meu perfil</a></li>
@@ -136,7 +136,7 @@ require 'php/acoes-controller.php';
             <div id="tituloMobile">
                 <h3>Minhas ações</h3>
             </div>
-            <div style="margin-bottom: 15px;" class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="acoess" class="row row-cols-1 row-cols-md-3 g-4">
                 <?php foreach($minha_acao as $indice => $acoes) { ?>
                 <div class="col " id="">
                     <div class="card h-100 ">
@@ -166,7 +166,7 @@ require 'php/acoes-controller.php';
         <!-- MODAL EDITAR -->
         <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content" style="padding: 10px; padding-top: 30px">
+                <div class="modal-content" id="modalEditar">
                     <div class="acoes">
                         <div class="blocoCadastro" id="criarAcao">
 

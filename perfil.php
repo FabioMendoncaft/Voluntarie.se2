@@ -76,9 +76,9 @@ header('Location: index.php');
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                     <div>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #707071;">
-                                <span class="material-icons" style="margin-right: 4px;float: left;">account_circle</span>
-                                <label style="margin-right: 1px;">John Galt</label>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="material-icons">account_circle</span>
+                                <label>John Galt</label>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Meu perfil</a></li>
@@ -146,22 +146,22 @@ header('Location: index.php');
             <strong><label>Sobre Você</label></strong>
 
             <div id="blocoDados">
-                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px;">mail_outline</span>
+                <span class="material-icons">mail_outline</span>
                 <p class="dados">E-mail:
                     <p id="email">fabio.mendonca.f@gmail.com</p>
                 </p>
 
-                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px"> phone</span>
+                <span class="material-icons"> phone</span>
                 <p class="dados">Telefone:
                     <p id="telefone">(00)00000-0000</p>
                 </p>
 
-                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px"> calendar_today</span>
+                <span class="material-icons"> calendar_today</span>
                 <p class="dados">Data de nascimento:
                     <p id="dNascimento">00/00/0000</p>
                 </p>
 
-                <span class="material-icons" style="margin-right: 8px;float: left; font-size: 25px"> transgender</span>
+                <span class="material-icons"> transgender</span>
                 <p class="dados">Sexo:
                     <p id="sexo">Masculino</p>
                 </p>

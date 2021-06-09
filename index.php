@@ -102,24 +102,21 @@
             </div>
 
             <div class="banne">
-                <h1>Voluntarie<strong style="color:#f83600;">.</strong>se</h1>
+                <h1>Voluntarie<strong id="ponto">.</strong>se</h1>
                 <form method="post" class="form" action="php/logar.php?acao=logar">
                     <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
                     <br>
                     <input type="password" name="senha" id="senhaTeste" class="password" placeholder="Digite sua senha"
                         required>
                     <br>
-                    <button style="float: left;" id="botaoEntrar">Entrar</button>
+                    <button id="botaoEntrar">Entrar</button>
                 </form>
                 <a href="#bgCadastro"><button id="botaoCadastro" class="ativarModal">Criar conta</button></a>
                 <br>
                 <a href="#bgSenha" class="esqueciSenha ativarModall">Esqueci minha senha</a>
             </div>
 
-            
-            
-            
-            
+                        
             <!--Tela de cadastro-->
             <div id="modall-cadastro" class="modall-cadastro">
                 <div class="modall">
@@ -326,10 +323,6 @@
                     </form>    
                 </div>
             </div>
-
-
-
-
 
             <!--Tela de esquici senha-->
             <div id="modall-esqueci" class="modall-esqueci">

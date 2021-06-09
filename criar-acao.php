@@ -88,9 +88,9 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                 <div>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #707071;">
-                            <span class="material-icons" style="margin-right: 4px;float: left;">account_circle</span>
-                            <label style="margin-right: 1px;">John Galt</label>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="material-icons">account_circle</span>
+                            <label>John Galt</label>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="perfil.php">Meu perfil</a></li>

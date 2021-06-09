@@ -36,9 +36,9 @@ require 'php/acoes-controller.php';
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                     <div>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #707071;">
-                                <span class="material-icons" style="margin-right: 4px;float: left;">account_circle</span>
-                                <label style="margin-right: 1px;">John Galt</label>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="material-icons">account_circle</span>
+                                <label>John Galt</label>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="perfil.php">Meu perfil</a></li>
@@ -151,7 +151,7 @@ require 'php/acoes-controller.php';
                         <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title"><?= $acoes->titulo ?></h5>
                             <p class="card-text"><?= $acoes->descricao ?></p>
                             </p id="dataCard" name="dataCard"><?= $acoes->data_evento ?></p></button>
-                            <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
+                            <a href="#" class="btn btn-light corBotao mt-auto ptr">Participar</a>
                         </div>
                     </div>
                     
@@ -177,26 +177,26 @@ require 'php/acoes-controller.php';
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body d-flex flex-column align-items-left">
+                                <div class="card-body d-flex flex-column align-items-left modalAcoes">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     
-                                    <label style="float: left;">
-                                        <p style="float: left;">Data: </p>
-                                        <p id="dataModal" style="float: left; margin-left: 5px;">00/00/0000</p>
+                                    <label>
+                                        <p>Data: </p>
+                                        <p id="dataModal" name="dataModal">00/00/0000</p>
                                     </label> 
                                     
-                                    <label style="float: left;">
-                                        <p style="float: left;">Endereço: </p>
-                                        <p id="cepModal" name="cepModal" style="float: left; margin-left: 3px;"> 00000-000</p> 
-                                            <p style="float: left;">, </p> 
-                                        <p id="ruaModal" name="ruaModal" style="float: left;"> Tabelião João lago 
-                                            <p style="float: left;">, </p> 
-                                        <p id="numeroModal" name="numeroModal" style="float: left; margin-left: 3px;"> 000</p>
-                                            <p style="float: left;">.</p>
+                                    <label>
+                                        <p>Endereço: </p>
+                                        <p id="cepModal" name="cepModal"> 00000-000</p> 
+                                            <p>, </p> 
+                                        <p id="ruaModal" name="ruaModal"> Tabelião João lago 
+                                            <p>, </p> 
+                                        <p id="numeroModal" name="numeroModal"> 000</p>
+                                            <p>.</p>
                                     </label>
 
-                                    <a href="#" class="btn btn-light corBotao mt-auto participar ptr">Participar</a>
+                                    <a href="#" class="btn btn-light corBotao mt-auto ptr">Participar</a>
                                 </div>
                             </div>
                         </div>
@@ -225,26 +225,6 @@ require 'php/acoes-controller.php';
 
                 })
             })
-
-            const ptr = document.querySelector('.ptr')
-            $(document).ready(function() {
-            $('.participar').on('click', function(){
-               if(ptr.innerHTML == "Participar"){
-                ptr.innerHTML = "Participando"
-                ptr.style.background = "#fff"
-                ptr.style.color = "#000"
-                ptr.style.border = "2px solid #f83600"
-                
-                
-                }else if(ptr.innerHTML == "Participando"){
-                ptr.innerHTML = "Participar"
-                ptr.style.background = "-webkit-linear-gradient(to right, #f83600, #fe8c00)"
-                ptr.style.background = "linear-gradient(to right, #f83600, #fe5200)"
-                ptr.style.color = "#fff"
-                ptr.style.border = "0px"
-               }
-            })
-        })
         
         </script>
 

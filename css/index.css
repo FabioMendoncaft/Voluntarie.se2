@@ -75,6 +75,10 @@ header {
     margin-bottom: 1.5rem;
 }
 
+.banne #ponto{
+    color:#f83600;
+}
+
 .banne input {
     border-radius: 5px;
     padding: 7px;
@@ -126,6 +130,10 @@ header {
     outline: none;
     margin-top: 40px;
     margin-bottom: 20px;
+}
+
+.banne #botaoEntrar{
+    float: left;
 }
 
 .banne #botaoEntrar:hover{
