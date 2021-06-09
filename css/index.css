@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+.error {
+    color: red;
+}
+
 :root {
     --font-primary: "baloo Da 2", serif;
     --font-secundary: "Josefin Slab", serif;
@@ -83,7 +87,7 @@ header {
 
 .banne input:hover{
     transition: all 400ms ease;
-    background: #f836002f;
+    background: #f8360091;
     color: #fff;
     box-shadow: inset 0 0 0 1px #fff;
 }
@@ -110,7 +114,7 @@ header {
     color: #ffffff;
     letter-spacing: .1rem;
     text-transform: uppercase;
-    background: #fe0000;
+    background: #0e0c0cb4;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
     padding: 1rem 2rem;
@@ -249,7 +253,6 @@ header {
 
 .card1-group>label {
     width: 100%;
-    color: rgb(75, 75, 75);
     display: block;
 }
 
@@ -358,7 +361,7 @@ header {
 
 .opcoes:hover{
     transition: all 400ms ease;
-    background: #f836002f;
+    background: #faf9f8f5;
 }
 
 /*Esqueci senha*/

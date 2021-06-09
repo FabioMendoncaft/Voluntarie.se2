@@ -11,6 +11,9 @@ body {
     background: rgb(219, 219, 219);
 }
 
+.error {
+    color: red;
+}
 
 /*Padrão para todos os botões*/
 
@@ -320,7 +323,6 @@ body {
 
 .card1-group>label {
     width: 100%;
-    color: rgb(75, 75, 75);
     display: block;
 }
 
@@ -380,12 +382,12 @@ body {
 
 .modalEditar select:hover{
     transition: all 400ms ease;
-    background: #f836002f;
+    background: #fcfcfc86;
 }
 
 .modalEditar input:hover{
     transition: all 400ms ease;
-    background: #f836002f;
+    background: #fc500073;
 }
 
 @keyframes modal {
