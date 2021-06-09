@@ -131,7 +131,7 @@ require 'php/acoes-controller.php';
                         <option>Adoção de animais</option>
                         <option>Passeio com animais</option>
                     </select>
-                    <a href="#" name="btnFiltro" class="btn btn-light corBotao">Aplicar filtros</a>
+                    <a href="#" name="btnFiltro" id="btnFiltro" class="btn btn-light corBotao" onclick="filtraAcao();">Aplicar filtros</a>
                 </div>
             </div>
         </div>
@@ -141,9 +141,9 @@ require 'php/acoes-controller.php';
 
         <!-- Ações Criadas pelos usuários (DIREITA) -->
         <div class="acoes">
-            
+         <!--   
             <div style="margin-bottom: 15px;" class="row row-cols-1 row-cols-md-3 g-4"> 
-                <?php foreach($minha_acao as $indice => $acoes) { ?>
+                <?php// foreach($minha_acao as $indice => $acoes) { ?>
                 <div class="col">
                     <div class="card h-100">
                         <button style="border: 0px;" class="editBtn"><img src="img/acaoSocial2.jpg" class="card-img-top" alt="..."></button>
@@ -156,9 +156,9 @@ require 'php/acoes-controller.php';
                     </div>
                     
                 </div>
-                <?php } ?>
+                <?php //} ?>
             </div>
-            
+            -->
         </div>
         </div>
         <!-- (FIM)Ações Criadas pelos usuários (DIREITA) -->
@@ -219,6 +219,11 @@ require 'php/acoes-controller.php';
                 $('.editBtn').on('click', function() {
                     $('#modalEdit').modal('show');
                 })
+
+                $('.btnFiltro').on('click', function(){
+                    console.log('Teste');
+
+                })
             })
 
             const ptr = document.querySelector('.ptr')
@@ -244,14 +249,32 @@ require 'php/acoes-controller.php';
         </script>
 
         <script type="text/javascript">
-            
+            /**function filtraAcao(){
+                $.ajax ({
+                    url: "php/carregaAcoes.php",
+                    success: function(resultado){
+                        $(".acoes").html(resultado);
+
+                    },
+                    error: function(){
+                        $(".acoes").html("Não existe nenhuma ação");
+                    }
+                });
+
+            }**/                  
             function atualizarAcao(){
-                $.post('ajax/atualizar.php', function(acoes){
-                    $('#acoes').html('<b>' + acoes.id);
-                }, 'JSON');
+                $.ajax ({
+                    url: "php/carregaAcoes.php",
+                    success: function(resultado){
+                        $(".acoes").html(resultado);
 
+                    },
+                    error: function(){
+                        $(".acoes").html("Não existe nenhuma ação");
+                    }
+                });
             }
-
+            
             setInterval("atualizarAcao()", 1000);
 
             $(function(){
