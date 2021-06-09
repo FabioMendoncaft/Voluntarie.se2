@@ -121,7 +121,7 @@ require 'php/acoes-controller.php';
                         <option>PB</option>
                         <option>PE</option>
                     </select>
-                    <p>Categoria:</p>
+                    <p id="categoria">Categoria:</p>
                     <select name="categoria">
                         <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
                         <option>Visitações</option>
@@ -151,7 +151,7 @@ require 'php/acoes-controller.php';
                         <button style="text-align: left; border: 0px; background: transparent;" class="editBtn"><h5 class="card-title"><?= $acoes->titulo ?></h5>
                             <p class="card-text"><?= $acoes->descricao ?></p>
                             </p id="dataCard" name="dataCard"><?= $acoes->data_evento ?></p></button>
-                            <a href="#" class="btn btn-light corBotao mt-auto ptr">Participar</a>
+                            <a href="#" class="btn btn-light corBotao mt-auto">Participar</a>
                         </div>
                     </div>
                     
@@ -172,31 +172,31 @@ require 'php/acoes-controller.php';
                     <!-- AQUI ENTRA O CÓDIGO EM PHP (NESTE FORM) -->
                     <form action="">
                         <div class="col">
-                            <div class="card h-100">
+                            <div class="card h-100 ">
                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body d-flex flex-column align-items-left modalAcoes">
+                                <div class="card-body d-flex flex-column align-items-left modalDt">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     
                                     <label>
                                         <p>Data: </p>
-                                        <p id="dataModal" name="dataModal">00/00/0000</p>
+                                        <p id="dataModal">00/00/0000</p>
                                     </label> 
                                     
                                     <label>
                                         <p>Endereço: </p>
-                                        <p id="cepModal" name="cepModal"> 00000-000</p> 
+                                        <p id="cepModal" name="cepModal" class="cepNum"> 00000-000</p> 
                                             <p>, </p> 
                                         <p id="ruaModal" name="ruaModal"> Tabelião João lago 
                                             <p>, </p> 
-                                        <p id="numeroModal" name="numeroModal"> 000</p>
+                                        <p id="numeroModal" name="numeroModal" class="cepNum"> 000</p>
                                             <p>.</p>
                                     </label>
 
-                                    <a href="#" class="btn btn-light corBotao mt-auto ptr">Participar</a>
+                                    <a href="#" class="btn btn-light corBotao mt-auto">Participar</a>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +225,7 @@ require 'php/acoes-controller.php';
 
                 })
             })
-        
+
         </script>
 
         <script type="text/javascript">
@@ -261,10 +261,8 @@ require 'php/acoes-controller.php';
                 atualizarAcao();
             });
 
-
         </script>
         
-
     </body>
 
     </html>

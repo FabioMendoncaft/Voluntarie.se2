@@ -11,9 +11,6 @@ body {
     background: rgb(219, 219, 219);
 }
 
-.error {
-    color: red;
-}
 
 /*Padrão para todos os botões*/
 
@@ -39,6 +36,18 @@ body {
     color: white;
 }
 
+#navbarDropdown{
+    color: #707071;
+}
+
+#navbarDropdown span{
+    margin-right: 4px;
+    float: left;
+}
+
+#navbarDropdown label{
+    margin-right: 1px;
+}
 
 /* Fim - Padrão para todos os botões*/
 
@@ -53,18 +62,6 @@ body {
     transition: all 250ms ease;
 }
 
-#navbarDropdown{
-    color: #707071;
-}
-
-#navbarDropdown span{
-    margin-right: 4px;
-    float: left;
-}
-
-#navbarDropdown label{
-    margin-right: 1px;
-}
 
 /* NAV´s BAR MOBILE */
 
@@ -221,8 +218,10 @@ body {
     font-size: 18px;
 }
 
-#blocoDados span{
-    margin-right: 8px;float: left; font-size: 25px
+.blocoPerfil #blocoDados span{
+    margin-right: 8px;
+    float: left; 
+    font-size: 25px;
 }
 
 .blocoPerfil .dados {
@@ -339,6 +338,7 @@ body {
 
 .card1-group>label {
     width: 100%;
+    color: rgb(75, 75, 75);
     display: block;
 }
 
@@ -398,12 +398,12 @@ body {
 
 .modalEditar select:hover{
     transition: all 400ms ease;
-    background: #fcfcfc86;
+    background: #f836002f;
 }
 
 .modalEditar input:hover{
     transition: all 400ms ease;
-    background: #fc500073;
+    background: #f836002f;
 }
 
 @keyframes modal {

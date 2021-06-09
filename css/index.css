@@ -7,10 +7,6 @@
     text-decoration: none;
 }
 
-.error {
-    color: red;
-}
-
 :root {
     --font-primary: "baloo Da 2", serif;
     --font-secundary: "Josefin Slab", serif;
@@ -57,6 +53,34 @@ header {
     opacity: 0.2;
 }
 
+.containe #cadastrado{
+    background: red; 
+    height: 50px; 
+    color: white; 
+    text-align: center; 
+    font-size: 20px;
+}
+
+.containe #sucesso{
+    background: #4ee44e; 
+    height: 50px; 
+    color: white;
+    text-align: center; 
+    font-size: 20px;
+}
+
+.containe #invalido{
+    background: red; 
+    height: 50px; 
+    color: white; 
+    text-align: center; 
+    font-size: 20px;
+}
+
+.containe .top{
+    margin-top: 8px
+}
+
 .banne {
     position: absolute;
     top: 28%;
@@ -66,6 +90,10 @@ header {
     animation: moveBanne 1s 0.7s forwards;
 }
 
+.banne #ponto{
+    color:#f83600;
+}
+
 .banne h1 {
     color: #ffffff;
     font-size: 4.5em;
@@ -73,10 +101,6 @@ header {
     font-weight: 900;
     line-height: 4rem;
     margin-bottom: 1.5rem;
-}
-
-.banne #ponto{
-    color:#f83600;
 }
 
 .banne input {
@@ -91,7 +115,7 @@ header {
 
 .banne input:hover{
     transition: all 400ms ease;
-    background: #f8360091;
+    background: #f836002f;
     color: #fff;
     box-shadow: inset 0 0 0 1px #fff;
 }
@@ -118,7 +142,7 @@ header {
     color: #ffffff;
     letter-spacing: .1rem;
     text-transform: uppercase;
-    background: #0e0c0cb4;
+    background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
     padding: 1rem 2rem;
@@ -261,6 +285,7 @@ header {
 
 .card1-group>label {
     width: 100%;
+    color: rgb(75, 75, 75);
     display: block;
 }
 
@@ -369,7 +394,7 @@ header {
 
 .opcoes:hover{
     transition: all 400ms ease;
-    background: #faf9f8f5;
+    background: #f836002f;
 }
 
 /*Esqueci senha*/

@@ -82,7 +82,6 @@ body {
 }
 
 .perfilFiltro {
-
     background-color: rgb(199, 198, 198);
     width: 30%;
     height: 100%;
@@ -189,6 +188,10 @@ body {
     border: 1px solid #afafaf;
     padding-left: 10px;
     transition: all 400ms ease;
+}
+
+.filtro #categoria{
+    margin-top: -14px;
 }
 
 .filtro input:hover{
@@ -373,29 +376,20 @@ body {
     cursor: pointer;
 }
 
-.modalAcoes label {
+.modalDt label{
     float: left;
 }
 
-.modalAcoes label p {
+.modalDt label p{
     float: left;
 }
 
-.modalAcoes label #dataModal{
+.modalDt #dataModal{
     margin-left: 5px;
 }
 
-.modalAcoes label #cepModal{
-    margin-left: 3px;
-}
-
-.modalAcoes label #numeroModal{
+.modalDt .cepNum{
     margin-left: 3px;
 }
 
 /* (FIM) Tela MODAL MOSTRAR DETALHES DAS AÇÕES*/
-
-
-
-
-

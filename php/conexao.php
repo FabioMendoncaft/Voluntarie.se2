@@ -3,7 +3,6 @@
 
 
 class Conexao {
-
 	private $host = 'localhost';
 	private $dbname = 'voluntariese';
 	private $user = 'root';
