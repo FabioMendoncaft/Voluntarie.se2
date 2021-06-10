@@ -24,8 +24,19 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     $acao->criarAcao();
 
-    header('location: feed.php');
+    header('location: ../feed.php');
 
+} else if (isset($_GET['acao']) && $_GET['acao'] == 'remover'){
+
+    echo 'cheguei aqui';
+
+    $conexao = new Conexao();
+    $acao = new Acoes($conexao);
+    $acao->setId($_GET['id']);
+    $acao->excluirAcao();
+
+    header('location: minhas-acoes.php');
+    
 } else if ($acao == 'recuperar') {
     
     $conexao = new Conexao();
@@ -42,14 +53,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     $minha_acao = $acao->listaAcoes();
 
-} else if (isset($_GET['acao']) && $_GET['acao'] == 'remover'){
+} 
 
-    $conexao = new Conexao();
-    $acao = new Acoes($conexao);
-    $acao->setId($_GET['id']);
-    $acao->excluirAcao();
 
-    header('location: minhas-acoes.php');
-
-}
 ?>
