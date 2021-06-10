@@ -100,7 +100,7 @@ Class Usuario{
 
     public function logar(){
 
-        $query = 'select id,nome, email, senha from tb_usuarios where email = :email and senha = :senha';
+        $query = 'select id, nome, email, telefone, senha, data_nascimento, sexo from tb_usuarios where email = :email and senha = :senha';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':email', $this->getEmail());
         $stmt->bindValue(':senha', $this->getSenha());
@@ -110,8 +110,12 @@ Class Usuario{
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if(empty(!$resultado)) {
-           $_SESSION['id_usuario'] = $resultado['id']; 
-           $_SESSION['nome'] = $resultado['nome'];
+           $_SESSION['id_usuario']    = $resultado['id']; 
+           $_SESSION['nome']          = $resultado['nome'];
+           $_SESSION['email']         = $resultado['email'];
+           $_SESSION['telefone']      = $resultado['telefone'];
+           $_SESSION['data_nascimento'] = $resultado['dt_nascimento'];
+           $_SESSION['sexo']          = $resultado['sexo'];
             return 'ok';
         } else {
             return 'email ou senha invalidos';

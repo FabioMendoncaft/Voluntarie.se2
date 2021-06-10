@@ -46,6 +46,7 @@ if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
 header('Location: index.php');
 }
 
+$user = $_SESSION['nome'];
 $acao = 'recuperar';
 require 'php/acoes-controller.php';
 
@@ -62,7 +63,7 @@ require 'php/acoes-controller.php';
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="material-icons">account_circle</span>
-                                <label>John Galt</label>
+                                <label><?php echo $user ?></label>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="perfil.php">Meu perfil</a></li>
@@ -124,7 +125,7 @@ require 'php/acoes-controller.php';
                     <img src="img/íconePerfil.jpg" alt="" class="imagemPerfil">
                 </div>
                 <div class="dadosPerfil">
-                    <h1><strong>John Galt</strong></h1>
+                    <h1><strong><?php echo $user ?></strong></h1>
                     <a href="perfil.php" class="btn btn-light corBotao">Meu perfil</a>
                 </div>
             </div>

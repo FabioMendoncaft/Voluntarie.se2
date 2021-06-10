@@ -4,6 +4,11 @@ session_start();
 if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
 header('Location: index.php');
 }
+$user          = $_SESSION['nome'];
+$email         = $_SESSION['email'];
+$telefone      = $_SESSION['telefone'];
+$dt_nascimento = $_SESSION['data_nascimento'];
+$sexo          = $_SESSION['sexo'];
 
 ?>
     <!DOCTYPE html>
@@ -74,7 +79,7 @@ header('Location: index.php');
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="material-icons">account_circle</span>
-                                <label>John Galt</label>
+                                <label><?php echo $user ?></label>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Meu perfil</a></li>
@@ -137,29 +142,29 @@ header('Location: index.php');
                 <button id="editarImagem" class="ativarModall"><span class="material-icons">camera_alt</span></button>
             </div>
 
-            <h1 id="nome">John Galt</h1>
+            <h1 id="nome"><?php echo $user ?></h1>
             <hr>
             <strong><label>Sobre Você</label></strong>
 
             <div id="blocoDados">
                 <span class="material-icons">mail_outline</span>
                 <p class="dados">E-mail:
-                    <p id="email">fabio.mendonca.f@gmail.com</p>
+                    <p id="email"><?php echo $email?></p>
                 </p>
 
                 <span class="material-icons"> phone</span>
                 <p class="dados">Telefone:
-                    <p id="telefone">(00)00000-0000</p>
+                    <p id="telefone"><?php echo $telefone?></p>
                 </p>
 
                 <span class="material-icons"> calendar_today</span>
                 <p class="dados">Data de nascimento:
-                    <p id="dNascimento">00/00/0000</p>
+                    <p id="dNascimento"><?php echo $dt_nascimento?></p>
                 </p>
 
                 <span class="material-icons"> transgender</span>
                 <p class="dados">Sexo:
-                    <p id="sexo">Masculino</p>
+                    <p id="sexo"><?php echo $sexo?></p>
                 </p>
             </div>
 
