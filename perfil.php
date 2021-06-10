@@ -5,10 +5,6 @@ if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM'){
 header('Location: index.php');
 }
 $user          = $_SESSION['nome'];
-$email         = $_SESSION['email'];
-$telefone      = $_SESSION['telefone'];
-$dt_nascimento = $_SESSION['data_nascimento'];
-$sexo          = $_SESSION['sexo'];
 
 ?>
     <!DOCTYPE html>
@@ -144,6 +140,7 @@ $sexo          = $_SESSION['sexo'];
 
             <h1 id="nome"><?php echo $user ?></h1>
             <hr>
+            <!--
             <strong><label>Sobre Você</label></strong>
 
             <div id="blocoDados">
@@ -167,7 +164,7 @@ $sexo          = $_SESSION['sexo'];
                     <p id="sexo"><?php echo $sexo?></p>
                 </p>
             </div>
-
+            -->
             <button type="submit" class="btn btn-light corBotao ativarModal" id="editarDados">Editar dados</button>
 
         </div>

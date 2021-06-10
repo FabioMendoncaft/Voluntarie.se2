@@ -112,10 +112,6 @@ Class Usuario{
         if(empty(!$resultado)) {
            $_SESSION['id_usuario']    = $resultado['id']; 
            $_SESSION['nome']          = $resultado['nome'];
-           $_SESSION['email']         = $resultado['email'];
-           $_SESSION['telefone']      = $resultado['telefone'];
-           $_SESSION['data_nascimento'] = $resultado['dt_nascimento'];
-           $_SESSION['sexo']          = $resultado['sexo'];
             return 'ok';
         } else {
             return 'email ou senha invalidos';
