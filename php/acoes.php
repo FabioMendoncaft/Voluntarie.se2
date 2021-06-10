@@ -144,6 +144,12 @@ Class Acoes {
 
     public function excluirAcao(){
 
+        $query = 'delete from tb_acoes where id = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',  $this->getId());
+
+        $stmt->execute();
+
     }
 
     public function listarMinhaAcao(){
