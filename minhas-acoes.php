@@ -29,6 +29,12 @@
         $(document).ready(function() {
             $("#cep").mask("00000-000")
         })
+
+        function remover(id){
+            location.href = 'minhas-acoes.php?acao=remover&id='+ id;
+
+        }
+
     </script>
 
 </head>
@@ -150,7 +156,7 @@ require 'php/acoes-controller.php';
                             </p>
                             <div class="botoes-Cards mt-auto">
                                 <a href="#" class="btn btn-light botaoAcoesFeed corBotao editBtn">Alterar</a>
-                                <a href="#" class="btn btn-light botaoAcoesFeed corBotao">Excluir</a>
+                                <a class="btn btn-light botaoAcoesFeed corBotao" onclick="remover(<?=$acoes->id ?>)">Excluir</a>
                             </div>
                         </div>
                     </div>
@@ -236,18 +242,8 @@ require 'php/acoes-controller.php';
 
         <!--######################################################################################################################-->
 
-
-
-
         <script src="JavaScript/minhas-acoes.js"></script>
 
-        <script>
-            $(document).ready(function() {
-                $('.editBtn').on('click', function() {
-                    $('#modalEdit').modal('show');
-                })
-            })
-        </script>
     </body>
 
 </html>

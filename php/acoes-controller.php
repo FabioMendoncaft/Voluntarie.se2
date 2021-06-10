@@ -10,8 +10,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     $acao = new Acoes($conexao);
 
-    print_r($_SESSION);
-     $acao->setId_usuario($_SESSION['id_usuario']);
+    $acao->setId_usuario($_SESSION['id_usuario']);
     $acao->setTitulo($_POST['titulo']);
     $acao->setDescricao($_POST['descricao']);
     $acao->setLogradouro($_POST['logradouro']);
@@ -25,10 +24,10 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     $acao->criarAcao();
 
+    header('location: feed.php');
+
 } else if ($acao == 'recuperar') {
     
-
-
     $conexao = new Conexao();
     $acao = new Acoes($conexao);
     $acao->setId_usuario($_SESSION['id_usuario']);
@@ -43,10 +42,14 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     $minha_acao = $acao->listaAcoes();
 
+} else if (isset($_GET['acao']) && $_GET['acao'] == 'remover'){
+
+    $conexao = new Conexao();
+    $acao = new Acoes($conexao);
+    $acao->setId($_GET['id']);
+    $acao->excluirAcao();
+
+    header('location: minhas-acoes.php');
+
 }
-
-
-
-
-
 ?>

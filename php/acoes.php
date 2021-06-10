@@ -16,6 +16,14 @@ Class Acoes {
    private $categoria;
    private $imagem;
 
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
    public function __construct(Conexao $conexao) {
         $this->conexao = $conexao->conectar();
     }
