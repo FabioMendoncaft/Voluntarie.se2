@@ -216,7 +216,7 @@ require 'php/acoes-controller.php';
                                 <div id="categoriaa">
                                     <p>Categoria:</p>
                                     <select name="categoria">
-                                        <option disabled="disabled"selected="selected">-- Selecione uma opção</option>
+                                        <option disabled="disabled"selected="selected"><?= $acoes->categoria?></option>
                                         <option>Visitações</option>
                                         <option>Doação de sangue</option>
                                         <option>Doação de suprimentos</option>
