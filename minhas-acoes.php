@@ -172,7 +172,7 @@ require 'php/acoes-controller.php';
         
         <!-- MODAL EDITAR -->
         <?php foreach($minha_acao as $indice => $acoes) { ?>   
-        <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" tabindex="-1" id="modalEdit_<?=$acoes->id ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content" id="modalEd">
                     <div class="acoes">
