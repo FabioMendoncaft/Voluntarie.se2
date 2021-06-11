@@ -184,7 +184,7 @@ require 'php/acoes-controller.php';
 
                             <!-- AQUI ENTRA O CÓDIGO EM PHP (NESTE FORM) -->
                             
-                            <form action="">
+                            <form method="post" action="php/acoes-controller.php?acao=alterar&id=<?=$acoes->id ?>">
                                 <div id="titulooo">
                                     <p>Título:</p>
                                     <input type="text" name="titulo" id="titulo" value="<?= $acoes->titulo ?>">
@@ -215,7 +215,7 @@ require 'php/acoes-controller.php';
 
                                 <div id="categoriaa">
                                     <p>Categoria:</p>
-                                    <select name="categoria">
+                                    <select  name="categoria">
                                         <option disabled="disabled"selected="selected"><?= $acoes->categoria?></option>
                                         <option>Visitações</option>
                                         <option>Doação de sangue</option>

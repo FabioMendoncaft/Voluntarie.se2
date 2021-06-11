@@ -37,7 +37,24 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     header('location: minhas-acoes.php');
     
-} else if ($acao == 'recuperar') {
+} else if (isset($_GET['acao']) && $_GET['acao'] == 'alterar') {
+
+    print_r($_POST);
+
+    $conexao = new Conexao();
+    $acao = new Acoes($conexao);
+
+    $acao->setTitulo($_POST['titulo']);
+    $acao->setDescricao($_POST['descricao']);
+    $acao->setLogradouro($_POST['logradouro']);
+    $acao->SetCidade($_POST['cidade']);
+    $acao->setBairro($_POST['bairro']);
+    $acao->setUf($_POST['uf']);
+    $acao->setComplemento($_POST['complemento']);
+    $acao->setData($_POST['data']);
+    $acao->setCategoria($_POST['categoria']);
+ 
+ } else if ($acao == 'recuperar') {
     
     $conexao = new Conexao();
     $acao = new Acoes($conexao);
@@ -54,6 +71,4 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
     $minha_acao = $acao->listaAcoes();
 
 } 
-
-
 ?>
