@@ -156,7 +156,7 @@ require 'php/acoes-controller.php';
                                 <?= $acoes->descricao ?>
                             </p>
                             <div class="botoes-Cards mt-auto">
-                                <a href="#" class="btn btn-light botaoAcoesFeed corBotao editBtn">Alterar</a>
+                                <a class="btn btn-light botaoAcoesFeed corBotao editBtn" data-bs-toggle="modal" data-bs-target="#modalEdit_<?=$acoes->id ?>">Alterar</a>
                                 <a class="btn btn-light botaoAcoesFeed corBotao" onclick="remover(<?=$acoes->id ?>)">Excluir</a>
                             </div>
                         </div>
@@ -171,6 +171,7 @@ require 'php/acoes-controller.php';
         <!--######################################################################################################################-->
         
         <!-- MODAL EDITAR -->
+        <?php foreach($minha_acao as $indice => $acoes) { ?>   
         <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content" id="modalEd">
@@ -186,7 +187,7 @@ require 'php/acoes-controller.php';
                             <form action="">
                                 <div id="titulooo">
                                     <p>Título:</p>
-                                    <input type="text" name="titulo" id="titulo">
+                                    <input type="text" name="titulo" id="titulo" value="<?= $acoes->titulo ?>">
                                 </div>
 
                                 <div id="ceppp">
@@ -196,20 +197,20 @@ require 'php/acoes-controller.php';
                                 </div>
 
                                 <p>Descrição:</p>
-                                <textarea name="descricao" id="descricao" rows="2"></textarea>
+                                <textarea name="descricao" id="descricao" rows="2"><?= $acoes->descricao ?></textarea>
 
                                 <div id="quadrado">
                                     <legend>Endereço:</legend>
-                                    <input type="text" id="logradouro" placeholder=" Logradouro " name="logradouro">
-                                    <input type="text" id="complemento" placeholder=" Complemento " name="complemento">
-                                    <input type="text" id="bairro" placeholder=" Bairro " name="bairro ">
-                                    <input type="text" id="localidade" placeholder=" Cidade ">
-                                    <input type="text" id="uf" placeholder="UF" name="uf">
+                                    <input type="text" id="logradouro" placeholder=" Logradouro " name="logradouro" value="<?= $acoes->logradouro?>">
+                                    <input type="text" id="complemento" placeholder=" Complemento " name="complemento" value="<?= $acoes->complemento?>">
+                                    <input type="text" id="bairro" placeholder=" Bairro " name="bairro " value="<?= $acoes->bairro?>">
+                                    <input type="text" id="localidade" placeholder=" Cidade " value="<?= $acoes->cidade?>">
+                                    <input type="text" id="uf" placeholder="UF" name="uf" value="<?= $acoes->uf?>">
                                 </div>
 
                                 <div id="dataa">
                                     <p>Data:</p>
-                                    <input type="date" name="data">
+                                    <input type="text" name="data" value="<?= $acoes->data_evento ?>">
                                 </div>
 
                                 <div id="categoriaa">
@@ -226,12 +227,11 @@ require 'php/acoes-controller.php';
                                 </div>
 
                                 <p>Imagem:</p>
-                                <form method="POST" action="" enctype="multipart/form-data">
+                            <!--<form method="POST" action="" enctype="multipart/form-data">
                                     <input type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
-                                </form>
+                                </form> -->
 
-
-                                <a href="" type="submit" class="btn btn-light corBotao" id="botaoCriar">Salvar</a>
+                                <button type="submit" class="btn btn-light corBotao" id="botaoCriar">Salvar</button>
                             </form>
 
                         </div>
@@ -239,6 +239,7 @@ require 'php/acoes-controller.php';
                 </div>
             </div>
         </div>
+        <?php } ?>
         <!-- (FIM) MODAL EDITAR -->
 
         <!--######################################################################################################################-->
