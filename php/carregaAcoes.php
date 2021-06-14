@@ -18,8 +18,11 @@ $minha_acao = $acao->listaAcoes();
                         <div class='card-body d-flex flex-column align-items-left'>
                             <button style='text-align: left; border: 0px; background: transparent;' class='editBtn'><h5 class='card-title'>". $acoes->titulo ."</h5>
                             <p class='card-text'>". $acoes->descricao ."</p>
-                            </p id='dataCard' name='dataCard'>". $acoes->data_evento ."</p></button>
-                            <a href='#' class='btn btn-light corBotao mt-auto participar ptr'>Participar</a>
+                            </p id='dataCard' name='dataCard'>". date('d/m/Y H:i:s', strtotime($acoes->data_evento)) ."</p></button>
+                            <div class='botoes-Cards mt-auto'>
+                            <a href='#' class='btn btn-light corBotao mt-auto'>Participar</a>
+                            <a class='btn btn-light botaoAcoesFeed corBotao editBtn' data-bs-toggle='modal' data-bs-target='#modalEdit_". $acoes->id ."''>Detalhes</a>
+                            </div>
                         </div>
                     </div>                    
                 </div>"; 

@@ -167,7 +167,8 @@ require 'php/acoes-controller.php';
         <!--####################################################################################################################-->
         
         <!-- MODAL VER DETALHES DA AÇÃO -->
-        <div class="modal fade" tabindex="-1" id="modalEdit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!--<?php foreach($minha_acao as $indice => $acoes) { ?> -->
+        <div class="modal fade" tabindex="-1" id="modalEdit_<?=$acoes->id ?>" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                     <!-- AQUI ENTRA O CÓDIGO EM PHP (NESTE FORM) -->
@@ -179,24 +180,31 @@ require 'php/acoes-controller.php';
                                 </button>
                                 <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
                                 <div class="card-body d-flex flex-column align-items-left modalDt">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <h5 class="card-title"><?= $acoes->titulo ?></h5>
+                                    <p class="card-text"><?= $acoes->descricao ?></p>
                                     
                                     <label>
                                         <p>Data: </p>
-                                        <p id="dataModal">00/00/0000</p>
+                                        <p id="dataModal">
+                                            <?= date('d/m/Y H:i:s', strtotime($acoes->data_evento)) ?></p>
                                     </label> 
                                     
                                     <label>
+                                        <!--<p>Endereço: </p>
+                                        <p id="cepModal" name="cepModal" class="cepNum"> <?= $acoes->titulo ?></p> 
+                                            <p>, </p>--> 
                                         <p>Endereço: </p>
-                                        <p id="cepModal" name="cepModal" class="cepNum"> 00000-000</p> 
-                                            <p>, </p> 
-                                        <p id="ruaModal" name="ruaModal"> Tabelião João lago 
-                                            <p>, </p> 
-                                        <p id="numeroModal" name="numeroModal" class="cepNum"> 000</p>
-                                            <p>.</p>
+                                        <p id="ruaModal" name="ruaModal"> <?= $acoes->logradouro ?></p> 
                                     </label>
-
+                                    <label>
+                                        <p id="bairroModal" name="bairroModal"> <?= $acoes->bairro ?> 
+                                        </p>
+                                    </label>
+                                     <label>
+                                         <p id="cidadeModal" name="cidadeModal" class="cidadeNum"> <?= $acoes->cidade ?></p>
+                                         <p>-</p>
+                                         <p id="ufModal" name="ufModal" class="ufNum"> <?= $acoes->uf ?></p>
+                                    </label>
                                     <a href="#" class="btn btn-light corBotao mt-auto">Participar</a>
                                 </div>
                             </div>
@@ -206,6 +214,7 @@ require 'php/acoes-controller.php';
                 </div>
             </div>
         </div>
+        <!--<?php } ?>-->
         <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
 
         <!--######################################################################################################################-->
