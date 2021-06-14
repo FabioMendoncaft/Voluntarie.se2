@@ -203,11 +203,11 @@ require 'php/acoes-controller.php';
                                     <legend>Endereço:</legend>
                                     <input type="text" id="logradouro" placeholder=" Logradouro " name="logradouro" value="<?= $acoes->logradouro?>">
                                     <input type="text" id="complemento" placeholder=" Complemento " name="complemento" value="<?= $acoes->complemento?>">
-                                    <input type="text" id="bairro" placeholder=" Bairro " name="bairro " value="<?= $acoes->bairro?>">
-                                    <input type="text" id="localidade" placeholder=" Cidade " value="<?= $acoes->cidade?>">
+                                    <input type="text" id="bairro" placeholder="Bairro" name="bairro" value="<?= $acoes->bairro?>">
+                                    <input type="text" id="cidade" placeholder=" Cidade " name="cidade" value="<?= $acoes->cidade?>">
                                     <input type="text" id="uf" placeholder="UF" name="uf" value="<?= $acoes->uf?>">
                                 </div>
-
+                                
                                 <div id="dataa">
                                     <p>Data:</p>
                                     <input type="text" name="data" value="<?= $acoes->data_evento ?>">
@@ -227,7 +227,7 @@ require 'php/acoes-controller.php';
                                 </div>
 
                                 <p>Imagem:</p>
-                            <!--<form method="POST" action="" enctype="multipart/form-data">
+                                <!--<form method="POST" action="" enctype="multipart/form-data">
                                     <input type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
                                 </form> -->
 

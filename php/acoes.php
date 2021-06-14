@@ -140,6 +140,19 @@ Class Acoes {
 
     public function editarAcao(){
 
+        $nova = "update tb_acoes set titulo = :titulo, descricao = :descricao, logradouro = :logradouro, cidade = :cidade,bairro = :bairro,uf = :uf,complemento = :complemento, data_evento = :data_evento, categoria = :categoria where id = :id; ";
+                $stmt = $this->conexao->prepare($nova);
+                $stmt->bindValue(':titulo', $this->getTitulo());
+                $stmt->bindValue(':descricao', $this->getDescricao());
+                $stmt->bindValue(':logradouro', $this->getLogradouro());
+                $stmt->bindValue(':cidade', $this->getCidade());
+                $stmt->bindValue(':bairro', $this->getBairro());
+                $stmt->bindValue(':uf', $this->getUf());
+                $stmt->bindValue(':complemento', $this->getComplemento());
+                $stmt->bindValue(':data_evento', $this->getData());
+                $stmt->bindValue(':categoria', $this->getCategoria());
+                $stmt->bindValue(':id',  $this->getId());      
+                $stmt->execute();
     }
 
     public function excluirAcao(){
@@ -154,7 +167,7 @@ Class Acoes {
 
     public function listarMinhaAcao(){
 
-        $query = 'select * from tb_acoes where id_usuario = :id_usuario';
+        $query = 'select id,id_usuario,titulo,descricao,logradouro,cidade,bairro,uf,complemento,data_criacao,DATE_FORMAT(data_evento, "%d/%m/%Y") as data_evento,categoria,imagem from tb_acoes where id_usuario = :id_usuario';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':id_usuario', $this->getId_usuario());
         $stmt->execute();
