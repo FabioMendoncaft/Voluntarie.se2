@@ -20,7 +20,7 @@ $minha_acao = $acao->listaAcoes();
                             <p class='card-text'>". $acoes->descricao ."</p>
                             </p id='dataCard' name='dataCard'>". date('d/m/Y H:i:s', strtotime($acoes->data_evento)) ."</p></button>
                             <div class='botoes-Cards mt-auto'>
-                            <a href='#' class='btn btn-light corBotao mt-auto'>Participar</a>
+                            <a class='btn btn-light botaoAcoesFeed corBotao' onclick='participar(". $acoes->id .")'>Participar</a>
                             <a class='btn btn-light botaoAcoesFeed corBotao editBtn' data-bs-toggle='modal' data-bs-target='#modalEdit_". $acoes->id ."''>Detalhes</a>
                             </div>
                         </div>
@@ -29,3 +29,11 @@ $minha_acao = $acao->listaAcoes();
                 }
 
 ?>
+
+    <script type="text/javascript">
+    
+        function participar(id){
+            location.href = 'php/acoes-controller.php?acao=participar&id='+ id;
+        }
+
+    </script>

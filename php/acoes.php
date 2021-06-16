@@ -15,6 +15,7 @@ Class Acoes {
    private $data_evento;
    private $categoria;
    private $imagem;
+   private $qtd_part;
 
     public function setId($id){
         $this->id = $id;
@@ -115,6 +116,14 @@ Class Acoes {
         return $this->imagem;
     }
 
+    public function setQtdPart($qtd_part){
+        $this->qtd_part = $qtd_part;
+    }
+
+    public function getQtdPart(){
+        return $this->qtd_part;
+    }
+
     public function criarAcao(){
         
         $query = 'insert into tb_acoes 
@@ -167,7 +176,7 @@ Class Acoes {
 
     public function listarMinhaAcao(){
 
-        $query = 'select id,id_usuario,titulo,descricao,logradouro,cidade,bairro,uf,complemento,data_criacao,DATE_FORMAT(data_evento, "%d/%m/%Y") as data_evento,categoria,imagem from tb_acoes where id_usuario = :id_usuario';
+        $query = 'select id,id_usuario,titulo,descricao,logradouro,cidade,bairro,uf,complemento,data_criacao, qtd_part,DATE_FORMAT(data_evento, "%d/%m/%Y") as data_evento,categoria,imagem from tb_acoes where id_usuario = :id_usuario';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':id_usuario', $this->getId_usuario());
         $stmt->execute();
@@ -183,8 +192,30 @@ Class Acoes {
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
 
-    }    
+    }   
+    public function ParticipaAcoes(){
 
-}
+        $query = 'SELECT qtd_part FROM tb_acoes WHERE id = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id', $this->getId());
+        $stmt->execute();
+
+        $teste =  $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        foreach($teste as $indice => $retorno){
+            $participante = $retorno->qtd_part; 
+
+            $query2 = 'update tb_acoes set qtd_part = :qtd_part where id = :id';
+            $stmt = $this->conexao->prepare($query2);
+            $stmt->bindValue(':id', $this->getId());
+            $stmt->bindValue(':qtd_part', $this->getQtdPart() + $participante);
+
+            $stmt->execute();
+            
+        }
+    
+    }     
+
+} 
 
 ?>

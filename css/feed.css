@@ -361,6 +361,33 @@ body {
 
 /* Tela MODAL MOSTRAR DETALHES DAS AÇÕES */
 
+/*Botões das ações(Participar e Detalhes)*/
+
+.botoes-Cards {
+    width: 100%;
+}
+
+.botoes-Cards a {
+    width: 48.6%;
+}
+
+@media(max-width: 1168px) {
+    .botoes-Cards a {
+        width: 100%;
+        margin-top: 7px;
+    }
+}
+
+@media(max-width:768px) {
+    .botoes-Cards a {
+        width: 48.6%;
+        margin-top: 0px;
+    }
+}
+
+
+/*FIM / Botões das ações(Açterar e excluir)*/
+
 .close {
     background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);

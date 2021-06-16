@@ -61,7 +61,16 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'criar'){
 
     header('Location: ../minhas-acoes.php'); 
  
- } else if ($acao == 'recuperar') {
+ } else if (isset($_GET['acao']) && $_GET['acao'] == 'participar'){
+    
+    $conexao = new Conexao();
+    $acao = new Acoes($conexao);
+    $acao->setId($_GET['id']);
+    $acao->setQtdPart(1);
+    $acao->ParticipaAcoes();
+    header('Location: ../feed.php');
+    
+} else if ($acao == 'recuperar') {
     
     $conexao = new Conexao();
     $acao = new Acoes($conexao);

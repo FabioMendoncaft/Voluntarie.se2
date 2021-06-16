@@ -72,6 +72,19 @@ body {
 
 .minhasAcoes #acoess{
     margin-bottom: 15px;
+
+}
+
+#qtd_part{
+    float: right; 
+    font-size: 14.5px; 
+    margin-right: 4px;
+    
+}
+
+#qtd_part_ic{
+    float: right; 
+    font-size: 20px;
 }
 
 .minhasAcoes #tituloMobile {
@@ -266,7 +279,7 @@ body {
 /*Nav Bar Mobile*/
 
 
-/*Botões das ações(Açterar e excluir)*/
+/*Botões das ações(Alterar e excluir)*/
 
 .botoes-Cards {
     width: 100%;

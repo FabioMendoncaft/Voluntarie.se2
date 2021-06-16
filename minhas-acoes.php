@@ -148,13 +148,19 @@ require 'php/acoes-controller.php';
                 <div class="col " id="">
                     <div class="card h-100 ">
                         <img src="img/acaoSocial2.jpg " class="card-img-top " alt="... ">
-                        <div class="card-body d-flex flex-column align-items-left">
-                            <h5 class="card-tite ">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-tite "> 
                                 <?= $acoes->titulo ?>
-                            </h5>
+                            </h5>   
                             <p class="card-text ">
                                 <?= $acoes->descricao ?>
                             </p>
+                            <div>
+                                <p id="qtd_part"><?= $acoes->qtd_part ?></p>
+                                <span id="qtd_part_ic" class="material-icons">
+                                    person 
+                                </span> 
+                            </div>
                             <div class="botoes-Cards mt-auto">
                                 <a class="btn btn-light botaoAcoesFeed corBotao editBtn" data-bs-toggle="modal" data-bs-target="#modalEdit_<?=$acoes->id ?>">Alterar</a>
                                 <a class="btn btn-light botaoAcoesFeed corBotao" onclick="remover(<?=$acoes->id ?>)">Excluir</a>
