@@ -40,7 +40,8 @@ CREATE TABLE `tb_acoes` (
   `data_criacao` datetime DEFAULT current_timestamp(),
   `data_evento` datetime DEFAULT NULL,
   `categoria` varchar(50) DEFAULT NULL,
-  `imagem` varchar(30) DEFAULT NULL
+  `imagem` varchar(30) DEFAULT NULL,
+  `qtd_part` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
