@@ -1,0 +1,137 @@
+/* RESPONSIVIDADE NAVBAR MOBILE */
+@media(max-width: 770px) {
+    #navMobile {
+        display: flex;
+    }
+}
+
+@media(max-width: 435px) {
+    #navMobile span {
+        font-size: 32px;
+    }
+    #navMobile #feed {
+        margin-left: 5px;
+    }
+    #navMobile #perfil {
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 350px) {
+    #navMobile span {
+        font-size: 28px;
+    }
+}
+/*  FIM - RESPONSIVIDADE NAVBAR MOBILE */
+
+
+/* RESPONSIVIDADE TELA ESQUERDA */
+@media(max-width: 770px) {
+    .perfilFiltro {
+        display: none;
+    }
+    .formulario {
+        margin-bottom: 50px;
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+    .barraMobile {
+        display: flex;
+    }
+    .formulario #criarAcao {
+        margin-top: -70px;
+    }
+}
+
+@media(max-width: 1123px) {
+    .dadosPerfil a {
+        font-size: 13.3px;
+    }
+}
+
+@media(max-width: 1050px) {
+    .dadosPerfil a {
+        width: 130px;
+        padding: 3px;
+        margin-top: 2px;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+}
+/* FIM - RESPONSIVIDADE TELA ESQUERDA */
+
+
+/* RESPONSIVIDADE FORMULÁRIO */
+@media(max-width: 972px) {
+    .formulario  #quadrado #cep {
+        width: 69.5%;
+    }
+    .formulario  #quadrado #obterEndereco {
+        width: 29.5%;
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 770px) {
+    .formulario  {
+        margin-left: 0px;
+        width: 100%;
+        float: none;
+        height: 100%;
+    }
+}
+
+@media(max-width: 844px) {
+    .formulario  #quadrado #obterEndereco {
+        width: 29%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 770px) {
+    .formulario  #quadrado #cep {
+        width: 69.5%;
+    }
+    .formulario  #quadrado #obterEndereco {
+        width: 29.5%;
+        font-size: 15px;
+    }
+    .formulario  #criarAcao {
+        margin-top: 0px;
+    }
+    .formulario  #tituloMobile {
+        display: block;
+    }
+}
+
+@media(max-width: 573px) {
+    .formulario  #quadrado #cep {
+        width: 60%;
+    }
+    .formulario  #quadrado #obterEndereco {
+        width: 38%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 442px) {
+    .formulario  #quadrado #cep {
+        width: 50%;
+    }
+    .formulario  #quadrado #obterEndereco {
+        width: 48%;
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 350px) {
+    .formulario  #quadrado #cep {
+        width: 58%;
+    }
+    .formulario  #quadrado #obterEndereco {
+        width: 39.5%;
+        font-size: 13px;
+    }
+}
+/* FIM - RESPONSIVIDADE FORMULÁRIO */

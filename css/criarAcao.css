@@ -73,8 +73,11 @@ body{
     font-size: 38px;
 }
 
-#navMobile #feed {
+#navMobile #feed{
     margin-left: 10px;
+}
+
+#navMobile #criar {
     color: #fe5200;
     border-top: #fe5200;
     border-style: solid;
@@ -116,120 +119,148 @@ body{
     margin-top: -45px;
     width: 35%;
 }
-
-.filtro h4 {
-    color: #fff;
-    font-weight: bold;
-    font-size: 103%;
-    text-align: center;
-}
-
-.filtro p {
-    text-align: left;
-    color: #fff;
-    margin-bottom: 1px;
-    font-size: 92%;
-}
-
-.filtro input {
-    width: 100%;
-    border: 1px solid #afafaf;
-    padding-left: 10px;
-    transition: all 400ms ease;
-    border-radius: 4px;
-}
-
-.filtro #categoria{
-    margin-top: -14px;
-}
-
-.filtro input:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-}
-
-.filtro select {
-    width: 100%;
-    margin-bottom: 15px;
-    border: 1px solid #afafaf;
-    padding: 0px;
-    transition: all 400ms ease;
-    border-radius: 4px;
-}
-
-.filtro select:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-}
 /* FIM - Body esquerda */
 
 
 /* Body Meio */
-.acoes {
-    width: 46%;
+.formulario {
+    width: 73%;
     padding: 30px;
     float: left;
     margin-left: 27%;
+    margin-top: 48px;
 }
 
-.acoes #acoesGeral{
-    margin-top: 0px;
+.blocoCadastro {
+    width: 100%;
+    min-width: 90px;
+    margin-top: -17px;
 }
 
-.acoes .acoesCard{
+.formulario #tituloMobile {
+    text-align: center;
+    color: #707071;
+    display: none;
+}
+
+.formulario #tituloName{
+    margin-top: 34px;
+}
+
+.formulario p {
+    margin-bottom: 2px;
+    font-size: 18px;
+}
+
+.formulario input {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #525252;
+    padding: 3px;
+    transition: all 400ms ease;
     background: #282a2e;
     color: white;
-    padding: 10px;
+    box-shadow: 2px 2px 5px 1px #f8360049;
 }
 
-.acoesCard .fotoCard{
-    width: 45px;
+::-webkit-input-placeholder {
+    color: rgb(173, 173, 173);
+ }
+
+.formulario input:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
+}
+
+.formulario select {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #525252;
+    padding: 3px;
+    background: #282a2e;
+    color: rgb(173, 173, 173);
+    box-shadow: 2px 2px 5px 1px #f8360049;
+}
+
+.formulario select:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
+    color: black;
+}
+
+.formulario #descricao {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #525252;
+    padding: 3px;
+    transition: all 400ms ease;
+    background: #282a2e;;
+    color: white;
+    box-shadow: 2px 2px 5px 1px #f8360049;
+}
+
+.formulario #descricao:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
+}
+
+.formulario #data {
     float: left;
+    width: 50%;
+    padding: 3px;
 }
 
-.userCard .nomeCard{
-    margin-left: 10px; 
-    font-weight: bold
+.formulario #data input {
+    width: 100%;
+    color: rgb(173, 173, 173);
 }
 
-.userCard .dataCard{
-    margin-left: 55px; 
-    font-size: 11px; 
-    color: rgb(180, 180, 180);
+.formulario #categoriaa {
+    float: left;
+    width: 50%;
+    padding: 3px;
 }
 
-.acoesCard .qtd_part{
-    float: right; 
-    font-size: 14.5px; 
-    margin-right: 4px;
+.formulario #categoriaa input {
+    width: 100%;
 }
 
-
-.acoesCard .qtd_part_ic{
-    float: right; 
-    font-size: 20px;
+.formulario #quadrado {
+    margin-top: 90px;
+    border: 1px solid #707071;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
-.acoes .acoesBtn{
-    width: 49%;
-}
-/* FIM - Body Meio  */
-
-
-/* Body Direita */
-.anuncio{
-    width: 27%;
-    height: 100%;
-    position: fixed;
-    margin-left: 73%;
-    padding: 25px;
-    margin-top: 61px;
+.formulario #quadrado input {
+    width: 100%;
 }
 
-.anuncio .cardDireita{
-    background: #282a2e;
-    color: white;
-    height: 505px;
+.formulario #quadrado #cep {
+    width: 24%;
 }
-/* FIM - Body Direita */
 
+.formulario #quadrado legend {
+    font-size: 18px;
+}
+
+.formulario #obterEndereco {
+    width: 25%;
+    margin-top: -5px;
+}
+
+.formulario #imagem {
+    width: 241.95px;
+    height: 174.14px;
+}
+
+.formulario #botaoCriar {
+    width: 50%;
+    margin-top: 15px;
+    margin-left: 25%;
+}

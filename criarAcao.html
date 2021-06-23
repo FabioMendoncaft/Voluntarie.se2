@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntarie.se | Criar Ação</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/criarAcao.css">
+    <link rel="stylesheet" href="cssResp/criarAcaoResp.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="JavaScript/criar-acao.js"></script>
+</head>
+
+<body>
+    <!-- NavBar Topo(PC) -->
+    <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-dark" id="navTop">
+        <div class="container-fluid">
+            <a href="feed.html"><img src="img/android-chrome-192x192.png" alt="logo" id="imagemLogo"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                <div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="material-icons">account_circle</span>
+                            <label>User Name</label>
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item textDrop" href="#">Meu perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="index.html">Sair</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="form-inline my-2 my-lg-0">
+                    <a href=""><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
+                                class="fas fa-plus"></i> Criar ação</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar Topo(PC) -->
+
+    <!-- NavBar para Mobile(Barra inferior) -->
+    <nav class="fixed-bottom navbar navbar-expand-lg navbar-light bg-dark" id="navMobile">
+        <div class="container-fluid">
+            <a href="feed.html">
+                <span id="feed" class="material-icons text-light">home</span>
+            </a>
+            <a href="">
+                <span id="criar" class="material-icons ">add_circle</span>
+            </a>
+            <a href="">
+                <span class="material-icons text-light">collections</span>
+            </a>
+            <a href="">
+                <span id="perfil" class="material-icons text-light">person</span>
+            </a>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar para Mobile(Barra inferior) -->
+
+    <!-- Lateral - Dados do usuário(ESQUERDA) -->
+    <div class="perfilFiltro">
+        <div class="card mt-3 cardEsquerda" id="cardPerfil">
+            <div class="card-body">
+                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                <h4 class="mb-5">User Name</h4>
+                <a href="" class="btn btn-light corBotao mb-4">Meu perfil</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- (FIM)lateral - Dados do usuário(ESQUERDA) -->
+
+    <!-- Formulário de Ação -->
+    <div class="formulario">
+        <div class="blocoCadastro" id="criarAcao">
+            <div id="tituloMobile">
+                <h3 class="text-light">Criar ação</h3>
+            </div>
+            <form method="" action="">
+                <p class="text-light" id="tituloName">Título:</p>
+                <input type="text" name="titulo" id="titulo">
+                <p class="text-light">Descrição:</p>
+                <textarea name="descricao" id="descricao" rows="4"></textarea>
+                <div id="data">
+                    <p class="text-light">Data:</p>
+                    <input type="date" name="data" id="dataInput">
+                </div>
+                <div id="categoriaa">
+                    <p class="text-light">Categoria:</p>
+                    <select class="form-select" aria-label="Default select example" name="categoria">
+                        <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+                        <option value="1">Visitações</option>
+                        <option value="2">Doação de sangue</option>
+                        <option value="3">Doação de suprimentos</option>
+                        <option value="4">Distribuição suprimentos</option>
+                        <option value="5">Adoção de animais</option>
+                        <option value="6">Passeio com animais</option>
+                    </select>
+                </div>
+                <div id="quadrado">
+                    <legend class="text-light">Endereço:</legend>
+                    <input type="text" id="cep" placeholder=" Cep" name="cep">
+                    <a href="#" class="btn btn-light corBotao" id="obterEndereco" onclick="endereco()">Obter
+                        endereço</a>
+                    <input type="text" id="logradouro" placeholder=" Logradouro" name="logradouro">
+                    <input type="text" id="complemento" placeholder=" Complemento" name="complemento">
+                    <input type="text" id="bairro" placeholder=" Bairro" name="bairro">
+                    <input type="text" id="localidade" placeholder=" Cidade" name="cidade">
+                    <input type="text" id="uf" placeholder=" UF" name="uf">
+                </div>
+                <p class="text-light">Imagem:</p>
+                <input class="form-control" type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
+                <img name="imagem" src="" alt="" id="imagem">
+                <button type="submit" class="btn btn-light corBotao" id="botaoCriar">Criar ação</button>
+            </form>
+        </div>
+    </div>
+    <!-- (FIM) Formulário de Ação -->
+</body>
+
+</html>

@@ -1,37 +1,48 @@
-function feedback(){
-    document.querySelector('.feedback').style.display="none"
-}    
-    setTimeout("feedback()", 5000);
+$(document).ready(function () {
+    $("#telefone").mask("(00)00000-0000")
+})
+$(document).ready(function () {
+    $("#data").mask("00/00/0000")
+})
 
-function iniciaModal(modalID) {
-    const modal = document.getElementById(modalID)
-    if (modal) {
-        modal.classList.add('mostrar')
-        modal.addEventListener('click', (e) => {
-            if (e.target.id == modalID || e.target.className == 'close') {
-                modal.classList.remove('mostrar')
+$(document).ready(function () {
+    $("#esqueciSenha").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
             }
-        })
-    }
-}
+        }
+    })
+})
 
-const ativarModal = document.querySelector('.ativarModal')
-ativarModal.addEventListener('click', () => iniciaModal('modall-cadastro'))
-
-
-function iniciaModall(modallID) {
-    const modal = document.getElementById(modallID)
-    if (modal) {
-        modal.classList.add('mostrarr')
-        modal.addEventListener('click', (e) => {
-            if (e.target.id == modallID || e.target.className == 'close') {
-                modal.classList.remove('mostrarr')
+$(document).ready(function () {
+    $("#cadastro").validate({
+        rules: {
+            nome: {
+                required: true,
+                maxlength: 100,
+                minlength: 10,
+                minWords: 2
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            senha: {
+                required: true,
+                rangelength: [6, 10]
+            },
+            confirmar: {
+                required: true,
+                equalTo: "#senha"
+            },
+            data: {
+                required: true,
+            },
+            sexo: {
+                required: true,
             }
-        })
-    }
-}
-
-const ativarModall = document.querySelector('.ativarModall')
-ativarModall.addEventListener('click', () => iniciaModall('modall-esqueci'))
-
-
+        },
+    })
+})

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
 * {
     margin: 0;
@@ -53,30 +54,6 @@ header {
     opacity: 0.2;
 }
 
-.containe #cadastrado{
-    background: red; 
-    height: 50px; 
-    color: white; 
-    text-align: center; 
-    font-size: 20px;
-}
-
-.containe #sucesso{
-    background: #4ee44e; 
-    height: 50px; 
-    color: white;
-    text-align: center; 
-    font-size: 20px;
-}
-
-.containe #invalido{
-    background: red; 
-    height: 50px; 
-    color: white; 
-    text-align: center; 
-    font-size: 20px;
-}
-
 .containe .top{
     margin-top: 8px
 }
@@ -107,7 +84,6 @@ header {
     border-radius: 5px;
     padding: 7px;
     width: 333px;
-    border-radius: 100px;
     border: none;
     padding: 8px;
     transition: all 400ms ease;
@@ -125,14 +101,16 @@ header {
     text-decoration: underline;
     margin-left: 70px;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .banne .esqueciSenha:hover{
     transition: all 250ms ease;
     font-size: 16.5px;
 }
+
 .password {
-    margin-top: 15px;
+    margin-top: 5px;
     width: 345px;
 }
 
@@ -145,9 +123,9 @@ header {
     background: #fe0000;
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
     background: linear-gradient(to right, #f83600, #fe5200);
-    padding: 1rem 2rem;
+    padding: 0.9rem 2rem;
     border: none;
-    border-radius: 100px;
+    border-radius: 5px;
     cursor: pointer;
     opacity: 0;
     animation: moveBanne 1s 0.9s forwards;
@@ -167,7 +145,7 @@ header {
     font-family: var(--font-action);
     background: none;
     box-shadow: inset 0 0 0 1px #fff;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
     animation: moveBanne 1s 0.9s forwards;
     text-decoration: none;
@@ -179,7 +157,7 @@ header {
     font-family: var(--font-action);
     background: none;
     box-shadow: inset 0 0 0 1px #fff;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
     animation: moveBanne 1s 0.9s forwards;
     text-decoration: none;
@@ -193,66 +171,6 @@ header {
     box-shadow: inset 0 0 0;
 }
 
-
-/*RESPONSIVIDADE HOME*/
-
-@media(max-width: 600px) {
-    .banne button {
-        padding: 1rem 1.1rem;
-    }
-    .banne h1 {
-        font-size: 2.9em;
-    }
-    .banne input {
-        width: 280px;
-    }
-}
-
-@media(min-width: 1600px) {
-    .banne button {
-        padding: 1rem 3rem;
-    }
-    .banne h1 {
-        font-size: 4.2em;
-    }
-    .banne input {
-        width: 400px;
-    }
-    .esqueciSenha {
-        margin-left: 120px;
-    }
-}
-
-@media(min-width: 2400px) {
-    .banne button {
-        padding: 1.3rem 5.3rem;
-        font-size: 30px;
-    }
-    .banne h1 {
-        font-size: 8.5em;
-        margin-bottom: 70px;
-    }
-    .banne input {
-        width: 700px;
-        padding: 15px;
-        font-size: 30px;
-    }
-    .esqueciSenha {
-        margin-left: 210px;
-        font-size: 30px;
-    }
-}
-
-@media(max-width: 400px) {
-    .banne {
-        margin-top: -80px;
-        margin-left: -20px;
-    }
-}
-
-
-/*FIM RESPONSIVIDADE HOME*/
-
 @keyframes moveBanne {
     0% {
         transform: translateY(10rem) rotateY(-3deg);
@@ -263,13 +181,14 @@ header {
     }
 }
 
+/* Modal Cadastro / Esqueci Senha */
 
+.error {
+    color: red;
+}
 
-
-/*CSS CADASTRO E ESQUICI SENHA*/
-
-.card1-top {
-    margin-bottom: px;
+.modal img{
+    width: 33%;
 }
 
 .card1 {
@@ -295,6 +214,7 @@ header {
     padding: 13px;
     border: solid 1px;
     transition: all 400ms ease;
+    border-radius: 4px;
 }
 
 .card1-group>input:hover{
@@ -302,198 +222,135 @@ header {
     background: #f836002f;
 }
 
-.card1-group>button {
-    background: #fe0000;
-    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
-    background: linear-gradient(to right, #f83600, #fe5200);
+.card1-group>select{
     width: 100%;
-    border-radius: 30px;
-    padding: 0.6rem 9.7rem;
-    color: #ffffff;
-    border: 0px;
-    outline: 0;
-    margin-top: 2px;
-    transition: all 600ms ease;
+    border-radius: 4px;
 }
 
-.card1-group>button:hover {
-    transition: all 600ms ease;
-    color: #363636;
-    box-shadow: inset 0 0 0 1px #363636;
-    border-radius: 20px;
-    background: transparent;
-}
-
-.card1 .sexo {
-    color: rgb(75, 75, 75);
-    margin-bottom: 10px;
-}
-
-.title {
-    color: #CA2700;
-}
-
-#insiriaSeuEmail label {
-    margin-bottom: 10px;
-}
-
-
-/* TELA MODAL */
-
-
-/*Cadastro*/
-
-.modall-cadastro {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, .5);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 2000;
-    display: none;
-    justify-content: center;
-}
-
-.modall-cadastro.mostrar {
-    display: flex;
-}
-
-.modall {
-    position: relative;
-    margin-top: 15px;
-}
-
-.modall select {
-    width: 100%;
-}
-
-@keyframes modal {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -60px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.mostrar .modall {
-    animation: modal .5s;
-}
-
-.modall img {
-    width: 200px;
-    margin-left: 23%;
-}
-
-.opcoes{
-    transition: all 400ms ease;
-}
-
-.opcoes:hover{
+.card1-group>select:hover{
     transition: all 400ms ease;
     background: #f836002f;
 }
 
-/*Esqueci senha*/
+.padraoBotao {
+    transition: all 500ms ease;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    color: white;
+}
 
-.modall-esqueci {
-    width: 100vw;
+.padraoBotao:not(:hover) {
+    color: white;
+}
+
+/* ( FIM ) Modal Cadastro / Esqueci Senha */
+
+
+/* Contato */
+
+.sessao-contato {
+    width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, .5);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 2000;
-    display: none;
+    background: -webkit-linear-gradient(to right, #000, #2c2c2c);
+    background: linear-gradient(to right, #000, #2c2c2c);
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-.modall-esqueci.mostrarr {
+.contato-wrapper {
+    width: 60%;
+    height: 30rem;
     display: flex;
+    box-shadow: 0 2rem 3rem rgba(0,0,0,0.5);
+} 
+
+.contato-left {
+    width: 35%;
+    background: linear-gradient(rgba(15,15,15, 0.6), rgba(22,22,22,0.9)), url('../img/contato.jpg');
+    background-size: cover;
 }
 
-.modall-esqSenha {
+.contato-right {
+    width: 65%;
+    background-color: #2c2c2c;
+    padding: 1rem 3rem 3rem 3rem;
+}
+
+.sessao-contato h1 {
+    font-family: var(--font-primary);
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+.sessao-contato form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.sessao-contato input{
+    color: #fff;
+    width: 100%;
+}
+
+.input-group {
     position: relative;
-    margin-top: 15px;
 }
 
-@keyframes modal {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -60px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.mostrarr .modall-esqSenha {
-    animation: modal .5s;
-}
-
-.modall-esqSenha img {
-    width: 200px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-}
-
-
-/*RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
-
-@media(max-width: 440px) {
-    .modall {
-        width: 280px;
-        height: 550px;
-    }
-    .modall-esqSenha {
-        width: 280px;
-        height: 550px;
-    }
-    .modall-esqSenha img {
-        margin-left: 30px;
-    }
-    .card1-group>button {
-        padding: 0.6rem 5rem;
-    }
-    .modall select {
-        width: 85%;
-    }
-    .modall img {
-        width: 150px;
-        margin-left: 50px;
-    }
-}
-
-
-/* FIM RESPONSIVIDADE HOME(CADASTRO E ESQUECI SENHA)*/
-
-
-/*Botão de close para tela de cadastro e esquici senha*/
-
-.close {
-    position: absolute;
-    font-size: 1.2em;
-    background: #fe0000;
-    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
-    background: linear-gradient(to right, #f83600, #fe5200);
-    top: 0px;
-    right: 0px;
-    color: white;
-    width: 30px;
-    height: 30px;
-    border: 1px solid;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: all 600ms ease;
-}
-
-.close:hover {
-    transition: all 600ms ease;
-    color: #363636;
-    box-shadow: inset 0 0 0 0.2px #363636;
+.field {
     background: transparent;
+    border: none;
+    width: 20rem;
+    font-size: 1.5rem;
+    font-family: var(--font-secundary);
+    border-bottom: 2px dashed #fff;;    
+    height: 3rem;
+    outline: none;
+    margin: 1rem 0;
 }
+
+.input-group textarea{
+    color: #fff;
+    width: 100%;
+}
+
+.field-label {
+    position: absolute;
+    left: 0;
+    top: 2rem;
+    font-size: 1rem;
+    font-family: var(--font-secundary);
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  
+  .field:focus ~ label {
+    top: 0;
+    font-size: 0.7rem;
+  }
+  
+  .field:focus {
+    border-bottom: 1px solid;
+  }
+
+  .bt-submit {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    width: 80%;
+    height: 2.5rem;
+    margin-top: 1rem;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+    outline: none;
+    border: 0px;
+    border-radius: 5px;
+  }
+
+  /* (FIM) Contato */

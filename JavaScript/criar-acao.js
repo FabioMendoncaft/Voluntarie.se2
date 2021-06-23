@@ -40,3 +40,44 @@ function previewImagem(){
         preview.src = " "
     }
 }
+
+$(document).ready(function() {
+    $("#cep").mask("00000-000")
+})
+
+$(document).ready(function() {
+    $("#criarAcao").validate({
+        rules: {
+            titulo: {
+                required: true,
+            },
+            descricao: {
+                required: true,
+            },
+            data: {
+                required: true,
+            }
+        },
+    })
+})
+$(document).ready(function() {
+    $("#quadrado").validate({
+        rules: {
+            logradouro: {
+                required: true,
+            },
+            bairro: {
+                required: true,
+            },
+            cidade: {
+                required: true,
+            },
+            uf: {
+                required: true,
+            },
+            categoria: {
+                required: true,
+            }
+        },
+    })
+})
