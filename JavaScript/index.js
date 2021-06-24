@@ -1,9 +1,6 @@
 $(document).ready(function () {
     $("#telefone").mask("(00)00000-0000")
 })
-$(document).ready(function () {
-    $("#data").mask("00/00/0000")
-})
 
 $(document).ready(function () {
     $("#esqueciSenha").validate({
@@ -36,9 +33,6 @@ $(document).ready(function () {
             confirmar: {
                 required: true,
                 equalTo: "#senha"
-            },
-            data: {
-                required: true,
             },
             sexo: {
                 required: true,

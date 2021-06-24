@@ -32,7 +32,7 @@
             </div>
             <div class="banne">
                 <h1>Voluntarie<strong id="ponto">.</strong>se</h1>
-                <form method="post" class="form" action="php/logar.php?acao=logar">
+                <form class="form" >
                     <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
                     <br>
                     <input type="password" name="senha" id="senhaTeste" class="password" placeholder="Digite sua senha" required>
@@ -49,41 +49,41 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                        <img class="logoCadastro" src="img/logo.png" alt="login">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <img class="logoCadastro" src="img/logo2.png" alt="login">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form class="form" id="cadastro">
                         <div class="modal-body">
-                            <div class="card1-group">
-                                <label>Nome</label>
-                                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Nome</label>
+                                <input type="text" class="form-control bg-dark text-light p-1" id="nome" name="nome">
                             </div>
-                            <div class="card1-group">
-                                <label>E-mail</label>
-                                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">E-mail</label>
+                                <input type="email" class="form-control bg-dark text-light p-1" id="email" name="email">
                             </div>
-                            <div class="card1-group">
-                                <label>Telefone</label>
-                                <input type="text" name="telefone" id="telefone" placeholder="Digite seu telefone">
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Telefone</label>
+                                <input type="text" class="form-control bg-dark text-light p-1" id="telefone" name="telefone">
                             </div>
-                            <div class="card1-group">
-                                <label>Senha</label>
-                                <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Senha</label>
+                                <input type="text" class="form-control bg-dark text-light p-1" id="senha" name="senha">
                             </div>
-                            <div class="card1-group">
-                                <label>Confirmar</label>
-                                <input type="password" name="confirmar" id="confirmar" placeholder="Confirmar senha" required>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Confirmar Senha</label>
+                                <input type="text" class="form-control bg-dark text-light p-1" id="confirmar" name="confirmar">
                             </div>
-                            <div class="card1-group">
-                                <label>Data de nascimento</label>
-                                <input type="text" name="data" id="data" placeholder="Data de nascimento" required>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Data de nascimento</label>
+                                <input type="date" class="form-control bg-dark text-light p-1" id="data" name="data" min="1920-01-01" max="2020-12-31">
                             </div>
-                            <div class="card1-group">
-                                <label>Sexo</label>
-                                <select name="sexo" class="opcoes">
-                                    <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
-                                    <option>Masculino</option>
-                                    <option>Feminino</option>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Sexo</label>
+                                <select class="form-select bg-dark text-light p-1" aria-label="Default select example" name="sexo">
+                                    <option disabled="disabled" selected="selected">- Selecione uma opção</option>
+                                    <option value="1">Feminimo</option>
+                                    <option value="2">Masculino</option>
                                 </select>
                             </div>
                         </div>
@@ -100,14 +100,14 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                        <img class="logoCadastro" src="img/logo.png" alt="login">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <img class="logoCadastro" src="img/logo2.png" alt="login">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form class="form" id="esqueciSenha">
                         <div class="modal-body">
-                            <div class="card1-group" id="insiriaSeuEmail">
-                                <label>Insira seu e-mail para redefinir sua senha</label>
-                                <input type="email" name="email" id="email" placeholder="E-mail">
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">E-mail</label>
+                                <input type="email" class="form-control bg-dark text-light p-1" id="email" name="email">
                             </div>
                         </div>
                         <div class="modal-footer">

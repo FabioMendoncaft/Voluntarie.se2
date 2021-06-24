@@ -1,30 +1,3 @@
-/* RESPONSIVIDADE NAVBAR MOBILE */
-@media(max-width: 770px) {
-    #navMobile {
-        display: flex;
-    }
-}
-
-@media(max-width: 435px) {
-    #navMobile span {
-        font-size: 32px;
-    }
-    #navMobile #feed {
-        margin-left: 5px;
-    }
-    #navMobile #perfil {
-        margin-right: 5px;
-    }
-}
-
-@media(max-width: 350px) {
-    #navMobile span {
-        font-size: 28px;
-    }
-}
-/*  FIM - RESPONSIVIDADE NAVBAR MOBILE */
-
-
 /* RESPONSIVIDADE TELA ESQUERDA */
 @media(max-width: 770px) {
     .perfilFiltro {
@@ -41,6 +14,9 @@
     }
     .formulario #criarAcao {
         margin-top: -70px;
+    }
+    .formulario #tituloMobile{
+        display: block;
     }
 }
 

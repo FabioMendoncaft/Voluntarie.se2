@@ -182,54 +182,16 @@ header {
 }
 
 /* Modal Cadastro / Esqueci Senha */
-
 .error {
     color: red;
 }
 
+.modal .modal-content{
+    background: #1b1c1f;
+}
+
 .modal img{
     width: 33%;
-}
-
-.card1 {
-    box-shadow: 1px 1px 10px #ccc;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.card1-group {
-    margin-bottom: 5px;
-}
-
-.card1-group>label {
-    width: 100%;
-    color: rgb(75, 75, 75);
-    display: block;
-}
-
-.card1-group>input {
-    width: 100%;
-    height: 20px;
-    padding: 13px;
-    border: solid 1px;
-    transition: all 400ms ease;
-    border-radius: 4px;
-}
-
-.card1-group>input:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-}
-
-.card1-group>select{
-    width: 100%;
-    border-radius: 4px;
-}
-
-.card1-group>select:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
 }
 
 .padraoBotao {
@@ -242,12 +204,10 @@ header {
 .padraoBotao:not(:hover) {
     color: white;
 }
-
 /* ( FIM ) Modal Cadastro / Esqueci Senha */
 
 
 /* Contato */
-
 .sessao-contato {
     width: 100%;
     height: 100vh;
