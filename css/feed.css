@@ -105,62 +105,17 @@ body{
     background: #282a2e;
 }
 
-.cardEsquerda h4{
-    color: #fff;
-    font-weight: bold;
-    font-size: 140%;
-    text-align: center;
-}
-
 #fotoPerfil{
     margin-top: -45px;
     width: 35%;
 }
 
-.filtro h4 {
-    color: #fff;
-    font-weight: bold;
-    font-size: 103%;
-    text-align: center;
-}
-
 .filtro p {
     text-align: left;
-    color: #fff;
     margin-bottom: 1px;
     font-size: 92%;
 }
 
-.filtro input {
-    width: 100%;
-    border: 1px solid #afafaf;
-    padding-left: 10px;
-    transition: all 400ms ease;
-    border-radius: 4px;
-}
-
-.filtro #categoria{
-    margin-top: -14px;
-}
-
-.filtro input:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-}
-
-.filtro select {
-    width: 100%;
-    margin-bottom: 15px;
-    border: 1px solid #afafaf;
-    padding: 0px;
-    transition: all 400ms ease;
-    border-radius: 4px;
-}
-
-.filtro select:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-}
 /* FIM - Body esquerda */
 
 
@@ -228,7 +183,6 @@ body{
 
 .anuncio .cardDireita{
     background: #282a2e;
-    color: white;
     height: 505px;
 }
 /* FIM - Body Direita */

@@ -89,48 +89,68 @@
 
     <!-- Formulário de Ação -->
     <div class="formulario">
-        <div class="blocoCadastro" id="criarAcao">
-            <div id="tituloMobile">
-                <h3 class="text-light">Criar ação</h3>
-            </div>
-            <form method="" action="">
-                <p class="text-light" id="tituloName">Título:</p>
-                <input type="text" name="titulo" id="titulo">
-                <p class="text-light">Descrição:</p>
-                <textarea name="descricao" id="descricao" rows="4"></textarea>
-                <div id="data">
-                    <p class="text-light">Data:</p>
-                    <input type="date" name="data" id="dataInput">
-                </div>
-                <div id="categoriaa">
-                    <p class="text-light">Categoria:</p>
-                    <select class="form-select" aria-label="Default select example" name="categoria">
-                        <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
-                        <option value="1">Visitações</option>
-                        <option value="2">Doação de sangue</option>
-                        <option value="3">Doação de suprimentos</option>
-                        <option value="4">Distribuição suprimentos</option>
-                        <option value="5">Adoção de animais</option>
-                        <option value="6">Passeio com animais</option>
-                    </select>
-                </div>
-                <div id="quadrado">
-                    <legend class="text-light">Endereço:</legend>
-                    <input type="text" id="cep" placeholder=" Cep" name="cep">
-                    <a href="#" class="btn btn-light corBotao" id="obterEndereco" onclick="endereco()">Obter
-                        endereço</a>
-                    <input type="text" id="logradouro" placeholder=" Logradouro" name="logradouro">
-                    <input type="text" id="complemento" placeholder=" Complemento" name="complemento">
-                    <input type="text" id="bairro" placeholder=" Bairro" name="bairro">
-                    <input type="text" id="localidade" placeholder=" Cidade" name="cidade">
-                    <input type="text" id="uf" placeholder=" UF" name="uf">
-                </div>
-                <p class="text-light">Imagem:</p>
-                <input class="form-control" type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
-                <img name="imagem" src="" alt="" id="imagem">
-                <button type="submit" class="btn btn-light corBotao" id="botaoCriar">Criar ação</button>
-            </form>
+        <div class="mb-3">
+            <label class="form-label text-light mt-3">Nome</label>
+            <input type="text" class="form-control bg-dark text-light" id=" exampleFormControlInput1">
         </div>
+          <div class="mb-3">
+            <label class="form-label text-light">Descrição</label>
+            <textarea class="form-control bg-dark text-light" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+          <div class="mb-3 w-50" style="float: left;">
+            <label class="form-label text-light">Data</label>
+            <input type="datetime-local" class="form-control bg-dark text-light" id="data">
+          </div>
+          <div class="mb-3 w-50" style="float: left">
+            <label class="form-label text-light">Categoria</label>
+            <select class="form-select bg-dark text-light" aria-label="Default select example" name="categoria">
+                <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+                <option value="1">Visitações</option>
+                <option value="2">Doação de sangue</option>
+                <option value="3">Doação de suprimentos</option>
+                <option value="4">Distribuição suprimentos</option>
+                <option value="5">Adoção de animais</option>
+                <option value="6">Passeio com animais</option>
+            </select>
+          </div>
+
+        <div id="quadrado">
+            <label for="formFile" class="form-label text-light">Endereço</label>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control bg-dark text-light" placeholder="Cep" aria-label="Recipient's username" aria-describedby="button-addon2" id="cep">
+                <button class="btn corBotao btn-light" type="button" id="obterEndereco" onclick="endereco()">Obter Endereço</button>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control bg-dark text-light" placeholder="Logradouro" aria-label="Recipient's username" aria-describedby="button-addon2" id="logradouro" name="logradouro">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control bg-dark text-light" placeholder="Complemento" aria-label="Recipient's username" aria-describedby="button-addon2" id="complemento" name="complemento">
+            </div>
+                   
+            <div class="mb-3">
+                <input type="text" class="form-control bg-dark text-light" placeholder="Bairro" aria-label="Recipient's username" aria-describedby="button-addon2" id="bairro"  name="bairro">
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control bg-dark text-light" placeholder="Cidade" aria-label="Recipient's username" aria-describedby="button-addon2" id="localidade" name="cidade">
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control bg-dark text-light" placeholder="Estado" aria-label="Recipient's username" aria-describedby="button-addon2" id="uf" name="uf">
+            </div>            
+          </div>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label text-light">Imagem</label>
+            <input class="form-control bg-dark text-light" type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
+            <img name="imagem" class="mt-3" id="imagem">
+          </div>
+
+          <button class="btn btn-light corBotao"  type="button" id="botaoCriar">Criar Ação</button>
+
     </div>
     <!-- (FIM) Formulário de Ação -->
 </body>

@@ -131,132 +131,13 @@ body{
     margin-top: 48px;
 }
 
-.blocoCadastro {
-    width: 100%;
-    min-width: 90px;
-    margin-top: -17px;
-}
-
-.formulario #tituloMobile {
-    text-align: center;
-    color: #707071;
-    display: none;
-}
-
-.formulario #tituloName{
-    margin-top: 34px;
-}
-
-.formulario p {
-    margin-bottom: 2px;
-    font-size: 18px;
-}
-
-.formulario input {
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #525252;
-    padding: 3px;
-    transition: all 400ms ease;
-    background: #282a2e;
-    color: white;
-    box-shadow: 2px 2px 5px 1px #f8360049;
-}
-
-::-webkit-input-placeholder {
-    color: rgb(173, 173, 173);
- }
-
-.formulario input:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-}
-
-.formulario select {
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #525252;
-    padding: 3px;
-    background: #282a2e;
-    color: rgb(173, 173, 173);
-    box-shadow: 2px 2px 5px 1px #f8360049;
-}
-
-.formulario select:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-    color: black;
-}
-
-.formulario #descricao {
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #525252;
-    padding: 3px;
-    transition: all 400ms ease;
-    background: #282a2e;;
-    color: white;
-    box-shadow: 2px 2px 5px 1px #f8360049;
-}
-
-.formulario #descricao:hover{
-    transition: all 400ms ease;
-    background: #f836002f;
-}
-
-.formulario #data {
-    float: left;
-    width: 50%;
-    padding: 3px;
-}
-
-.formulario #data input {
-    width: 100%;
-    color: rgb(173, 173, 173);
-}
-
-.formulario #categoriaa {
-    float: left;
-    width: 50%;
-    padding: 3px;
-}
-
-.formulario #categoriaa input {
-    width: 100%;
-}
-
-.formulario #quadrado {
-    margin-top: 90px;
+.formulario #quadrado{
+    margin-top: 108px;
     border: 1px solid #707071;
     padding: 15px;
     width: 100%;
     margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-.formulario #quadrado input {
-    width: 100%;
-}
-
-.formulario #quadrado #cep {
-    width: 24%;
-}
-
-.formulario #quadrado legend {
-    font-size: 18px;
-}
-
-.formulario #obterEndereco {
-    width: 25%;
-    margin-top: -5px;
-}
-
-.formulario #imagem {
-    width: 241.95px;
-    height: 174.14px;
+    border-radius: 5px; 
 }
 
 .formulario #botaoCriar {
@@ -264,3 +145,9 @@ body{
     margin-top: 15px;
     margin-left: 25%;
 }
+
+.formulario #imagem {
+    width: 241.95px;
+    height: 174.14px;
+}
+
