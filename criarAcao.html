@@ -18,14 +18,13 @@
     <link rel="stylesheet" href="css/criarAcao.css">
     <link rel="stylesheet" href="cssResp/criarAcaoResp.css">
     <link rel="stylesheet" href="cssResp/BarraMobResp.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="js/additional-methods.min.js"> </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <script src="JavaScript/criar-acao.js"></script>
-
-    <script type="text/javascript">
-
-    </script>
 </head>
 
 <body>
@@ -37,13 +36,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                 <div>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="material-icons">account_circle</span>
                             <label>User Name</label>
                         </a>
                         <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item textDrop" href="#">Meu perfil</a></li>
+                            <li><a class="dropdown-item textDrop" href="perfil.html">Meu perfil</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -72,7 +71,7 @@
             <a href="">
                 <span id="criar" class="material-icons">add_circle</span>
             </a>
-            <a href="">
+            <a href="perfil.html">
                 <span id="perfil" class="material-icons text-light">person</span>
             </a>
         </div>
@@ -85,7 +84,7 @@
             <div class="card-body">
                 <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
                 <h4 class="mb-5 text-light">User Name</h4>
-                <a href="" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                <a href="perfil.html" class="btn btn-light corBotao mb-4">Meu perfil</a>
             </div>
         </div>
     </div>

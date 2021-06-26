@@ -11,6 +11,7 @@ body{
     background: #1b1c1f;
 }
 
+
 /*Padrão para todos os botões*/
 .corBotao {
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
@@ -35,7 +36,6 @@ body{
     width: 35px;
     transition: all 250ms ease;
     margin-left: 5px;
-    margin-right: 10px;
 }
 
 #imagemLogo:hover {
@@ -70,8 +70,11 @@ body{
     font-size: 38px;
 }
 
-#navMobile #feed {
+#navMobile #feed{
     margin-left: 10px;
+}
+
+#navMobile #perfil {
     color: #fe5200;
     border-top: #fe5200;
     border-style: solid;
@@ -86,47 +89,96 @@ body{
 /* FIM - NavBar Mobile */
 
 
-/* Body esquerda */
-.perfilFiltro {
-    width: 27%;
+/* Dados do Perfil */
+.perfil{
+    height: 300px; 
+    width: 70%;
+}
+
+.perfil .fotoPerfil{
+    width: 30%; 
+    height: 100%; 
+    float: left;
+}
+
+.perfil #fotoPerfil{
+    margin-left: 25%;
+    margin-top: 50px;
+    width: 50%;
+}
+
+.dadosPerfil{
+    width: 70%; 
+    height: 100%; 
+    margin-left: 30%;
+    padding: 48px;
+}
+
+.dadosPerfil #dadosPerfil{
+    float: left;
+}
+
+#dadosPerfil label{
+    font-size: 19px;
+}
+
+#dadosPerfil p{
+    margin-bottom: 4px;
+}
+
+.dadosPerfil #botaoEditar{
+    margin-left: 25%; 
+}
+/* FIM - Dados do Perfil */
+
+
+/* NavBar de seleção de ações (Minhas Ações / Ações que participo) */
+.nav_tabs{
+    width: 70%; 
+    margin: auto; border-top: solid rgb(63, 63, 63) 1px;
     height: 100%;
+    background-color: black;
+    position: relative;
+}
+
+.nav_tabs ul{
+    list-style: none; 
+}
+
+.nav_tabs ul li{
     float: left;
-    position: fixed;
-    text-align: center;
-    padding: 25px;
-    margin-top: 61px;
 }
 
-.cardEsquerda{
-    box-shadow: 2px 2px 5px 1px #f8360049;
-    background: #282a2e;
+.nav_tabs .opcoes{
+    padding: 15px;
+    display: block;
+    color: rgb(155, 155, 155);
+    cursor: pointer;
 }
 
-#fotoPerfil{
-    margin-top: -45px;
-    width: 35%;
+.rd_tabs:checked ~ label{
+    color: white;
 }
 
-.filtro p {
-    text-align: left;
-    font-size: 92%;
+.rd_tabs{
+    display: none;
 }
 
-/* FIM - Body esquerda */
-
-
-/* Body Meio */
-.acoes {
-    width: 46%;
-    padding: 30px;
-    float: left;
-    margin-left: 27%;
+.acao{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
 }
 
-.acoes #acoesGeral{
-    margin-top: 0px;
+.rd_tabs:checked ~ .acao{
+    display: block;
 }
+/* FIM - NavBar de seleção de ações  (Minhas Ações / Ações que participo)*/
 
+
+/* Personasisação dos cards */
 .acoes .acoesCard{
     background: #282a2e;
     color: white;
@@ -139,6 +191,7 @@ body{
 }
 
 .userCard .nomeCard{
+    color: white;
     margin-left: 10px; 
     font-weight: bold
 }
@@ -150,35 +203,17 @@ body{
 }
 
 .acoesCard .qtd_part{
-    float: right; 
+    float: left; 
     font-size: 14.5px; 
     margin-right: 4px;
 }
 
-
 .acoesCard .qtd_part_ic{
-    float: right; 
+    float: left; 
     font-size: 20px;
 }
 
-.acoes .acoesBtn{
+.acoesBtn{
     width: 49%;
 }
-/* FIM - Body Meio  */
-
-
-/* Body Direita */
-.anuncio{
-    width: 27%;
-    height: 100%;
-    position: fixed;
-    margin-left: 73%;
-    padding: 25px;
-    margin-top: 61px;
-}
-
-.anuncio .cardDireita{
-    background: #282a2e;
-    height: 505px;
-}
-/* FIM - Body Direita */
+/* FIM -Personasisação dos cards */
