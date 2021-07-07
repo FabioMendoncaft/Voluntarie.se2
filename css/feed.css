@@ -149,14 +149,13 @@ body{
     color: rgb(180, 180, 180);
 }
 
-.acoesCard .qtd_part{
+.qtd_part{
     float: right; 
     font-size: 14.5px; 
     margin-right: 4px;
 }
 
-
-.acoesCard .qtd_part_ic{
+.qtd_part_ic{
     float: right; 
     font-size: 20px;
 }
@@ -182,3 +181,10 @@ body{
     height: 505px;
 }
 /* FIM - Body Direita */
+
+
+/* Modal detalhes */
+.modal .modal-content{
+    background: #1b1c1f;
+}
+/* FIM - Modal detalhes */

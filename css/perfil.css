@@ -107,6 +107,29 @@ body{
     width: 50%;
 }
 
+.perfil #editarImagem {
+    border: 0px;
+    border-radius: 50%;
+    background: #616161;
+    padding: 2px;
+    position: absolute;
+    margin-top: 11%;
+    margin-left: -3%;
+    transition: all 250ms ease;
+}
+
+.perfil #editarImagem:hover{
+    background: #6161618a;
+    transition: all 250ms ease;
+}
+
+.perfil #icon{
+    font-size: 23px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
 .dadosPerfil{
     width: 70%; 
     height: 100%; 
@@ -158,6 +181,7 @@ body{
 
 .rd_tabs:checked ~ label{
     color: white;
+    border-top: solid white 1px;
 }
 
 .rd_tabs{
@@ -217,3 +241,52 @@ body{
     width: 49%;
 }
 /* FIM -Personasisação dos cards */
+
+
+/* Modal de escolher foto do perfil */
+.modal .modal-content{
+    background: #1b1c1f;
+}
+
+.modal #image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 34%;
+    border: solid white 1px;
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+}
+/* FIM - Modal de escolher foto do perfil */
+
+
+/* Modal detalhes */
+.qtd_part{
+    float: right; 
+    font-size: 14.5px; 
+    margin-right: 4px;
+}
+
+.qtd_part_ic{
+    float: right; 
+    font-size: 20px;
+}
+/* FIM - Modal detalhes */
+
+/* Modal Editar Ações */
+.formulario #quadrado{
+    margin-top: 108px;
+    border: 1px solid #707071;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px; 
+}
+
+.formulario .left{
+    float: left;
+}
+/* FIM - Modal Editar Ações */
