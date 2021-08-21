@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntarie.se | Usuários</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/pesquisarusuário.css">
+    <link rel="stylesheet" href="cssResp/pesquisarUsuárioResp.css">
+    <link rel="stylesheet" href="cssResp/BarraMobResp.css">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="js/additional-methods.min.js"> </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+</head>
+
+<body>
+     <!-- NavBar Topo(PC) -->
+     <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-dark" id="navTop">
+        <div class="container-fluid">
+            <a href="feed.html"><img src="img/android-chrome-192x192.png" alt="logo" id="imagemLogo"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                <div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="material-icons">account_circle</span>
+                            <label>User Name</label>
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item textDrop" href="perfil.html">Meu perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="index.html">Sair</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="form-inline my-2 my-lg-0">
+                    <a href="criarAcao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
+                                class="fas fa-plus"></i> Criar ação</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar Topo(PC) -->
+
+    <!-- NavBar para Mobile(Barra inferior) -->
+    <nav class="fixed-bottom navbar navbar-expand-lg navbar-light bg-dark" id="navMobile">
+        <div class="container-fluid">
+            <a href="feed.html">
+                <span class="material-icons text-light">home</span>
+            </a>
+            <a href="#">
+                <span id="pesquisar" class="material-icons">search</span>
+            </a>
+            <a href="criarAcao.html">
+                <span class="material-icons text-light">add_circle</span>
+            </a>
+            <a href="perfil.html">
+                <span id="perfil" class="material-icons text-light">person</span>
+            </a>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar para Mobile(Barra inferior) -->
+
+   
+    <!-- Lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+    <div class="perfilFiltro">
+        <div class="card mt-3 cardEsquerda" id="cardPerfil">
+            <div class="card-body">
+                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                <h4 class="mb-5 text-light">User Name</h4>
+                <a href="perfil.html" class="btn btn-light corBotao mb-4">Meu perfil</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+
+    <!--MEIO - Ações criadas pelos usuários -->
+    <div class="pesquisar mt-5">
+        <div class="input-group barraPesquisa"> 
+            <input type="text" class="form-control bg-dark text-light" placeholder="@usuário" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn corBotao" type="button" id="botaoPesquisar" name="botaoPesquisar"> 
+                <span class="material-icons text-light mt-1">search</span>
+            </button>
+        </div>
+
+        <a href="perfil2.html" class="text-light">
+        <div class="resultado w-100 mt-4">
+            <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+            <label class="nomeUsuario text-light mt-1">User Name</label>
+        </div>
+        </a>
+        <a href="perfil2.html" class="text-light">
+            <div class="resultado w-100 mt-4">
+                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                <label class="nomeUsuario text-light mt-1">User Name</label>
+            </div>
+        </a>    
+        <a href="perfil2.html" class="text-light">
+            <div class="resultado w-100 mt-4">
+                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                <label class="nomeUsuario text-light mt-1">User Name</label>
+            </div>
+        </a>
+        <a href="perfil2.html" class="text-light">
+            <div class="resultado w-100 mt-4">
+                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                <label class="nomeUsuario text-light mt-1">User Name</label>
+            </div>
+        </a>    
+    </div>
+    <!-- (FIM) MEIO - Ações criadas pelos usuários -->
+
+    <!-- Anúncio -->
+    <div class="anuncio">
+        <div class="card mt-3 cardDireita">
+            <div class="card-body text-light">
+                <p>ANÚNCIO</p>
+            </div>
+        </div>
+    </div>
+    <!-- (FIM) Anúncio -->
+
+</body>
+
+</html>

@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/perfil2.css">
     <link rel="stylesheet" href="cssResp/BarraMobResp.css">
-    <link rel="stylesheet" href="cssResp/perfilResp.css">
+    <link rel="stylesheet" href="cssResp/perfil2Resp.css">
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
     <script type="text/javascript" src="js/bootstrap.min.js"> </script>
     <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
@@ -42,6 +42,14 @@
                             <label>User Name</label>
                         </a>
                         <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item textDrop" href="perfil.html">Meu perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="pesquisarUsuário.html">Outros Usuários</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item textDrop" href="index.html">Sair</a></li>
                         </ul>
                     </li>
@@ -78,7 +86,6 @@
     <div class="perfil m-auto mt-5">
         <div class="fotoPerfil">
            <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
-           <button id="editarImagem" data-bs-toggle="modal" data-bs-target="#alterarFoto"><span class="material-icons text-light" id="icon">camera_alt</span></button>
         </div>
         <div class="dadosPerfil">
             <div id="dadosPerfil">
@@ -89,16 +96,13 @@
                 <p class="text-light">00/00/0000</p>
                 <p class="text-light">Masculino</p>
             </div>
-            <div>
-                <button class="btn btn-light corBotao p-1" type="button" id="botaoEditar" data-bs-toggle="modal" data-bs-target="#editarDados">Editar dados</button>
-            </div> 
         </div>
     </div>
     <nav class="nav_tabs">
         <ul>
             <li>
                 <input type="radio" name="tabs" class="rd_tabs" id="tab1" checked>
-                <label for="tab1" class="opcoes">Minhas Ações</label>
+                <label for="tab1" class="opcoes">Suas Ações</label>
                 <div class="acao">
                     <article class="pb-3">
                         <div class="acoes mt-2">
@@ -116,8 +120,7 @@
                                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto botaoesCards">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#editarAcoes">Editar</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Deletar</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -135,8 +138,7 @@
                                             <p class="card-text">This is a short card.</p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#editarAcoes">Editar</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Deletar</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -155,8 +157,7 @@
                                             </p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#editarAcoes">Editar</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Deletar</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -174,8 +175,7 @@
                                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#editarAcoes">Editar</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Deletar</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -193,8 +193,7 @@
                                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#editarAcoes">Editar</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Deletar</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -212,8 +211,7 @@
                                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#editarAcoes">Editar</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Deletar</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +223,7 @@
             </li>
             <li>
                 <input type="radio" name="tabs" class="rd_tabs" id="tab2">
-                <label for="tab2" class="opcoes">Ações que participo</label>
+                <label for="tab2" class="opcoes">Ações que participa</label>
                 <div class="acao">
                     <article class="pb-3">
                         <div class="acoes mt-2">
@@ -243,8 +241,7 @@
                                             <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Remover</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -262,8 +259,7 @@
                                             <p class="card-text">industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Remover</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -282,8 +278,7 @@
                                             </p>
                                             <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                             <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Remover</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn w-100">Participar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -296,197 +291,6 @@
         </ul>
     </nav>
 
-    <!-- Modal FOTO DO PERFIL -->
-    <div class="modal" id="alterarFoto" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-light">Foto do Perfil</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <input class="form-control bg-dark text-light" type="file" name="imagePerfil" onchange="previewImagem()">
-                <img name="imagemPerfil" id="image">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-light corBotao">Salvar foto</button>
-            </div>
-          </div>
-        </div>
-    </div>
-    <!-- FIM - Modal FOTO DO PERFIL -->
-
-    <!-- Modal Editar dados -->
-    <div class="modal" id="editarDados" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-light">Editar Dados</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form class="form" id="alterar"> 
-                <div class="modal-body">
-                    <div class="mb-2">
-                        <label class="form-label text-light mb-0">Nome</label>
-                        <input type="text" class="form-control bg-dark text-light p-1" id="nome" name="nome">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label text-light mb-0">Telefone</label>
-                        <input type="text" class="form-control bg-dark text-light p-1" id="telefone" name="telefone">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label text-light mb-0">Senha Atual</label>
-                        <input type="text" class="form-control bg-dark text-light p-1" id="senhaAtual" name="senhaAtual">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label text-light mb-0">Nova Senha</label>
-                        <input type="text" class="form-control bg-dark text-light p-1" id="novaSenha" name="novaSenha">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label text-light mb-0">Confirmar Senha</label>
-                        <input type="text" class="form-control bg-dark text-light p-1" id="confirmar" name="confirmar">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label text-light mb-0">Data de nascimento</label>
-                        <input type="date" class="form-control bg-dark text-light p-1" id="data" name="data" min="1920-01-01" max="2020-12-31">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label text-light mb-0">Sexo</label>
-                        <select class="form-select bg-dark text-light p-1" aria-label="Default select example" name="sexo">
-                            <option disabled="disabled" selected="selected">- Selecione uma opção</option>
-                            <option value="1">Feminimo</option>
-                            <option value="2">Masculino</option>
-                        </select>
-                    </div>
-                </div>
-            </form>    
-            <div class="modal-footer">
-              <button type="button" class="btn btn-light corBotao">Salvar</button>
-            </div>
-          </div>
-        </div>
-    </div>    
-    <!-- FIM - Modal Editar dados -->
-
-    <!-- Modal Editar Ações -->
-    <div class="modal" id="editarAcoes" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-light">Editar Ação</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form class="form formulario p-3" id="alterar"> 
-                <div class="mb-3">
-                    <label class="form-label text-light mt-3">Título</label>
-                    <input type="text" class="form-control bg-dark text-light" id=" exampleFormControlInput1" required>
-                </div>
-                  <div class="mb-3">
-                    <label class="form-label text-light">Descrição</label>
-                    <textarea class="form-control bg-dark text-light" id="exampleFormControlTextarea1" rows="3" required></textarea>
-                  </div>
-                  <div class="mb-3 w-50 left">
-                    <label class="form-label text-light">Data</label>
-                    <input type="datetime-local" class="form-control bg-dark text-light" id="data" min="2021-06-24T00:00:00" required>
-                  </div>
-                  <div class="mb-3 w-50 left">
-                    <label class="form-label text-light">Categoria</label>
-                    <select class="form-select bg-dark text-light" aria-label="Default select example" name="categoria" required>
-                        <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
-                        <option value="1">Visitações</option>
-                        <option value="2">Doação de sangue</option>
-                        <option value="3">Doação de suprimentos</option>
-                        <option value="4">Distribuição suprimentos</option>
-                        <option value="5">Adoção de animais</option>
-                        <option value="6">Passeio com animais</option>
-                    </select>
-                  </div>
-                <div id="quadrado">
-                    <label for="formFile" class="form-label text-light">Endereço</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control bg-dark text-light" placeholder="Cep" id="cep" required>
-                        <button class="btn corBotao btn-light" type="button" id="obterEndereco" onclick="endereco()">Obter Endereço</button>
-                    </div>
-        
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-light" placeholder="Logradouro" aria-label="Recipient's username" aria-describedby="button-addon2" id="logradouro" name="logradouro" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-light" placeholder="Complemento" aria-label="Recipient's username" aria-describedby="button-addon2" id="complemento" name="complemento">
-                    </div>
-                           
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-light" placeholder="Bairro" aria-label="Recipient's username" aria-describedby="button-addon2" id="bairro" name="bairro" required>
-                    </div>
-        
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-light" placeholder="Cidade" aria-label="Recipient's username" aria-describedby="button-addon2" id="localidade" name="cidade" required>
-                    </div>
-        
-                    <div class="mb-3">
-                        <input type="text" class="form-control bg-dark text-light" placeholder="Estado" aria-label="Recipient's username" aria-describedby="button-addon2" id="uf" name="uf" required>
-                    </div>            
-                  </div>
-        
-                  <div class="mb-3">
-                    <label for="formFile" class="form-label text-light">Imagem</label>
-                    <input class="form-control bg-dark text-light" type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
-                  </div>
-            </form>    
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light corBotao">Alterar</button>
-            </div>
-            </div>
-        </div>
-    </div>    
-    <!-- FIM - Modal Editar Ações -->
-
-    <!-- MODAL VER DETALHES DA AÇÃO -->
-    <div class="modal" id="detalhes" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"></h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form class="form"> 
-                <div class="modal-body">
-                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="qtd_part text-light">0</p>
-                        <span class="material-icons qtd_part_ic text-light">person</span>
-                        <h5 class="card-title text-light">Card title</h5>
-                        <p class="card-text text-light">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="text-light">Data: 15/07/2021</p>
-                        <label>
-                            <p class="text-light">Endereço: </p>
-                            <p id="ruaModal" name="ruaModal" class="text-light"> Rua tabelião João Lago, </p> 
-                        </label>
-                        <label>
-                            <p id="numModal" name="numModal" class="text-light"> 195, </p>
-                        </label>
-                        <label>
-                            <p id="cepModal" name="cepModal" class="cepNum text-light"> 54740-710, </p> 
-                        </label>
-                        <label>
-                            <p id="bairroModal" name="bairroModal" class="text-light">Capibaribe</p>
-                        </label>
-                            <label>
-                                <p id="cidadeModal" name="cidadeModal" class="cidadeNum text-light">São lourenço da Mata, </p>
-                        </label>
-                        <label>
-                            <p id="ufModal" name="ufModal" class="ufNum text-light">PE</p>
-                        </label>
-                    </div>
-                </div>   
-            </form>    
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light corBotao">Remover</button>
-            </div>
-            </div>
-        </div>
-    </div>    
-    <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
 
 </body>
 
