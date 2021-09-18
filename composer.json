@@ -1,0 +1,21 @@
+{
+    "name": "luiz/miniframework",
+    "type": "project",
+    "authors": [
+        {
+            "name": "luiz filipe pereira da costa",
+            "email": "luiz@teste.com.br"
+        }
+    ],
+    "require": {
+        "php": ">= 7.0",
+        "phpmailer/phpmailer": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "MF\\": "vendor/MF/",
+            "phpmailer\\": "vendor/phpmailer"
+        }
+    }
+}

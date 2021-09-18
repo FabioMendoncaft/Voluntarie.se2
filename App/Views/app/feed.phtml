@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntarie.se | Feed</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="cssResp/feedResp.css">
+    <link rel="stylesheet" href="cssResp/BarraMobResp.css">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="js/additional-methods.min.js"> </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+
+</head>
+
+<body>
+             <!-- NavBar Topo(PC) -->
+             <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-dark" id="navTop">
+        <div class="container-fluid">
+            <a href="feed.html"><img src="img/android-chrome-192x192.png" alt="logo" id="imagemLogo"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                <div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="material-icons">account_circle</span>
+                            <label>User Name</label>
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item textDrop" href="perfil.html">Meu perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="pesquisarUsuário.html">Outros Usuários</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="/sair">Sair</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="form-inline my-2 my-lg-0">
+                    <a href="criarAcao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
+                                class="fas fa-plus"></i> Criar ação</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar Topo(PC) -->
+
+    <!-- NavBar para Mobile(Barra inferior) -->
+    <nav class="fixed-bottom navbar navbar-expand-lg navbar-light bg-dark" id="navMobile">
+        <div class="container-fluid">
+            <a href="#">
+                <span id="feed" class="material-icons">home</span>
+            </a>
+            <a href="pesquisarUsuário.html">
+                <span class="material-icons text-light">search</span>
+            </a>
+            <a href="criarAcao.html">
+                <span class="material-icons text-light">add_circle</span>
+            </a>
+            <a href="perfil.html">
+                <span id="perfil" class="material-icons text-light">person</span>
+            </a>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar para Mobile(Barra inferior) -->
+
+    <!-- Lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+    <div class="perfilFiltro">
+        <div class="card mt-3 cardEsquerda" id="cardPerfil">
+            <div class="card-body">
+                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                <h4 class="mb-5 text-light">User Name</h4>
+                <a href="perfil.html" class="btn btn-light corBotao mb-4">Meu perfil</a>
+            </div>
+        </div>
+        <div class="card mt-4 cardEsquerda" id="cardFiltro">
+            <div class="card-body filtro">
+                <h6 class="tituloFiltro text-light">Filtro de pesquisa <i class="fas fa-filter"></i></h6>
+                <p class="text-light mb-1">Cidade:</p>
+                <input type="text" class="form-control bg-dark p-0 text-light" id="cidade">
+                <p class="mt-1 text-light mb-1">Estado:</p>
+                <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado">
+                    <option disabled="disabled" selected="selected">-Selecione uma opção</option>
+                    <option value="1">AL</option>
+                    <option value="2">AM</option>
+                    <option value="3">BA</option>
+                    <option value="4">CE</option>
+                    <option value="5">PB</option>
+                    <option value="6">PE</option>
+                </select>
+                <p class="mt-1 text-light mb-1">Categoria:</p>
+                <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria">
+                    <option disabled="disabled" selected="selected">-Selecione uma opção</option>
+                    <option value="1">Visitações</option>
+                    <option value="2">Doação de sangue</option>
+                    <option value="3">Doação de suprimentos</option>
+                    <option value="4">Distribuição suprimentos</option>
+                    <option value="5">Adoção de animais</option>
+                    <option value="6">Passeio com animais</option>
+                </select>
+                <a href="#" name="btnFiltro" id="btnFiltro" class="btn btn-light corBotao">Aplicar filtros</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+
+    <!--MEIO - Ações criadas pelos usuários -->
+    <div class="acoes mt-5">
+        <div class="row row-cols-1 cols-ms-6 g-4" id="acoesGeral">
+            <div class="col">
+                <div class="card h-100 acoesCard">
+                    <div class="userCard">
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                        <label class="nomeCard">User Name</label>
+                        <p class="dataCard">21 de junho às 12h</p>
+                    </div>
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="qtd_part">0</p>
+                        <span class="material-icons qtd_part_ic">person</span>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="text-light">Data: 15/07/2021</p>    
+                        <a href="#" class="btn btn-light corBotao acoesBtn">Participar</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 acoesCard">
+                    <div class="userCard">
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                        <label class="nomeCard">User Name</label>
+                        <p class="dataCard">21 de junho às 12h</p>
+                    </div>
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="qtd_part">0</p>
+                        <span class="material-icons qtd_part_ic">person</span>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a short card.</p>
+                        <p class="text-light">Data: 15/07/2021</p>
+                        <a href="#" class="btn btn-light corBotao acoesBtn">Participar</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 acoesCard">
+                    <div class="userCard">
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                        <label class="nomeCard">User Name</label>
+                        <p class="dataCard">21 de junho às 12h</p>
+                    </div>
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="qtd_part">0</p>
+                        <span class="material-icons qtd_part_ic">person</span>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                        </p>
+                        <p class="text-light">Data: 15/07/2021</p>
+                        <a href="#" class="btn btn-light corBotao acoesBtn">Participar</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 acoesCard">
+                    <div class="userCard">
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                        <label class="nomeCard">User Name</label>
+                        <p class="dataCard">21 de junho às 12h</p>
+                    </div>
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="qtd_part">0</p>
+                        <span class="material-icons qtd_part_ic">person</span>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="text-light">Data: 15/07/2021</p>    
+                        <a href="#" class="btn btn-light corBotao acoesBtn">Participar</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 acoesCard">
+                    <div class="userCard">
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                        <label class="nomeCard">User Name</label>
+                        <p class="dataCard">21 de junho às 12h</p>
+                    </div>
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="qtd_part">0</p>
+                        <span class="material-icons qtd_part_ic">person</span>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="text-light">Data: 15/07/2021</p>
+                        <a href="#" class="btn btn-light corBotao acoesBtn">Participar</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 acoesCard">
+                    <div class="userCard">
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                        <label class="nomeCard">User Name</label>
+                        <p class="dataCard">21 de junho às 12h</p>
+                    </div>
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="qtd_part">0</p>
+                        <span class="material-icons qtd_part_ic">person</span>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="text-light">Data: 15/07/2021</p>
+                        <a href="#" class="btn btn-light corBotao acoesBtn">Participar</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- (FIM) MEIO - Ações criadas pelos usuários -->
+
+
+    <!-- Anúncio -->
+    <div class="anuncio">
+        <div class="card mt-3 cardDireita">
+            <div class="card-body text-light">
+                <p>ANÚNCIO</p>
+            </div>
+        </div>
+    </div>
+    <!-- (FIM) Anúncio -->
+
+
+    <!-- MODAL VER DETALHES DA AÇÃO -->
+    <div class="modal" id="detalhes" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="form"> 
+                <div class="modal-body">
+                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="qtd_part text-light">0</p>
+                        <span class="material-icons qtd_part_ic text-light">person</span>
+                        <h5 class="card-title text-light">Card title</h5>
+                        <p class="card-text text-light">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="text-light">Data: 15/07/2021</p>
+                        <label>
+                            <p class="text-light">Endereço: </p>
+                            <p id="ruaModal" name="ruaModal" class="text-light"> Rua tabelião João Lago, </p> 
+                        </label>
+                        <label>
+                            <p id="numModal" name="numModal" class="text-light"> 195, </p>
+                        </label>
+                        <label>
+                            <p id="cepModal" name="cepModal" class="cepNum text-light"> 54740-710, </p> 
+                        </label>
+                        <label>
+                            <p id="bairroModal" name="bairroModal" class="text-light">Capibaribe</p>
+                        </label>
+                         <label>
+                             <p id="cidadeModal" name="cidadeModal" class="cidadeNum text-light">São lourenço da Mata, </p>
+                        </label>
+                        <label>
+                            <p id="ufModal" name="ufModal" class="ufNum text-light">PE</p>
+                        </label>
+                    </div>
+                </div>   
+            </form>    
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light corBotao">Participar</button>
+            </div>
+          </div>
+        </div>
+    </div>    
+    <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
+</body>
+
+</html>
