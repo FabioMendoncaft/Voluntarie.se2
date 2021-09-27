@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntarie.se | Alterar Senha</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/alterarSenha.css">
+    <link rel="stylesheet" href="cssResp/alterarSenhaResp.css">
+    <link rel="stylesheet" href="cssResp/BarraMobResp.css">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="js/additional-methods.min.js"> </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="JavaScript/alterarSenha.js"></script>
+</head>
+
+<body>
+     <!-- NavBar Topo(PC) -->
+     <nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-dark" id="navTop">
+        <div class="container-fluid">
+            <a href="feed.html"><img src="img/android-chrome-192x192.png" alt="logo" id="imagemLogo"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                <div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="material-icons">account_circle</span>
+                            <label>User Name</label>
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item textDrop" href="perfil.html">Meu perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="index.html">Sair</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="form-inline my-2 my-lg-0">
+                    <a href="criarAcao.html"><button class="btn btn-light buttonNewAction corBotao" type="submit"><i
+                                class="fas fa-plus"></i> Criar ação</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar Topo(PC) -->
+
+    <!-- NavBar para Mobile(Barra inferior) -->
+    <nav class="fixed-bottom navbar navbar-expand-lg navbar-light bg-dark" id="navMobile">
+        <div class="container-fluid">
+            <a href="feed.html">
+                <span class="material-icons text-light">home</span>
+            </a>
+            <a href="pesquisarUsuário.html">
+                <span class="material-icons text-light">search</span>
+            </a>
+            <a href="#">
+                <span id="iconSenha" class="material-icons">https</span>
+            </a>
+            <a href="criarAcao.html">
+                <span class="material-icons text-light">add_circle</span>
+            </a>
+            <a href="perfil.html">
+                <span id="perfil" class="material-icons text-light">person</span>
+            </a>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar para Mobile(Barra inferior) -->
+
+    <!-- Alterar Senha -->
+    <form class="form" id="alterarSenha">
+        <div class="alterarSenha">
+            <h3 class="text-light text-center">Alterar Senha</h3>
+            <div class="mb-2 mt-3">
+                <label class="form-label text-light mb-0">Senha Atual</label>
+                <input type="password" class="form-control bg-dark text-light p-1" id="senhaAtual" name="senhaAtual">
+            </div>
+            <div class="mb-2">
+                <label class="form-label text-light mb-0">Nova Senha</label>
+                <input type="text" class="form-control bg-dark text-light p-1" id="novaSenha" name="novaSenha">
+            </div>
+            <div class="mb-2">
+                <label class="form-label text-light mb-0">Confirmar Senha</label>
+                <input type="text" class="form-control bg-dark text-light p-1" id="confirmarSenha" name="confirmarSenha">
+            </div>
+            <div class="text-center">
+                <button class="btn btn-light corBotao mt-3">Alterar</button>
+            </div>
+        </div>
+    </form>    
+    <!-- (FIM) Alterar Senha -->
+</body>
+
+</html>

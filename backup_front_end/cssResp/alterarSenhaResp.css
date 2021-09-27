@@ -1,0 +1,14 @@
+/* RESPONSIVIDADE ALTERAR SENHA */
+@media(max-width: 770px) {
+    .alterarSenha {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+}
+
+@media(max-width: 460px){
+    .alterarSenha{
+        padding: 20px;
+    }
+}
+/* FIM - RESPONSIVIDADE ALTERAR SENHA */
