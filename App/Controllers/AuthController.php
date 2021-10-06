@@ -11,7 +11,7 @@ class AuthController extends Action {
 
         $usuario = Container::getModel('Usuario');
         $usuario->__set('email',$_POST['email']);
-    $usuario->__set('senha', /* base64_encode(*/$_POST['senha']/*)*/);
+        $usuario->__set('senha', /* base64_encode(*/$_POST['senha']/*)*/);
         $usuario->autenticar();
 
         if(!empty($usuario->__get('id')) && !empty($usuario->__get('nome')) ) {
@@ -19,7 +19,11 @@ class AuthController extends Action {
             session_start();
             $_SESSION['id'] = $usuario->__get('id');
             $_SESSION['nome'] = $usuario->__get('nome');
-            header('Location: /feed');
+            $_SESSION['email'] = $usuario->__get('email');
+            
+          /*  $this->render('index', 'layout_app'); */
+
+            header('Location: /feed'); 
 
         }else {
             header('Location: /?login=erro');

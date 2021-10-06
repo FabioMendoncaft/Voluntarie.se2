@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="bootstrap-5.0.0-beta2-dist/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet"type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"> </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="js/additional-methods.min.js"> </script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>   
+    <link rel="stylesheet" href="css/navBarPC.css">
 
 </head>
 <body>
 
+<!-- NavBar Topo(PC) -->
+<nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-dark" id="navTop">
+        <div class="container-fluid">
+            <a href="/feed"><img src="img/android-chrome-192x192.png" alt="logo" id="imagemLogo"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                <div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="material-icons">account_circle</span>
+                            <label><?=$_SESSION['nome']?></label>
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item textDrop" href="/meu_perfil">Meu perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="pesquisarUsuário.html">Outros Usuários</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="alterarSenha.html">Alterar Senha</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item textDrop" href="/sair">Sair</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="form-inline my-2 my-lg-0">
+                <a href="/criar_acao"><button class="btn btn-light buttonNewAction corBotao" ><i
+                                class="fas fa-plus"></i> Criar ação</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar Topo(PC) -->
+
+    <!-- NavBar para Mobile(Barra inferior) -->
+    <nav class="fixed-bottom navbar navbar-expand-lg navbar-light bg-dark" id="navMobile">
+        <div class="container-fluid">
+            <a href="#">
+                <span id="feed" class="material-icons">home</span>
+            </a>
+            <a href="pesquisarUsuário.html">
+                <span class="material-icons text-light">search</span>
+            </a>
+            <a href="alterarSenha.html">
+                <span id="iconSenha" class="material-icons text-light">https</span>
+            </a>
+            <a href="criarAcao.html">
+                <span class="material-icons text-light">add_circle</span>
+            </a>
+            <a href="perfil.html">
+                <span id="perfil" class="material-icons text-light">person</span>
+            </a>
+        </div>
+    </nav>
+    <!-- (FIM)NavBar para Mobile(Barra inferior) -->
   
     <?= $this->content() ?>
 

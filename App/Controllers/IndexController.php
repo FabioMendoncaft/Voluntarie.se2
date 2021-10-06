@@ -26,7 +26,7 @@ class indexController extends Action {
         $usuario->__set('nome',$_POST['nome']);
         $usuario->__set('email',$_POST['email']);
         $usuario->__set('telefone',$_POST['telefone']);
-        $usuario->__set('senha',base64_encode($_POST['senha']));
+        $usuario->__set('senha',/*base64_encode( */$_POST['senha']) /*)*/ ;
         $usuario->__set('data',$_POST['data']);
         $usuario->__set('sexo',$_POST['sexo']);
 

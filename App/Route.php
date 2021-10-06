@@ -44,6 +44,30 @@ class Route extends Bootstrap {
             'action' => 'recuperarSenha'
         );
 
+        $routes['criar_acao'] = array(
+            'route' => '/criar_acao',
+            'controller' => 'AppController',
+            'action' => 'criarAcao'
+        );
+
+        $routes['incluir_acao'] = array(
+            'route' => '/incluir_acao',
+            'controller' => 'AppController',
+            'action' => 'incluirAcao'
+        );
+
+        $routes['meu_perfil'] = array(
+            'route' => '/meu_perfil',
+            'controller' => 'AppController',
+            'action' => 'meuPerfil'
+        );
+        
+        $routes['remover_acao'] = array(
+            'route' => '/remover_acao',
+            'controller' => 'AppController',
+            'action' => 'removerAcao'
+        );
+        
         $this->setRoutes($routes);
 
     }

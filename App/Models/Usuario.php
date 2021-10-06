@@ -14,8 +14,6 @@ class Usuario extends Model {
     private $data_nascimento;
     private $sexo;
 
-    //salvar
-
     public function __get($atributo) {
         return $this->$atributo;
     }
@@ -23,12 +21,13 @@ class Usuario extends Model {
     public function __set($atributo, $valor) {
         $this->$atributo = $valor;
     }
-    //validar se um cadastro pode ser feito
 
     public function cadastrar() {
 
-        $query = "insert into tb_usuarios (nome, email, telefone, senha, data_nascimento, sexo) values
-        (:nome, :email, :telefone, :senha, :data_nascimento, :sexo)";
+        $query = "insert into tb_usuarios
+                 (nome, email, telefone, senha, data_nascimento, sexo)
+                  values
+                (:nome, :email, :telefone, :senha, :data_nascimento, :sexo)";
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':nome', $this->__get('nome'));
@@ -44,11 +43,12 @@ class Usuario extends Model {
 
     }
 
-    //recuperar um usuario por email
-
     public function getUsuarioPorEmail() {
 
-        $query = "select nome, email from tb_usuarios where email = :email";
+        $query = "select  a.id ,a.nome, a.email, a.telefone, a.sexo ,count(b.id) as n_acoes from tb_usuarios as a
+                    left join tb_acoes as b on a.id = b.id_usuario
+        where a.email = :email ";
+
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
 
@@ -73,6 +73,7 @@ class Usuario extends Model {
         if(!empty($usuario['id']) && !empty($usuario['nome']) ) {
             $this->__set('id', $usuario['id']);
             $this->__set('nome', $usuario['nome']);
+            $this->__set('email', $usuario['email']);
         }
 
         return $this;
