@@ -67,7 +67,26 @@ class Route extends Bootstrap {
             'controller' => 'AppController',
             'action' => 'removerAcao'
         );
+
+        $routes['alterar_senha'] = array(
+            'route' => '/alterar_senha',
+            'controller' => 'AppController',
+            'action' => 'alterarSenha'
+        );
         
+        $routes['alt_senha'] = array(
+            'route' => '/alt_senha',
+            'controller' => 'AppController',
+            'action' => 'altSenha'
+        );
+
+        $routes['action'] = array(
+            'route' => '/action',
+            'controller' => 'AppController',
+            'action' => 'action'
+        );
+       
+
         $this->setRoutes($routes);
 
     }

@@ -45,9 +45,11 @@ class Usuario extends Model {
 
     public function getUsuarioPorEmail() {
 
-        $query = "select  a.id ,a.nome, a.email, a.telefone, a.sexo ,count(b.id) as n_acoes from tb_usuarios as a
+        $query = "select nome, email from tb_usuarios where email = :email";
+
+      /*  $query = "select  a.id ,a.nome, a.email, a.telefone, a.sexo ,count(b.id) as n_acoes from tb_usuarios as a
                     left join tb_acoes as b on a.id = b.id_usuario
-        where a.email = :email ";
+        where a.email = :email "; */
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
@@ -98,6 +100,38 @@ class Usuario extends Model {
         }
         
         return $this;
+    }
+
+    public function mudarSenha(){
+
+        $query = "update tb_usuarios 
+                        set senha = :senha 
+                        where id = :id";
+
+           $stmt = $this->db->prepare($query);
+           $stmt->bindValue(':senha', $this->__get('senha'));    
+           $stmt->bindValue(':id', $this->__get('id'));          
+
+            $stmt->execute();
+            
+    }
+
+
+    
+    public function getDadosUsuario() {
+
+        $query = "select  a.id ,a.nome, a.email, a.telefone, a.sexo ,count(b.id) as n_acoes from tb_usuarios as a
+                    left join tb_acoes as b on a.id = b.id_usuario
+        where a.email = :email ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':email', $this->__get('email'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        
     }
 
 }

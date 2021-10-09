@@ -24,7 +24,7 @@ class AppController extends Action {
 
         $acao = Container::getModel('Acao');
         $acoes = $acao->getAll();
-        
+
         $this->view->all_acoes = $acoes;
         $this->render('feed', 'layout_app');
 
@@ -80,7 +80,10 @@ class AppController extends Action {
             $usuario = Container::getModel('Usuario');
             $usuario->__set('email', $_SESSION['email'] );
 
-            $dados_usuario = $usuario->getUsuarioPorEmail();
+            $dados_usuario = $usuario->getDadosUsuario();
+
+            $acao_participante = Container::getModel('AcaoParticipante'); 
+            $acao_participante->__set('id_usuario', $_SESSION['id'] );
 
             $this->view->info_usuario = $dados_usuario;
             $this->view->minhas_acoes = $acoes;
@@ -103,6 +106,63 @@ class AppController extends Action {
 
     // Meu perfil *****FIM*****
 
+    public function alterarSenha() {
+
+        $this->validaAutenticacao();
+
+        $usuario = Container::getModel('Usuario');
+
+        $this->render('alterarSenha', 'layout_app');
+
+
+
+
+    }
+
+    public function altSenha() {
+
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+
+           $this->validaAutenticacao();
+           $usuario = Container::getModel('Usuario');
+
+           $usuario->__set('id' , $_SESSION['id']);
+           $usuario->__set('senha' , $_POST['novaSenha']);
+       
+           $usuario->mudarSenha();
+
+
+    }
+
+
+    public function action() {
+
+        $this->validaAutenticacao();
+
+       $action = isset($_GET['action']) ? $_GET['action'] : '';
+       $id_acao = isset($_GET['id_acao']) ? $_GET['id_acao'] : '';
+
+ 
+       $action_participante = Container::getModel('AcaoParticipante');
+       $action_participante->__set('id_usuario', $_SESSION['id']);
+       $action_participante->__set('id_acao', $id_acao);
+
+        if($action == 'participar') {
+            $action_participante->participarAcao();
+            header('Location: /feed');
+
+        } else if($action == 'deixar_de_participar' ) {
+            $action_participante->deixarParticiparAcao();
+            header('Location: /feed');
+        }
+
+
+        $action_participante->__set('id_acao', $id_acao);
+
+
+    }
 }    
 
 ?>

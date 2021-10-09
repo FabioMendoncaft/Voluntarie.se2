@@ -94,9 +94,34 @@ class Acao extends Model {
 
         public function getAll() {
 
-            $query = "select a.*, b.nome from tb_acoes as a
-                    left join tb_usuarios as b on a.id_usuario = b.id";
+         /*   $query = "select a.*, b.nome from tb_acoes as a
+                    left join tb_usuarios as b on a.id_usuario = b.id 
+                    order by a.data_criacao desc"; */
+
+           /* $query = "select a.id, a.id_usuario, a.titulo, a.descricao, a.logradouro, a.cidade, a.bairro, a.uf, a.complemento, a.data_criacao, a.data_evento, a.categoria, b.nome, (select count(*) from acoes_participantes where id_usuario = :id_usuario and id_acao = :id_acao) from tb_acoes a 
+                    left join tb_usuarios b on a.id_usuario = b.id"; */
+
+            $query = "select a.id,
+                             a.id_usuario,
+                             a.titulo,
+                             a.descricao,
+                             a.logradouro,
+                             a.cidade, 
+                             a.bairro, 
+                             a.uf, 
+                             a.complemento, 
+                             a.data_criacao, 
+                             a.data_evento, 
+                             a.categoria, 
+                             b.nome, 
+                             (select 
+                                    count(*) from acoes_participantes c 
+                                where c.id_usuario = :id_usuario and c.id_acao = a.id)  as participando_sn
+                        from tb_acoes a 
+            left join tb_usuarios b on a.id_usuario = b.id";
+
             $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_usuario' , $_SESSION['id']);
 
             $stmt->execute();
 
