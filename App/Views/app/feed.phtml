@@ -21,32 +21,37 @@
             </div>
         </div>
         <div class="card mt-4 cardEsquerda" id="cardFiltro">
-            <div class="card-body filtro">
-                <h6 class="tituloFiltro text-light">Filtro de pesquisa <i class="fas fa-filter"></i></h6>
-                <p class="text-light mb-1">Cidade:</p>
-                <input type="text" class="form-control bg-dark p-0 text-light" id="cidade">
-                <p class="mt-1 text-light mb-1">Estado:</p>
-                <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado">
-                    <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                    <option value="1">AL</option>
-                    <option value="2">AM</option>
-                    <option value="3">BA</option>
-                    <option value="4">CE</option>
-                    <option value="5">PB</option>
-                    <option value="6">PE</option>
-                </select>
-                <p class="mt-1 text-light mb-1">Categoria:</p>
-                <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria">
-                    <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                    <option value="1">Visitações</option>
-                    <option value="2">Doação de sangue</option>
-                    <option value="3">Doação de suprimentos</option>
-                    <option value="4">Distribuição suprimentos</option>
-                    <option value="5">Adoção de animais</option>
-                    <option value="6">Passeio com animais</option>
-                </select>
-                <a href="#" name="btnFiltro" id="btnFiltro" class="btn btn-light corBotao">Aplicar filtros</a>
-            </div>
+            <form method="GET" action="/filter">
+                <div class="card-body filtro">
+                    <h6 class="tituloFiltro text-light">Filtro de pesquisa <i class="fas fa-filter"></i></h6>
+                    <p class="mt-1 text-light mb-1">Estado:</p>
+                    <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado">
+                        <option disabled="disabled" selected="selected">-Selecione uma opção</option>
+                        <option value="AL">AL</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="PB">PB</option>
+                        <option value="PE">PE</option>
+                    </select>
+                    <p class="text-light mb-1">Cidade:</p>
+                    <input type="text" class="form-control bg-dark p-0 text-light" id="cidade" name="cidade">
+                    <p class="mt-1 text-light mb-1">Categoria:</p>
+                    <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria">
+                        <option disabled="disabled" selected="selected">-Selecione uma opção</option>
+                        <option value="Visitações">Visitações</option>
+                        <option value="Doação de sangue">Doação de sangue</option>
+                        <option value="Doação de suprimentos">Doação de suprimentos</option>
+                        <option value="Distribuição suprimentos">Distribuição suprimentos</option>
+                        <option value="Adoção de animais">Adoção de animais</option>
+                        <option value="Passeio com animais">Passeio com animais</option>
+                    </select>
+                    <div >
+                        <button type="submit" class="btn btn-light corBotao">Aplicar filtros</button>
+                    </div>
+                    <!--<a href="#" name="btnFiltro" id="btnFiltro" class="btn btn-light corBotao">Aplicar filtros</a>-->
+                </div>
+            </form>
         </div>
     </div>
 

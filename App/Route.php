@@ -85,7 +85,12 @@ class Route extends Bootstrap {
             'controller' => 'AppController',
             'action' => 'action'
         );
-       
+        
+        $routes['filter'] = array(
+            'route' => '/filter',
+            'controller' => 'AppController',
+            'action' => 'filter'
+        );         
 
         $this->setRoutes($routes);
 

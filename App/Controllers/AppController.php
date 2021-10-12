@@ -30,6 +30,21 @@ class AppController extends Action {
 
     }
 
+    public function filter() {
+        
+        $this->validaAutenticacao();
+
+        $filter = Container::getModel('Filter');
+        $filter->__set('estado', $_GET['estado']);
+        $filter->__set('cidade', $_GET['cidade']);
+        $filter->__set('categoria', $_GET['categoria']);
+
+        $acoes = $filter->getaActionFilter();
+        $this->view->all_acoes = $acoes;
+        $this->render('feed', 'layout_app');
+
+    } 
+
     // métodos utilizados na pagina de criar acao *****INICIO*****
     public function criarAcao() {
         
