@@ -134,6 +134,23 @@ class Usuario extends Model {
         
     }
 
+    public function acoesParticipo() {
+
+        $query = "select a.id as id_acoes_participante, b.* ,c.nome from acoes_participantes a
+            inner join tb_acoes b on a.id_acao = b.id 
+            inner join tb_usuarios c on b.id_usuario = c.id
+        where a.id_usuario = :id_usuario";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_usuario', $this->__get('id'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+
+    }
+
 }
 
 

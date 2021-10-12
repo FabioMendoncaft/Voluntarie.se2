@@ -80,11 +80,13 @@ class AppController extends Action {
             $usuario = Container::getModel('Usuario');
             $usuario->__set('email', $_SESSION['email'] );
 
+
             $dados_usuario = $usuario->getDadosUsuario();
 
-            $acao_participante = Container::getModel('AcaoParticipante'); 
-            $acao_participante->__set('id_usuario', $_SESSION['id'] );
+            $usuario->__set('id', $_SESSION['id'] );
+            $acoes_participo = $usuario->acoesParticipo();
 
+            $this->view->acoes_que_participo = $acoes_participo;
             $this->view->info_usuario = $dados_usuario;
             $this->view->minhas_acoes = $acoes;
             $this->render('perfil', 'layout_app');
