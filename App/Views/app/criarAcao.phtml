@@ -14,11 +14,17 @@
     <!-- Lateral - Dados do usuário(ESQUERDA) -->
     <div class="perfilFiltro">
         <div class="card mt-3 cardEsquerda" id="cardPerfil">
-            <div class="card-body">
-                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
-                <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
-                <a href="/meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
-            </div>
+            <?php foreach ($this->view->minha_imagem as $id => $imagem) { ?>
+                <div class="card-body">
+                    <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) { ?>
+                        <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
+                    <?php } else { ?>  
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle" id="fotoPerfil">  
+                    <?php } ?>    
+                    <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                    <a href="/meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                </div>
+           <?php }?> 
         </div>
     </div>
 

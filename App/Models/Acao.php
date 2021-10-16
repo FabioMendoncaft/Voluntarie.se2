@@ -110,11 +110,14 @@ class Acao extends Model {
                              a.complemento, 
                              a.data_criacao, 
                              a.data_evento, 
-                             a.categoria, 
+                             a.categoria,
+                             a.imagem,
                              b.nome, 
                              (select 
                                     count(*) from acoes_participantes c 
-                                where c.id_usuario = :id_usuario and c.id_acao = a.id)  as participando_sn
+                                where c.id_usuario = :id_usuario and c.id_acao = a.id)  as participando_sn,
+                             (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario
+                             order by data_criacao desc limit 1)   as imagem_url 
                         from tb_acoes a 
             left join tb_usuarios b on a.id_usuario = b.id";
 

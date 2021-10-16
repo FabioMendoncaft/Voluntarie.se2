@@ -13,12 +13,18 @@
      
     <!-- Lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
     <div class="perfilFiltro">
+        <?php foreach($this->view->minha_imagem as $id => $imagem_perfil ) { ?>
         <div class="card mt-3 cardEsquerda" id="cardPerfil">
             <div class="card-body">
-                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+            <?php if (file_exists('upload/perfil/'. $imagem_perfil['imagem_url'])) { ?>
+                <img src="upload/perfil/<?=$imagem_perfil['imagem_url']?>" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+            <?php } else { ?> 
+                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+            <?php } ?>   
                 <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
                 <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
             </div>
+         <?php } ?>   
         </div>
         <div class="card mt-4 cardEsquerda" id="cardFiltro">
             <form method="GET" action="/filter">
@@ -64,11 +70,19 @@
             <div class="col">
                 <div class="card h-100 acoesCard">
                     <div class="userCard">
+                    <?php if (file_exists('upload/perfil/'. $acoes['imagem_url'])) { ?>
+                        <img src="upload/perfil/<?=$acoes['imagem_url']?>" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                    <?php }else {  ?>
                         <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                    <?php } ?>
                         <label class="nomeCard"><?=$acoes['nome']?></label>
                         <p class="dataCard">Criado em: <?= date('d/m/Y H:i', strtotime($acoes['data_criacao'])) ?></p>
                     </div>
-                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <?php if (file_exists('upload/acao/'. $acoes['imagem'])) { ?>
+                        <img src="upload/acao/<?=$acoes['imagem']?>" class="card-img-top" alt="...">
+                    <?php }else {  ?>
+                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <?php } ?>
                     <div class="card-body">
                         <p class="qtd_part">0</p>
                         <span class="material-icons qtd_part_ic">person</span>

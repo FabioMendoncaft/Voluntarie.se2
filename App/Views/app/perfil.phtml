@@ -14,11 +14,15 @@
     <!-- Body Perfil -->
     <?php foreach ($this->view->info_usuario as $id => $info) { ?>
         <div class="perfil m-auto mt-5">
-        <?php foreach ($this->view->minha_imagem as $id => $imagem) { ?>
-            <div class="fotoPerfil">
-                <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
-                <button id="editarImagem" data-bs-toggle="modal" data-bs-target="#alterarFoto"><span class="material-icons text-light" id="icon">camera_alt</span></button>
-            </div>
+            <?php foreach ($this->view->minha_imagem as $id => $imagem) { ?>
+                <div class="fotoPerfil">
+                    <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) { ?>
+                        <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
+                    <?php } else { ?>  
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle" id="fotoPerfil">  
+                    <?php } ?>    
+                    <button id="editarImagem" data-bs-toggle="modal" data-bs-target="#alterarFoto"><span class="material-icons text-light" id="icon">camera_alt</span></button>
+                </div>
             <?php } ?>
             <div class="dadosPerfil">
                 <div id="dadosPerfil">
@@ -73,9 +77,6 @@
         </div>
         <!-- FIM - Modal Editar dados -->
 
- 
-
-
     <?php } ?>
 
    <!-- Modal FOTO DO PERFIL -->
@@ -100,14 +101,6 @@
     </div>
     <!-- FIM - Modal FOTO DO PERFIL -->
 
-
-
-
-
-
-
-
-
     <nav class="nav_tabs" style="background-color: #1b1c1f;">
         <ul>
             <li>
@@ -118,138 +111,152 @@
                         <div class="acoes mt-2">
                             <div class="row row-cols-1 row-cols-md-3 g-4" id="acoesGeral">
                                 <?php date_default_timezone_set('America/Sao_Paulo') ?>
-                                <?php foreach ($this->view->minhas_acoes as $id_acoes => $acao) { ?>
-                                    <div class="col">
-                                        <div class="card h-100 acoesCard">
-                                        <?php foreach ($this->view->minha_imagem as $id => $imagem) { ?>
-                                            <div class="userCard">
-                                                <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
-                                                <label class="nomeCard"> <?=$_SESSION['nome'] ?></label>
-                                                <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($acao['data_criacao'])) ?></p>
+                                    <?php foreach ($this->view->minhas_acoes as $id_acoes => $acao) { ?>
+                                        <div class="col">
+                                            <div class="card h-100 acoesCard">
+                                                <?php foreach ($this->view->minha_imagem as $id => $imagem) { ?>
+                                                    <div class="userCard">
+                                                        <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) { ?>
+                                                            <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                                                        <?php } else { ?>  
+                                                            <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                                                        <?php } ?>    
+                                                        <label class="nomeCard"> <?=$_SESSION['nome'] ?></label>
+                                                        <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($acao['data_criacao'])) ?></p>
+                                                    </div>
+                                                <?php }?>
+
+                                                <?php if (file_exists('upload/acao/'. $acao['imagem'])) { ?>
+                                                    <img src="upload/acao/<?=$acao['imagem']?>" class="card-img-top" alt="...">
+                                                <?php }else { ?>
+                                                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                                                <?php } ?>        
+                                                <div class="card-body d-flex flex-column align-items-left">
+                                                    <h5 class="card-title"> <?= $acao['titulo'] ?></h5>
+                                                    <p class="card-text"><?=$acao['descricao'] ?></p>
+                                                    <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
+                                                        <div class="mt-auto botaoesCards">
+                                                            <a href=""  type="submit" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $acao['id'] ?>">Editar</a>
+                                                            <form method="POST" action="/remover_acao" class="form acoesBtn" style="float: right; margin-left: 1px;">
+                                                                <button type="submit" name="id" value="<?php echo $acao['id'] ?>" class="btn btn-light corBotao w-100"> Delete </button>
+                                                            </form>
+                                                        </div>
+                                                </div>
                                             </div>
-                                            <?php }?>
-                                            <img src="upload/acao/<?=$acao['imagem']?>" class="card-img-top" alt="...">
-                                            <div class="card-body d-flex flex-column align-items-left">
-                                                <h5 class="card-title"> <?= $acao['titulo'] ?></h5>
-                                                <p class="card-text"><?=$acao['descricao'] ?></p>
-                                                <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
-                                                <div class="mt-auto botaoesCards">
-                                                    <a href=""  type="submit" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $acao['id'] ?>">Editar</a>
-                                                    <form method="POST" action="/remover_acao" class="form acoesBtn" style="float: right; margin-left: 1px;">
-                                                        <button type="submit" name="id" value="<?php echo $acao['id'] ?>" class="btn btn-light corBotao w-100"> Delete </button>
+                                        </div>
+                                                    <!-- Modal Editar Ações -->
+
+                                        <div class="modal fade" id="exampleModal<?= $acao['id'] ?>" tabindex="-1">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title text-light">Editar Ação</h5>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form class="form formulario p-3" id="alterar">
+                                                        <div class="mb-3">
+                                                            <label class="form-label text-light mt-3">Título</label>
+                                                            <input type="text" value="<?= $acao['titulo'] ?>" class="form-control bg-dark text-light" id=" exampleFormControlInput1" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label text-light">Descrição</label>
+                                                            <textarea class="form-control bg-dark text-light" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                                        </div>
+                                                        <div class="mb-3 w-50 left">
+                                                            <label class="form-label text-light">Data</label>
+                                                            <input type="datetime-local" class="form-control bg-dark text-light" id="data" min="2021-06-24T00:00:00" required>
+                                                        </div>
+                                                        <div class="mb-3 w-50 left">
+                                                            <label class="form-label text-light">Categoria</label>
+                                                            <select class="form-select bg-dark text-light" aria-label="Default select example" name="categoria" required>
+                                                                <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+                                                                <option value="1">Visitações</option>
+                                                                <option value="2">Doação de sangue</option>
+                                                                <option value="3">Doação de suprimentos</option>
+                                                                <option value="4">Distribuição suprimentos</option>
+                                                                <option value="5">Adoção de animais</option>
+                                                                <option value="6">Passeio com animais</option>
+                                                            </select>
+                                                        </div>
+                                                        <div id="quadrado">
+                                                            <label for="formFile" class="form-label text-light">Endereço</label>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Cep" id="cep" required>
+                                                                <button class="btn corBotao btn-light" type="button" id="obterEndereco" onclick="endereco()">Obter Endereço</button>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Logradouro" aria-label="Recipient's username" aria-describedby="button-addon2" id="logradouro" name="logradouro" required>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Complemento" aria-label="Recipient's username" aria-describedby="button-addon2" id="complemento" name="complemento">
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Bairro" aria-label="Recipient's username" aria-describedby="button-addon2" id="bairro" name="bairro" required>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Cidade" aria-label="Recipient's username" aria-describedby="button-addon2" id="localidade" name="cidade" required>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Estado" aria-label="Recipient's username" aria-describedby="button-addon2" id="uf" name="uf" required>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="formFile" class="form-label text-light">Imagem</label>
+                                                            <input class="form-control bg-dark text-light" type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
+                                                        </div>
                                                     </form>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light corBotao">Alterar</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Modal Editar Ações -->
-
-                                    <div class="modal fade" id="exampleModal<?= $acao['id'] ?>" tabindex="-1">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title text-light">Editar Ação</h5>
-                                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <form class="form formulario p-3" id="alterar">
-                                                    <div class="mb-3">
-                                                        <label class="form-label text-light mt-3">Título</label>
-                                                        <input type="text" value="<?= $acao['titulo'] ?>" class="form-control bg-dark text-light" id=" exampleFormControlInput1" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label text-light">Descrição</label>
-                                                        <textarea class="form-control bg-dark text-light" id="exampleFormControlTextarea1" rows="3" required></textarea>
-                                                    </div>
-                                                    <div class="mb-3 w-50 left">
-                                                        <label class="form-label text-light">Data</label>
-                                                        <input type="datetime-local" class="form-control bg-dark text-light" id="data" min="2021-06-24T00:00:00" required>
-                                                    </div>
-                                                    <div class="mb-3 w-50 left">
-                                                        <label class="form-label text-light">Categoria</label>
-                                                        <select class="form-select bg-dark text-light" aria-label="Default select example" name="categoria" required>
-                                                            <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
-                                                            <option value="1">Visitações</option>
-                                                            <option value="2">Doação de sangue</option>
-                                                            <option value="3">Doação de suprimentos</option>
-                                                            <option value="4">Distribuição suprimentos</option>
-                                                            <option value="5">Adoção de animais</option>
-                                                            <option value="6">Passeio com animais</option>
-                                                        </select>
-                                                    </div>
-                                                    <div id="quadrado">
-                                                        <label for="formFile" class="form-label text-light">Endereço</label>
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" class="form-control bg-dark text-light" placeholder="Cep" id="cep" required>
-                                                            <button class="btn corBotao btn-light" type="button" id="obterEndereco" onclick="endereco()">Obter Endereço</button>
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <input type="text" class="form-control bg-dark text-light" placeholder="Logradouro" aria-label="Recipient's username" aria-describedby="button-addon2" id="logradouro" name="logradouro" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <input type="text" class="form-control bg-dark text-light" placeholder="Complemento" aria-label="Recipient's username" aria-describedby="button-addon2" id="complemento" name="complemento">
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <input type="text" class="form-control bg-dark text-light" placeholder="Bairro" aria-label="Recipient's username" aria-describedby="button-addon2" id="bairro" name="bairro" required>
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <input type="text" class="form-control bg-dark text-light" placeholder="Cidade" aria-label="Recipient's username" aria-describedby="button-addon2" id="localidade" name="cidade" required>
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <input type="text" class="form-control bg-dark text-light" placeholder="Estado" aria-label="Recipient's username" aria-describedby="button-addon2" id="uf" name="uf" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="formFile" class="form-label text-light">Imagem</label>
-                                                        <input class="form-control bg-dark text-light" type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
-                                                    </div>
-                                                </form>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light corBotao">Alterar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- FIM - Modal Editar Ações -->
-
-                                <?php } ?>
+                                                <!-- FIM - Modal Editar Ações -->
+                                    <?php } ?>
                             </div>
                     </article>
                 </div>
             </li>
             <li>
-
                 <input type="radio" name="tabs" class="rd_tabs" id="tab2">
                 <label for="tab2" class="opcoes">Ações que participo</label>
                 <div class="acao">
                     <article class="pb-3">
                         <div class="acoes mt-2">
                             <div class="row row-cols-1 row-cols-md-3 g-4" id="acoesGeral">
-                            <?php foreach($this->view->acoes_que_participo as $id => $participo) { ?>   
-                            <div class="col">
-                                    <div class="card h-100 acoesCard">
-                                        <div class="userCard">
-                                            <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
-                                            <label class="nomeCard"><?=$participo['nome'] ?></label>
-                                            <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($participo['data_criacao'])) ?></p>
-                                        </div>
-                                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body d-flex flex-column align-items-left">
-                                            <h5 class="card-title"><?=$participo['titulo']?></h5>
-                                            <p class="card-text"><?=$participo['descricao']?></p>
-                                            <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
-                                            <div class="mt-auto">
-                                                <a href="#" class="btn btn-light corBotao acoesBtn">Remover</a>
-                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                                <?php foreach($this->view->acoes_que_participo as $id => $participo) { ?>   
+                                    <div class="col">
+                                        <div class="card h-100 acoesCard">
+                                            <div class="userCard">
+                                                <?php if (file_exists('upload/perfil/'. $participo['imagem_url'])) { ?>
+                                                    <img src="upload/perfil/<?= $participo['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                                                <?php } else { ?>  
+                                                    <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                                                <?php } ?>    
+                                                <label class="nomeCard"><?=$participo['nome'] ?></label>
+                                                <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($participo['data_criacao'])) ?></p>
+                                            </div>
+                                            <?php if (file_exists('upload/acao/'. $participo['imagem'])) { ?>
+                                                <img src="upload/acao/<?=$participo['imagem']?>" class="card-img-top" alt="...">
+                                            <?php }else { ?>
+                                                <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                                            <?php } ?>        
+                                            <div class="card-body d-flex flex-column align-items-left">
+                                                <h5 class="card-title"><?=$participo['titulo']?></h5>
+                                                <p class="card-text"><?=$participo['descricao']?></p>
+                                                <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
+                                                <div class="mt-auto">
+                                                    <a href="#" class="btn btn-light corBotao acoesBtn">Remover</a>
+                                                    <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <?php } ?>
                             </div>
                         </div>

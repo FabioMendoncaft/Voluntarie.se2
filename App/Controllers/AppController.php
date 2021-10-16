@@ -25,6 +25,11 @@ class AppController extends Action {
         $acao = Container::getModel('Acao');
         $acoes = $acao->getAll();
 
+        $imagem = Container::getModel('Imagem');
+        $imagem->__set('id_usuario', $_SESSION['id'] ); 
+        $imagem_perfil = $imagem->recuperarImagem();
+
+        $this->view->minha_imagem = $imagem_perfil;
         $this->view->all_acoes = $acoes;
         $this->render('feed', 'layout_app');
 
@@ -34,6 +39,12 @@ class AppController extends Action {
     public function criarAcao() {
         
         $this->validaAutenticacao();
+
+        $imagem = Container::getModel('Imagem');
+        $imagem->__set('id_usuario', $_SESSION['id'] ); 
+        $imagem_perfil = $imagem->recuperarImagem();
+
+        $this->view->minha_imagem = $imagem_perfil;
         $this->render('criarAcao', 'layout_app'); 
 
     }
