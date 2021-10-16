@@ -55,8 +55,6 @@ class Acao extends Model {
 
         $stmt->execute();
 
-        move_uploaded_file($_FILES['imagem']['tmp_name'], "upload/" . $this->__get('imagem'));
-
         return $this;
    
 

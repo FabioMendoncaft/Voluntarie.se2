@@ -30,6 +30,41 @@ class AppController extends Action {
 
     }
 
+    // métodos utilizados na pagina de criar acao *****INICIO*****
+    public function criarAcao() {
+        
+        $this->validaAutenticacao();
+        $this->render('criarAcao', 'layout_app'); 
+
+    }
+
+    public function incluirAcao() {
+       
+        $this->validaAutenticacao();
+
+        $imagem = Container::getModel('Imagem');
+        $nome_imagem = $imagem->validaImagemAcao();
+
+        $acao = Container::getModel('Acao');   
+
+        $acao->__set('id_usuario', $_SESSION['id'] );
+        $acao->__set('titulo', $_POST['titulo'] );
+        $acao->__set('descricao',  $_POST['descricao'] );
+        $acao->__set('logradouro', $_POST['logradouro'] );
+        $acao->__set('cidade', $_POST['cidade'] );
+        $acao->__set('bairro', $_POST['bairro'] );
+        $acao->__set('uf', $_POST['uf'] );
+        $acao->__set('complemento', $_POST['complemento'] );  
+        $acao->__set('data_evento', $_POST['data_evento'] );
+        $acao->__set('categoria', $_POST['categoria'] );
+        $acao->__set('imagem',  $nome_imagem); 
+
+        $acao->addAcao(); 
+        
+        header('Location: /feed');
+
+    }
+
     public function filter() {
         
         $this->validaAutenticacao();
@@ -44,49 +79,18 @@ class AppController extends Action {
         $this->render('feed', 'layout_app');
 
     } 
-
-    // métodos utilizados na pagina de criar acao *****INICIO*****
-    public function criarAcao() {
-        
-        $this->validaAutenticacao();
-        $this->render('criarAcao', 'layout_app'); 
-
-    }
-
-    public function incluirAcao() {
-       
-        $this->validaAutenticacao();
-
-        $arquivo = $_FILES['imagem'];
-        $extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-        $arquivo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
-
-        $acao = Container::getModel('Acao');   
-
-        $acao->__set('id_usuario', $_SESSION['id'] );
-        $acao->__set('titulo', $_POST['titulo'] );
-        $acao->__set('descricao',  $_POST['descricao'] );
-        $acao->__set('logradouro', $_POST['logradouro'] );
-        $acao->__set('cidade', $_POST['cidade'] );
-        $acao->__set('bairro', $_POST['bairro'] );
-        $acao->__set('uf', $_POST['uf'] );
-        $acao->__set('complemento', $_POST['complemento'] );  
-        $acao->__set('data_evento', $_POST['data_evento'] );
-        $acao->__set('categoria', $_POST['categoria'] );
-        $acao->__set('imagem',  $arquivo_nome  /*'imagem']['tmp_name']  $_POST['imagem'] */ ); 
-
-        header('Location: /feed');
     
-        $acao->addAcao(); 
-
-    }
-
     // métodos utilizados na pagina de criar acao *****FIM*****
 
      // Meu perfil *****INICIO*****
     public function meuPerfil(){
 
         $this->validaAutenticacao();
+            
+            $imagem = Container::getModel('Imagem');
+            $imagem->__set('id_usuario', $_SESSION['id'] );
+            $imagem->validaImagemPerfil(); 
+            $imagem_perfil = $imagem->recuperarImagem();
 
             $acao = Container::getModel('Acao'); 
             $acao->__set('id_usuario', $_SESSION['id'] );
@@ -101,6 +105,7 @@ class AppController extends Action {
             $usuario->__set('id', $_SESSION['id'] );
             $acoes_participo = $usuario->acoesParticipo();
 
+            $this->view->minha_imagem = $imagem_perfil;
             $this->view->acoes_que_participo = $acoes_participo;
             $this->view->info_usuario = $dados_usuario;
             $this->view->minhas_acoes = $acoes;
@@ -131,16 +136,9 @@ class AppController extends Action {
 
         $this->render('alterarSenha', 'layout_app');
 
-
-
-
     }
 
     public function altSenha() {
-
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
 
            $this->validaAutenticacao();
            $usuario = Container::getModel('Usuario');
@@ -150,9 +148,7 @@ class AppController extends Action {
        
            $usuario->mudarSenha();
 
-
     }
-
 
     public function action() {
 
@@ -175,11 +171,10 @@ class AppController extends Action {
             header('Location: /feed');
         }
 
-
         $action_participante->__set('id_acao', $id_acao);
 
-
     }
+
 }    
 
 ?>

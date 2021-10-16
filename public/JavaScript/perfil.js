@@ -1,5 +1,5 @@
 function previewImagem() {
-    var imagem = document.querySelector('input[name=imagePerfil]').files[0]
+    var imagem = document.querySelector('input[name=imagem_perfil]').files[0]
     var preview = document.querySelector('img[name=imagemPerfil]')
 
     var reader = new FileReader()
