@@ -29,6 +29,7 @@ class AppController extends Action {
         $imagem->__set('id_usuario', $_SESSION['id'] ); 
         $imagem_perfil = $imagem->recuperarImagem();
 
+      
         $this->view->minha_imagem = $imagem_perfil;
         $this->view->all_acoes = $acoes;
         $this->render('feed', 'layout_app');
