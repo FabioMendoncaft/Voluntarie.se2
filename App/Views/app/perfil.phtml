@@ -250,10 +250,10 @@
                                                 <label class="nomeCard"><?=$participo['nome'] ?></label>
                                                 <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($participo['data_criacao'])) ?></p>
                                             </div>
-                                            <?php if (file_exists('upload/acao/'. $participo['imagem'])) { ?>
-                                                <img src="upload/acao/<?=$participo['imagem']?>" class="card-img-top" alt="...">
-                                            <?php }else { ?>
+                                            <?php if (empty($participo['imagem'])) { ?>
                                                 <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                                            <?php }else { ?>
+                                                <img src="upload/acao/<?=$participo['imagem']?>" class="card-img-top" alt="...">
                                             <?php } ?>        
                                             <div class="card-body d-flex flex-column align-items-left">
                                                 <h5 class="card-title"><?=$participo['titulo']?></h5>
