@@ -137,7 +137,11 @@
                                                         <label class="nomeCard"> <?=$_SESSION['nome'] ?></label>
                                                         <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($acao['data_criacao'])) ?></p>
                                                     </div>
-                                                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                                                    <?php if (empty($acao['imagem']) or is_null($acao['imagem'])) { ?>
+                                                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                                                     <?php } else  { ?>
+                                                         <img src="upload/acao/<?=$acao['imagem']?>" class="card-img-top" alt="...">
+                                                     <?php } ?>
                                                 <div class="card-body d-flex flex-column align-items-left">
                                                     <h5 class="card-title"> <?= $acao['titulo'] ?></h5>
                                                     <p class="card-text"><?=$acao['descricao'] ?></p>
