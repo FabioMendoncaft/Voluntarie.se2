@@ -77,6 +77,47 @@ class AppController extends Action {
 
     }
 
+    // EDITAR DADOS DAS AÇÕES
+
+    public function editarAcao() {
+       
+        $this->validaAutenticacao();
+
+        $acao = Container::getModel('Acao'); 
+
+        $acao->__set('id', $_GET['id_acao'] );
+        $acao->__set('id_usuario',$_SESSION['id']);
+        $acao->__set('titulo', $_POST['titulo'] );
+        $acao->__set('descricao',  $_POST['descricao'] );
+        $acao->__set('logradouro', $_POST['logradouro'] );
+        $acao->__set('cidade', $_POST['cidade'] );
+        $acao->__set('bairro', $_POST['bairro'] );
+        $acao->__set('uf', $_POST['uf'] );
+        $acao->__set('complemento', $_POST['complemento'] );  
+        $acao->__set('data_evento', $_POST['data_evento'] );
+        $acao->__set('categoria', $_POST['categoria'] );
+
+        $acao->editarAcao(); 
+        
+        header('Location: /meu_perfil');
+
+        /*echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+
+        echo '<pre>';
+        print_r($_GET);
+        echo '</pre>';
+
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';*/
+
+
+    }
+
+    // (FIM) EDITAR DADOS DAS AÇÕES
+
     public function filter() {
         
         $this->validaAutenticacao();

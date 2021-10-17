@@ -36,6 +36,8 @@
                     <label class="text-light mt-3 mb-3"><strong><?= $info['n_acoes'] ?></strong> ações publicadas</label>
                     <p class="text-light"><?= $info['email'] ?></p>
                     <p class="text-light"><?= $info['telefone'] ?></p>
+                    <?php $dt_nascimento = date('d/m/Y', strtotime( $info['data_nascimento'] )) ?>
+                    <p class='text-light'>Data de Nascimento: <?=$dt_nascimento?></p>
                 </div>
                 <div>
                     <button class="btn btn-light corBotao p-1" type="button" id="botaoEditar" data-bs-toggle="modal" data-bs-target="#editarDados<?= $info['id'] ?>">Editar dados</button>
@@ -65,12 +67,14 @@
                                 <label class="form-label text-light mb-0">Data de nascimento</label>
                                 <input type="date" class="form-control bg-dark text-light p-1" id="data" name="data" min="1920-01-01" max="2020-12-31">
                             </div>
+                            <?php $sexo = $info['sexo']?>
+                            <?php  if($sexo == 'M'){ $sexo = 'Masculino'; }else{ $sexo = 'Feminino'; } ?>
                             <div class="mb-2">
                                 <label class="form-label text-light mb-0">Sexo</label>
                                 <select class="form-select bg-dark text-light p-1" aria-label="Default select example" name="sexo">
-                                    <option disabled="disabled" selected="selected">- Selecione uma opção</option>
+                                    <option disabled="disabled" selected="selected"><?= $sexo ?> </option>
                                     <option value="F">Feminimo</option>
-                                    <option value="<?= $info['sexo'] ?>">Masculino</option>
+                                    <option value="M">Masculino</option>
                                 </select>
                             </div>
                         </div>
@@ -134,15 +138,12 @@
                                                         <label class="nomeCard"> <?=$_SESSION['nome'] ?></label>
                                                         <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($acao['data_criacao'])) ?></p>
                                                     </div>
-                                
-
-                                             
-                
                                                     <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
-                                                     
                                                 <div class="card-body d-flex flex-column align-items-left">
                                                     <h5 class="card-title"> <?= $acao['titulo'] ?></h5>
                                                     <p class="card-text"><?=$acao['descricao'] ?></p>
+                                                    <?php $data =  date('d/m/Y H:i', strtotime($acao['data_evento'])) ?>
+                                                    <p>Data:  <?=$data?> </p>
                                                     <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                                         <div class="mt-auto botaoesCards">
                                                             <a href=""  type="submit" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $acao['id'] ?>">Editar</a>
@@ -162,23 +163,23 @@
                                                         <h5 class="modal-title text-light">Editar Ação</h5>
                                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <form class="form formulario p-3" id="alterar">
+                                                    <form method="POST" action="/editar_acao?id_acao=<?=$acao['id']?>"  enctype="multipart/form-data" class="form" id="alterar">
                                                         <div class="mb-3">
                                                             <label class="form-label text-light mt-3">Título</label>
-                                                            <input type="text" value="<?= $acao['titulo'] ?>" class="form-control bg-dark text-light" id=" exampleFormControlInput1" required>
+                                                            <input type="text" value="<?= $acao['titulo'] ?>" class="form-control bg-dark text-light" name="titulo" id=" exampleFormControlInput1" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label class="form-label text-light">Descrição</label>
-                                                            <textarea class="form-control bg-dark text-light" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                                            <textarea class="form-control bg-dark text-light" id="exampleFormControlTextarea1" rows="3" name="descricao" required><?= $acao['descricao'] ?></textarea>
                                                         </div>
                                                         <div class="mb-3 w-50 left">
                                                             <label class="form-label text-light">Data</label>
-                                                            <input type="datetime-local" class="form-control bg-dark text-light" id="data" min="2021-06-24T00:00:00" required>
+                                                            <input type="datetime-local" class="form-control bg-dark text-light" name="data_evento" id="data" min="2021-06-24T00:00:00" required>
                                                         </div>
                                                         <div class="mb-3 w-50 left">
                                                             <label class="form-label text-light">Categoria</label>
                                                             <select class="form-select bg-dark text-light" aria-label="Default select example" name="categoria" required>
-                                                                <option disabled="disabled" selected="selected">-- Selecione uma opção</option>
+                                                                <option disabled="disabled" selected="selected"><?= $acao['categoria'] ?></option>
                                                                 <option value="1">Visitações</option>
                                                                 <option value="2">Doação de sangue</option>
                                                                 <option value="3">Doação de suprimentos</option>
@@ -195,33 +196,33 @@
                                                             </div>
 
                                                             <div class="mb-3">
-                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Logradouro" aria-label="Recipient's username" aria-describedby="button-addon2" id="logradouro" name="logradouro" required>
+                                                                <input type="text" value="<?= $acao['logradouro'] ?>" class="form-control bg-dark text-light" placeholder="Logradouro" aria-label="Recipient's username" aria-describedby="button-addon2" id="logradouro" name="logradouro" required>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Complemento" aria-label="Recipient's username" aria-describedby="button-addon2" id="complemento" name="complemento">
-                                                            </div>
-
-                                                            <div class="mb-3">
-                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Bairro" aria-label="Recipient's username" aria-describedby="button-addon2" id="bairro" name="bairro" required>
+                                                                <input type="text" value="<?= $acao['complemento'] ?>" class="form-control bg-dark text-light" placeholder="Complemento" aria-label="Recipient's username" aria-describedby="button-addon2" id="complemento" name="complemento">
                                                             </div>
 
                                                             <div class="mb-3">
-                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Cidade" aria-label="Recipient's username" aria-describedby="button-addon2" id="localidade" name="cidade" required>
+                                                                <input type="text" value="<?= $acao['bairro'] ?>" class="form-control bg-dark text-light" placeholder="Bairro" aria-label="Recipient's username" aria-describedby="button-addon2" id="bairro" name="bairro" required>
                                                             </div>
 
                                                             <div class="mb-3">
-                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Estado" aria-label="Recipient's username" aria-describedby="button-addon2" id="uf" name="uf" required>
+                                                                <input type="text" value="<?= $acao['cidade'] ?>" class="form-control bg-dark text-light" placeholder="Cidade" aria-label="Recipient's username" aria-describedby="button-addon2" id="localidade" name="cidade" required>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <input type="text" value="<?= $acao['uf'] ?>" class="form-control bg-dark text-light" placeholder="Estado" aria-label="Recipient's username" aria-describedby="button-addon2" id="uf" name="uf" required>
                                                             </div>
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="formFile" class="form-label text-light">Imagem</label>
-                                                            <input class="form-control bg-dark text-light" type="file" name="imagem" id="escolherImagem" onchange="previewImagem()">
+                                                            <input class="form-control bg-dark text-light" type="file" id="escolherImagem" onchange="previewImagem()">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-light corBotao">Alterar</button>
                                                         </div>
                                                     </form>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light corBotao">Alterar</button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

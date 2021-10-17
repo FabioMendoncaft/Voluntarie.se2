@@ -92,6 +92,18 @@ class Route extends Bootstrap {
             'action' => 'filter'
         );
 
+        $routes['editar_acao'] = array(
+            'route' => '/editar_acao',
+            'controller' => 'AppController',
+            'action' => 'editarAcao'
+        );
+
+        $routes['editar_user'] = array(
+            'route' => '/editar_user',
+            'controller' => 'IndexController',
+            'action' => 'editarUser'
+        );
+
         $this->setRoutes($routes);
 
     }

@@ -27,7 +27,7 @@ class indexController extends Action {
         $usuario->__set('email',$_POST['email']);
         $usuario->__set('telefone',$_POST['telefone']);
         $usuario->__set('senha',/*base64_encode( */$_POST['senha']) /*)*/ ;
-        $usuario->__set('data',$_POST['data']);
+        $usuario->__set('data_nascimento', date('Y/m/d', strtotime($_POST['data'])));
         $usuario->__set('sexo',$_POST['sexo']);
 
         if (count($usuario->getUsuarioPorEmail()) == 0) {
