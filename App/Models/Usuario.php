@@ -43,6 +43,26 @@ class Usuario extends Model {
 
     }
 
+     //Editar usuário
+     public function editarUser() {
+
+        $query = "update tb_usuarios set nome = :nome, telefone = :telefone, 
+        data_nascimento = :data_nascimento, sexo = :sexo where id = :id; ";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id' , $this->__get('id'));
+        $stmt->bindValue(':nome', $this->__get('nome'));
+        $stmt->bindValue(':telefone', $this->__get('telefone'));
+        $stmt->bindValue(':data_nascimento', $this->__get('data_nascimento'));
+        $stmt->bindValue(':sexo', $this->__get('sexo'));
+
+        $stmt->execute();
+
+        return $this;
+
+    }
+    //Editar usuário
+
     public function getUsuarioPorEmail() {
 
         $query = "select nome, email from tb_usuarios where email = :email";

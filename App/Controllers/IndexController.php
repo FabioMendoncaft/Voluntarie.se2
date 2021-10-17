@@ -13,6 +13,16 @@ use PHPMailer\PHPMailer\SMTP;
 
 class indexController extends Action {
 
+    public function validaAutenticacao(){
+        //Funcao criada para evitar repetição de código, para validar sessão basta chamá-la
+        session_start();
+
+        if(!isset($_SESSION['id']) || $_SESSION['id'] == '' ||  !isset($_SESSION['nome']) || $_SESSION['nome'] == '') { 
+            header('Location: /feed');
+        }
+
+    }
+
     public function index(){
 
         $this->view->retorno_Cadastro = '';
@@ -42,6 +52,25 @@ class indexController extends Action {
             $this->render('index', 'layout_index');
         }
     }
+
+        //Editar Usuário
+        public function editarUser() {
+
+            $this->validaAutenticacao();
+
+           $usuario = Container::getModel('Usuario');
+            $usuario->__set('id',$_SESSION['id']);
+            $usuario->__set('nome',$_POST['nome']);
+            $usuario->__set('telefone',$_POST['telefone']);
+            $usuario->__set('data_nascimento', date('Y/m/d', strtotime($_POST['data'])));
+            $usuario->__set('sexo',$_POST['sexo']);
+    
+            $usuario->editarUser();
+            
+            header('Location: /meu_perfil');
+            
+        }
+        // FIM - Editar Usuário
 
     public function recuperarSenha() {
 

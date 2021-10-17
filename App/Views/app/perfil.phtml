@@ -53,7 +53,7 @@
                         <h5 class="modal-title text-light">Editar Dados</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="form" id="alterar">
+                    <form method="POST" action="/editar_user"  enctype="multipart/form-data" class="form" id="alterar">
                         <div class="modal-body">
                             <div class="mb-2">
                                 <label class="form-label text-light mb-0">Nome</label>
@@ -77,11 +77,10 @@
                                     <option value="M">Masculino</option>
                                 </select>
                             </div>
+                        </div><div class="modal-footer">
+                            <button type="submit" class="btn btn-light corBotao">Salvar</button>
                         </div>
                     </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light corBotao">Salvar</button>
-                    </div>
                 </div>
             </div>
         </div>

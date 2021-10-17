@@ -101,19 +101,6 @@ class AppController extends Action {
         
         header('Location: /meu_perfil');
 
-        /*echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($_GET);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';*/
-
-
     }
 
     // (FIM) EDITAR DADOS DAS AÇÕES
