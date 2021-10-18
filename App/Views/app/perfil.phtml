@@ -36,8 +36,6 @@
                     <label class="text-light mt-3 mb-3"><strong><?= $info['n_acoes'] ?></strong> ações publicadas</label>
                     <p class="text-light"><?= $info['email'] ?></p>
                     <p class="text-light"><?= $info['telefone'] ?></p>
-                    <?php $dt_nascimento = date('d/m/Y', strtotime( $info['data_nascimento'] )) ?>
-                    <p class='text-light'>Data de Nascimento: <?=$dt_nascimento?></p>
                 </div>
                 <div>
                     <button class="btn btn-light corBotao p-1" type="button" id="botaoEditar" data-bs-toggle="modal" data-bs-target="#editarDados<?= $info['id'] ?>">Editar dados</button>
@@ -65,7 +63,7 @@
                             </div>
                             <div class="mb-2">
                                 <label class="form-label text-light mb-0">Data de nascimento</label>
-                                <input type="date" class="form-control bg-dark text-light p-1" id="data" name="data" min="1920-01-01" max="2020-12-31">
+                                <input type="date" value="<?= $info['data_nascimento'] ?>" class="form-control bg-dark text-light p-1" id="data" name="data" min="1920-01-01" max="2020-12-31">
                             </div>
                             <?php $sexo = $info['sexo']?>
                             <?php  if($sexo == 'M'){ $sexo = 'Masculino'; }else{ $sexo = 'Feminino'; } ?>
@@ -145,8 +143,6 @@
                                                 <div class="card-body d-flex flex-column align-items-left">
                                                     <h5 class="card-title"> <?= $acao['titulo'] ?></h5>
                                                     <p class="card-text"><?=$acao['descricao'] ?></p>
-                                                    <?php $data =  date('d/m/Y H:i', strtotime($acao['data_evento'])) ?>
-                                                    <p>Data:  <?=$data?> </p>
                                                     <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                                         <div class="mt-auto botaoesCards">
                                                             <a href=""  type="submit" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $acao['id'] ?>">Editar</a>
@@ -166,7 +162,7 @@
                                                         <h5 class="modal-title text-light">Editar Ação</h5>
                                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <form method="POST" action="/editar_acao?id_acao=<?=$acao['id']?>"  enctype="multipart/form-data" class="form" id="alterar">
+                                                    <form method="POST" action="/editar_acao?id_acao=<?=$acao['id']?>"  enctype="multipart/form-data" class="form formulario p-3" id="alterar">
                                                         <div class="mb-3">
                                                             <label class="form-label text-light mt-3">Título</label>
                                                             <input type="text" value="<?= $acao['titulo'] ?>" class="form-control bg-dark text-light" name="titulo" id=" exampleFormControlInput1" required>
@@ -175,9 +171,11 @@
                                                             <label class="form-label text-light">Descrição</label>
                                                             <textarea class="form-control bg-dark text-light" id="exampleFormControlTextarea1" rows="3" name="descricao" required><?= $acao['descricao'] ?></textarea>
                                                         </div>
+                                                        <?php $dataHtml = new DateTime($acao['data_evento']) ?>
+                                                        <?php $dataInput = $dataHtml->format('Y-m-d\TH:i:s')  ?>
                                                         <div class="mb-3 w-50 left">
                                                             <label class="form-label text-light">Data</label>
-                                                            <input type="datetime-local" class="form-control bg-dark text-light" name="data_evento" id="data" min="2021-06-24T00:00:00" required>
+                                                            <input type="datetime-local" value="<?= $dataInput ?>" class="form-control bg-dark text-light" name="data_evento" id="data" min="2021-06-24T00:00:00" required>
                                                         </div>
                                                         <div class="mb-3 w-50 left">
                                                             <label class="form-label text-light">Categoria</label>
