@@ -12,6 +12,7 @@
 <body>
 
     <!-- Lateral - Dados do usuário(ESQUERDA) -->
+    
     <div class="perfilFiltro">
         <?php if (empty($this->view->minha_imagem)) { ?>
             <div class="card mt-3 cardEsquerda" id="cardPerfil">
@@ -21,22 +22,23 @@
                     <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
                 </div>
             </div>
-        <?php } else { 
-                 foreach ($this->view->minha_imagem as $id => $imagem) { ?>
-                    <div class="card mt-3 cardEsquerda" id="cardPerfil">
-                        <div class="card-body">
-                            <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) { ?>
-                                <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
-                            <?php } else { ?>   
-                                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard" id="fotoPerfil">
+        <?php } else { ?> 
+         <?php foreach($this->view->minha_imagem as $id => $imagem) { ?>
+            <div class="card mt-3 cardEsquerda" id="cardPerfil">
+                <div class="card-body">
+                 <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) {  ?>
+                    <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                    <?php }else { ?>        
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
                             <?php } ?>
-                                <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
-                                <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                            <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                            <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
                         </div>
                     </div>
-            <?php } ?>
-         <?php } ?> 
-
+              <?php } ?> 
+              <?php } ?>           
+    </div>
+         
     <!-- (FIM)lateral - Dados do usuário(ESQUERDA) -->
 
     <!-- Formulário de Ação -->
