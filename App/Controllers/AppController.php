@@ -110,10 +110,17 @@ class AppController extends Action {
         $this->validaAutenticacao();
 
         $filter = Container::getModel('Filter');
-        $filter->__set('estado', $_GET['estado']);
-        $filter->__set('cidade', $_GET['cidade']);
-        $filter->__set('categoria', $_GET['categoria']);
+        if (!empty($_GET['estado'])) {
+            $filter->__set('estado', $_GET['estado']);
+        }
+        
+        if (!empty($_GET['cidade'])) {
+            $filter->__set('cidade', $_GET['cidade']);
+        }
 
+        if (!empty($_GET['categoria'])) {
+            $filter->__set('categoria', $_GET['categoria']);
+        }
         $acoes = $filter->getaActionFilter();
         $this->view->all_acoes = $acoes;
         $this->render('feed', 'layout_app');

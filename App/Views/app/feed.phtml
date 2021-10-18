@@ -43,24 +43,45 @@
                     <p class="mt-1 text-light mb-1">Estado:</p>
                     <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                        <option value="AL">AL</option>
-                        <option value="AM">AM</option>
-                        <option value="BA">BA</option>
-                        <option value="CE">CE</option>
-                        <option value="PB">PB</option>
-                        <option value="PE">PE</option>
+                        <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+                            <?php if(empty($ant)){
+                                $ant = array($acoes['uf']);
+                            ?>
+                            <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                            <?php
+                            }else{
+                                if (!in_array($acoes['uf'], $ant)) {?>          
+                                    <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                                <?php 
+                                $ant[] = $acoes['uf'];
+                                } 
+                            } ?>
+                        <?php }  ?>
                     </select>
                     <p class="text-light mb-1">Cidade:</p>
                     <input type="text" class="form-control bg-dark p-0 text-light" id="cidade" name="cidade">
                     <p class="mt-1 text-light mb-1">Categoria:</p>
                     <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                        <option value="Visitações">Visitações</option>
-                        <option value="Doação de sangue">Doação de sangue</option>
+                        <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+                            <?php if(empty($ant_cat)){
+                                $ant_cat = array($acoes['categoria']);
+                            ?>
+                            <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                            <?php
+                            }else{
+                                if (!in_array($acoes['categoria'], $ant_cat)) {?>          
+                                    <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                                <?php 
+                                $ant_cat[] = $acoes['categoria'];
+                                } 
+                            } ?>
+                        <?php }  ?>
+                        <!--<option value="Doação de sangue">Doação de sangue</option>
                         <option value="Doação de suprimentos">Doação de suprimentos</option>
                         <option value="Distribuição suprimentos">Distribuição suprimentos</option>
                         <option value="Adoção de animais">Adoção de animais</option>
-                        <option value="Passeio com animais">Passeio com animais</option>
+                        <option value="Passeio com animais">Passeio com animais</option>-->
                     </select>
                     <div >
                         <button type="submit" class="btn btn-light corBotao">Aplicar filtros</button>
