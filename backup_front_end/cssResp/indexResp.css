@@ -1,0 +1,77 @@
+/*RESPONSIVIDADE HOME*/
+
+@media(max-width: 600px) {
+    .banne button {
+        padding: 1rem 1.1rem;
+    }
+    .banne h1 {
+        font-size: 2.9em;
+    }
+    .banne input {
+        width: 280px;
+    }
+}
+
+@media(min-width: 1600px) {
+    .banne button {
+        padding: 1rem 3rem;
+    }
+    .banne h1 {
+        font-size: 4.2em;
+    }
+    .banne input {
+        width: 400px;
+    }
+    .esqueciSenha {
+        margin-left: 120px;
+    }
+}
+
+@media(min-width: 2400px) {
+    .banne button {
+        padding: 1.3rem 5.3rem;
+        font-size: 30px;
+    }
+    .banne h1 {
+        font-size: 8.5em;
+        margin-bottom: 70px;
+    }
+    .banne input {
+        width: 700px;
+        padding: 15px;
+        font-size: 30px;
+    }
+    .esqueciSenha {
+        margin-left: 210px;
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 400px) {
+    .banne {
+        margin-top: -80px;
+        margin-left: -20px;
+    }
+}
+
+/*(FIM) RESPONSIVIDADE HOME*/
+
+
+/*RESPONSIVIDADE CONTATO*/
+
+@media(max-width: 768px) {
+    .contato-wrapper {
+        width: 90%;
+    }
+}
+
+@media(max-width: 425px){
+    .contato-left{
+        display: none;
+    }
+    .contato-right{
+        width: 100%;
+    }
+}
+
+/*(FIM) RESPONSIVIDADE CONTATO*/

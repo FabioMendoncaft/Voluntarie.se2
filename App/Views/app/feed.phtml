@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Voluntarie.se | Feed</title>
+    <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="cssResp/feedResp.css">
+    <link rel="stylesheet" href="cssResp/BarraMobResp.css">
+    <link rel="stylesheet" href="css/navBarPC.css">
+    <script src="js/modalShow.js"></script>
+</head>
+
+<body>
+     
+    <!-- Lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+    <div class="perfilFiltro">
+        <?php if (empty($this->view->minha_imagem)) { ?>
+            <div class="card mt-3 cardEsquerda" id="cardPerfil">
+                <div class="card-body">
+                    <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                    <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                    <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                </div>
+            </div>
+        <?php } else { 
+                 foreach ($this->view->minha_imagem as $id => $imagem) { ?>
+                    <div class="card mt-3 cardEsquerda" id="cardPerfil">
+                        <div class="card-body">
+                            <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) { ?>
+                                <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                            <?php } else { ?>   
+                                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard" id="fotoPerfil">
+                            <?php } ?>
+                                <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                                <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                        </div>
+                    </div>
+            <?php } ?>
+         <?php } ?>               
+        <div class="card mt-4 cardEsquerda" id="cardFiltro">
+            <form method="GET" action="/filter">
+                <div class="card-body filtro">
+                    <h6 class="tituloFiltro text-light">Filtro de pesquisa <i class="fas fa-filter"></i></h6>
+                    <p class="mt-1 text-light mb-1">Estado:</p>
+                    <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado">
+                        <option disabled="disabled" selected="selected">-Selecione uma opção</option>
+                        <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+                            <?php if(empty($ant)){
+                                $ant = array($acoes['uf']);
+                            ?>
+                            <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                            <?php
+                            }else{
+                                if (!in_array($acoes['uf'], $ant)) {?>          
+                                    <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                                <?php 
+                                $ant[] = $acoes['uf'];
+                                } 
+                            } ?>
+                        <?php }  ?>
+                    </select>
+                    <p class="text-light mb-1">Cidade:</p>
+                    <input type="text" class="form-control bg-dark p-0 text-light" id="cidade" name="cidade">
+                    <p class="mt-1 text-light mb-1">Categoria:</p>
+                    <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria">
+                        <option disabled="disabled" selected="selected">-Selecione uma opção</option>
+                        <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+                            <?php if(empty($ant_cat)){
+                                $ant_cat = array($acoes['categoria']);
+                            ?>
+                            <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                            <?php
+                            }else{
+                                if (!in_array($acoes['categoria'], $ant_cat)) {?>          
+                                    <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                                <?php 
+                                $ant_cat[] = $acoes['categoria'];
+                                } 
+                            } ?>
+                        <?php }  ?>
+                        <!--<option value="Doação de sangue">Doação de sangue</option>
+                        <option value="Doação de suprimentos">Doação de suprimentos</option>
+                        <option value="Distribuição suprimentos">Distribuição suprimentos</option>
+                        <option value="Adoção de animais">Adoção de animais</option>
+                        <option value="Passeio com animais">Passeio com animais</option>-->
+                    </select>
+                    <div >
+                        <button type="submit" class="btn btn-light corBotao">Aplicar filtros</button>
+                    </div>
+                    <!--<a href="#" name="btnFiltro" id="btnFiltro" class="btn btn-light corBotao">Aplicar filtros</a>-->
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+
+    <!--MEIO - Ações criadas pelos usuários -->
+    <div class="acoes mt-5">
+        <div class="row row-cols-1 cols-ms-6 g-4" id="acoesGeral">
+          <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+            <div class="col">
+                <div class="card h-100 acoesCard">
+                    <div class="userCard">
+                        <?php if(empty($acoes['imagem_url'])) {?>
+                            <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                        <?php } else
+                                     if (file_exists('upload/perfil/'. $acoes['imagem_url'])) { ?>
+                                        <img src="upload/perfil/<?= $acoes['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                                    <?php } ?>
+                        <label class="nomeCard"><?=$acoes['nome']?></label>
+                        <p class="dataCard">Criado em: <?= date('d/m/Y H:i', strtotime($acoes['data_criacao'])) ?></p>
+                    </div>
+                    
+                    <?php if(empty($acoes['imagem'])) {?>
+                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                        <?php } else
+                                if (file_exists('upload/acao/'. $acoes['imagem'])) { ?>
+                                    <img src="upload/acao/<?=$acoes['imagem']?>" class="card-img-top" alt="...">
+                                <?php } ?>
+                    <div class="card-body">
+                        <p class="qtd_part"><?=$acoes['participando_sn']?></p>
+                        <span class="material-icons qtd_part_ic">person</span>
+                        <h5 class="card-title"><?=$acoes['titulo']?></h5>
+                        <p class="card-text"><?=$acoes['descricao']?></p>
+                        <p class="text-light">Data: <?php echo date('d/m/Y', strtotime($acoes['data_evento']));?></p>   
+                        <?php if($acoes['checkPart'] == null) { ?> 
+                            <a href="/action?action=participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Participar</a>
+                        <?php } ?>
+                        <?php if($acoes['checkPart'] != null) { ?> 
+                            <a href="/action?action=deixar_de_participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Deixar de Participar</a>
+                     <?php } ?>   
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes" onclick="showDetails(<?=$acoes['id']?>, <?=$acoes['id_usuario']?>)">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+
+          
+
+
+            <?php } ?>
+        </div>
+    </div>
+    <!-- (FIM) MEIO - Ações criadas pelos usuários -->
+
+    <!-- Anúncio -->
+    <div class="anuncio">
+        <div class="card mt-3 cardDireita">
+            <div class="card-body text-light">
+                <p>ANÚNCIO</p>
+            </div>
+        </div>
+    </div>
+    <!-- (FIM) Anúncio -->
+
+      <!-- MODAL VER DETALHES DA AÇÃO -->
+       <div class="modal" id="detalhes" tabindex="-1">
+                    <div class="modal-dialog">
+                            <div id="modalContent">
+
+                            </div>
+                    </div>
+        </div>    
+        <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
+
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    background: #1b1c1f;
+}
+
+
+/*Padrão para todos os botões*/
+.corBotao {
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.corBotao:not(:hover) {
+    color: white;
+}
+/* Fim - Padrão para todos os botões*/
+
+
+/* NavBar Desktop */
+#navTop{
+    border-bottom: solid rgb(63, 63, 63) 1px;
+}
+
+#imagemLogo {
+    width: 35px;
+    transition: all 250ms ease;
+    margin-left: 5px;
+}
+
+#imagemLogo:hover {
+    width: 40px;
+    transition: all 250ms ease;
+}
+
+#navbarDropdown span{
+    margin-right: 4px;
+    float: left;
+}
+
+#navbarDropdown label{
+    margin-right: 1px;
+}
+
+.textDrop{
+    color: white;
+}
+/* FIM - NavBar Desktop */
+
+
+/* NavBar Mobile */
+#navMobile {
+    display: none;
+    padding: 0px;
+    height: 44px;
+    border-top: solid rgb(63, 63, 63) 1px;
+}
+
+#navMobile span {
+    font-size: 38px;
+}
+
+#navMobile #feed{
+    margin-left: 10px;
+}
+
+#navMobile #perfil {
+    color: #fe5200;
+    border-top: #fe5200;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+#navMobile #perfil {
+    margin-right: 10px;
+}
+/* FIM - NavBar Mobile */
+
+
+/* Dados do Perfil */
+.perfil{
+    height: 300px; 
+    width: 70%;
+}
+
+.perfil .fotoPerfil{
+    width: 30%; 
+    height: 100%; 
+    float: left;
+}
+
+.perfil #fotoPerfil{
+    margin-left: 25%;
+    margin-top: 50px;
+    width: 50%;
+}
+
+.perfil #editarImagem {
+    border: 0px;
+    border-radius: 50%;
+    background: #616161;
+    padding: 2px;
+    position: absolute;
+    margin-top: 11%;
+    margin-left: -3%;
+    transition: all 250ms ease;
+}
+
+.perfil #editarImagem:hover{
+    background: #6161618a;
+    transition: all 250ms ease;
+}
+
+.perfil #icon{
+    font-size: 23px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.dadosPerfil{
+    width: 70%; 
+    height: 100%; 
+    margin-left: 30%;
+    padding: 48px;
+}
+
+.dadosPerfil #dadosPerfil{
+    float: left;
+}
+
+#dadosPerfil label{
+    font-size: 19px;
+}
+
+#dadosPerfil p{
+    margin-bottom: 4px;
+}
+
+.dadosPerfil #botaoEditar{
+    margin-left: 25%; 
+}
+/* FIM - Dados do Perfil */
+
+
+/* NavBar de seleção de ações (Minhas Ações / Ações que participo) */
+.nav_tabs{
+    width: 70%; 
+    margin: auto; border-top: solid rgb(63, 63, 63) 1px;
+    height: 100%;
+    background-color: black;
+    position: relative;
+}
+
+.nav_tabs ul{
+    list-style: none; 
+}
+
+.nav_tabs ul li{
+    float: left;
+}
+
+.nav_tabs .opcoes{
+    padding: 15px;
+    display: block;
+    color: rgb(155, 155, 155);
+    cursor: pointer;
+}
+
+.rd_tabs:checked ~ label{
+    color: white;
+    border-top: solid white 1px;
+}
+
+.rd_tabs{
+    display: none;
+}
+
+.acao{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+}
+
+.rd_tabs:checked ~ .acao{
+    display: block;
+}
+/* FIM - NavBar de seleção de ações  (Minhas Ações / Ações que participo)*/
+
+
+/* Personasisação dos cards */
+.acoes .acoesCard{
+    background: #282a2e;
+    color: white;
+    padding: 10px;
+}
+
+.acoesCard .fotoCard{
+    width: 45px;
+    float: left;
+}
+
+.userCard .nomeCard{
+    color: white;
+    margin-left: 10px; 
+    font-weight: bold
+}
+
+.userCard .dataCard{
+    margin-left: 55px; 
+    font-size: 11px; 
+    color: rgb(180, 180, 180);
+}
+
+.acoesCard .qtd_part{
+    float: left; 
+    font-size: 14.5px; 
+    margin-right: 4px;
+}
+
+.acoesCard .qtd_part_ic{
+    float: left; 
+    font-size: 20px;
+}
+
+.acoesBtn{
+    width: 49%;
+}
+/* FIM -Personasisação dos cards */
+
+
+/* Modal de escolher foto do perfil */
+.modal .modal-content{
+    background: #1b1c1f;
+}
+
+.modal #image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 34%;
+    border: solid white 1px;
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+}
+/* FIM - Modal de escolher foto do perfil */
+
+
+/* Modal detalhes */
+.qtd_part{
+    float: right; 
+    font-size: 14.5px; 
+    margin-right: 4px;
+}
+
+.qtd_part_ic{
+    float: right; 
+    font-size: 20px;
+}
+/* FIM - Modal detalhes */
+
+/* Modal Editar Ações */
+.formulario #quadrado{
+    margin-top: 108px;
+    border: 1px solid #707071;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px; 
+}
+
+.formulario .left{
+    float: left;
+}
+/* FIM - Modal Editar Ações */

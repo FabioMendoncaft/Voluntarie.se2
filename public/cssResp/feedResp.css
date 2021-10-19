@@ -1,0 +1,54 @@
+/* RESPONSIVIDADE FEED */
+
+@media(max-width: 900px) {
+    .cardEsquerda h4{
+        font-size: 20px;
+    }
+    .filtro h6 {
+        font-size: 13px;
+    }
+    .filtro p{
+        font-size: 13px;
+    }
+    
+}
+
+@media(max-width: 770px) {
+    .anuncio{
+        display: none;
+    }
+    .perfilFiltro #cardPerfil{
+        display: none;
+    }
+    .perfilFiltro {
+        float: none;
+        width: 100%;
+        margin-top: 30px;
+        position: relative;
+    }
+    .perfilFiltro #cardFiltro{
+        width: 65%;
+        margin: auto;
+    }
+    .acoes {
+        width: 100%;
+        margin-left: 0px;
+        padding: 50px;
+    }
+    .acoes #acoesGeral{
+        margin-top: -100px;
+    }
+}
+
+@media(max-width: 450px){
+    .perfilFiltro #cardFiltro{
+        width: 100%;
+    }
+    .acoes {
+        padding: 10px;
+    }
+    .acoes #acoesGeral{
+        margin-top: -70px;
+    }
+}
+/* FIM - RESPONSIVIDADE FEED */

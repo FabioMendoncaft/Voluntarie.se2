@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --font-primary: "baloo Da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action: "Mulish", serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.buttonNewAction {
+    background-color: #fe5200;
+    color: white;
+    border-radius: 20px;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #290700;
+    animation: zoom 25s;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: (1);
+    }
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+.containe .top{
+    margin-top: 8px
+}
+
+.banne {
+    position: absolute;
+    top: 28%;
+    left: 15%;
+    right: 5%;
+    opacity: 0;
+    animation: moveBanne 1s 0.7s forwards;
+}
+
+.banne #ponto{
+    color:#f83600;
+}
+
+.banne h1 {
+    color: #ffffff;
+    font-size: 4.5em;
+    font-family: var(--font-primary);
+    font-weight: 900;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.banne input {
+    border-radius: 5px;
+    padding: 7px;
+    width: 333px;
+    border: none;
+    padding: 8px;
+    transition: all 400ms ease;
+}
+
+.banne input:hover{
+    transition: all 400ms ease;
+    background: #f836002f;
+    color: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.banne .esqueciSenha {
+    transition: all 250ms ease;
+    text-decoration: underline;
+    margin-left: 70px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.banne .esqueciSenha:hover{
+    transition: all 250ms ease;
+    font-size: 16.5px;
+}
+
+.password {
+    margin-top: 5px;
+    width: 345px;
+}
+
+.banne button {
+    transition: all 400ms ease;
+    font-family: var(--font-action);
+    color: #ffffff;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    animation: moveBanne 1s 0.9s forwards;
+    outline: none;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.banne #botaoEntrar{
+    float: left;
+}
+
+.banne #botaoEntrar:hover{
+    transition: all 400ms ease;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: var(--font-action);
+    background: none;
+    box-shadow: inset 0 0 0 1px #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: moveBanne 1s 0.9s forwards;
+    text-decoration: none;
+}
+.banne #botaoCadastro {
+    margin-left: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: var(--font-action);
+    background: none;
+    box-shadow: inset 0 0 0 1px #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: moveBanne 1s 0.9s forwards;
+    text-decoration: none;
+}
+
+.banne #botaoCadastro:hover{
+    transition: all 400ms ease;
+    background: #fe0000;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    box-shadow: inset 0 0 0;
+}
+
+@keyframes moveBanne {
+    0% {
+        transform: translateY(10rem) rotateY(-3deg);
+    }
+    100% {
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal Cadastro / Esqueci Senha */
+.error {
+    color: red;
+}
+
+.modal .modal-content{
+    background: #1b1c1f;
+}
+
+.modal img{
+    width: 33%;
+}
+
+.padraoBotao {
+    transition: all 500ms ease;
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
+    background: linear-gradient(to right, #f83600, #fe5200);
+    color: white;
+}
+
+.padraoBotao:not(:hover) {
+    color: white;
+}
+/* ( FIM ) Modal Cadastro / Esqueci Senha */
+
+
+/* Contato */
+.sessao-contato {
+    width: 100%;
+    height: 100vh;
+    background: -webkit-linear-gradient(to right, #000, #2c2c2c);
+    background: linear-gradient(to right, #000, #2c2c2c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contato-wrapper {
+    width: 60%;
+    height: 30rem;
+    display: flex;
+    box-shadow: 0 2rem 3rem rgba(0,0,0,0.5);
+} 
+
+.contato-left {
+    width: 35%;
+    background: linear-gradient(rgba(15,15,15, 0.6), rgba(22,22,22,0.9)), url('../img/contato.jpg');
+    background-size: cover;
+}
+
+.contato-right {
+    width: 65%;
+    background-color: #2c2c2c;
+    padding: 1rem 3rem 3rem 3rem;
+}
+
+.sessao-contato h1 {
+    font-family: var(--font-primary);
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+.sessao-contato form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.sessao-contato input{
+    color: #fff;
+    width: 100%;
+}
+
+.input-group {
+    position: relative;
+}
+
+.field {
+    background: transparent;
+    border: none;
+    width: 20rem;
+    font-size: 1.5rem;
+    font-family: var(--font-secundary);
+    border-bottom: 2px dashed #fff;;    
+    height: 3rem;
+    outline: none;
+    margin: 1rem 0;
+}
+
+.input-group textarea{
+    color: #fff;
+    width: 100%;
+}
+
+.field-label {
+    position: absolute;
+    left: 0;
+    top: 2rem;
+    font-size: 1rem;
+    font-family: var(--font-secundary);
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  
+  .field:focus ~ label {
+    top: 0;
+    font-size: 0.7rem;
+  }
+  
+  .field:focus {
+    border-bottom: 1px solid;
+  }
+
+  .bt-submit {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    width: 80%;
+    height: 2.5rem;
+    margin-top: 1rem;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+    outline: none;
+    border: 0px;
+    border-radius: 5px;
+  }
+
+  /* (FIM) Contato */

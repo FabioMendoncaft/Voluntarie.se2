@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+</head>
+
+<body>
+    <div class="containe">
+        <header>
+             <!--Retorno de operações relacionados a cadastro e autenticação 
+                1º If : caso já exista um usuário cadastrado exibe um alerta
+                2º If : Se o cadastro for feito com sucesso vai retornar uma mensagem
+                3º If : Se tentar logar com um usuario com e-mail ou senha invalido exibe um alerta
+            --> 
+            <?php if ($this->view->retorno_Cadastro == 'ja_existe') { ?>
+                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                    <strong class= "mx-auto">Usuário já cadastrado com este e-mail</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>  
+            <?php } ?>
+
+          <?php if ($this->view->retorno_Cadastro == 'cadastro_sucesso') { ?>
+                <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                    <strong class= "mx-auto">Cadastro realizado com sucesso</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php } ?>
+
+            <?php if ($this->view->login == 'erro') { ?>
+                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                    <strong class= "mx-auto">Login ou senha inválido(s)</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>  
+            <?php } ?>
+            <?php if ($this->view->retorno_Cadastro == 'email_enviado') { ?>
+                <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                    <strong class= "mx-auto">Email enviado com sucesso! Verifique sua caixa de entrada.</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php } ?>
+
+            <!--Tela inicial(login)-->
+            <div class="img-wrapper">
+                <img src="/img/bg.jpg" alt="">
+            </div> 
+
+            <div class="banne">
+                <h1>Voluntarie<strong id="ponto">.</strong>se</h1>
+                <form method="POST" action="/autenticar" class="form" >
+                    <input type="email" name="email" id="emailTeste" placeholder="Digite seu e-mail" required>
+                    <br>
+                    <input type="password" name="senha" id="senhaTeste" class="password" placeholder="Digite sua senha" required>
+                    <br>
+                   <button type= "submit" id="botaoEntrar">Entrar</button>
+                </form>
+                <a><button id="botaoCadastro" data-bs-toggle="modal" data-bs-target="#cadastroModal">Criar conta</button></a>
+                <br>
+                <a class="esqueciSenha" data-bs-toggle="modal" data-bs-target="#esqueciModal">Esqueci minha senha</a>
+            </div>
+
+            <!--Tela Cadastro(Modal)-->
+            <div class="modal" id="cadastroModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <img class="logoCadastro" src="/img/logo2.png" alt="login">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="form" action="/cadastrar" method="POST" id="cadastro">
+                        <div class="modal-body">
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Nome</label>
+                                <input type="text" class="form-control bg-dark text-light p-1" id="nome" name="nome">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">E-mail</label>
+                                <input type="email" class="form-control bg-dark text-light p-1" id="email" name="email">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Telefone</label>
+                                <input type="text" class="form-control bg-dark text-light p-1" id="telefone" name="telefone">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Senha</label>
+                                <input type="password" class="form-control bg-dark text-light p-1" id="senha" name="senha">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Confirmar Senha</label>
+                                <input type="password" class="form-control bg-dark text-light p-1" id="confirmar" name="confirmar">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Data de nascimento</label>
+                                <input type="date" class="form-control bg-dark text-light p-1" id="data" name="data" min="1920-01-01" max="2020-12-31">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">Sexo</label>
+                                <select class="form-select bg-dark text-light p-1" aria-label="Default select example" name="sexo">
+                                    <option disabled="disabled" selected="selected">- Selecione uma opção</option>
+                                    <option value="F">Feminimo</option>
+                                    <option value="M">Masculino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-light padraoBotao">Cadastrar</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            <!--Tela Esqueci Senha(Modal)-->
+            <div class="modal" id="esqueciModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <img class="logoCadastro" src="/img/logo2.png" alt="login">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/recuperar" method="POST" class="form" id="esqueciSenha">
+                        <div class="modal-body">
+                            <div class="mb-2">
+                                <label class="form-label text-light mb-0">E-mail</label>
+                                <input type="email" class="form-control bg-dark text-light p-1" id="email" name="email">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-light padraoBotao">Redefinir</button>
+                        </div>
+                    </form>     
+                  </div>
+                </div>
+              </div>
+        </header>
+
+        <!--Contato-->
+        <section class="sessao-contato" id="contato">
+            <div class="contato-wrapper">
+                <div class="contato-left"></div>
+                <div class="contato-right">
+                    <h1>Contato</h1>
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="field" id="nome">
+                            <label for="nome" class="field-label">Nome</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="field" id="email">
+                            <label for="email" class="field-label">Email</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea class="field" id="mensagem"></textarea>
+                            <label for="mensagem" class="field-label">Mensagem</label>
+                        </div>
+                        <button type="submit" class="bt bt-submit padraoBotao">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

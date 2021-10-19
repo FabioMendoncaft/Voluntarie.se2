@@ -1,0 +1,38 @@
+/* RESPONSIVIDADE TELA ESQUERDA */
+@media(max-width: 770px) {
+    .perfilFiltro {
+        display: none;
+    }
+    .formulario {
+        margin-bottom: 50px;
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+    .barraMobile {
+        display: flex;
+    }
+    .formulario #criarAcao {
+        margin-top: -70px;
+    }
+    .formulario #tituloMobile{
+        display: block;
+    }
+}
+
+@media(max-width: 1123px) {
+    .dadosPerfil a {
+        font-size: 13.3px;
+    }
+}
+
+@media(max-width: 1050px) {
+    .dadosPerfil a {
+        width: 130px;
+        padding: 3px;
+        margin-top: 2px;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+}
+/* FIM - RESPONSIVIDADE TELA ESQUERDA */

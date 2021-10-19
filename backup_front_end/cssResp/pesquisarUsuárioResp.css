@@ -1,0 +1,33 @@
+/* RESPONSIVIDADE FEED */
+
+@media(max-width: 900px) {
+    .cardEsquerda h4{
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 770px) {
+    .anuncio{
+        display: none;
+    }
+    .perfilFiltro {
+        display: none;
+    }
+    .pesquisar {
+        width: 100%;
+        margin-left: 0px;
+        padding: 50px;
+    }
+    .barraPesquisa{
+        margin-top: 0px;
+    }
+}
+
+@media(max-width: 460px){
+    .pesquisar{
+        padding: 20px;
+    }
+}
+
+
+/* FIM - RESPONSIVIDADE FEED */
