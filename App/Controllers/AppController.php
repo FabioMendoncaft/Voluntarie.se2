@@ -275,6 +275,59 @@ class AppController extends Action {
         $action_participante->__set('id_acao', $id_acao);
 
     }
+	
+	public function pesquisarUsuario() {
+        
+        $this->validaAutenticacao();
+
+        if (!empty($_POST)) {
+            $usuario = Container::getModel('Usuario');
+            $usuario->__set('nome', $_POST['nome_usuario']);
+            $usuario->__set('id', $_SESSION['id'] ); 
+
+            $usuarios = $usuario->pesquisarUsuario();
+
+        } else {
+            $usuarios = array();
+        }
+
+        $this->seguir();
+
+        $imagem = Container::getModel('Imagem');
+        $imagem->__set('id_usuario', $_SESSION['id'] ); 
+        $imagem_perfil = $imagem->recuperarImagem();
+
+        $this->view->users = $usuarios;
+        $this->view->minha_imagem = $imagem_perfil;
+
+        $this->render('pesquisarUsuario', 'layout_app');
+
+    }
+
+
+    public function seguir(){
+
+            $seguir = isset($_GET['seguir']) ? $_GET['seguir'] : '';
+            $id_usuario_destino = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
+
+            $usuario_seguindo = Container::getModel('UsuarioSeguindo');
+            $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
+            $usuario_seguindo->__set('id_usuario_destino', $id_usuario_destino);
+
+            if($seguir == 'seguir') {
+                $usuario_seguindo->seguirUsuario();
+                $this->render('pesquisarUsuario', 'layout_app');
+
+              return true;
+
+            } else if($seguir == 'deixar_de_seguir' ) {
+
+                $usuario_seguindo->deixarDeSeguirUsuario();
+                $this->render('pesquisarUsuario', 'layout_app');
+
+              return true;
+			}
+		}
 
 }    
 

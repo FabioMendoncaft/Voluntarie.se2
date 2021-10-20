@@ -109,6 +109,12 @@ class Route extends Bootstrap {
             'controller' => 'AppController',
             'action' => 'perfilSecundario'
         );
+		
+		$routes['pesquisar_usuario'] = array(
+            'route' => '/pesquisar_usuario',
+            'controller' => 'AppController',
+            'action' => 'pesquisarUsuario'
+        );
 
         $this->setRoutes($routes);
 

@@ -187,6 +187,27 @@ class Usuario extends Model {
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+	
+	public function pesquisarUsuario() {
+
+
+
+        $query = "select u.id, 
+                        u.nome, 
+                        u.email, 
+                        (select count(*) from tb_usuarios_seguindo where id_usuario_origem = :id
+                         and id_usuario_destino = u.id) as seguindo_sn
+                from tb_usuarios as u where nome like :nome and id <> :id" ;
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':nome', '%' . $this->__get('nome') . '%');
+        $stmt->bindValue(':id' , $this->__get('id'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
 
 }
 

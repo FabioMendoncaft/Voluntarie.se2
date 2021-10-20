@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Voluntarie.se | Usuários</title>
+    <link rel="stylesheet" href="css/pesquisarusuário.css">
+    <link rel="stylesheet" href="cssResp/pesquisarUsuárioResp.css">
+    <link rel="stylesheet" href="cssResp/BarraMobResp.css">
+</head>
+
+<body>
+   
+    <!-- Lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+    <div class="perfilFiltro">
+        <?php if (empty($this->view->minha_imagem)) { ?>
+            <div class="card mt-3 cardEsquerda" id="cardPerfil">
+                <div class="card-body">
+                    <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                    <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                    <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                </div>
+            </div>
+        <?php } else { ?> 
+         <?php foreach($this->view->minha_imagem as $id => $imagem) { ?>
+            <div class="card mt-3 cardEsquerda" id="cardPerfil">
+                <div class="card-body">
+                 <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) {  ?>
+                    <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                    <?php }else { ?>        
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                            <?php } ?>
+                            <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                            <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                        </div>
+                    </div>
+              <?php } ?> 
+              <?php } ?>           
+    </div>
+
+    <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
+
+    <!--MEIO - Ações criadas pelos usuários -->
+    <form method="POST" action="/pesquisar_usuario" class="form">
+        <div class="pesquisar mt-5">
+            <div class="input-group barraPesquisa"> 
+                    <input type="text" class="form-control bg-dark text-light" name="nome_usuario" placeholder="@usuário" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn corBotao" type="submit" id="botaoPesquisar" name="botaoPesquisar"> 
+                        <span class="material-icons text-light mt-1">search</span>
+                    </button>
+            </div>
+            <?php if(empty($this->view->users)) { ?>
+                <p class="text-light">Não há nada para exibir, pesquise por algum usuário</p>
+            <?php } else { foreach($this->view->users as $id => $usuarios) { ?>    
+                <a href="perfil2.html" class="text-light">
+                    <div class="resultado w-100 mt-4 ">
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                        <label class="nomeUsuario text-light mt-1"><?=$usuarios['nome']?></label>
+                            <?php if($usuarios['seguindo_sn'] == 0 || empty($usuarios['seguindo_sn'])) { ?>    
+                                <a href="/pesquisar_usuario?seguir=seguir&id_usuario=<?=$usuarios['id']?>" class="btn btn-light corBotao" >seguir </a>
+                            <?php } ?>
+                            <?php if($usuarios['seguindo_sn'] >= 1 ) { ?>      
+                                <a href="/pesquisar_usuario?seguir=deixar_de_seguir&id_usuario=<?=$usuarios['id']?>" class="btn btn-light corBotao" >deixar de seguir </a>
+                                <?php } ?>   
+                            </div>
+                </a>
+                <?php } ?>
+            <?php } ?>
+        </div>
+    </form>
+    <!-- (FIM) MEIO - Ações criadas pelos usuários -->
+
+    <!-- Anúncio -->
+    <div class="anuncio">
+        <div class="card mt-3 cardDireita">
+            <div class="card-body text-light">
+                <p>ANÚNCIO</p>
+            </div>
+        </div>
+    </div>
+    <!-- (FIM) Anúncio -->
+
+</body>
+
+</html>
