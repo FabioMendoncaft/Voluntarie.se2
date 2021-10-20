@@ -109,16 +109,35 @@ class Acao extends Model {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-        public function delAcao() {
+    // Perfil2
+    public function acoesPerfil2(){
+        
+        $query = "select    id, id_usuario,
+                            titulo, descricao, 
+                            logradouro, cidade, 
+                            bairro, uf, complemento, 
+                            data_evento, data_criacao ,
+                            categoria, imagem
+                from tb_acoes where id_usuario = :id_usuario order by data_criacao desc";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+        $stmt->execute();
 
-            $query = "delete from tb_acoes where id = :id and id_usuario = :id_usuario";
-            $stmt = $this->db->prepare($query);
-            $stmt->bindValue(':id', $this->__get('id'));
-            $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    // FIM - Perfil2
+    
+    public function delAcao() {
 
-            $stmt->execute();
+        $query = "delete from tb_acoes where id = :id and id_usuario = :id_usuario";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
 
-        }
+        $stmt->execute();
+
+    }
 
 
         public function getAll() {

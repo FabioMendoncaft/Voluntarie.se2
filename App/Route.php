@@ -104,6 +104,12 @@ class Route extends Bootstrap {
             'action' => 'editarUser'
         );
 
+        $routes['perfilSecundario'] = array(
+            'route' => '/perfilSecundario',
+            'controller' => 'AppController',
+            'action' => 'perfilSecundario'
+        );
+
         $this->setRoutes($routes);
 
     }

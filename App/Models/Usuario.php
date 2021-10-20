@@ -174,6 +174,20 @@ class Usuario extends Model {
 
     }
 
+    public function usuarioPerfil2(){
+
+        $query = "select  a.id ,a.nome, a.email, a.telefone, a.data_nascimento, a.sexo ,count(b.id) as n_acoes  from tb_usuarios as a
+        left join tb_acoes as b on a.id = b.id_usuario
+        where a.id = :id ";
+
+        $stmt = $this->db->prepare($query);
+         $stmt->bindValue(':id', $this->__get('id'));   
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
 
 

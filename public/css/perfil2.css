@@ -210,7 +210,9 @@ body{
     font-size: 20px;
 }
 
-
+.acoes .acoesBtn{
+    width: 49%;
+}
 /* FIM -Personasisação dos cards */
 
 
