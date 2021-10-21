@@ -160,6 +160,60 @@ class AppController extends Action {
 
     }
 
+    // Perfil2
+    public function perfilSecundario(){
+
+        $this->validaAutenticacao();
+        
+        if ($_GET['id_usuario'] == $_SESSION['id']){
+
+            $imagem = Container::getModel('Imagem');
+            $imagem->__set('id_usuario', $_SESSION['id'] );
+            $imagem->validaImagemPerfil(); 
+            $imagem_perfil = $imagem->recuperarImagem();
+
+            $acao = Container::getModel('Acao'); 
+            $acao->__set('id_usuario', $_SESSION['id'] );
+            $acoes = $acao->getAllMinhaAcao();
+
+            $usuario = Container::getModel('Usuario');
+            $usuario->__set('email', $_SESSION['email'] );
+
+
+            $dados_usuario = $usuario->getDadosUsuario();
+
+            $usuario->__set('id', $_SESSION['id'] );
+            $acoes_participo = $usuario->acoesParticipo();
+
+            $this->view->minha_imagem = $imagem_perfil;
+            $this->view->acoes_que_participo = $acoes_participo;
+            $this->view->info_usuario = $dados_usuario;
+            $this->view->minhas_acoes = $acoes;
+            $this->render('perfil', 'layout_app');
+
+        }else{
+            $imagem = Container::getModel('Imagem');
+            $imagem->__set('id_usuario', $_GET['id_usuario'] );
+            $imagem->validaImagemPerfil(); 
+            $imagem_perfil = $imagem->recuperarImagem();
+
+            $acao = Container::getModel('Acao'); 
+            $acao->__set('id_usuario', $_GET['id_usuario'] );
+            $acoes = $acao->acoesPerfil2();
+    
+            $usuario = Container::getModel('Usuario');
+            $usuario->__set('id', $_GET['id_usuario'] );
+            $dados_usuario = $usuario->usuarioPerfil2();
+            $this->view->perfil2_user = $dados_usuario;
+            $this->view->perfil2_acoes= $acoes;
+            
+            $this->render('perfil2', 'layout_app');
+
+        }
+
+    }
+    // FIM - Perfil2
+
     public function removerAcao(){
 
         $this->validaAutenticacao();
@@ -221,6 +275,59 @@ class AppController extends Action {
         $action_participante->__set('id_acao', $id_acao);
 
     }
+	
+	public function pesquisarUsuario() {
+        
+        $this->validaAutenticacao();
+
+        if (!empty($_POST)) {
+            $usuario = Container::getModel('Usuario');
+            $usuario->__set('nome', $_POST['nome_usuario']);
+            $usuario->__set('id', $_SESSION['id'] ); 
+
+            $usuarios = $usuario->pesquisarUsuario();
+
+        } else {
+            $usuarios = array();
+        }
+
+        $this->seguir();
+
+        $imagem = Container::getModel('Imagem');
+        $imagem->__set('id_usuario', $_SESSION['id'] ); 
+        $imagem_perfil = $imagem->recuperarImagem();
+
+        $this->view->users = $usuarios;
+        $this->view->minha_imagem = $imagem_perfil;
+
+        $this->render('pesquisarUsuario', 'layout_app');
+
+    }
+
+
+    public function seguir(){
+
+            $seguir = isset($_GET['seguir']) ? $_GET['seguir'] : '';
+            $id_usuario_destino = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
+
+            $usuario_seguindo = Container::getModel('UsuarioSeguindo');
+            $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
+            $usuario_seguindo->__set('id_usuario_destino', $id_usuario_destino);
+
+            if($seguir == 'seguir') {
+                $usuario_seguindo->seguirUsuario();
+                $this->render('pesquisarUsuario', 'layout_app');
+
+              return true;
+
+            } else if($seguir == 'deixar_de_seguir' ) {
+
+                $usuario_seguindo->deixarDeSeguirUsuario();
+                $this->render('pesquisarUsuario', 'layout_app');
+
+              return true;
+			}
+		}
 
 }    
 

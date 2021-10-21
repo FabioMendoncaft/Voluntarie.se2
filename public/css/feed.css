@@ -90,6 +90,10 @@ body{
     margin-left: 27%;
 }
 
+.acoes label{
+    cursor: pointer;
+}
+
 .acoes #acoesGeral{
     margin-top: 0px;
 }

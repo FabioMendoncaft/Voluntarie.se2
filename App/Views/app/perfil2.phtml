@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Voluntarie.se | Perfil</title>
+    <link rel="stylesheet" href="css/perfil2.css">
+    <link rel="stylesheet" href="cssResp/BarraMobResp.css">
+    <link rel="stylesheet" href="cssResp/perfil2Resp.css">
+    <script src="JavaScript/perfil.js"></script>
+</head>
+
+<body>
+    <!-- Body Perfil -->
+    <?php foreach ($this->view->perfil2_user as $id => $info) { ?>
+    <div class="perfil m-auto mt-5">
+        <div class="fotoPerfil">
+           <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
+        </div>
+        <div class="dadosPerfil">
+            <div id="dadosPerfil">
+                <h3 class="text-light"><?= $info['nome']?></h3>
+                <label class="text-light mt-3 mb-3"><strong><?= $info['n_acoes'] ?></strong> ações publicadas</label>
+                <p class="text-light"><?= $info['email']?></p>
+                <p class="text-light"><?= $info['telefone']?></p>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+    <nav class="nav_tabs">
+        <ul>
+            <li>
+                <input type="radio" name="tabs" class="rd_tabs" id="tab1" checked>
+                <label for="tab1" class="opcoes">Suas Ações</label>
+                <div class="acao">
+                    <article class="pb-3">
+                        <div class="acoes mt-2">
+                            <div class="row row-cols-1 row-cols-md-3 g-4" id="acoesGeral">
+                            <?php date_default_timezone_set('America/Sao_Paulo') ?>
+                            <?php foreach ($this->view->perfil2_acoes as $id_acoes => $acao) { ?>
+                                <div class="col">
+                                    <div class="card h-100 acoesCard">
+                                        <div class="userCard">
+                                            <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
+                                            <?php foreach ($this->view->perfil2_user as $id => $info) { ?>
+                                                <label class="nomeCard"><?= $info['nome']?></label>
+                                            <?php } ?>
+                                            <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($acao['data_criacao'])) ?></p>
+                                        </div>
+                                        <?php if (empty($acao['imagem']) or is_null($acao['imagem'])) { ?>
+                                                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                                                     <?php } else  { ?>
+                                                         <img src="upload/acao/<?=$acao['imagem']?>" class="card-img-top" alt="...">
+                                                     <?php } ?>
+                                        <div class="card-body d-flex flex-column align-items-left">
+                                            <h5 class="card-title"><?= $acao['titulo']?></h5>
+                                            <p class="card-text"><?=$acao['descricao'] ?></p>
+                                            <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
+                                            <div class="mt-auto botaoesCards">
+                                                <a href="#" class="btn btn-light corBotao acoesBtn">Participar</a>
+                                                <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes<?= $acao['id'] ?>">Detalhes</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>    
+                            </div>
+                        </div>     
+                    </article>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- MODAL VER DETALHES DA AÇÃO -->
+<?php foreach ($this->view->perfil2_acoes as $id_acoes => $acao) { ?>
+    <div class="modal" id="detalhes<?= $acao['id'] ?>" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="form">
+                    <div class="modal-body">
+                    <?php if (empty($acao['imagem']) or is_null($acao['imagem'])) { ?>
+                                                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                                                     <?php } else  { ?>
+                                                         <img src="upload/acao/<?=$acao['imagem']?>" class="card-img-top" alt="...">
+                                                     <?php } ?>
+                        <div class="card-body">
+                            <p class="qtd_part text-light">0</p>
+                            <span class="material-icons qtd_part_ic text-light">person</span>
+                            <h5 class="card-title text-light"><?= $acao['titulo']?></h5>
+                            <p class="card-text text-light"><?=$acao['descricao'] ?></p>
+                            <?php $dataInput = date('d-m-Y H:i:s', strtotime($acao['data_evento'])); ?>
+                            <p class="text-light">Data: <?=$dataInput?> </p>
+                            <label>
+                                <p class="text-light">Endereço: </p>
+                                <p id="ruaModal" name="ruaModal" class="text-light"> <?=$acao['logradouro'] ?></p>
+                            </label>
+                            <label>
+                                <p id="bairroModal" name="bairroModal" class="text-light">, <?=$acao['bairro'] ?> </p>
+                            </label>
+                            <label>
+                                <p id="cidadeModal" name="cidadeModal" class="cidadeNum text-light">, <?=$acao['cidade']?>,  </p>
+                            </label>
+                            <label>
+                                <p id="ufModal" name="ufModal" class="ufNum text-light"><?=$acao['uf'] ?> </p>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php } ?>    
+    <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
+
+</body>
+
+</html>

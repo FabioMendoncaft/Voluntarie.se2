@@ -107,7 +107,7 @@
                                      if (file_exists('upload/perfil/'. $acoes['imagem_url'])) { ?>
                                         <img src="upload/perfil/<?= $acoes['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
                                     <?php } ?>
-                        <label class="nomeCard"><?=$acoes['nome']?></label>
+                        <a href="/perfilSecundario?id_usuario=<?=$acoes['id_usuario']?>" class="text-light"> <label class="nomeCard"><?=$acoes['nome']?></label></a>
                         <p class="dataCard">Criado em: <?= date('d/m/Y H:i', strtotime($acoes['data_criacao'])) ?></p>
                     </div>
                     

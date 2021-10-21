@@ -263,7 +263,7 @@
                                                 <p class="qtd_part"> 0 <span class="material-icons qtd_part_ic">person</span></p>
                                                 <div class="mt-auto">
                                                     <a href="#" class="btn btn-light corBotao acoesBtn">Remover</a>
-                                                    <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                                                    <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes<?=$participo['id']?>">Detalhes</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -278,7 +278,8 @@
     </nav>
 
     <!-- MODAL VER DETALHES DA AÇÃO -->
-    <div class="modal" id="detalhes" tabindex="-1">
+    <?php foreach($this->view->acoes_que_participo as $id => $participo) { ?> 
+    <div class="modal" id="detalhes<?=$participo['id']?>" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -287,31 +288,26 @@
                 </div>
                 <form class="form">
                     <div class="modal-body">
-                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                        <img src="upload/acao/<?=$participo['imagem']?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="qtd_part text-light">0</p>
                             <span class="material-icons qtd_part_ic text-light">person</span>
-                            <h5 class="card-title text-light">Card title</h5>
-                            <p class="card-text text-light">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="text-light">Data: 15/07/2021</p>
+                            <h5 class="card-title text-light"><?=$participo['titulo']?></h5>
+                            <p class="card-text text-light"><?=$participo['descricao']?></p>
+                            <?php $dataInput = date('d-m-Y H:i:s', strtotime($participo['data_evento'])); ?>
+                            <p class="text-light">Data: <?=$dataInput?></p>
                             <label>
                                 <p class="text-light">Endereço: </p>
-                                <p id="ruaModal" name="ruaModal" class="text-light"> Rua tabelião João Lago, </p>
+                                <p id="ruaModal" name="ruaModal" class="text-light"> <?=$participo['logradouro'] ?></p>
                             </label>
                             <label>
-                                <p id="numModal" name="numModal" class="text-light"> 195, </p>
+                                <p id="bairroModal" name="bairroModal" class="text-light">, <?=$participo['bairro'] ?> </p>
                             </label>
                             <label>
-                                <p id="cepModal" name="cepModal" class="cepNum text-light"> 54740-710, </p>
+                                <p id="cidadeModal" name="cidadeModal" class="cidadeNum text-light">, <?=$participo['cidade']?>,  </p>
                             </label>
                             <label>
-                                <p id="bairroModal" name="bairroModal" class="text-light">Capibaribe</p>
-                            </label>
-                            <label>
-                                <p id="cidadeModal" name="cidadeModal" class="cidadeNum text-light">São lourenço da Mata, </p>
-                            </label>
-                            <label>
-                                <p id="ufModal" name="ufModal" class="ufNum text-light">PE</p>
+                                <p id="ufModal" name="ufModal" class="ufNum text-light"><?=$participo['uf'] ?> </p>
                             </label>
                         </div>
                     </div>
@@ -323,7 +319,7 @@
         </div>
     </div>
     <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
-
+    <?php } ?>
 </body>
 
 </html>
