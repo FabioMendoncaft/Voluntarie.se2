@@ -93,13 +93,14 @@ class Acao extends Model {
 
     public function getAllMinhaAcao () {
 
-        $query = "select    id, id_usuario,
-                            titulo, descricao, 
-                            logradouro, cidade, 
-                            bairro, uf, complemento, 
-                            data_evento, data_criacao ,
-                            categoria, imagem
-                from tb_acoes where id_usuario = :id_usuario order by data_criacao desc";
+        $query = "select    a.id, a.id_usuario,
+                            a.titulo, a.descricao, 
+                            a.logradouro, a.cidade, 
+                            a.bairro, a.uf, a.complemento, 
+                            a.data_evento, a.data_criacao ,
+                            a.categoria, a.imagem,
+                            (SELECT count(*) from acoes_participantes where id_acao = a.id) as qtd_participantes
+                from tb_acoes a where id_usuario = :id_usuario order by data_criacao desc";
 
 
         $stmt = $this->db->prepare($query);

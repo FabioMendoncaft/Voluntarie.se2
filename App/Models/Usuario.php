@@ -159,7 +159,9 @@ class Usuario extends Model {
         $query = "select a.id as id_acoes_participante, b.* , 
                 (select imagem_url from tb_imagem_perfil where id_usuario = b.id_usuario
                 order by data_criacao desc limit 1)   as imagem_url,
-                c.nome from acoes_participantes a
+                c.nome, 
+                (SELECT count(*) from acoes_participantes where id_acao = a.id_acao) as qtd_participantes
+                from acoes_participantes a
             inner join tb_acoes b on a.id_acao = b.id 
             inner join tb_usuarios c on b.id_usuario = c.id
         where a.id_usuario = :id_usuario";
