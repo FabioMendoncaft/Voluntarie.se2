@@ -110,18 +110,22 @@ class Acao extends Model {
     }
 
     // Perfil2
-    public function acoesPerfil2(){
+    public function acoesPerfil2($id_usuario_logado){
         
-        $query = "select    id, id_usuario,
-                            titulo, descricao, 
-                            logradouro, cidade, 
-                            bairro, uf, complemento, 
-                            data_evento, data_criacao ,
-                            categoria, imagem
-                from tb_acoes where id_usuario = :id_usuario order by data_criacao desc";
+        $query = "select    a.id, a.id_usuario,
+                            a.titulo, a.descricao, 
+                            a.logradouro, a.cidade, 
+                            a.bairro, a.uf, a.complemento, 
+                            a.data_evento, a.data_criacao ,
+                            a.categoria, a.imagem, 
+                            (select 
+                                    count(*) from acoes_participantes c 
+                                where c.id_usuario = :id_usuario_logado and c.id_acao = a.id)  as participando_sn
+                from tb_acoes a where a.id_usuario = :id_usuario order by a.data_criacao desc";
         
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+        $stmt->bindValue(':id_usuario_logado' , $id_usuario_logado);
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);

@@ -199,11 +199,14 @@ class AppController extends Action {
 
             $acao = Container::getModel('Acao'); 
             $acao->__set('id_usuario', $_GET['id_usuario'] );
-            $acoes = $acao->acoesPerfil2();
+
+
+            $acoes = $acao->acoesPerfil2($_SESSION['id']);
     
             $usuario = Container::getModel('Usuario');
             $usuario->__set('id', $_GET['id_usuario'] );
             $dados_usuario = $usuario->usuarioPerfil2();
+            $this->view->minha_imagem = $imagem_perfil;
             $this->view->perfil2_user = $dados_usuario;
             $this->view->perfil2_acoes= $acoes;
             
@@ -265,11 +268,17 @@ class AppController extends Action {
 
         if($action == 'participar') {
             $action_participante->participarAcao();
-            header('Location: /feed');
+            $url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
+
+            header('Location:'. $url );
 
         } else if($action == 'deixar_de_participar' ) {
             $action_participante->deixarParticiparAcao();
-            header('Location: /feed');
+            
+            $url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
+
+            header('Location:'. $url );
+
         }
 
         $action_participante->__set('id_acao', $id_acao);

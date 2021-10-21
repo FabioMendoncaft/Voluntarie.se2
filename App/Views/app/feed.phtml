@@ -126,7 +126,7 @@
                         <?php if($acoes['participando_sn'] == 0) { ?> 
                             <a href="/action?action=participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Participar</a>
                         <?php } ?>
-                        <?php if($acoes['participando_sn'] == 1) { ?> 
+                        <?php if($acoes['participando_sn'] >= 1) { ?> 
                             <a href="/action?action=deixar_de_participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Deixar de Participar</a>
                      <?php } ?>   
                         <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
