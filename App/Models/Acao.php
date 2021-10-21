@@ -120,7 +120,8 @@ class Acao extends Model {
                             a.categoria, a.imagem, 
                             (select 
                                     count(*) from acoes_participantes c 
-                                where c.id_usuario = :id_usuario_logado and c.id_acao = a.id)  as participando_sn
+                                where c.id_usuario = :id_usuario_logado and c.id_acao = a.id)  as participando_sn,
+                                (SELECT count(*) from acoes_participantes where id_acao = a.id) as qtd_participantes
                 from tb_acoes a where a.id_usuario = :id_usuario order by a.data_criacao desc";
         
         $stmt = $this->db->prepare($query);
