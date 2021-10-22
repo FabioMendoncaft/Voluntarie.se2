@@ -25,38 +25,6 @@ body{
 }
 /* Fim - Padrão para todos os botões*/
 
-
-/* NavBar Desktop */
-#navTop{
-    border-bottom: solid rgb(63, 63, 63) 1px;
-}
-
-#imagemLogo {
-    width: 35px;
-    transition: all 250ms ease;
-    margin-left: 5px;
-}
-
-#imagemLogo:hover {
-    width: 40px;
-    transition: all 250ms ease;
-}
-
-#navbarDropdown span{
-    margin-right: 4px;
-    float: left;
-}
-
-#navbarDropdown label{
-    margin-right: 1px;
-}
-
-.textDrop{
-    color: white;
-}
-/* FIM - NavBar Desktop */
-
-
 /* NavBar Mobile */
 #navMobile {
     display: none;
@@ -69,11 +37,8 @@ body{
     font-size: 38px;
 }
 
-#navMobile #feed{
+#navMobile #feed {
     margin-left: 10px;
-}
-
-#navMobile #criar {
     color: #fe5200;
     border-top: #fe5200;
     border-style: solid;
@@ -108,42 +73,140 @@ body{
     margin-top: -45px;
     width: 35%;
 }
+
+.filtro p {
+    text-align: left;
+    font-size: 92%;
+}
+
 /* FIM - Body esquerda */
 
 
 /* Body Meio */
-.formulario {
-    width: 73%;
+.acoes {
+    width: 46%;
     padding: 30px;
     float: left;
     margin-left: 27%;
-    margin-top: 48px;
 }
 
-.formulario #quadrado{
+.acoes #acoesGeral{
+    margin-top: 0px;
+}
+
+.acoes .acoesCard{
+    background: #282a2e;
+    color: white;
+    padding: 10px;
+}
+
+.acoesCard .fotoCard{
+    width: 45px;
+    float: left;
+}
+
+/* ATUALLIZAÇÃO */
+
+.acoesCard .fotoComentario{
+    width: 35px;
+    float: left;
+}
+
+.nomeComentario{
+    font-weight: bold;
+}
+
+.caixaComentarios{
     border: 1px solid #707071;
-    width: 100%;
-    margin-bottom: 20px;
+    padding: 10px;
+    width: 90%;
     border-radius: 5px; 
+    margin-left: 10%;
 }
 
-.formulario #botaoCriar {
-    width: 50%;
-    margin-top: 15px;
-    margin-left: 25%;
+.editar_excluir{
+    float: right; 
+    font-size: 13px; 
 }
 
-.formulario #imagem {
-    width: 241.95px;
-    height: 174.14px;
+.editar_excluir label{
+    cursor: pointer; 
+    text-decoration: underline;
 }
 
-.formulario #tituloMobile{
-    text-align: center;
+#mais{
     display: none;
 }
 
-.formulario .left{
-    float: left;
+@media(max-width: 1046px){
+    .caixaComentarios{
+        margin-left: 15%;
+        width: 85%;
+    }
 }
-/* FIM - Body Meio */
+
+@media(max-width: 770px){
+    .caixaComentarios{
+        margin-left: 8%;
+        width: 92%;
+    }
+}
+
+@media(max-width: 546px){
+    .caixaComentarios{
+        margin-left: 15%;
+        width: 85%;
+    }
+}
+/* FIM - ATUALLIZAÇÃO */
+
+.userCard .nomeCard{
+    margin-left: 10px; 
+    font-weight: bold;
+}
+
+.userCard .dataCard{
+    margin-left: 55px; 
+    font-size: 11px; 
+    color: rgb(180, 180, 180);
+}
+
+.qtd_part{
+    float: right; 
+    font-size: 14.5px; 
+    margin-right: 4px;
+}
+
+.qtd_part_ic{
+    float: right; 
+    font-size: 20px;
+}
+
+.acoes .acoesBtn{
+    width: 49%;
+}
+/* FIM - Body Meio  */
+
+
+/* Body Direita */
+.anuncio{
+    width: 27%;
+    height: 100%;
+    position: fixed;
+    margin-left: 73%;
+    padding: 25px;
+    margin-top: 61px;
+}
+
+.anuncio .cardDireita{
+    background: #282a2e;
+    height: 505px;
+}
+/* FIM - Body Direita */
+
+
+/* Modal detalhes */
+.modal .modal-content{
+    background: #1b1c1f;
+}
+/* FIM - Modal detalhes */

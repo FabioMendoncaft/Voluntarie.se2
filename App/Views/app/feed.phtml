@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="cssResp/feedResp.css">
     <link rel="stylesheet" href="cssResp/BarraMobResp.css">
     <link rel="stylesheet" href="css/navBarPC.css">
+    <script src="JavaScript/feed.js"></script>
 </head>
 
 <body>
@@ -130,6 +131,28 @@
                             <a href="/action?action=deixar_de_participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Deixar de Participar</a>
                      <?php } ?>   
                         <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <input type="text" class="form-control bg-dark text-light" placeholder="Escreva um comentário..." id="comentario" required>
+                        <button onclick="leiaMais(<?=$acoes['id']?>)" class="text-light mt-1 btnComentario" id="btnComentario<?=$acoes['id']?>">mostrar comentarios</button>
+                        <span id="nada<?=$acoes['id']?>"></span>
+                        <span id="mais<?=$acoes['id']?>" class="mais">
+                            <div class="w-100 mt-3 ">
+
+                                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mt-1 fotoComentario">
+                                <div  class="caixaComentarios">
+                                    <div class="editar_excluir">
+                                        <label for="comentario">Editar</label>
+                                        |
+                                        <a href="" class="text-light">Deletar</a>
+                                    </div>
+                                    <label class="nomeComentario">User Name</label>
+                                    <p>fsdafdasafsdafsdafsdafsdfasdfasdadfsfadwsfadsfasdafsdafdsfaxczzxcczxcxczxxzccxzczxcxzzxcczxczxsdfasdfadsfasdfdasfadsfasdfasdfasdfdasfasdfdasfasdfasdfasdfasdfasd</p>
+                                </div>
+                                
+                            </div>
+                        </span>
                     </div>
                 </div>
             </div>
