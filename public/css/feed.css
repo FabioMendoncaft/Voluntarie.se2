@@ -49,6 +49,19 @@ body{
 
 #navMobile #perfil {
     margin-right: 10px;
+    color: white;
+}
+
+#navMobile #criar{
+    color: white;
+}
+
+#navMobile #pesquisar{
+    color: white;
+}
+
+#navMobile #iconSenha{
+    color: white;
 }
 /* FIM - NavBar Mobile */
 
@@ -71,7 +84,8 @@ body{
 
 #fotoPerfil{
     margin-top: -45px;
-    width: 35%;
+    width: 110px;
+    height: 110px;
 }
 
 .filtro p {
@@ -106,6 +120,7 @@ body{
 
 .acoesCard .fotoCard{
     width: 45px;
+    height: 45px;
     float: left;
 }
 
@@ -133,6 +148,43 @@ body{
 
 .acoes .acoesBtn{
     width: 49%;
+}
+
+.acoesCard .fotoComentario{
+    width: 35px;
+    float: left;
+}
+
+.nomeComentario{
+    font-weight: bold;
+}
+
+.caixaComentarios{
+    border: 1px solid #707071;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px; 
+    margin-left: 10%;
+}
+
+.editar_excluir{
+    float: right; 
+    font-size: 13px; 
+}
+
+.editar_excluir label{
+    cursor: pointer; 
+    text-decoration: underline;
+}
+
+.mais{
+    display: none;
+}
+
+.btnComentario{
+    text-decoration: underline;
+    background: none; 
+    border: none;
 }
 /* FIM - Body Meio  */
 

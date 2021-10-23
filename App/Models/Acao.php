@@ -93,13 +93,14 @@ class Acao extends Model {
 
     public function getAllMinhaAcao () {
 
-        $query = "select    id, id_usuario,
-                            titulo, descricao, 
-                            logradouro, cidade, 
-                            bairro, uf, complemento, 
-                            data_evento, data_criacao ,
-                            categoria, imagem
-                from tb_acoes where id_usuario = :id_usuario order by data_criacao desc";
+        $query = "select    a.id, a.id_usuario,
+                            a.titulo, a.descricao, 
+                            a.logradouro, a.cidade, 
+                            a.bairro, a.uf, a.complemento, 
+                            a.data_evento, a.data_criacao ,
+                            a.categoria, a.imagem,
+                            (SELECT count(*) from acoes_participantes where id_acao = a.id) as qtd_participantes
+                from tb_acoes a where id_usuario = :id_usuario order by data_criacao desc";
 
 
         $stmt = $this->db->prepare($query);
@@ -110,18 +111,23 @@ class Acao extends Model {
     }
 
     // Perfil2
-    public function acoesPerfil2(){
+    public function acoesPerfil2($id_usuario_logado){
         
-        $query = "select    id, id_usuario,
-                            titulo, descricao, 
-                            logradouro, cidade, 
-                            bairro, uf, complemento, 
-                            data_evento, data_criacao ,
-                            categoria, imagem
-                from tb_acoes where id_usuario = :id_usuario order by data_criacao desc";
+        $query = "select    a.id, a.id_usuario,
+                            a.titulo, a.descricao, 
+                            a.logradouro, a.cidade, 
+                            a.bairro, a.uf, a.complemento, 
+                            a.data_evento, a.data_criacao ,
+                            a.categoria, a.imagem, 
+                            (select 
+                                    count(*) from acoes_participantes c 
+                                where c.id_usuario = :id_usuario_logado and c.id_acao = a.id)  as participando_sn,
+                                (SELECT count(*) from acoes_participantes where id_acao = a.id) as qtd_participantes
+                from tb_acoes a where a.id_usuario = :id_usuario order by a.data_criacao desc";
         
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+        $stmt->bindValue(':id_usuario_logado' , $id_usuario_logado);
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -166,7 +172,8 @@ class Acao extends Model {
                              (select 
                                     count(*) from acoes_participantes c 
                                 where c.id_usuario = :id_usuario and c.id_acao = a.id)  as participando_sn,
-                             (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario
+                            (SELECT count(*) from acoes_participantes where id_acao = a.id) as qtd_participantes,   
+                            (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario
                              order by data_criacao desc limit 1)   as imagem_url 
                         from tb_acoes a 
             left join tb_usuarios b on a.id_usuario = b.id";

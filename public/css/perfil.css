@@ -81,10 +81,23 @@ body{
     border-left: none;
     border-right: none;
     border-bottom: none;
+    margin-right: 10px;
 }
 
-#navMobile #perfil {
-    margin-right: 10px;
+#navMobile #criar{
+    color: white;
+}
+
+#navMobile #pesquisar{
+    color: white;
+}
+
+#navMobile #feed{
+    color: white;
+}
+
+#navMobile #iconSenha{
+    color: white;
 }
 /* FIM - NavBar Mobile */
 
@@ -104,7 +117,8 @@ body{
 .perfil #fotoPerfil{
     margin-left: 25%;
     margin-top: 50px;
-    width: 50%;
+    width: 168px;
+    height: 168px;
 }
 
 .perfil #editarImagem {
@@ -211,6 +225,7 @@ body{
 
 .acoesCard .fotoCard{
     width: 45px;
+    height: 45px;
     float: left;
 }
 
@@ -239,6 +254,10 @@ body{
 
 .acoesBtn{
     width: 49%;
+}
+
+.acoesCard #perfilUsuario{
+    cursor: pointer;
 }
 /* FIM -Personasisação dos cards */
 
@@ -290,3 +309,16 @@ body{
     float: left;
 }
 /* FIM - Modal Editar Ações */
+
+/* MODAL - SEGUIDORES E SEGUINDO */
+.fotoUsuario{
+    width: 35px;
+    float: left;
+}
+
+.nomeUsuario{
+    margin-left: 10px; 
+    font-weight: bold;
+    cursor: pointer;
+}
+/* FIM - MODAL - SEGUIDORES E SEGUINDO */

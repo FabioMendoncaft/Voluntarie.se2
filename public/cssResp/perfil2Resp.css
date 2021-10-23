@@ -1,5 +1,12 @@
 /* RESPONSIVIDADE PERFIL */
 
+@media(max-width: 1260px) {
+    .acoes .acoesBtn{
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
 @media(max-width: 889px) {
     .perfil{
         width: 100%;
@@ -21,7 +28,7 @@
 }
 
 @media(max-width: 766px){
-    .acoesBtn {
+    .acoes .acoesBtn{
         width: 49%;
     }
     .acoes{
@@ -37,6 +44,8 @@
     .perfil #fotoPerfil{
         margin-left: 25%;
         margin-top: 13px;
+        width: 130px;
+        height: 130px;
     }
     .dadosPerfil #botaoEditar{
         margin-left: 10%; 
@@ -53,7 +62,8 @@
 
 @media(max-width: 525px){
     .perfil #fotoPerfil{
-        width: 70%;
+        width: 85px;
+        height: 85px;
         margin-left: 15%;
     }
     .dadosPerfil #dadosPerfil{

@@ -84,6 +84,19 @@ body{
 
 #navMobile #perfil {
     margin-right: 10px;
+    color: white;
+}
+
+#navMobile #pesquisar{
+    color: white;
+}
+
+#navMobile #feed{
+    color: white;
+}
+
+#navMobile #iconSenha{
+    color: white;
 }
 /* FIM - NavBar Mobile */
 

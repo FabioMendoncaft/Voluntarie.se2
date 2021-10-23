@@ -140,7 +140,10 @@ class Usuario extends Model {
     
     public function getDadosUsuario() {
 
-        $query = "select  a.id ,a.nome, a.email, a.telefone, a.data_nascimento, a.sexo ,count(b.id) as n_acoes  from tb_usuarios as a
+        $query = "select  a.id ,a.nome, a.email, a.telefone, a.data_nascimento, a.sexo ,count(b.id) as n_acoes,  
+        (select count(*) from tb_usuarios_seguindo where id_usuario_origem = a.id) as qtd_seguindo,
+        (select count(*) from tb_usuarios_seguindo where id_usuario_destino = a.id) as qtd_seguidores
+        from tb_usuarios as a
                     left join tb_acoes as b on a.id = b.id_usuario
         where a.email = :email ";
 
@@ -159,7 +162,9 @@ class Usuario extends Model {
         $query = "select a.id as id_acoes_participante, b.* , 
                 (select imagem_url from tb_imagem_perfil where id_usuario = b.id_usuario
                 order by data_criacao desc limit 1)   as imagem_url,
-                c.nome from acoes_participantes a
+                c.nome, 
+                (SELECT count(*) from acoes_participantes where id_acao = a.id_acao) as qtd_participantes
+                from acoes_participantes a
             inner join tb_acoes b on a.id_acao = b.id 
             inner join tb_usuarios c on b.id_usuario = c.id
         where a.id_usuario = :id_usuario";

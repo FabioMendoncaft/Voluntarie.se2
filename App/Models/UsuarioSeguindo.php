@@ -63,15 +63,6 @@ class UsuarioSeguindo extends Model {
         return true;
 
     }
-
-
-
-
-
-
-
-
-
 }
 
 ?>

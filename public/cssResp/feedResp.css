@@ -51,4 +51,25 @@
         margin-top: -70px;
     }
 }
+
+@media(max-width: 1046px){
+    .caixaComentarios{
+        margin-left: 15%;
+        width: 85%;
+    }
+}
+
+@media(max-width: 770px){
+    .caixaComentarios{
+        margin-left: 8%;
+        width: 92%;
+    }
+}
+
+@media(max-width: 546px){
+    .caixaComentarios{
+        margin-left: 15%;
+        width: 85%;
+    }
+}
 /* FIM - RESPONSIVIDADE FEED */
