@@ -1,5 +1,12 @@
 /* RESPONSIVIDADE PERFIL */
 
+@media(max-width: 1260px) {
+    .acoes .acoesBtn{
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
 @media(max-width: 889px) {
     .perfil{
         width: 100%;
@@ -21,7 +28,7 @@
 }
 
 @media(max-width: 766px){
-    .acoesBtn {
+    .acoes .acoesBtn{
         width: 49%;
     }
     .acoes{

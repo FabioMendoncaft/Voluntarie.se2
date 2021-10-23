@@ -33,7 +33,11 @@
             <div class="dadosPerfil">
                 <div id="dadosPerfil">
                     <h3 class="text-light"><?= $info['nome'] ?></h3>
-                    <label class="text-light mt-3 mb-3"><strong><?= $info['n_acoes'] ?></strong> ações publicadas</label>
+                    <label class="text-light mt-3"><strong><?= $info['n_acoes'] ?></strong> ações publicadas</label>
+                    <br>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#seguidores"><label class="text-light" style="cursor: pointer;"><strong>0</strong> Seguidores</label></a>
+                    <br>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#seguindo"><label class="text-light mb-3" style="cursor: pointer;"><strong>0</strong> Seguindo</label></a>
                     <p class="text-light"><?= $info['email'] ?></p>
                     <p class="text-light"><?= $info['telefone'] ?></p>
                 </div>
@@ -249,7 +253,7 @@
                                                 <?php } else { ?>  
                                                     <img src="upload/perfil/<?= $participo['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoCard">
                                                 <?php } ?>    
-                                                <label class="nomeCard"><?=$participo['nome'] ?></label>
+                                                <a href="/perfilSecundario?id_usuario=<?=$participo['id_usuario']?>"><label class="nomeCard" id="perfilUsuario"><?=$participo['nome'] ?></label></a>
                                                 <p class="dataCard">Criado em: <?php echo date('d/m/Y H:i', strtotime($participo['data_criacao'])) ?></p>
                                             </div>
                                             <?php if (empty($participo['imagem'])) { ?>
@@ -290,7 +294,7 @@
                     <div class="modal-body">
                         <img src="upload/acao/<?=$participo['imagem']?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="qtd_part text-light">0</p>
+                            <p class="qtd_part text-light"><?=$participo['qtd_participantes']?></p>
                             <span class="material-icons qtd_part_ic text-light">person</span>
                             <h5 class="card-title text-light"><?=$participo['titulo']?></h5>
                             <p class="card-text text-light"><?=$participo['descricao']?></p>
@@ -312,14 +316,57 @@
                         </div>
                     </div>
                 </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light corBotao">Remover</button>
-                </div>
             </div>
         </div>
     </div>
-    <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
     <?php } ?>
+    <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
+
+    <!-- MODAL VER SEGUIDORES -->
+    <div class="modal" id="seguidores" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="form">
+                    <div class="modal-body">
+                        <div class="w-100 mt-3">
+                            <div class="mb-4">
+                                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                                <label class="nomeUsuario text-light mt-1">User name</label>
+                            </div>                                                     
+                        </div>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
+    <!-- FIM - MODAL VER SEGUIDORES -->
+
+    <!-- MODAL QUEM EU SIGO -->
+    <div class="modal" id="seguindo" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="form">
+                    <div class="modal-body">
+                        <div class="w-100 mt-3">
+                            <div class="mb-4">
+                                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                                <label class="nomeUsuario text-light mt-1">User name</label>
+                            </div>                                                                                  
+                        </div>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+    <!-- FIM - MODAL QUEM EU SIGO  -->
 </body>
 
 </html>
