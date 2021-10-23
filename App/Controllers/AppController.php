@@ -121,9 +121,17 @@ class AppController extends Action {
         if (!empty($_GET['categoria'])) {
             $filter->__set('categoria', $_GET['categoria']);
         }
+
+        //Busca apenas o filtrado
         $acoes = $filter->getaActionFilter();
         $this->view->all_acoes = $acoes;
-        $this->render('feed', 'layout_app');
+
+        //Busca todos os valores
+        $acao = Container::getModel('Acao');
+        $acoesB = $acao->getAll();
+        $this->view->all_acoesB = $acoesB;
+
+        $this->render('filter', 'layout_app');
 
     } 
     
