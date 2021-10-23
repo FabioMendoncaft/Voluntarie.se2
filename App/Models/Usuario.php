@@ -140,7 +140,10 @@ class Usuario extends Model {
     
     public function getDadosUsuario() {
 
-        $query = "select  a.id ,a.nome, a.email, a.telefone, a.data_nascimento, a.sexo ,count(b.id) as n_acoes  from tb_usuarios as a
+        $query = "select  a.id ,a.nome, a.email, a.telefone, a.data_nascimento, a.sexo ,count(b.id) as n_acoes,  
+        (select count(*) from tb_usuarios_seguindo where id_usuario_origem = a.id) as qtd_seguindo,
+        (select count(*) from tb_usuarios_seguindo where id_usuario_destino = a.id) as qtd_seguidores
+        from tb_usuarios as a
                     left join tb_acoes as b on a.id = b.id_usuario
         where a.email = :email ";
 

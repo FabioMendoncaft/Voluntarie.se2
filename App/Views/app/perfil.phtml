@@ -35,9 +35,9 @@
                     <h3 class="text-light"><?= $info['nome'] ?></h3>
                     <label class="text-light mt-3"><strong><?= $info['n_acoes'] ?></strong> ações publicadas</label>
                     <br>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#seguidores"><label class="text-light" style="cursor: pointer;"><strong>0</strong> Seguidores</label></a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#seguidores"><label class="text-light" style="cursor: pointer;"><strong><strong><?= $info['qtd_seguidores'] ?></strong> Seguidores</label></a>
                     <br>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#seguindo"><label class="text-light mb-3" style="cursor: pointer;"><strong>0</strong> Seguindo</label></a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#seguindo"><label class="text-light mb-3" style="cursor: pointer;"><strong><?= $info['qtd_seguindo'] ?></strong> Seguindo</label></a>
                     <p class="text-light"><?= $info['email'] ?></p>
                     <p class="text-light"><?= $info['telefone'] ?></p>
                 </div>

@@ -153,8 +153,6 @@ class AppController extends Action {
 
             $usuario = Container::getModel('Usuario');
             $usuario->__set('email', $_SESSION['email'] );
-
-
             $dados_usuario = $usuario->getDadosUsuario();
 
             $usuario->__set('id', $_SESSION['id'] );

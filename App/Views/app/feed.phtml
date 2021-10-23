@@ -123,7 +123,8 @@
                         <span class="material-icons qtd_part_ic">person</span>
                         <h5 class="card-title"><?=$acoes['titulo']?></h5>
                         <p class="card-text"><?=$acoes['descricao']?></p>
-                        <p class="text-light">Data: 15/07/2021</p>   
+                        <?php $dataInput = date('d-m-Y H:i:s', strtotime($acoes['data_evento'])); ?>
+                        <p class="text-light">Data: <?= $dataInput ?></p>   
                         <?php if($acoes['participando_sn'] == 0) { ?> 
                             <a href="/action?action=participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Participar</a>
                         <?php } ?>
