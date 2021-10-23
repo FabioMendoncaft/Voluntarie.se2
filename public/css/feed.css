@@ -71,7 +71,8 @@ body{
 
 #fotoPerfil{
     margin-top: -45px;
-    width: 35%;
+    width: 110px;
+    height: 110px;
 }
 
 .filtro p {
@@ -106,6 +107,7 @@ body{
 
 .acoesCard .fotoCard{
     width: 45px;
+    height: 45px;
     float: left;
 }
 

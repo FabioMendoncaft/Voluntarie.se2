@@ -104,7 +104,8 @@ body{
 .perfil #fotoPerfil{
     margin-left: 25%;
     margin-top: 50px;
-    width: 50%;
+    width: 168px;
+    height: 168px;
 }
 
 .dadosPerfil{
@@ -184,6 +185,7 @@ body{
 
 .acoesCard .fotoCard{
     width: 45px;
+    height: 45px;
     float: left;
 }
 
