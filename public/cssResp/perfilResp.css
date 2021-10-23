@@ -42,7 +42,9 @@
     }
     .perfil #fotoPerfil{
         margin-left: 25%;
-        margin-top: 13px;
+        margin-top: 13px;        
+        width: 130px;
+        height: 130px;
     }
     .dadosPerfil #botaoEditar{
         margin-left: 10%; 
