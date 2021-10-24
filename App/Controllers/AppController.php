@@ -166,13 +166,25 @@ class AppController extends Action {
             $usuario->__set('id', $_SESSION['id'] );
             $acoes_participo = $usuario->acoesParticipo();
 
-            $this->view->minha_imagem = $imagem_perfil;
-            $this->view->acoes_que_participo = $acoes_participo;
-            $this->view->info_usuario = $dados_usuario;
-            $this->view->minhas_acoes = $acoes;
-            $this->render('perfil', 'layout_app');
 
+            $seguindo = Container::getModel('UsuarioSeguindo');
+            $seguindo->__set('id_usuario_origem', $_SESSION['id']);
+            $qun_seguindo = $seguindo->usuarioDestino();
+
+            $seguidores = Container::getModel('UsuarioSeguindo');
+            $seguidores->__set('id_usuario_destino', $_SESSION['id']);
+            $qun_seguidores = $seguidores->usuarioOrigem();
+
+
+            $this->view->seguidores          = $qun_seguidores;
+            $this->view->seguindo            = $qun_seguindo;
+            $this->view->minha_imagem        = $imagem_perfil;
+            $this->view->acoes_que_participo = $acoes_participo;
+            $this->view->info_usuario        = $dados_usuario;
+            $this->view->minhas_acoes        = $acoes;
+            $this->render('perfil', 'layout_app');
     }
+
 
     // Perfil2
     public function perfilSecundario(){
@@ -192,17 +204,27 @@ class AppController extends Action {
 
             $usuario = Container::getModel('Usuario');
             $usuario->__set('email', $_SESSION['email'] );
-
-
             $dados_usuario = $usuario->getDadosUsuario();
 
             $usuario->__set('id', $_SESSION['id'] );
             $acoes_participo = $usuario->acoesParticipo();
 
-            $this->view->minha_imagem = $imagem_perfil;
+
+            $seguindo = Container::getModel('UsuarioSeguindo');
+            $seguindo->__set('id_usuario_origem', $_SESSION['id']);
+            $qun_seguindo = $seguindo->usuarioDestino();
+
+            $seguidores = Container::getModel('UsuarioSeguindo');
+            $seguidores->__set('id_usuario_destino', $_SESSION['id']);
+            $qun_seguidores = $seguidores->usuarioOrigem();
+
+
+            $this->view->seguidores          = $qun_seguidores;
+            $this->view->seguindo            = $qun_seguindo;
+            $this->view->minha_imagem        = $imagem_perfil;
             $this->view->acoes_que_participo = $acoes_participo;
-            $this->view->info_usuario = $dados_usuario;
-            $this->view->minhas_acoes = $acoes;
+            $this->view->info_usuario        = $dados_usuario;
+            $this->view->minhas_acoes        = $acoes;
             $this->render('perfil', 'layout_app');
 
         }else{

@@ -55,12 +55,39 @@ class UsuarioSeguindo extends Model {
         $stmt->bindValue(':id_usuario_origem' , $this->__get('id_usuario_origem'));
         $stmt->bindValue(':id_usuario_destino' , $this->__get('id_usuario_destino'));
 
+        $stmt->execute();
 
+        return true;
+
+    }
+
+    public function usuarioDestino(){
+
+        $query = "select a.id_usuario_destino, 
+                 (select nome from tb_usuarios where id = a.id_usuario_destino) as seguindo
+                 from tb_usuarios_seguindo a where id_usuario_origem = :id_usuario_origem" ;
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_usuario_origem' , $this->__get('id_usuario_origem'));
 
         $stmt->execute();
 
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        return true;
+    }
+
+    public function usuarioOrigem(){
+        
+        $query = "select a.id_usuario_origem, 
+                 (select nome from tb_usuarios where id = a.id_usuario_origem) as seguidores
+                 from tb_usuarios_seguindo a where id_usuario_destino = :id_usuario_destino" ;
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_usuario_destino' , $this->__get('id_usuario_destino'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);   
 
     }
 }

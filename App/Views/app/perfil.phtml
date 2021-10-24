@@ -35,7 +35,7 @@
                     <h3 class="text-light"><?= $info['nome'] ?></h3>
                     <label class="text-light mt-3"><strong><?= $info['n_acoes'] ?></strong> ações publicadas</label>
                     <br>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#seguidores"><label class="text-light" style="cursor: pointer;"><strong><strong><?= $info['qtd_seguidores'] ?></strong> Seguidores</label></a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#seguidores"><label class="text-light" style="cursor: pointer;"><strong><?= $info['qtd_seguidores'] ?></strong> Seguidores</label></a>
                     <br>
                     <a href="" data-bs-toggle="modal" data-bs-target="#seguindo"><label class="text-light mb-3" style="cursor: pointer;"><strong><?= $info['qtd_seguindo'] ?></strong> Seguindo</label></a>
                     <p class="text-light"><?= $info['email'] ?></p>
@@ -327,16 +327,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"></h5>
+                    <h5 class="modal-title text-light">Seguidores</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form class="form">
                     <div class="modal-body">
                         <div class="w-100 mt-3">
+                        <?php foreach ($this->view->seguidores  as $id => $seguidores) { ?>
                             <div class="mb-4">
                                 <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
-                                <label class="nomeUsuario text-light mt-1">User name</label>
-                            </div>                                                     
+                                <a href="/perfilSecundario?id_usuario=<?=$seguidores['id_usuario_origem']?>"><label class="nomeUsuario text-light mt-1"><?=$seguidores['seguidores'] ?> </label></a>
+                            </div>  
+                            <?php } ?>                                                         
                         </div>    
                     </div>
                 </form>
@@ -345,27 +347,30 @@
     </div>    
     <!-- FIM - MODAL VER SEGUIDORES -->
 
-    <!-- MODAL QUEM EU SIGO -->
+    <!-- MODAL QUEM EU SIGO --> 
     <div class="modal" id="seguindo" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"></h5>
+                    <h5 class="modal-title text-light">Seguindo</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form class="form">
                     <div class="modal-body">
                         <div class="w-100 mt-3">
-                            <div class="mb-4">
+                            <?php foreach ($this->view->seguindo as $id => $seguindo) { ?>
+                                <div class="mb-4">
                                 <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
-                                <label class="nomeUsuario text-light mt-1">User name</label>
-                            </div>                                                                                  
+                                    <a href="/perfilSecundario?id_usuario=<?=$seguindo['id_usuario_destino']?>"><label class="nomeUsuario text-light mt-1"><?=$seguindo['seguindo'] ?> </label></a> 
+                                </div>   
+                            <?php } ?>                                                                                   
                         </div>    
                     </div>
                 </form>
             </div>
         </div>
     </div> 
+    
     <!-- FIM - MODAL QUEM EU SIGO  -->
 </body>
 
