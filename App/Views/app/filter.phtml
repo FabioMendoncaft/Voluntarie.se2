@@ -42,7 +42,7 @@
                 <div class="card-body filtro">
                     <h6 class="tituloFiltro text-light">Filtro de pesquisa <i class="fas fa-filter"></i></h6>
                     <p class="mt-1 text-light mb-1">Estado:</p>
-                    <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado">
+                    <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado" id="estado">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
                         <?php foreach($this->view->all_acoesB as $id => $acoes) { ?>
                             <?php if(empty($ant)){
@@ -60,9 +60,25 @@
                         <?php }  ?>
                     </select>
                     <p class="text-light mb-1">Cidade:</p>
-                    <input type="text" class="form-control bg-dark p-0 text-light" id="cidade" name="cidade">
+                    <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="cidade" id="cidade">
+                        <option disabled="disabled" selected="selected">-Selecione uma opção</option>
+                        <?php foreach($this->view->all_acoesB as $id => $acoes) { ?>
+                            <?php if(empty($ant)){
+                                $ant = array($acoes['cidade']);
+                            ?>
+                            <option value="<?=$acoes['cidade']?>"><?=$acoes['cidade']?></option>
+                            <?php
+                            }else{
+                                if (!in_array($acoes['cidade'], $ant)) {?>          
+                                    <option value="<?=$acoes['cidade']?>"><?=$acoes['cidade']?></option>
+                                <?php 
+                                $ant[] = $acoes['cidade'];
+                                } 
+                            } ?>
+                        <?php }  ?>
+                    </select>
                     <p class="mt-1 text-light mb-1">Categoria:</p>
-                    <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria">
+                    <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria" id="categoria">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
                         <?php foreach($this->view->all_acoesB as $id => $acoes) { ?>
                             <?php if(empty($ant_cat)){

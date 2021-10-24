@@ -131,9 +131,17 @@ class AppController extends Action {
         $acoesB = $acao->getAll();
         $this->view->all_acoesB = $acoesB;
 
+        //Imagem
+        $imagem = Container::getModel('Imagem');
+        $imagem->__set('id_usuario', $_SESSION['id'] ); 
+        $imagem_perfil = $imagem->recuperarImagem();
+
+      
+        $this->view->minha_imagem = $imagem_perfil;
+
         $this->render('filter', 'layout_app');
 
-    } 
+    }
     
     // métodos utilizados na pagina de criar acao *****FIM*****
 

@@ -33,9 +33,9 @@ class Filter extends Model {
         //Filtro cidade
         if (!empty($_GET['cidade'])) {
             if ($op > 0) {
-                $where = $where."and a.cidade = :cidade";
+                $where = $where."and a.cidade = :cidade ";
             }else{
-                $where = $where."a.cidade = :cidade";
+                $where = $where."a.cidade = :cidade ";
             }
             $op = $op + 1;      
         }
@@ -43,9 +43,9 @@ class Filter extends Model {
         //Filtro categoria
         if (!empty($_GET['categoria'])) {
             if ($op > 0) {
-                $where = $where."and a.categoria = :categoria";
+                $where = $where."and a.categoria = :categoria ";
             }else{
-                $where = $where."a.categoria = :categoria";
+                $where = $where."a.categoria = :categoria ";
             }
             $op = $op + 1;
         }
