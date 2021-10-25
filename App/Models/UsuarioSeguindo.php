@@ -42,7 +42,6 @@ class UsuarioSeguindo extends Model {
 
     }
 
-
     public function deixarDeSeguirUsuario() {
 
 

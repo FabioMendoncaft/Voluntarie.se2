@@ -175,7 +175,6 @@ class AppController extends Action {
             $seguidores->__set('id_usuario_destino', $_SESSION['id']);
             $qun_seguidores = $seguidores->usuarioOrigem();
 
-
             $this->view->seguidores          = $qun_seguidores;
             $this->view->seguindo            = $qun_seguindo;
             $this->view->minha_imagem        = $imagem_perfil;
@@ -373,6 +372,18 @@ class AppController extends Action {
               return true;
 			}
 		}
+
+        public function seguirPerfil(){
+
+            $this->validaAutenticacao();
+            
+            $usuario_seguindo = Container::getModel('UsuarioSeguindo');
+            $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
+            $usuario_seguindo->__set('id_usuario_destino', $_GET['id_destino']);
+            $usuario_seguindo->deixarDeSeguirUsuario();
+            
+            header('Location: /meu_perfil');
+        }
 
 }    
 

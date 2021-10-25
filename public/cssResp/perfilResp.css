@@ -94,4 +94,20 @@
         margin-left: 25%;
     }
 }
+
+@media(max-width: 522px){
+    #modalSeguindo{
+        width: 60%;
+    }
+}
+
+@media(max-width: 390px){
+    #botaoSeguidores{
+        font-size: 12px;
+    }
+
+    #nomeSeguidores{
+        font-size: 13.5px;
+    }
+}
 /* FIM - RESPONSIVIDADE PERFIL */
