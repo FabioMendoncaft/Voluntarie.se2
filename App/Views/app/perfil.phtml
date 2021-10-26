@@ -334,9 +334,17 @@
                     <div class="modal-body">
                         <div class="w-100 mt-3">
                         <?php foreach ($this->view->seguidores  as $id => $seguidores) { ?>
-                            <div class="mb-4">
+                            <div class="modalSeguindo">
                                 <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
-                                <a href="/perfilSecundario?id_usuario=<?=$seguidores['id_usuario_origem']?>"><label class="nomeUsuario text-light mt-1"><?=$seguidores['seguidores'] ?> </label></a>
+                                <a href="/perfilSecundario?id_usuario=<?=$seguidores['id_usuario_origem']?>"><label class="nomeSeguidores nomeUsuario text-light mt-1"><?=$seguidores['seguidores'] ?></label></a>
+                            </div>
+                            <div>
+                                <?php if($seguidores['seguindo_sn'] == 0 || empty($seguidores['seguindo_sn'] )) { ?>    
+                                    <a href="/segDxseg_perfil?seguir=seguir&id_usuario=<?=$seguidores['id_seguidores']?>" class="botaoSeguidores btn btn-light corBotao mb-4">seguir </a>
+                                <?php } ?>
+                                <?php if($seguidores['seguindo_sn']  >= 1 ) { ?>      
+                                    <a href="/segDxseg_perfil?seguir=deixar_de_seguir&id_usuario=<?=$seguidores['id_seguidores']?>" class="botaoSeguidores btn btn-light corBotao mb-4" >deixar de seguir </a>
+                                <?php } ?>   
                             </div>  
                             <?php } ?>                                                         
                         </div>    
@@ -360,12 +368,12 @@
                         <div class="w-100 mt-3">
                             <?php foreach ($this->view->seguindo as $id => $seguindo) { ?>
                                 <div class="mb-4 w-100">
-                                    <div id="modalSeguindo">
+                                    <div class="modalSeguindo">
                                         <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
-                                        <a href="/perfilSecundario?id_usuario=<?=$seguindo['id_usuario_destino']?>"><label class="nomeUsuario text-light mt-1" id="nomeSeguidores"><?=$seguindo['seguindo'] ?> </label></a> 
+                                        <a href="/perfilSecundario?id_usuario=<?=$seguindo['id_usuario_destino']?>"><label class="nomeUsuario text-light mt-1 nomeSeguidores"><?=$seguindo['seguindo'] ?> </label></a> 
                                     </div> 
                                     <div>
-                                        <a href="/seguir_perfil?id_destino=<?=$seguindo['id_usuario_destino']?>" class="btn btn-light corBotao" id="botaoSeguidores" >deixar de seguir </a>
+                                        <a href="/dx_seguir_perfil?id_destino=<?=$seguindo['id_usuario_destino']?>" class="btn btn-light corBotao botaoSeguidores">deixar de seguir </a>
                                     </div>
                                 </div>   
                             <?php } ?>                                                                                   

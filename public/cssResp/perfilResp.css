@@ -96,17 +96,17 @@
 }
 
 @media(max-width: 522px){
-    #modalSeguindo{
+    .modalSeguindo{
         width: 60%;
     }
 }
 
-@media(max-width: 390px){
-    #botaoSeguidores{
+@media(max-width: 410px){
+    .botaoSeguidores{
         font-size: 12px;
     }
 
-    #nomeSeguidores{
+    .nomeSeguidores{
         font-size: 13.5px;
     }
 }

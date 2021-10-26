@@ -351,39 +351,65 @@ class AppController extends Action {
 
     public function seguir(){
 
-            $seguir = isset($_GET['seguir']) ? $_GET['seguir'] : '';
-            $id_usuario_destino = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
+        $seguir = isset($_GET['seguir']) ? $_GET['seguir'] : '';
+        $id_usuario_destino = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
 
-            $usuario_seguindo = Container::getModel('UsuarioSeguindo');
-            $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
-            $usuario_seguindo->__set('id_usuario_destino', $id_usuario_destino);
+        $usuario_seguindo = Container::getModel('UsuarioSeguindo');
+        $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
+        $usuario_seguindo->__set('id_usuario_destino', $id_usuario_destino);
 
-            if($seguir == 'seguir') {
-                $usuario_seguindo->seguirUsuario();
-                $this->render('pesquisarUsuario', 'layout_app');
+        if($seguir == 'seguir') {
+            $usuario_seguindo->seguirUsuario();
+            $this->render('pesquisarUsuario', 'layout_app');
 
-              return true;
+            return true;
 
-            } else if($seguir == 'deixar_de_seguir' ) {
+        } else if($seguir == 'deixar_de_seguir' ) {
 
-                $usuario_seguindo->deixarDeSeguirUsuario();
-                $this->render('pesquisarUsuario', 'layout_app');
-
-              return true;
-			}
-		}
-
-        public function seguirPerfil(){
-
-            $this->validaAutenticacao();
-            
-            $usuario_seguindo = Container::getModel('UsuarioSeguindo');
-            $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
-            $usuario_seguindo->__set('id_usuario_destino', $_GET['id_destino']);
             $usuario_seguindo->deixarDeSeguirUsuario();
-            
-            header('Location: /meu_perfil');
+            $this->render('pesquisarUsuario', 'layout_app');
+
+            return true;
         }
+    }
+
+    public function dxSeguirPerfil(){
+
+        $this->validaAutenticacao();
+        
+        $usuario_seguindo = Container::getModel('UsuarioSeguindo');
+        $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
+        $usuario_seguindo->__set('id_usuario_destino', $_GET['id_destino']);
+        $usuario_seguindo->deixarDeSeguirUsuario();
+        
+        header('Location: /meu_perfil');
+    }
+
+    public function segDxsegPerfil(){
+
+        $this->validaAutenticacao();
+
+        $seguir = isset($_GET['seguir']) ? $_GET['seguir'] : '';
+        $id_usuario_destino = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
+
+        $usuario_seguindo = Container::getModel('UsuarioSeguindo');
+        $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
+        $usuario_seguindo->__set('id_usuario_destino', $id_usuario_destino);
+
+        if($seguir == 'seguir') {
+            $usuario_seguindo->seguirUsuario();
+            header('Location: /meu_perfil');
+
+            return true;
+
+        } else if($seguir == 'deixar_de_seguir' ) {
+
+            $usuario_seguindo->deixarDeSeguirUsuario();
+            header('Location: /meu_perfil');
+
+            return true;
+        }
+    }
 
 }    
 

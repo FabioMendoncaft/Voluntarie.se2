@@ -78,7 +78,9 @@ class UsuarioSeguindo extends Model {
     public function usuarioOrigem(){
         
         $query = "select a.id_usuario_origem, 
-                 (select nome from tb_usuarios where id = a.id_usuario_origem) as seguidores
+                 (select nome from tb_usuarios where id = a.id_usuario_origem) as seguidores,
+                 (select u.id from tb_usuarios as u where id = a.id_usuario_origem) as id_seguidores,
+                 (select count(*) from tb_usuarios_seguindo where id_usuario_origem = :id_usuario_destino and id_usuario_destino = id_seguidores) as seguindo_sn
                  from tb_usuarios_seguindo a where id_usuario_destino = :id_usuario_destino" ;
 
         $stmt = $this->db->prepare($query);

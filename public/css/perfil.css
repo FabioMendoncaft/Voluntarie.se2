@@ -322,7 +322,7 @@ body{
     cursor: pointer;
 }
 
-#modalSeguindo{
+.modalSeguindo{
     float: left; 
     width: 70%;
 }

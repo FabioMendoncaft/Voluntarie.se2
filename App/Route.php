@@ -116,10 +116,16 @@ class Route extends Bootstrap {
             'action' => 'pesquisarUsuario'
         );  
 
-        $routes['seguir_perfil'] = array(
-            'route' => '/seguir_perfil',
+        $routes['dx_seguir_perfil'] = array(
+            'route' => '/dx_seguir_perfil',
             'controller' => 'AppController',
-            'action' => 'seguirPerfil'
+            'action' => 'dxSeguirPerfil'
+        );
+
+        $routes['segDxseg_perfil'] = array(
+            'route' => '/segDxseg_perfil',
+            'controller' => 'AppController',
+            'action' => 'segDxsegPerfil'
         );
 
         $this->setRoutes($routes);
