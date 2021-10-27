@@ -16,8 +16,8 @@
         <div class="perfil m-auto mt-5">
             <?php  if (empty($this->view->minha_imagem)) { ?>
                     <div class="fotoPerfil">
-                    <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
-                    <button id="editarImagem" data-bs-toggle="modal" data-bs-target="#alterarFoto"><span class="material-icons text-light" id="icon">camera_alt</span></button>
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
+                        <button id="editarImagem" data-bs-toggle="modal" data-bs-target="#alterarFoto"><span class="material-icons text-light" id="icon">camera_alt</span></button>
                     </div>
               <?php  } ?>
               <?php foreach ($this->view->minha_imagem as $id => $imagem) { ?>
@@ -340,7 +340,7 @@
                             </div>
                             <div>
                                 <?php if($seguidores['seguindo_sn'] == 0 || empty($seguidores['seguindo_sn'] )) { ?>    
-                                    <a href="/segDxseg_perfil?seguir=seguir&id_usuario=<?=$seguidores['id_seguidores']?>" class="botaoSeguidores btn btn-light corBotao mb-4">seguir </a>
+                                    <a href="/segDxseg_perfil?seguir=seguir&id_usuario=<?=$seguidores['id_seguidores']?>" class="botaoSeguidores btn btn-light corBotao mb-4 p-1" style="width:29.3%">seguir </a>
                                 <?php } ?>
                                 <?php if($seguidores['seguindo_sn']  >= 1 ) { ?>      
                                     <a href="/segDxseg_perfil?seguir=deixar_de_seguir&id_usuario=<?=$seguidores['id_seguidores']?>" class="botaoSeguidores btn btn-light corBotao mb-4" >deixar de seguir </a>

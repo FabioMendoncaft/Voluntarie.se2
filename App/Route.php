@@ -128,6 +128,12 @@ class Route extends Bootstrap {
             'action' => 'segDxsegPerfil'
         );
 
+        $routes['segDxseg_perfil2'] = array(
+            'route' => '/segDxseg_perfil2',
+            'controller' => 'AppController',
+            'action' => 'segDxsegPerfil2'
+        );
+
         $this->setRoutes($routes);
 
     }

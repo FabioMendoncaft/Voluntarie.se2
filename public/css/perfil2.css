@@ -139,6 +139,10 @@ body{
 #dadosPerfil p{
     margin-bottom: 4px;
 }
+
+#btnSeguirP2{
+    float: right;
+}
 /* FIM - Dados do Perfil */
 
 

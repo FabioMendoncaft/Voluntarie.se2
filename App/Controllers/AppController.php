@@ -234,13 +234,13 @@ class AppController extends Action {
 
             $acao = Container::getModel('Acao'); 
             $acao->__set('id_usuario', $_GET['id_usuario'] );
-
-
             $acoes = $acao->acoesPerfil2($_SESSION['id']);
     
             $usuario = Container::getModel('Usuario');
             $usuario->__set('id', $_GET['id_usuario'] );
+            $usuario->__set('id_logado', $_SESSION['id']);
             $dados_usuario = $usuario->usuarioPerfil2();
+
             $this->view->minha_imagem = $imagem_perfil;
             $this->view->perfil2_user = $dados_usuario;
             $this->view->perfil2_acoes= $acoes;
@@ -410,6 +410,34 @@ class AppController extends Action {
             return true;
         }
     }
+
+    public function segDxsegPerfil2(){
+
+        $this->validaAutenticacao();
+
+        $seguir = isset($_GET['seguir']) ? $_GET['seguir'] : '';
+        $id_usuario_destino = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
+
+        $usuario_seguindo = Container::getModel('UsuarioSeguindo');
+        $usuario_seguindo->__set('id_usuario_origem', $_SESSION['id']);
+        $usuario_seguindo->__set('id_usuario_destino', $id_usuario_destino);
+
+        if($seguir == 'seguir') {
+            $usuario_seguindo->seguirUsuario();
+            
+            header('Location: /perfilSecundario?id_usuario='. $id_usuario_destino);
+
+            return true;
+
+        } else if($seguir == 'deixar_de_seguir' ) {
+
+            $usuario_seguindo->deixarDeSeguirUsuario();
+
+            header('Location: /perfilSecundario?id_usuario='. $id_usuario_destino);
+
+            return true;
+        }
+    }    
 
 }    
 

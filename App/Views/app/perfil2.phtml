@@ -33,6 +33,14 @@
                 <p class="text-light"><?= $info['email']?></p>
                 <p class="text-light"><?= $info['telefone']?></p>
             </div>
+            <div id="btnSeguirP2">
+                <?php if($info['seguindo_sn'] == 0 || empty($info['seguindo_sn'] )) { ?>    
+                    <a href="/segDxseg_perfil2?seguir=seguir&id_usuario=<?= $info['id']?>" class="botaoSeguidores btn btn-light corBotao mb-4">seguir </a>
+                <?php } ?>
+                <?php if($info['seguindo_sn']  >= 1 ) { ?>      
+                    <a href="/segDxseg_perfil2?seguir=deixar_de_seguir&id_usuario=<?= $info['id']?>" class="botaoSeguidores btn btn-light corBotao mb-4" >deixar de seguir </a>
+                <?php } ?>   
+            </div>
         </div>
     </div>
     <?php } ?>

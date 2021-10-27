@@ -7,6 +7,7 @@ use MF\Model\Model;
 class Usuario extends Model {
 
     private $id;
+    private $id_logado;
     private $nome;
     private $email;
     private $telefone;
@@ -181,12 +182,15 @@ class Usuario extends Model {
 
     public function usuarioPerfil2(){
 
-        $query = "select  a.id ,a.nome, a.email, a.telefone, a.data_nascimento, a.sexo ,count(b.id) as n_acoes  from tb_usuarios as a
-        left join tb_acoes as b on a.id = b.id_usuario
-        where a.id = :id ";
+        $query = "select  a.id ,a.nome, a.email, a.telefone, a.data_nascimento, a.sexo ,count(b.id) as n_acoes,
+                  (select count(*) from tb_usuarios_seguindo where id_usuario_origem = :id_logado and id_usuario_destino = a.id) as seguindo_sn
+                  from tb_usuarios as a
+                  left join tb_acoes as b on a.id = b.id_usuario
+                  where a.id = :id ";
 
         $stmt = $this->db->prepare($query);
-         $stmt->bindValue(':id', $this->__get('id'));   
+        $stmt->bindValue(':id', $this->__get('id'));  
+        $stmt->bindValue(':id_logado', $this->__get('id_logado')); 
 
         $stmt->execute();
 

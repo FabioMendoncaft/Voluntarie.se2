@@ -82,6 +82,10 @@
     .perfil #icon{
         font-size: 17px;
     }
+    #btnSeguirP2{
+        margin-top: 10px;
+        float: left;
+    }
 }
 
 @media(max-width: 499px){
