@@ -216,6 +216,39 @@
     </div>    
     <?php } ?>
     <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
+        <!-- Array de cidades -->
+    <?php  
+        $i = 0;
+        foreach($this->view->all_acoes as $id => $acoes) {
+            $array[] = array( 'uf' => $acoes['uf'],
+                                'cidade' => $acoes['cidade']
+                            );
+
+            }
+            $json = json_encode($array);
+    ?>
+    <!-- Array de cidades -->
+
 </body>
+<script>
+    $(document).ready(function(){
+        $("#estado").change(function(){
+        var select = <?=$json?>;
+        console.log(select);
+        var selectV = document.getElementById('estado');
+        var estadoSelec = selectV.options[selectV.selectedIndex].value;
+        console.log(estadoSelec);
+        var option = '<option disabled="disabled" selected="selected">-Selecione uma opção</option>';
+        for (var i = select.length - 1; i >= 0; i--) { 
+            if (estadoSelec == select[i]['uf']) {
+               option += '<option value ="' + select[i]['cidade'] + '">' + select[i]['cidade'] + '</option>'; 
+            }  
+        }
+            $('#cidade').html(option).show();
+        });
+
+    });
+
+</script>
 
 </html>

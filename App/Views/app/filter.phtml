@@ -234,6 +234,33 @@
         </div>
     </div>    
     <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
-</body>
+            <!-- Array de cidades -->
+    <?php  
+        $i = 0;
+        foreach($this->view->all_acoes as $id => $acoes) {
+            $array[] = array( 'uf' => $acoes['uf'],
+                                'cidade' => $acoes['cidade']
+                            );
 
+            }
+            $arrayT = array_unique($array);
+            $json = json_encode($arrayT);           
+    ?>
+    <!-- Array de cidades -->
+</body>
+<script>
+    $(document).ready(function(){
+        $("#estado").change(function(){
+        var select = <?=$json?>;
+        var estado = document.getElementById("estado");
+        var option = '';
+        for (var i = select.length - 1; i >= 0; i--) {
+            option += '<option value ="' + select[i]['cidade'] + '">' + select[i]['cidade'] + '</option>';
+        }
+            $('#cidade').html(option).show();
+        });
+
+    });
+
+</script>
 </html>
