@@ -205,7 +205,9 @@ class Usuario extends Model {
                         u.nome, 
                         u.email, 
                         (select count(*) from tb_usuarios_seguindo where id_usuario_origem = :id
-                         and id_usuario_destino = u.id) as seguindo_sn
+                         and id_usuario_destino = u.id) as seguindo_sn,
+                         (select imagem_url from tb_imagem_perfil where id_usuario = u.id
+                         order by data_criacao desc limit 1) as imagem_url 
                 from tb_usuarios as u where nome like :nome and id <> :id" ;
 
         $stmt = $this->db->prepare($query);

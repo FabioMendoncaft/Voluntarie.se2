@@ -63,7 +63,9 @@ class UsuarioSeguindo extends Model {
     public function usuarioDestino(){
 
         $query = "select a.id_usuario_destino, 
-                 (select nome from tb_usuarios where id = a.id_usuario_destino) as seguindo
+                 (select nome from tb_usuarios where id = a.id_usuario_destino) as seguindo,
+                 (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario_destino
+                             order by data_criacao desc limit 1)   as imagem_url 
                  from tb_usuarios_seguindo a where id_usuario_origem = :id_usuario_origem" ;
 
         $stmt = $this->db->prepare($query);
@@ -80,7 +82,9 @@ class UsuarioSeguindo extends Model {
         $query = "select a.id_usuario_origem, 
                  (select nome from tb_usuarios where id = a.id_usuario_origem) as seguidores,
                  (select u.id from tb_usuarios as u where id = a.id_usuario_origem) as id_seguidores,
-                 (select count(*) from tb_usuarios_seguindo where id_usuario_origem = :id_usuario_destino and id_usuario_destino = id_seguidores) as seguindo_sn
+                 (select count(*) from tb_usuarios_seguindo where id_usuario_origem = :id_usuario_destino and id_usuario_destino = id_seguidores) as seguindo_sn,
+                 (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario_origem
+                             order by data_criacao desc limit 1)   as imagem_url 
                  from tb_usuarios_seguindo a where id_usuario_destino = :id_usuario_destino" ;
 
         $stmt = $this->db->prepare($query);
