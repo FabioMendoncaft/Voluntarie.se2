@@ -25,13 +25,13 @@ class Filter extends Model {
         $where = "";
 
         //Filtro estado
-        if (!empty($_GET['estado'])) {
+        if (!empty($_POST['estado'])) {
             $where = "a.uf = :estado ";      
             $op = $op + 1;
         }
 
         //Filtro cidade
-        if (!empty($_GET['cidade'])) {
+        if (!empty($_POST['cidade'])) {
             if ($op > 0) {
                 $where = $where."and a.cidade = :cidade ";
             }else{
@@ -41,7 +41,7 @@ class Filter extends Model {
         }
 
         //Filtro categoria
-        if (!empty($_GET['categoria'])) {
+        if (!empty($_POST['categoria'])) {
             if ($op > 0) {
                 $where = $where."and a.categoria = :categoria ";
             }else{
@@ -77,20 +77,35 @@ class Filter extends Model {
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario' , $_SESSION['id']);
-        if (!empty($_GET['estado'])) {
+        if (!empty($_POST['estado'])) {
            $stmt->bindValue(':estado' , $this->__get('estado'));
         }
 
-        if (!empty($_GET['cidade'])) {
+        if (!empty($_POST['cidade'])) {
             $stmt->bindValue(':cidade' , $this->__get('cidade')); 
         }
 
-        if (!empty($_GET['categoria'])) {
+        if (!empty($_POST['categoria'])) {
             $stmt->bindValue(':categoria' , $this->__get('categoria')); 
         }
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    //Recuperar as ações seguindo o filtro
+    public function readSelect () {
+        $query = "select DISTINCT uf,
+                                  cidade
+                    from tb_acoes 
+                   where uf = :estado";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':estado' , $this->__get('estado'));
+        $stmt->execute();
+
+        return  $stmt->fetchAll(\PDO::FETCH_OBJ);
+
     }
   
 }

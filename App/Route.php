@@ -164,6 +164,12 @@ class Route extends Bootstrap {
             'action' => 'updateComentario'
         );
 
+        $routes['comboxSelect'] = array(
+            'route' => '/comboxSelect',
+            'controller' => 'AppController',
+            'action' => 'comboxSelect'
+        );
+
         $this->setRoutes($routes);
 
     }

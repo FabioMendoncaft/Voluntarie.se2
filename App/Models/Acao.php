@@ -176,7 +176,7 @@ class Acao extends Model {
                             (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario
                              order by data_criacao desc limit 1)   as imagem_url 
                         from tb_acoes a 
-            left join tb_usuarios b on a.id_usuario = b.id";
+            left join tb_usuarios b on a.id_usuario = b.id order by data_criacao desc";
 
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id_usuario' , $_SESSION['id']);

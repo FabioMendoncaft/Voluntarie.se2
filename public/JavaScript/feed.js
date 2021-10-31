@@ -162,3 +162,28 @@ function deletarComentario(valor, valor2) {
         buscarComentarios(id_acao);
     })
 }
+
+function comboxSelect(select) {
+
+  var estado = select.value;  
+  console.log(estado);
+
+    $.ajax({
+        type: 'POST',
+        url: '/comboxSelect',
+        dataType: 'json',
+        data: { estado: estado },
+        success: function (data) {
+            console.log(data);
+            var option = '<option disabled="disabled" selected="selected">-Selecione uma opção</option>';
+            for (var i = data.length - 1; i >= 0; i--) { 
+                option += '<option value ="' + data[i]['cidade'] + '">' + data[i]['cidade'] + '</option>'; 
+            }
+            $('#cidade').html(option).show();
+        },
+        error: function (data) {
+            console.log(data);
+        }
+
+    })
+}

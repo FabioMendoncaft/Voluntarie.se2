@@ -35,7 +35,43 @@ class AppController extends Action {
         $this->render('feed', 'layout_app');
 
     }
+    public function filter() {
+        
+        $this->validaAutenticacao();
 
+        $filter = Container::getModel('Filter');
+        if (!empty($_POST['estado'])) {
+            $filter->__set('estado', $_POST['estado']);
+        }
+        
+        if (!empty($_POST['cidade'])) {
+            $filter->__set('cidade', $_POST['cidade']);
+        }
+
+        if (!empty($_POST['categoria'])) {
+            $filter->__set('categoria', $_POST['categoria']);
+        }
+
+        //Busca apenas o filtrado
+        $acoes = $filter->getaActionFilter();
+        $this->view->all_acoes = $acoes;
+
+        //Busca todos os valores
+        $acao = Container::getModel('Acao');
+        $acoesB = $acao->getAll();
+        $this->view->all_acoesB = $acoesB;
+
+        //Imagem
+        $imagem = Container::getModel('Imagem');
+        $imagem->__set('id_usuario', $_SESSION['id'] ); 
+        $imagem_perfil = $imagem->recuperarImagem();
+
+      
+        $this->view->minha_imagem = $imagem_perfil;
+
+        $this->render('filter', 'layout_app');
+
+    }
     // métodos utilizados na pagina de criar acao *****INICIO*****
     public function criarAcao() {
         
@@ -104,44 +140,6 @@ class AppController extends Action {
     }
 
     // (FIM) EDITAR DADOS DAS AÇÕES
-
-    public function filter() {
-        
-        $this->validaAutenticacao();
-
-        $filter = Container::getModel('Filter');
-        if (!empty($_GET['estado'])) {
-            $filter->__set('estado', $_GET['estado']);
-        }
-        
-        if (!empty($_GET['cidade'])) {
-            $filter->__set('cidade', $_GET['cidade']);
-        }
-
-        if (!empty($_GET['categoria'])) {
-            $filter->__set('categoria', $_GET['categoria']);
-        }
-
-        //Busca apenas o filtrado
-        $acoes = $filter->getaActionFilter();
-        $this->view->all_acoes = $acoes;
-
-        //Busca todos os valores
-        $acao = Container::getModel('Acao');
-        $acoesB = $acao->getAll();
-        $this->view->all_acoesB = $acoesB;
-
-        //Imagem
-        $imagem = Container::getModel('Imagem');
-        $imagem->__set('id_usuario', $_SESSION['id'] ); 
-        $imagem_perfil = $imagem->recuperarImagem();
-
-      
-        $this->view->minha_imagem = $imagem_perfil;
-
-        $this->render('filter', 'layout_app');
-
-    }
     
     // métodos utilizados na pagina de criar acao *****FIM*****
 
@@ -491,6 +489,15 @@ class AppController extends Action {
             $comentario->atualizaComentario();
 
         }
+
+        public function comboxSelect(){
+
+            $combox = Container::getModel('Filter');
+            $combox->__set('estado', $_POST['estado']);
+            $comboxValue = $combox->readSelect();
+            echo json_encode($comboxValue);
+
+        }        
 }    
 
 ?>
