@@ -134,6 +134,36 @@ class Route extends Bootstrap {
             'action' => 'segDxsegPerfil2'
         );
 
+		$routes['comentarios'] = array(
+            'route' => '/comentarios',
+            'controller' => 'AppController',
+            'action' => 'mostrarComentarios'
+        );
+
+        $routes['deletar_comentario'] = array(
+            'route' => '/deletar_comentario',
+            'controller' => 'AppController',
+            'action' => 'deletarComentario'
+        );
+
+        $routes['enviar_comentario'] = array(
+            'route' => '/enviar_comentario',
+            'controller' => 'AppController',
+            'action' => 'enviarComentario'
+        );
+
+        $routes['get_coment_by_id'] = array(
+            'route' => '/get_coment_by_id',
+            'controller' => 'AppController',
+            'action' => 'getComentarioPorId'
+        );
+
+        $routes['editando_comentario'] = array(
+            'route' => '/editando_comentario',
+            'controller' => 'AppController',
+            'action' => 'updateComentario'
+        );
+
         $this->setRoutes($routes);
 
     }

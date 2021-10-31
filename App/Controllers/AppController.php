@@ -439,6 +439,58 @@ class AppController extends Action {
         }
     }    
 
+
+	public function mostrarComentarios() {
+
+            $comentario = Container::getModel('Comentario');
+            $comentario->__set('id_acao', $_POST['acao']);
+            $comentarios = $comentario->recuperarComentarios();
+
+            echo json_encode($comentarios);
+
+        }
+
+        public function deletarComentario(){
+
+            $comentario = Container::getModel('Comentario');
+            $comentario->__set('id', $_POST['id']);
+            $comentario->excluirComentario();
+
+        }
+
+        public function enviarComentario(){
+
+            $this->validaAutenticacao();
+
+            $comentario = Container::getModel('Comentario');
+            $comentario->__set('id_acao', $_POST['acao']);
+            $comentario->__set('comentario', $_POST['comentario']);
+            $comentario->__set('id_usuario', $_SESSION['id']);
+
+            $comentario->inserirComentario();
+
+        }
+
+        public function getComentarioPorId(){
+
+            $comentario = Container::getModel('Comentario');
+            $comentario->__set('id', $_POST['id']);
+
+            $comentario_caixa = $comentario->recuperarComentarioPorId();
+
+            echo json_encode($comentario_caixa);
+
+        }
+
+        public function updateComentario(){
+
+            $comentario = Container::getModel('Comentario');
+            $comentario->__set('id', $_POST['id']);
+            $comentario->__set('comentario', $_POST['comentario']);
+            
+            $comentario->atualizaComentario();
+
+        }
 }    
 
 ?>
