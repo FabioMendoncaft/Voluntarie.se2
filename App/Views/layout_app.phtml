@@ -30,23 +30,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                 <div>
-                    <li class="nav-item dropdown">
-                        <div id="donate-button-container">
-                            <div id="donate-button"></div>
-                                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-                                <script>
-                                    PayPal.Donation.Button({
-                                    env:'production',
-                                    hosted_button_id:'4N5AYERRXUDUE',
-                                    image: {
-                                    src:'https://www.paypalobjects.com/pt_BR/i/btn/btn_donate_SM.gif',
-                                    alt:'Faça doações com o botão do PayPal',
-                                    title:'PayPal - The safer, easier way to pay online!',
-                                    }
-                                    }).render('#donate-button');
-                                </script>
-                            </div>
+                <div id="donate-button-container">
+                        <div id="donate-button"></div>
+                            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                            <script>
+                                PayPal.Donation.Button({
+                                env:'production',
+                                hosted_button_id:'4N5AYERRXUDUE',
+                                image: {
+                                src:'https://www.paypalobjects.com/pt_BR/i/btn/btn_donate_SM.gif',
+                                alt:'Faça doações com o botão do PayPal',
+                                title:'PayPal - The safer, easier way to pay online!',
+                                }
+                                }).render('#donate-button');
+                            </script>
                         </div>
+                    </div>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="material-icons">account_circle</span>
