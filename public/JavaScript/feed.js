@@ -20,9 +20,8 @@ function enviarComentario(valor) {
         buscarComentarios(id_acao);
         $(`#textbox-comentario-${id_acao}`).val("");
     })
-
+ 
 }
-
 
 function ocultarComentarios(id_acao) {
 
@@ -55,11 +54,24 @@ function buscarComentarios(valor) {
                 comentario.find(".nomeComentario").text(element.nome)
                 comentario.removeClass(".box-comentario");
                 comentario.css('display', 'block');
-
                 caixa_comentarios.append(comentario);
+                
+                let imagem = `<img id="${element.id}" style="width: 35px; height: 35px;  float: left;" src="upload/perfil/${element.imagem_url}" alt="" class="img-fluid rounded-circle mt-1 fotoComentario"></img>`
+                let caixa_imagem = comentario.find(`#caixa-imagem-comentario`);
+                caixa_imagem.html("");
+                caixa_imagem.append(imagem);
+                
+                let id_usuario_logado = $(`#id_usuario_logado`).val();
                 let btn_editar_excluir = comentario.find(".editar_excluir");
+                btn_editar_excluir.show();
+
+                if(id_usuario_logado !== element.id_usuario){
+                    btn_editar_excluir.hide();
+                    
+                }
+
                 btn_editar_excluir.html(`<span id="${element.id}" style="cursor: pointer;" onclick=(editarComentario(${element.id},${id_acao})) >Editar |</span>
-                <span id="${element.id}" style="cursor: pointer;" onclick=(deletarComentario(${element.id},${id_acao})) >Deletar</span>  `)
+                    <span id="${element.id}" style="cursor: pointer;" onclick=(deletarComentario(${element.id},${id_acao})) >Deletar</span>  `)
 
             });
 
@@ -105,8 +117,6 @@ function editarComentario(valor, valor2) {
         }
     }).done(function(e){
 
-        
-
     })
 
 })
@@ -138,10 +148,9 @@ function atualizarComentario(valor, valor2){
         buscarComentarios(id_acao);
 
     })
-    
+
     
 }
-
 
 function deletarComentario(valor, valor2) {
 
@@ -186,4 +195,5 @@ function comboxSelect(select) {
         }
 
     })
+
 }
