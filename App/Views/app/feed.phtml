@@ -128,8 +128,10 @@
                                     <img src="upload/acao/<?=$acoes['imagem']?>" class="card-img-top" alt="...">
                                 <?php } ?>
                     <div class="card-body">
-                        <p class="qtd_part"><?=$acoes['qtd_participantes']?></p>
-                        <span class="material-icons qtd_part_ic">person</span>
+                        <a href="/participantes_acoes?id_acao=<?=$acoes['id']?>" class="text-light">
+                            <p class="qtd_part"><?=$acoes['qtd_participantes']?></p>
+                            <span class="material-icons qtd_part_ic">person</span>
+                        </a> 
                         <h5 class="card-title"><?=$acoes['titulo']?></h5>
                         <p class="card-text"><?=$acoes['descricao']?></p>
                         <?php $dataInput = date('d-m-Y H:i:s', strtotime($acoes['data_evento'])); ?>

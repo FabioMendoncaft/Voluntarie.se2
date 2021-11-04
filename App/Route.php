@@ -176,6 +176,12 @@ class Route extends Bootstrap {
             'action' => 'mensagemSuporte'
         );
 
+        $routes['participantes_acoes'] = array(
+            'route' => '/participantes_acoes',
+            'controller' => 'AppController',
+            'action' => 'participantesAcoes'
+        );
+
         $this->setRoutes($routes);
 
     }

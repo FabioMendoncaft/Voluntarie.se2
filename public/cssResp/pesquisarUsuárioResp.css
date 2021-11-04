@@ -29,5 +29,35 @@
     }
 }
 
+@media(max-width: 1000px){
+    .seguir{
+        font-size: 12px;
+    }
+
+    .nomeUsuario{
+        font-size: 13px; 
+    }
+}
+
+@media(max-width: 744px){
+    .seguir{
+        font-size: 15px;
+    }
+
+    .nomeUsuario{
+        font-size: 15px; 
+    }
+}
+
+@media(max-width: 400px){
+    .seguir{
+        font-size: 12px;
+    }
+
+    .nomeUsuario{
+        font-size: 12px; 
+    }
+}
+
 
 /* FIM - RESPONSIVIDADE FEED */

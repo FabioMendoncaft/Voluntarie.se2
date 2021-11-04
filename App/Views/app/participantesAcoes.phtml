@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Voluntarie.se | Participantes Ações</title>
+    <link rel="stylesheet" href="css/participantesAcoes.css">
+    <link rel="stylesheet" href="cssResp/participantesAcoesResp.css">
+    <link rel="stylesheet" href="cssResp/BarraMobResp.css">
+</head>
+
+<body>
+   
+    <div class="perfilFiltro">
+        <?php if (empty($this->view->minha_imagem)) { ?>
+            <div class="card mt-3 cardEsquerda" id="cardPerfil">
+                <div class="card-body">
+                    <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                    <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                    <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                </div>
+            </div>
+        <?php } else { ?> 
+        <?php foreach($this->view->minha_imagem as $id => $imagem) { ?>
+            <div class="card mt-3 cardEsquerda" id="cardPerfil">
+                <div class="card-body">
+                    <?php if (file_exists('upload/perfil/'. $imagem['imagem_url'])) {  ?>
+                        <img src="upload/perfil/<?= $imagem['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                    <?php }else { ?>        
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2" id="fotoPerfil">
+                    <?php } ?>
+                        <h4 class="mb-5 text-light"><?=$_SESSION['nome']?></h4>
+                        <a href="meu_perfil" class="btn btn-light corBotao mb-4">Meu perfil</a>
+                </div>
+            </div>
+        <?php } ?> 
+        <?php } ?>           
+    </div>
+
+    <!-- MEIO | PARTICIPANTES -->
+    <div class="participantes mt-5">
+        <div class="w-100 mt-3 tituloParticipantes"> 
+            <Label class="text-light">Participantes</Label>
+        </div>  
+        <?php if(empty($this->view->participantes)) { ?>
+            <p class="text-light mt-4">Não há participantes na Ação.</p>
+        <?php } else { foreach($this->view->participantes as $id => $participantes){ ?>    
+            <div class="cadaParticipante w-100 mt-4">
+                <div class="w-100 blocoFoto">
+                    <?php if(empty($participantes['imagem_url'])) {?>
+                        <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoParticipante">
+                    <?php } else if (file_exists('upload/perfil/'. $participantes['imagem_url'])) { ?>
+                        <img src="upload/perfil/<?= $participantes['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoParticipante">
+                    <?php } ?>
+                        <a href="/perfilSecundario?id_usuario=<?=$participantes['id_usuario']?>" class="text-light">
+                            <label class="nomeParticipante text-light mt-1"><?= $participantes['nome'] ?></label>
+                        </a>    
+                </div>  
+            </div>
+        <?php } ?>
+        <?php } ?>
+    </div>
+    <!-- FIM - MEIO | PARTICIPANTES -->    
+
+    <!-- Anúncio -->
+    <div class="anuncio">
+        <div class="card mt-3 cardDireita">
+            <div class="card-body text-light">
+                <img src="img/anuncio_tim.jpg" width="100%" height="471px">
+            </div>
+        </div>
+    </div>
+    <!-- (FIM) Anúncio -->
+
+</body>
+
+</html>

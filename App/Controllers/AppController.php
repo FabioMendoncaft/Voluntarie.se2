@@ -497,7 +497,26 @@ class AppController extends Action {
             $comboxValue = $combox->readSelect();
             echo json_encode($comboxValue);
 
-        }        
+        }   
+        
+        public function participantesAcoes(){
+
+            $this->validaAutenticacao();
+            
+            $participante_acoes = Container::getModel('AcaoParticipante');
+            $participante_acoes->__set('id_acao', $_GET['id_acao']);
+            $participantes =  $participante_acoes->participantesAcoes();
+
+            $imagem = Container::getModel('Imagem');
+            $imagem->__set('id_usuario', $_SESSION['id'] ); 
+            $imagem_perfil = $imagem->recuperarImagem();
+
+            $this->view->participantes = $participantes;
+            $this->view->minha_imagem = $imagem_perfil;
+    
+            $this->render('participantesAcoes', 'layout_app');
+
+        }
 }    
 
 ?>

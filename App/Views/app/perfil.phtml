@@ -196,7 +196,7 @@
                                                         <div id="quadrado">
                                                             <label for="formFile" class="form-label text-light">Endereço</label>
                                                             <div class="input-group mb-3">
-                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Cep" id="cep" required>
+                                                                <input type="text" class="form-control bg-dark text-light" placeholder="Cep" id="cep">
                                                                 <button class="btn corBotao btn-light" type="button" id="obterEndereco" onclick="endereco()">Obter Endereço</button>
                                                             </div>
 
@@ -374,13 +374,14 @@
                             <?php foreach ($this->view->seguindo as $id => $seguindo) { ?>
                                 <div class="mb-4 w-100">
                                     <div class="modalSeguindo">
-                                    <?php if(empty($seguindo['imagem_url'])) {?>
-                                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
-                                <?php } else
-                                     if (file_exists('upload/perfil/'. $seguindo['imagem_url'])) { ?>
-                                        <img src="upload/perfil/<?= $seguindo['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
-                                <?php } ?>
-                                        <a href="/perfilSecundario?id_usuario=<?=$seguindo['id_usuario_destino']?>"><label class="nomeUsuario text-light mt-1 nomeSeguidores"><?=$seguindo['seguindo'] ?> </label></a> 
+                                        <?php if(empty($seguindo['imagem_url'])) {?>
+                                            <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                                        <?php } else if (file_exists('upload/perfil/'. $seguindo['imagem_url'])) { ?>
+                                            <img src="upload/perfil/<?= $seguindo['imagem_url'] ?>" alt="" class="img-fluid rounded-circle mb-2 fotoUsuario">
+                                        <?php } ?>
+                                        <a href="/perfilSecundario?id_usuario=<?=$seguindo['id_usuario_destino']?>">
+                                            <label class="nomeUsuario text-light mt-1 nomeSeguidores"><?=$seguindo['seguindo'] ?> </label>
+                                        </a> 
                                     </div> 
                                     <div>
                                         <a href="/dx_seguir_perfil?id_destino=<?=$seguindo['id_usuario_destino']?>" class="btn btn-light corBotao botaoSeguidores">deixar de seguir </a>

@@ -1,0 +1,30 @@
+/* RESPONSIVIDADE FEED */
+
+@media(max-width: 900px) {
+    .cardEsquerda h4{
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 770px) {
+    .anuncio{
+        display: none;
+    }
+    .perfilFiltro {
+        display: none;
+    }
+    .participantes {
+        width: 100%;
+        margin-left: 0px;
+        padding: 50px;
+    }
+}
+
+@media(max-width: 460px){
+    .participantes{
+        padding: 20px;
+    }
+}
+
+
+/* FIM - RESPONSIVIDADE FEED */

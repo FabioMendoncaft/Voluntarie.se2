@@ -65,6 +65,26 @@ class AcaoParticipante extends Model {
 
     }
 
+    public function participantesAcoes(){
+
+        $query = "select a.id,
+                         a.id_acao,
+                         a.id_usuario,
+                         (select nome from tb_usuarios where id = a.id_usuario) as nome,
+                         (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario
+                         order by data_criacao desc limit 1) as imagem_url 
+                         from acoes_participantes a 
+                         where id_acao = :id_acao "; 
+                         
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_acao', $this->__get('id_acao'));    
+        
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
+
 }
 
 

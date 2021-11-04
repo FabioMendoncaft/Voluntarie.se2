@@ -38,7 +38,7 @@
 
     <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
 
-    <!--MEIO - Ações criadas pelos usuários -->
+    <!--MEIO - Pesquisar usuário -->
     <form method="POST" action="/pesquisar_usuario" class="form">
         <div class="pesquisar mt-5">
             <div class="input-group barraPesquisa"> 
@@ -63,10 +63,10 @@
                         </div>  
                         <div style="float: right;" class="w-0"> 
                             <?php if($usuarios['seguindo_sn'] == 0 || empty($usuarios['seguindo_sn'])) { ?>    
-                                <a href="/pesquisar_usuario?seguir=seguir&id_usuario=<?=$usuarios['id']?>" class="btn btn-light corBotao">seguir </a>
+                                <a href="/pesquisar_usuario?seguir=seguir&id_usuario=<?=$usuarios['id']?>" class="btn btn-light corBotao seguir">seguir </a>
                             <?php } ?>
                             <?php if($usuarios['seguindo_sn'] >= 1 ) { ?>      
-                                <a href="/pesquisar_usuario?seguir=deixar_de_seguir&id_usuario=<?=$usuarios['id']?>" class="btn btn-light corBotao" >deixar de seguir </a>
+                                <a href="/pesquisar_usuario?seguir=deixar_de_seguir&id_usuario=<?=$usuarios['id']?>" class="btn btn-light corBotao seguir" >deixar de seguir </a>
                             <?php } ?>   
                         </div>     
                     </div>
@@ -76,7 +76,7 @@
             <?php } ?>
         </div>
     </form>
-    <!-- (FIM) MEIO - Ações criadas pelos usuários -->
+    <!-- (FIM) MEIO - Pesquisar usuário -->
 
     <!-- Anúncio -->
     <div class="anuncio">
