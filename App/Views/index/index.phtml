@@ -137,18 +137,18 @@
             <div class="contato-wrapper">
                 <div class="contato-left"></div>
                 <div class="contato-right">
-                    <h1>Contato</h1>
-                    <form>
+                    <h1>Dúvidas? Chama a gente! :)</h1>
+                    <form method="POST" action="/mensagem_enviada">
                         <div class="input-group">
-                            <input type="text" class="field" id="nome">
+                            <input type="text" class="field" id="nome" name="nome">
                             <label for="nome" class="field-label">Nome</label>
                         </div>
                         <div class="input-group">
-                            <input type="text" class="field" id="email">
+                            <input type="text" class="field" id="email" name="email">
                             <label for="email" class="field-label">Email</label>
                         </div>
                         <div class="input-group">
-                            <textarea class="field" id="mensagem"></textarea>
+                            <textarea class="field" id="mensagem" name="msg"></textarea>
                             <label for="mensagem" class="field-label">Mensagem</label>
                         </div>
                         <button type="submit" class="bt bt-submit padraoBotao">Enviar</button>

@@ -170,6 +170,12 @@ class Route extends Bootstrap {
             'action' => 'comboxSelect'
         );
 
+        $routes['suporte'] = array(
+            'route' => '/mensagem_enviada',
+            'controller' => 'IndexController',
+            'action' => 'mensagemSuporte'
+        );
+
         $this->setRoutes($routes);
 
     }

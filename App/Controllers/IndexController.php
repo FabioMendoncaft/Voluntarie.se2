@@ -124,6 +124,39 @@ class indexController extends Action {
 
     }
 
+    public function mensagemSuporte(){
+        $this->view->retorno_Cadastro = '';
+        $this->view->login = '';
+        
+        if(isset($_POST['email']) && !empty($_POST['email'])) {
+
+            $nome = addslashes($_POST['nome']);
+            $email = addslashes($_POST['email']);
+            $mensagem = addslashes($_POST['msg']);
+        
+            $to = "trabalhos.si07@gmail.com";
+            $subject = "Suporte | Voluntarie.se";
+            $body = "Nome: " .$nome. "\r\n". 
+                    "Email: " .$email. "\r\n". 
+                    "Mensagem: ".$mensagem;
+            $header = "From:trabalhos.si07@gmail.com"."\r\n".
+                      "Reply-To: ".$email."\e\n".
+                      "X=Mailer:PHP/".phpversion();
+
+            if(mail($to,$subject,$body,$header)) {
+                echo "<script>alert('A sua mensagem foi envada com sucesso! :)');</script>";
+            } 
+        
+            else {
+                echo "<script>alert('Oops! Parece que algo deu errado! :(');</script>";
+            }
+        
+        }
+
+        $this->render('index', 'layout_index');
+
+    }
+
 }
 
 
