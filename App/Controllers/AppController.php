@@ -333,8 +333,6 @@ class AppController extends Action {
             $usuarios = array();
         }
 
-        $this->seguir();
-
         $imagem = Container::getModel('Imagem');
         $imagem->__set('id_usuario', $_SESSION['id'] ); 
         $imagem_perfil = $imagem->recuperarImagem();
@@ -343,6 +341,8 @@ class AppController extends Action {
         $this->view->minha_imagem = $imagem_perfil;
 
         $this->render('pesquisarUsuario', 'layout_app');
+
+        $this->seguir();
 
     }
 
