@@ -32,6 +32,9 @@ class AppController extends Action {
       
         $this->view->minha_imagem = $imagem_perfil;
         $this->view->all_acoes = $acoes;
+
+        //Variavel com as ações filtradas(base  para o filtro)
+        $this->view->all_acoesF = $acoes;
         $this->render('feed', 'layout_app');
 
     }
@@ -58,8 +61,8 @@ class AppController extends Action {
 
         //Busca todos os valores
         $acao = Container::getModel('Acao');
-        $acoesB = $acao->getAll();
-        $this->view->all_acoesB = $acoesB;
+        $acoesF = $acao->getAll();
+        $this->view->all_acoesF = $acoesF;
 
         //Imagem
         $imagem = Container::getModel('Imagem');

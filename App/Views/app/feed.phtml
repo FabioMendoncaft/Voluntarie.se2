@@ -49,17 +49,17 @@
                     <p class="mt-1 text-light mb-1">Estado:</p>
                     <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado" id="estado" onchange="comboxSelect(this)">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                        <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+                        <?php foreach($this->view->all_acoesF as $id => $acoesF) { ?>
                             <?php if(empty($ant)){
-                                $ant = array($acoes['uf']);
+                                $ant = array($acoesF['uf']);
                             ?>
-                            <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                            <option value="<?=$acoesF['uf']?>"><?=$acoesF['uf']?></option>
                             <?php
                             }else{
-                                if (!in_array($acoes['uf'], $ant)) {?>          
-                                    <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                                if (!in_array($acoesF['uf'], $ant)) {?>          
+                                    <option value="<?=$acoesF['uf']?>"><?=$acoesF['uf']?></option>
                                 <?php 
-                                $ant[] = $acoes['uf'];
+                                $ant[] = $acoesF['uf'];
                                 } 
                             } ?>
                         <?php }  ?>
@@ -72,17 +72,17 @@
                     <p class="mt-1 text-light mb-1">Categoria:</p>
                     <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria" id="categoria">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                        <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+                        <?php foreach($this->view->all_acoesF as $id => $acoesF) { ?>
                             <?php if(empty($ant_cat)){
-                                $ant_cat = array($acoes['categoria']);
+                                $ant_cat = array($acoesF['categoria']);
                             ?>
-                            <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                            <option value="<?=$acoesF['categoria']?>"><?=$acoesF['categoria']?></option>
                             <?php
                             }else{
-                                if (!in_array($acoes['categoria'], $ant_cat)) {?>          
-                                    <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                                if (!in_array($acoesF['categoria'], $ant_cat)) {?>          
+                                    <option value="<?=$acoesF['categoria']?>"><?=$acoesF['categoria']?></option>
                                 <?php 
-                                $ant_cat[] = $acoes['categoria'];
+                                $ant_cat[] = $acoesF['categoria'];
                                 } 
                             } ?>
                         <?php }  ?>

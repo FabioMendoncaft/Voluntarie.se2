@@ -66,11 +66,15 @@ class Filter extends Model {
                     a.data_criacao, 
                     a.data_evento, 
                     a.categoria, 
+                    a.imagem,
                     b.nome, 
                     (select 
                         count(*) from acoes_participantes c 
                         where c.id_usuario = :id_usuario and c.id_acao = a.id)  
-                        as participando_sn
+                        as participando_sn,
+                        (SELECT count(*) from acoes_participantes where id_acao = a.id) as qtd_participantes,   
+                        (select imagem_url from tb_imagem_perfil where id_usuario = a.id_usuario
+                             order by data_criacao desc limit 1)   as imagem_url
                         from tb_acoes a 
                         left join tb_usuarios b on a.id_usuario = b.id ".$where."
                         order by data_criacao desc";

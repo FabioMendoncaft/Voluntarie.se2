@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="cssResp/feedResp.css">
     <link rel="stylesheet" href="cssResp/BarraMobResp.css">
     <link rel="stylesheet" href="css/navBarPC.css">
-    <script src="JavaScript/feed.js"></script>
+    <script src="/JavaScript/feed.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -38,59 +43,46 @@
             <?php } ?>
          <?php } ?>               
         <div class="card mt-4 cardEsquerda" id="cardFiltro">
-            <form method="GET" action="/filter">
+            <form method="POST" action="/filter">
                 <div class="card-body filtro">
                     <h6 class="tituloFiltro text-light">Filtro de pesquisa <i class="fas fa-filter"></i></h6>
                     <p class="mt-1 text-light mb-1">Estado:</p>
-                    <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado" id="estado">
+                    <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="estado" id="estado" onchange="comboxSelect(this)">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                        <?php foreach($this->view->all_acoesB as $id => $acoes) { ?>
+                        <?php foreach($this->view->all_acoesF as $id => $acoesF) { ?>
                             <?php if(empty($ant)){
-                                $ant = array($acoes['uf']);
+                                $ant = array($acoesF['uf']);
                             ?>
-                            <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                            <option value="<?=$acoesF['uf']?>"><?=$acoesF['uf']?></option>
                             <?php
                             }else{
-                                if (!in_array($acoes['uf'], $ant)) {?>          
-                                    <option value="<?=$acoes['uf']?>"><?=$acoes['uf']?></option>
+                                if (!in_array($acoesF['uf'], $ant)) {?>          
+                                    <option value="<?=$acoesF['uf']?>"><?=$acoesF['uf']?></option>
                                 <?php 
-                                $ant[] = $acoes['uf'];
+                                $ant[] = $acoesF['uf'];
                                 } 
                             } ?>
                         <?php }  ?>
                     </select>
                     <p class="text-light mb-1">Cidade:</p>
+                    <!--<input type="text" class="form-control bg-dark p-0 text-light" id="cidade" name="cidade">-->
                     <select class="form-select bg-dark text-light mb-0 p-0" aria-label="Default select example" name="cidade" id="cidade">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                        <?php foreach($this->view->all_acoesB as $id => $acoes) { ?>
-                            <?php if(empty($ant)){
-                                $ant = array($acoes['cidade']);
-                            ?>
-                            <option value="<?=$acoes['cidade']?>"><?=$acoes['cidade']?></option>
-                            <?php
-                            }else{
-                                if (!in_array($acoes['cidade'], $ant)) {?>          
-                                    <option value="<?=$acoes['cidade']?>"><?=$acoes['cidade']?></option>
-                                <?php 
-                                $ant[] = $acoes['cidade'];
-                                } 
-                            } ?>
-                        <?php }  ?>
                     </select>
                     <p class="mt-1 text-light mb-1">Categoria:</p>
                     <select class="form-select bg-dark text-light p-0 mb-3" aria-label="Default select example" name="categoria" id="categoria">
                         <option disabled="disabled" selected="selected">-Selecione uma opção</option>
-                        <?php foreach($this->view->all_acoesB as $id => $acoes) { ?>
+                        <?php foreach($this->view->all_acoesF as $id => $acoesF) { ?>
                             <?php if(empty($ant_cat)){
-                                $ant_cat = array($acoes['categoria']);
+                                $ant_cat = array($acoesF['categoria']);
                             ?>
-                            <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                            <option value="<?=$acoesF['categoria']?>"><?=$acoesF['categoria']?></option>
                             <?php
                             }else{
-                                if (!in_array($acoes['categoria'], $ant_cat)) {?>          
-                                    <option value="<?=$acoes['categoria']?>"><?=$acoes['categoria']?></option>
+                                if (!in_array($acoesF['categoria'], $ant_cat)) {?>          
+                                    <option value="<?=$acoesF['categoria']?>"><?=$acoesF['categoria']?></option>
                                 <?php 
-                                $ant_cat[] = $acoes['categoria'];
+                                $ant_cat[] = $acoesF['categoria'];
                                 } 
                             } ?>
                         <?php }  ?>
@@ -103,6 +95,7 @@
                     <div >
                         <button type="submit" class="btn btn-light corBotao">Aplicar filtros</button>
                     </div>
+                    <br>
                     <!--<a href="#" name="btnFiltro" id="btnFiltro" class="btn btn-light corBotao">Aplicar filtros</a>-->
                 </div>
             </form>
@@ -135,40 +128,48 @@
                                     <img src="upload/acao/<?=$acoes['imagem']?>" class="card-img-top" alt="...">
                                 <?php } ?>
                     <div class="card-body">
-                        <p class="qtd_part">0</p>
-                        <span class="material-icons qtd_part_ic">person</span>
+                        <a href="/participantes_acoes?id_acao=<?=$acoes['id']?>" class="text-light">
+                            <p class="qtd_part"><?=$acoes['qtd_participantes']?></p>
+                            <span class="material-icons qtd_part_ic">person</span>
+                        </a> 
                         <h5 class="card-title"><?=$acoes['titulo']?></h5>
                         <p class="card-text"><?=$acoes['descricao']?></p>
-                        <p class="text-light">Data: 15/07/2021</p>   
+                        <?php $dataInput = date('d-m-Y H:i:s', strtotime($acoes['data_evento'])); ?>
+                        <p class="text-light">Data: <?= $dataInput ?></p>   
                         <?php if($acoes['participando_sn'] == 0) { ?> 
                             <a href="/action?action=participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Participar</a>
                         <?php } ?>
                         <?php if($acoes['participando_sn'] >= 1) { ?> 
                             <a href="/action?action=deixar_de_participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Deixar de Participar</a>
                      <?php } ?>   
-                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes">Detalhes</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes<?=$acoes['id']?>">Detalhes</a>
                     </div>
                     <hr>
                     <div class="card-body">
-                        <input type="text" class="form-control bg-dark text-light" placeholder="Escreva um comentário..." id="comentario" required>
-                        <button onclick="leiaMais(<?=$acoes['id']?>)" class="text-light mt-1 btnComentario" id="btnComentario<?=$acoes['id']?>">mostrar comentarios</button>
-                        <span id="nada<?=$acoes['id']?>"></span>
-                        <span id="mais<?=$acoes['id']?>" class="mais">
-                            <div class="w-100 mt-3 ">
-
-                                <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle mt-1 fotoComentario">
-                                <div  class="caixaComentarios">
-                                    <div class="editar_excluir">
-                                        <label for="comentario">Editar</label>
-                                        |
-                                        <a href="" class="text-light">Deletar</a>
-                                    </div>
-                                    <label class="nomeComentario">User Name</label>
-                                    <p>fsdafdasafsdafsdafsdafsdfasdfasdadfsfadwsfadsfasdafsdafdsfaxczzxcczxcxczxxzccxzczxcxzzxcczxczxsdfasdfadsfasdfdasfadsfasdfasdfasdfdasfasdfdasfasdfasdfasdfasdfasd</p>
-                                </div>
-                                
+                        <input type="text" class="form-control bg-dark text-light w-75" name="nome_usuario" value="" placeholder="Escreva um comentário..." id="textbox-comentario-<?=$acoes['id']?>" style="float: left; padding: 10px;" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="hidden" id="id_usuario_logado" value="<?=$_SESSION['id']?>">
+                            <button onclick="enviarComentario(<?=$acoes['id']?>)" class="btn corBotao" type="button" id="botao-comentario-<?=$acoes['id']?>"> 
+                                <span class="material-icons text-light mt-1">arrow_forward_ios</span>
+                            </button>
+                            <div id="div-atualizar-<?=$acoes['id']?>">
                             </div>
-                        </span>
+                            <small id="resposta-<?=$acoes['id']?>"></small>
+                            <button onclick="buscarComentarios(<?=$acoes['id']?>);" class="text-light mt-1 btnComentario" id="btn-mostrar-comentario<?=$acoes['id']?>">mostrar comentarios</button>
+                            <button onclick="ocultarComentarios(<?=$acoes['id']?>);" class="text-light mt-1 btnComentario" id="btn-ocultar-comentario<?=$acoes['id']?>" style="display: none;">ocultar comentarios</button>
+                            <div class="comentarios-<?=$acoes['id']?>"> 
+                                <div class="w-100 mt-3 box-comentario" style="display: none;">
+                                <div id="caixa-imagem-comentario" ></div>
+                                    <div  class="caixaComentarios">
+                                        <div class="editar_excluir">
+                                            <label for="comentario">Editar</label>
+                                            |
+                                            <span  id="" class="text-light btn-deletar">Deletar</span>
+                                        </div>
+                                        <label class="nomeComentario">User Name</label>
+                                        <p id="cx_comentarios"> </p>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -181,15 +182,16 @@
     <div class="anuncio">
         <div class="card mt-3 cardDireita">
             <div class="card-body text-light">
-                <p>ANÚNCIO</p>
+                <img src="img/anuncio.jpg" width="100%" height="471px"/>
             </div>
         </div>
     </div>
     <!-- (FIM) Anúncio -->
 
 
-    <!-- MODAL VER DETALHES DA AÇÃO -->
-    <div class="modal" id="detalhes" tabindex="-1">
+<!-- MODAL VER DETALHES DA AÇÃO -->
+<?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+    <div class="modal" id="detalhes<?=$acoes['id']?>" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -198,42 +200,35 @@
             </div>
             <form class="form"> 
                 <div class="modal-body">
-                    <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <img src="upload/acao/<?=$acoes['imagem']?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="qtd_part text-light">0</p>
+                        <p class="qtd_part text-light"><?=$acoes['qtd_participantes']?></p>
                         <span class="material-icons qtd_part_ic text-light">person</span>
-                        <h5 class="card-title text-light">Card title</h5>
-                        <p class="card-text text-light">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="text-light">Data: 15/07/2021</p>
+                        <h5 class="card-title text-light"><?=$acoes['titulo']?></h5>
+                        <p class="card-text text-light"><?=$acoes['descricao']?></p>
+                        <?php $dataInput = date('d-m-Y H:i:s', strtotime($acoes['data_evento'])); ?>
+                        <p class="text-light"><?=$dataInput?></p>
                         <label>
-                            <p class="text-light">Endereço: </p>
-                            <p id="ruaModal" name="ruaModal" class="text-light"> Rua tabelião João Lago, </p> 
+                            <p class="text-light">Endereço: </p> 
+                            <p id="ruaModal" name="ruaModal" class="text-light"><?=$acoes['logradouro']?>, </p> 
                         </label>
                         <label>
-                            <p id="numModal" name="numModal" class="text-light"> 195, </p>
-                        </label>
-                        <label>
-                            <p id="cepModal" name="cepModal" class="cepNum text-light"> 54740-710, </p> 
-                        </label>
-                        <label>
-                            <p id="bairroModal" name="bairroModal" class="text-light">Capibaribe</p>
+                            <p id="bairroModal" name="bairroModal" class="text-light"><?=$acoes['bairro']?>, </p>
                         </label>
                          <label>
-                             <p id="cidadeModal" name="cidadeModal" class="cidadeNum text-light">São lourenço da Mata, </p>
+                             <p id="cidadeModal" name="cidadeModal" class="cidadeNum text-light"><?=$acoes['cidade']?>, </p>
                         </label>
                         <label>
-                            <p id="ufModal" name="ufModal" class="ufNum text-light">PE</p>
+                            <p id="ufModal" name="ufModal" class="ufNum text-light"><?=$acoes['uf']?></p>
                         </label>
                     </div>
                 </div>   
             </form>    
-            <div class="modal-footer">
-              <button type="button" class="btn btn-light corBotao">Participar</button>
-            </div>
           </div>
         </div>
     </div>    
+    <?php } ?>
     <!-- (FIM) MODAL VER DETALHES DA AÇÃO -->
-            <!-- Array de cidades -->
 </body>
+
 </html>
