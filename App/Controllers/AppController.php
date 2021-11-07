@@ -84,6 +84,8 @@ class AppController extends Action {
         $imagem->__set('id_usuario', $_SESSION['id'] ); 
         $imagem_perfil = $imagem->recuperarImagem();
 
+        $this->view->erro_extensao       = '0';
+        $this->view->erro_tamanho        = '0';
         $this->view->minha_imagem = $imagem_perfil;
         $this->render('criarAcao', 'layout_app'); 
 
@@ -96,23 +98,46 @@ class AppController extends Action {
         $imagem = Container::getModel('Imagem');
         $nome_imagem = $imagem->validaImagemAcao();
 
-        $acao = Container::getModel('Acao');   
+        $this->view->erro_extensao       = '0';
+        $this->view->erro_tamanho        = '0';
 
-        $acao->__set('id_usuario', $_SESSION['id'] );
-        $acao->__set('titulo', $_POST['titulo'] );
-        $acao->__set('descricao',  $_POST['descricao'] );
-        $acao->__set('logradouro', $_POST['logradouro'] );
-        $acao->__set('cidade', $_POST['cidade'] );
-        $acao->__set('bairro', $_POST['bairro'] );
-        $acao->__set('uf', $_POST['uf'] );
-        $acao->__set('complemento', $_POST['complemento'] );  
-        $acao->__set('data_evento', $_POST['data_evento'] );
-        $acao->__set('categoria', $_POST['categoria'] );
-        $acao->__set('imagem',  $nome_imagem); 
+        if ($nome_imagem == 'erro extensao'){
 
-        $acao->addAcao(); 
-        
-        header('Location: /feed');
+            $imagem = Container::getModel('Imagem');
+            $imagem->__set('id_usuario', $_SESSION['id'] ); 
+            $imagem_perfil = $imagem->recuperarImagem();
+    
+            $this->view->minha_imagem = $imagem_perfil;
+            $this->view->erro_extensao = 'erro extensao';
+            $this->render('criarAcao', 'layout_app'); 
+
+        }else if ($nome_imagem == 'erro tamanho'){
+
+            $imagem = Container::getModel('Imagem');
+            $imagem->__set('id_usuario', $_SESSION['id'] ); 
+            $imagem_perfil = $imagem->recuperarImagem();
+    
+            $this->view->minha_imagem = $imagem_perfil;
+            $this->view->erro_tamanho  = 'erro tamanho';
+            $this->render('criarAcao', 'layout_app'); 
+
+        }else{
+            $acao = Container::getModel('Acao');   
+
+            $acao->__set('id_usuario', $_SESSION['id'] );
+            $acao->__set('titulo', $_POST['titulo'] );
+            $acao->__set('descricao',  $_POST['descricao'] );
+            $acao->__set('logradouro', $_POST['logradouro'] );
+            $acao->__set('cidade', $_POST['cidade'] );
+            $acao->__set('bairro', $_POST['bairro'] );
+            $acao->__set('uf', $_POST['uf'] );
+            $acao->__set('complemento', $_POST['complemento'] );  
+            $acao->__set('data_evento', $_POST['data_evento'] );
+            $acao->__set('categoria', $_POST['categoria'] );
+            $acao->__set('imagem',  $nome_imagem); 
+            $acao->addAcao();
+            header('Location: /feed');
+        }
 
     }
 
@@ -147,13 +172,13 @@ class AppController extends Action {
     // métodos utilizados na pagina de criar acao *****FIM*****
 
      // Meu perfil *****INICIO*****
-    public function meuPerfil(){
+     public function meuPerfil(){
 
         $this->validaAutenticacao();
             
             $imagem = Container::getModel('Imagem');
             $imagem->__set('id_usuario', $_SESSION['id'] );
-            $imagem->validaImagemPerfil(); 
+            $valida_imagem = $imagem->validaImagemPerfil();
             $imagem_perfil = $imagem->recuperarImagem();
 
             $acao = Container::getModel('Acao'); 
@@ -182,6 +207,14 @@ class AppController extends Action {
             $this->view->acoes_que_participo = $acoes_participo;
             $this->view->info_usuario        = $dados_usuario;
             $this->view->minhas_acoes        = $acoes;
+            $this->view->erro_extensao       = '0';
+            $this->view->erro_tamanho        = '0';
+            if ($valida_imagem == 'erro extensao'){
+                $this->view->erro_extensao = 'erro extensao';
+            }
+            if ($valida_imagem == 'erro tamanho'){
+                $this->view->erro_tamanho  = 'erro tamanho';
+            }
             $this->render('perfil', 'layout_app');
     }
 
@@ -192,10 +225,10 @@ class AppController extends Action {
         $this->validaAutenticacao();
         
         if ($_GET['id_usuario'] == $_SESSION['id']){
-
+            
             $imagem = Container::getModel('Imagem');
             $imagem->__set('id_usuario', $_SESSION['id'] );
-            $imagem->validaImagemPerfil(); 
+            $valida_imagem = $imagem->validaImagemPerfil();
             $imagem_perfil = $imagem->recuperarImagem();
 
             $acao = Container::getModel('Acao'); 
@@ -218,14 +251,21 @@ class AppController extends Action {
             $seguidores->__set('id_usuario_destino', $_SESSION['id']);
             $qun_seguidores = $seguidores->usuarioOrigem();
 
-
             $this->view->seguidores          = $qun_seguidores;
             $this->view->seguindo            = $qun_seguindo;
             $this->view->minha_imagem        = $imagem_perfil;
             $this->view->acoes_que_participo = $acoes_participo;
             $this->view->info_usuario        = $dados_usuario;
             $this->view->minhas_acoes        = $acoes;
-            $this->render('perfil', 'layout_app');
+            $this->view->erro_extensao       = '0';
+            $this->view->erro_tamanho        = '0';
+            if ($valida_imagem == 'erro extensao'){
+                $this->view->erro_extensao = 'erro extensao';
+            }
+            if ($valida_imagem == 'erro tamanho'){
+                $this->view->erro_tamanho  = 'erro tamanho';
+            }
+            $this->render('perfil', 'layout_app'); 
 
         }else{
             $imagem = Container::getModel('Imagem');

@@ -11,8 +11,21 @@
 
 <body>
 
+    <?php if ($this->view->erro_extensao == 'erro extensao') { ?>
+        <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 8%; z-index: 50;" role="alert" >
+            <strong class= "mx-auto">Fotos das ações só podem ser nos formatos .jpg | .jpeg | .png</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>  
+    <?php } ?>
+
+    <?php if ($this->view->erro_tamanho == 'erro tamanho') { ?>
+        <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 8%; z-index: 50;" role="alert" >
+            <strong class= "mx-auto">Fotos das ações só podem ter no máximo 5MB</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>  
+    <?php } ?>
+
     <!-- Lateral - Dados do usuário(ESQUERDA) -->
-    
     <div class="perfilFiltro">
         <?php if (empty($this->view->minha_imagem)) { ?>
             <div class="card mt-3 cardEsquerda" id="cardPerfil">
@@ -38,7 +51,6 @@
               <?php } ?> 
               <?php } ?>           
     </div>
-         
     <!-- (FIM)lateral - Dados do usuário(ESQUERDA) -->
 
     <!-- Formulário de Ação -->

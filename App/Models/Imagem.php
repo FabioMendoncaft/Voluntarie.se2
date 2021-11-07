@@ -36,14 +36,15 @@ class Imagem extends Model {
             $img_erro = $_FILES['imagem_perfil']['error'];
 
             if($img_erro === 0) {
-                if($img_tamanho > 2000000) {
-                    //seu arquivo é maior que 2MB erro
-                    header('Location: /meu_perfil');
-
+                if($img_tamanho > 5000000) {
+                    //seu arquivo é maior que 5MB erro
+                    
+                    $img_erro_tamanho = 'erro tamanho';
+                    return $img_erro_tamanho;
+                    
                 }else {
                     $img_extensao = pathinfo($img_nome , PATHINFO_EXTENSION);
                     $img_ext_lc = strtolower($img_extensao);
-
 
                     $extensoes_permitidas = array("jpg" , "jpeg" , "png");
 
@@ -56,10 +57,9 @@ class Imagem extends Model {
                             $this->inserirImagem();
 
                         }else {
-
-                             //ERRO    
+                            $img_erro_extensao = 'erro extensao';
+                            return $img_erro_extensao;
                         }
-
                 }
 
             }
@@ -106,9 +106,11 @@ class Imagem extends Model {
             $img_erro = $_FILES['imagem_acao']['error'];
 
             if($img_erro === 0) {
-                if($img_tamanho > 2000000) {
-                    //seu arquivo é maior que 2MB erro
-                    header('Location: /meu_perfil');
+                if($img_tamanho > 5000000) {
+                    //seu arquivo é maior que 5MB erro
+
+                    $img_erro_tamanho = 'erro tamanho';
+                    return $img_erro_tamanho;
 
                 }else {
                     $img_extensao = pathinfo($img_nome , PATHINFO_EXTENSION);
@@ -126,7 +128,9 @@ class Imagem extends Model {
 
                         }else {
 
-                             //ERRO    
+                            $img_erro_extensao = 'erro extensao';
+                            return $img_erro_extensao;
+
                         }
 
                 }
