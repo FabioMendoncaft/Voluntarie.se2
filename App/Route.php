@@ -41,7 +41,7 @@ class Route extends Bootstrap {
         $routes['recuperar'] = array(
             'route' => '/recuperar',
             'controller' => 'indexController',
-            'action' => 'recuperarSenha'
+            'action' => 'esqueciSenha'
         );
 
         $routes['criar_acao'] = array(

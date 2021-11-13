@@ -110,17 +110,8 @@ class Usuario extends Model {
         $stmt->bindValue(':email', $this->__get('email'));
 
         $stmt->execute();
-
-        $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
-       
-        if(!empty($usuario['id']) && !empty($usuario['email']) ) {
-            $this->__set('id', $usuario['id']);
-            $this->__set('email', $usuario['email']);
-            $this->__set('senha', $usuario['senha']);
-            
-        }
         
-        return $this;
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function mudarSenha(){

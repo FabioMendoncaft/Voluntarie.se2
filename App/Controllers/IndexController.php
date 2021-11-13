@@ -72,57 +72,36 @@ class indexController extends Action {
         }
         // FIM - Editar Usuário
 
-    public function recuperarSenha() {
+        public function esqueciSenha() {
 
-        $usuario = Container::getModel('Usuario');
-        $usuario->__set('email',$_POST['email']);
-
-        $usuario->recuperarSenha();
-
-        if(!empty($usuario->__get('id')) && !empty($usuario->__get('email')) ) {
-        
-
-            $mail = new PHPMailer(true);
-            try {
-                //Server settings
-                $mail->SMTPDebug =  false;
-                $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com';
-                $mail->SMTPAuth   = true;
-                $mail->Username   = 'trabalhos.si07@gmail.com';
-                $mail->Password   = 'Asenha123@';
-                $mail->SMTPSecure = 'TLS';
-                $mail->Port       = 587;
-                //Recipients
-                $mail->setFrom('trabalhos.si07@gmail.com', 'VoluntarieSe'); //email que envia
-                $mail->addAddress($usuario->__get('email'), $usuario->__get('nome'));  //Destino
-                //Content
-                $mail->isHTML(true);                                  
-                $mail->Subject = 'Email de recuperação de senha'; //assunto
-                $mail->Body    = 'Olá, aqui está a sua senha: ' . $usuario->__get('senha') ; //corpo do email em HTML
-                $mail->AltBody = 'Esse aqui nao é html'; //corpo do email normal
-
-                $mail->SMTPOptions = array(
-                    'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                    )
-                    );
-
-                $mail->send();
+            $usuario = Container::getModel('Usuario');
+            $usuario->__set('email', $_POST['email']);
+            
+            $dados = $usuario->recuperarSenha();
+            
+                $nome = addslashes($dados['nome']);
+                $email = addslashes($dados['email']);
                 
-            } catch (Exception $e) {
-                echo "O email não pode ser enviado";
-            }
-            $this->view->login = '';
-            $this->view->retorno_Cadastro = 'email_enviado';
-            $this->render('index', 'layout_index');
-        }else {
-            echo 'email nao existe';
+                $to = $email;
+                $subject = "Recuperacao de Senha | Voluntarie.se";
+                
+                $body = "Ola, " .$nome. "\r\n". 
+                        "sua senha: " .$dados['senha']. "\r\n". 
+                $header = "From:trabalhos.si07@gmail.com";
+                
+                if(mail($to,$subject,$body,$header)) {
+                    echo "<script>alert('A sua mensagem foi envada com sucesso! :)');</script>";
+    
+                } 
+            
+                else {
+                    echo "<script>alert('Oops! Parece que algo deu errado! :(');</script>";
+                }
+                 $this->render('index', 'layout_index');
+
         }
 
-    }
+    /*   */
 
     public function mensagemSuporte(){
         $this->view->retorno_Cadastro = '';
