@@ -31,10 +31,36 @@ class AppController extends Action {
 
       
         $this->view->minha_imagem = $imagem_perfil;
-        $this->view->all_acoes = $acoes;
+        
 
-        //Variavel com as ações filtradas(base  para o filtro)
-        $this->view->all_acoesF = $acoes;
+        //Informaçoes do filtro
+        $filter = Container::getModel('Filter');
+        $filtrar = '';
+        if (!empty($_POST['estado'])) {
+            $filter->__set('estado', $_POST['estado']);
+            $filtrar = 'X';
+        }
+        
+        if (!empty($_POST['cidade'])) {
+            $filter->__set('cidade', $_POST['cidade']);
+            $filtrar = 'X';
+        }
+
+        if (!empty($_POST['categoria'])) {
+            $filter->__set('categoria', $_POST['categoria']);
+            $filtrar = 'X';
+        }
+
+        //Busca apenas o filtrado
+        if ($filtrar = 'X') {
+            $acoesF = $filter->getaActionFilter();
+            $this->view->all_acoes = $acoesF;
+            $this->view->all_acoesF = $acoes;
+        }else{
+            $this->view->all_acoes = $acoes;
+            $this->view->all_acoesF = $acoes;
+        }
+
         $this->render('feed', 'layout_app');
 
     }
