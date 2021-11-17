@@ -43,6 +43,7 @@
                                 optimized: false,
                                 title: titulo,
                                 animation: google.maps.Animation.BOUNCE,
+                                icon: "./img/favicon-32x32.png"
                             });
 
                         infowindow = new google.maps.InfoWindow({});

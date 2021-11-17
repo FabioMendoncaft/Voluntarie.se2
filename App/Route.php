@@ -182,6 +182,12 @@ class Route extends Bootstrap {
             'action' => 'participantesAcoes'
         );
 
+        $routes['getall'] = array(
+            'route' => '/getall',
+            'controller' => 'AppController',
+            'action' => 'allAcoes'
+        );
+
         $this->setRoutes($routes);
 
     }
