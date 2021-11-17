@@ -35,9 +35,9 @@ class Acao extends Model {
 
         $query = "insert into 
                         tb_acoes 
-                (id_usuario, titulo, descricao, logradouro, cidade, bairro, uf, complemento, data_evento ,categoria, imagem) 
+                (id_usuario, titulo, descricao, logradouro, numero, cidade, bairro, uf, complemento, data_evento ,categoria, latitude, longitude ,imagem) 
                 values 
-                (:id_usuario, :titulo, :descricao, :logradouro, :cidade, :bairro, :uf, :complemento, :data_evento ,:categoria, :imagem)";        
+                (:id_usuario, :titulo, :descricao, :logradouro, :numero, :cidade, :bairro, :uf, :complemento, :data_evento ,:categoria, :latitude, :longitude, :imagem)";        
 
         $stmt = $this->db->prepare($query);
         
@@ -45,17 +45,21 @@ class Acao extends Model {
         $stmt->bindValue(':titulo' , $this->__get('titulo'));
         $stmt->bindValue(':descricao' , $this->__get('descricao'));
         $stmt->bindValue(':logradouro' , $this->__get('logradouro'));
+        $stmt->bindValue(':numero' , $this->__get('numero'));
         $stmt->bindValue(':cidade' , $this->__get('cidade'));
         $stmt->bindValue(':bairro' , $this->__get('bairro'));
         $stmt->bindValue(':uf' , $this->__get('uf'));
         $stmt->bindValue(':complemento' , $this->__get('complemento'));
         $stmt->bindValue(':data_evento' , date('Y-m-d H:i:s', strtotime($this->__get('data_evento'))));
         $stmt->bindValue(':categoria' , $this->__get('categoria'));
+        $stmt->bindValue(':latitude' , $this->__get('latitude'));
+        $stmt->bindValue(':longitude' , $this->__get('longitude'));
         $stmt->bindValue(':imagem' , $this->__get('imagem'));
 
         $stmt->execute();
 
         return $this;
+   
    
 
     }
