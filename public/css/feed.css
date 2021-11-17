@@ -191,6 +191,7 @@ body{
 
 /* Body Direita */
 .anuncio{
+
     width: 27%;
     height: 100%;
     position: fixed;
@@ -201,7 +202,12 @@ body{
 
 .anuncio .cardDireita{
     background: #282a2e;
-    height: 505px;
+    height: 240px;
+}
+.anuncio #map {
+    background: #282a2e;
+    height: 240px;
+    margin-top: 15px;
 }
 /* FIM - Body Direita */
 
@@ -211,3 +217,11 @@ body{
     background: #1b1c1f;
 }
 /* FIM - Modal detalhes */
+
+
+/*
+#map {
+
+    background: #282a2e;
+    height: 235px;
+}

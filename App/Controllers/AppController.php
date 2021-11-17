@@ -586,6 +586,14 @@ class AppController extends Action {
             $this->render('participantesAcoes', 'layout_app');
 
         }
+		
+		 public function allAcoes(){
+
+           $acao = Container::getModel('Acao');
+           $acoes = $acao->allAcoesFeed();
+
+           echo json_encode($acoes);
+        }
 }    
 
 ?>

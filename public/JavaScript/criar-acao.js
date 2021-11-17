@@ -81,3 +81,38 @@ $(document).ready(function() {
         },
     })
 })
+ 
+
+function fazGet(url) {
+    let ajax = new XMLHttpRequest();
+    ajax.open('GET', url, false);
+    ajax.send();
+    
+    return ajax.responseText;
+}
+
+function pegarEndereco(){
+
+    var logradouro = document.getElementById('logradouro').value
+    var bairro = document.getElementById('bairro').value
+    var numero = document.getElementById('numero').value
+    var cidade = document.getElementById('localidade').value // cidade
+    var uf = document.getElementById('uf').value
+
+    var endereco_completo = logradouro + ', ' + numero + ' - ' + bairro + ' ' + cidade + ' ' + uf
+
+    alert(endereco_completo);
+
+    data = fazGet(`https://maps.googleapis.com/maps/api/geocode/json?address=${endereco_completo}&key=AIzaSyAjjmdWbOmBAkWXbjpMVVEVkot9WwFw7VI`);
+    coordenadas = JSON.parse(data);
+    
+    console.log(coordenadas.results[0].geometry.location);
+
+    var latitude = document.getElementById('latitude-acao');
+    var longitude = document.getElementById('longitude-acao');
+
+    latitude.value = coordenadas.results[0].geometry.location.lat
+    longitude.value = coordenadas.results[0].geometry.location.lng
+    
+
+}

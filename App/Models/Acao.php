@@ -187,6 +187,29 @@ class Acao extends Model {
 
 
         }
+		
+		public function allAcoesFeed(){
+
+            $query = "select 
+                            a.id, 
+                            a.id_usuario,
+                            b.nome,
+                            b.telefone,
+                            a.titulo,
+                            a.data_evento,
+                            a.categoria,
+                            a.descricao,
+                            a.latitude,
+                            a.longitude
+                    from tb_acoes a 
+                    inner join tb_usuarios b on a.id_usuario = b.id      
+                    order by data_criacao desc";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        }
 }
 
 
