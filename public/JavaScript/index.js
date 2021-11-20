@@ -18,9 +18,9 @@ $(document).ready(function () {
         rules: {
             nome: {
                 required: true,
-                maxlength: 100,
-                minlength: 10,
-                minWords: 2
+                maxlength: 20,
+                minlength: 7,
+                maxWords: 3
             },
             email: {
                 required: true,

@@ -35,7 +35,7 @@ $.extend( $.validator.messages, {
 	step: $.validator.format( "Por favor, forne&ccedil;a um valor m&uacute;ltiplo de {0}." ),
 
 	// Metodos Adicionais
-	maxWords: $.validator.format( "Por favor, forne&ccedil;a com {0} palavras ou menos." ),
+	maxWords: $.validator.format( "Por favor, forne&ccedil;a com 2 nomes ou menos." ),
 	minWords: $.validator.format( "Por favor, forne&ccedil;a pelo menos {0} nomes." ),
 	rangeWords: $.validator.format( "Por favor, forne&ccedil;a entre {0} e {1} palavras." ),
 	accept: "Por favor, forne&ccedil;a um tipo v&aacute;lido.",
