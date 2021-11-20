@@ -1,26 +1,32 @@
 function enviarComentario(valor) {
-
+    
     let id_acao = valor
 
     let txt_comentario = $(`#textbox-comentario-${id_acao}`).val();
     console.log(txt_comentario);
 
-    $.ajax({
-        url: '/enviar_comentario',
-        type: "POST",
-        data: {
-            comentario: txt_comentario,
-            acao: id_acao
-        },
-        beforeSend: function () {
-            $(`#resposta-${id_acao}`).html("Enviando...");
-        }
-    }).done(function (e) {
-        $(`#resposta-${id_acao}`).html("Comentario feito com sucesso");
-        buscarComentarios(id_acao);
-        $(`#textbox-comentario-${id_acao}`).val("");
-    })
+    if(txt_comentario.trim() != '') {
+
+        $.ajax({
+            url: '/enviar_comentario',
+            type: "POST",
+            data: {
+                comentario: txt_comentario,
+                acao: id_acao
+            },
+            beforeSend: function () {
+                $(`#resposta-${id_acao}`).html("Enviando...");
+            }
+        }).done(function (e) {
+            $(`#resposta-${id_acao}`).html("Comentario feito com sucesso");
+            $(`#textbox-comentario-${id_acao}`).val("");
+            buscarComentarios(id_acao);
+            
+            let caixa_comentarios = $(`.comentarios-${id_acao}`);
+            caixa_comentarios.html("");
  
+        })
+    }
 }
 
 function ocultarComentarios(id_acao) {
@@ -43,40 +49,48 @@ function buscarComentarios(valor) {
         dataType: 'json',
         data: { acao: id_acao },
         success: function (data) {
-            let caixa_comentarios = $(`.comentarios-${id_acao}`);
-            caixa_comentarios.html("");
 
             data.forEach(element => {
-                let comentario = $(".box-comentario")[0].cloneNode(true);
 
-                comentario = $(comentario)
-                comentario.find("#cx_comentarios").text(element.comentario)
-                comentario.find(".nomeComentario").text(element.nome)
-                comentario.removeClass(".box-comentario");
-                comentario.css('display', 'block');
-                caixa_comentarios.append(comentario);
-                
-                let imagem = `<img id="${element.id}" style="width: 35px; height: 35px;  float: left;" src="upload/perfil/${element.imagem_url}" alt="" class="img-fluid rounded-circle mt-1 fotoComentario"></img>`
-                let caixa_imagem = comentario.find(`#caixa-imagem-comentario`);
-                caixa_imagem.html("");
-                caixa_imagem.append(imagem);
-                
                 let id_usuario_logado = $(`#id_usuario_logado`).val();
-                let btn_editar_excluir = comentario.find(".editar_excluir");
-                btn_editar_excluir.show();
 
-                if(id_usuario_logado !== element.id_usuario){
-                    btn_editar_excluir.hide();
-                    
-                }
+                let bnt_editar = $(`#editar-${element.id_usuario}`)
+                let btn_deletar = $(`#deletar-${element.id_usuario}`)
 
-                btn_editar_excluir.html(`<span id="${element.id}" style="cursor: pointer;" onclick=(editarComentario(${element.id},${id_acao})) >Editar |</span>
-                    <span id="${element.id}" style="cursor: pointer;" onclick=(deletarComentario(${element.id},${id_acao})) >Deletar</span>  `)
 
-            });
+                $(`.comentarios-${id_acao}`).prepend(`
+                <div class="w-100 mt-3 box-comentario">
+                    <div id="caixa-imagem-comentario" >
+                    <img id="${element.id}" style="width: 35px; height: 35px;  float: left;" src="upload/perfil/${element.imagem_url}" alt="" class="img-fluid rounded-circle mt-1 fotoComentario"></img>    
+                    </div>
+                        <div  class="caixaComentarios">
+                            <div style=" float: right; font-size: 13px;" class="editar_excluir-${element.id_usuario}">
+                                <span id="editar-${element.id_usuario}" style="cursor: pointer; text-decoration: underline;" onclick="editarComentario(${element.id},${id_acao})" >Editar |</span>
+                                <span id="deletar-${element.id_usuario}" style="cursor: pointer; text-decoration: underline;;" onclick="deletarComentario(${element.id},${id_acao})" >Deletar</span>
+                                    
+                            </div>
+                            <label class="nomeComentario">${element.nome}</label>
+                            <p id="cx_comentarios">${element.comentario}</p>
+                            </div>
+                        </div>
+                    </div>`)
+
+                    let btn_editar_excluir = $(`.editar_excluir-${element.id_usuario}`)
+
+                    if(id_usuario_logado == element.id_usuario) {
+                        btn_editar_excluir.show()
+                       // btn_editar_excluir.append(`<span id="editar-${element.id_usuario}" style="cursor: pointer;" onclick="editarComentario(${element.id},${id_acao})" >Editar |</span>
+                         //                           <span id="deletar-${element.id_usuario}" style="cursor: pointer;" onclick="deletarComentario(${element.id},${id_acao})" >Deletar</span>`)
+                    }else {
+                        btn_editar_excluir.html("")
+                    }
+
+            })
 
             $(`#btn-mostrar-comentario${id_acao}`).css('display', 'none');
             $(`#btn-ocultar-comentario${id_acao}`).css('display', 'block');
+
+           // preventDefault();
         },
         error: function (data) {
             console.log(data);
@@ -90,40 +104,40 @@ function editarComentario(valor, valor2) {
 
     $(document).ready(function($){
    
-    let id_comentario = valor;
-    let id_acao = valor2;
+        let id_comentario = valor;
+        let id_acao = valor2;
 
-    $.ajax({
-        url: '/get_coment_by_id',
-        type: "POST",
-        dataType: 'json',
-        data: { id: id_comentario },
-        success: function (data) {
-            let txt_input = $(`#textbox-comentario-${id_acao}`);
-            txt_input.val(data.comentario);
-            console.log(data);
+        $.ajax({
+            url: '/get_coment_by_id',
+            type: "POST",
+            dataType: 'json',
+            data: { id: id_comentario },
+            success: function (data) {
 
-            let caixa_atualizar = $(`#div-atualizar-${id_acao}`);
-            caixa_atualizar.html(`<button onclick="atualizarComentario(${id_comentario}, ${id_acao})" class="btn corBotao" id="atualizar-comentario-${id_acao}" >
-                                    <span class="material-icons text-light mt-1">update</span>
-                                </button>`);
+                let txt_input = $(`#textbox-comentario-${id_acao}`);
+                txt_input.val(data.comentario);
+
+                let caixa_atualizar = $(`#div-atualizar-${id_acao}`);
+                caixa_atualizar.html(`<button onclick="atualizarComentario(${id_comentario}, ${id_acao})" class="btn corBotao" id="atualizar-comentario-${id_acao}" >
+                                        <span class="material-icons text-light mt-1">update</span>
+                                    </button>`);
 
 
-            $(`#botao-comentario-${id_acao}`).css('display', 'none');
-            $(`#atualizar-comentario-${id_acao}`).css('display', 'block');
-        },
-        error: function (data) {
-            console.log(data);
-        }
-    }).done(function(e){
+                $(`#botao-comentario-${id_acao}`).css('display', 'none');
+                $(`#atualizar-comentario-${id_acao}`).css('display', 'block');
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        }).done(function(e){
 
+        })
     })
-
-})
 }
 
 function atualizarComentario(valor, valor2){
 
+    console.log('passou aqui')
     let id_comentario = valor;
     let id_acao =valor2;
 
@@ -145,7 +159,9 @@ function atualizarComentario(valor, valor2){
 
         $(`#botao-comentario-${id_acao}`).css('display', 'block');
         $(`#atualizar-comentario-${id_acao}`).css('display', 'none');
+
         buscarComentarios(id_acao);
+        $(`.comentarios-${id_acao}`).html("");
 
     })
 
@@ -168,7 +184,10 @@ function deletarComentario(valor, valor2) {
             console.log(data);
         }
     }).done(function (e) {
+        $(`.comentarios-${id_acao}`).html("");
         buscarComentarios(id_acao);
+
+
     })
 }
 
