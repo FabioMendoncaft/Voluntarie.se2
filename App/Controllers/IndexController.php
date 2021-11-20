@@ -40,6 +40,8 @@ class indexController extends Action {
         $usuario->__set('data_nascimento', date('Y/m/d', strtotime($_POST['data'])));
         $usuario->__set('sexo',$_POST['sexo']);
 
+        $this->view->login = '0';
+
         if (count($usuario->getUsuarioPorEmail()) == 0) {
             
             $usuario->cadastrar();
