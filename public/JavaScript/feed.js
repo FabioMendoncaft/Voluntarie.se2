@@ -216,3 +216,52 @@ function comboxSelect(select) {
     })
 
 }
+
+function participar(value) {
+
+    alert("Participando...");
+    var id_acao = value;
+    var action = "participar";
+
+    $.ajax({
+        type: 'POST',
+        url: '/action',
+        dataType: 'json',
+        data: { id_acao: id_acao,
+                action:  action
+        },
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (data) {
+            console.log(data);
+        }      
+    })
+    $(`#btn-deixar_participar${id_acao}`).css('display', 'block');
+    $(`#btn-participar${id_acao}`).css('display', 'none'); 
+    
+}
+
+function removeParticipar(value) {
+
+alert("Deixou de participar...");
+    var id_acao = value;
+    var action = "deixar_de_participar";
+
+    $.ajax({
+        type: 'POST',
+        url: '/action',
+        dataType: 'json',
+        data: { id_acao: id_acao,
+                action:  action
+        },
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    })
+    $(`#btn-participar${id_acao}`).css('display', 'block');
+    $(`#btn-deixar_participar${id_acao}`).css('display', 'none');
+}

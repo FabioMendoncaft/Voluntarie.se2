@@ -137,11 +137,13 @@
                         <?php $dataInput = date('d-m-Y H:i:s', strtotime($acoes['data_evento'])); ?>
                         <p class="text-light">Data: <?= $dataInput ?></p>   
                         <?php if($acoes['participando_sn'] == 0) { ?> 
-                            <a href="/action?action=participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Participar</a>
+                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-participar<?=$acoes['id']?>">Participar</button> 
+                            <button onclick="removeParticipar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-deixar_participar<?=$acoes['id']?>" style="display: none;">Deixar de Participar</button>
                         <?php } ?>
-                        <?php if($acoes['participando_sn'] >= 1) { ?> 
-                            <a href="/action?action=deixar_de_participar&id_acao=<?=$acoes['id']?>" class="btn btn-light corBotao acoesBtn">Deixar de Participar</a>
-                     <?php } ?>   
+                        <?php if($acoes['participando_sn'] >= 1) { ?>
+                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-participar<?=$acoes['id']?>" style="display: none">Participar</button> 
+                            <button onclick="removeParticipar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-deixar_participar<?=$acoes['id']?>">Deixar de Participar</button>
+                        <?php } ?>   
                         <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes<?=$acoes['id']?>">Detalhes</a>
                     </div>
                     <hr>

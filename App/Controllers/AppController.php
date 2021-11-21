@@ -363,26 +363,25 @@ class AppController extends Action {
 
         $this->validaAutenticacao();
 
-       $action = isset($_GET['action']) ? $_GET['action'] : '';
-       $id_acao = isset($_GET['id_acao']) ? $_GET['id_acao'] : '';
+       $action = isset($_POST['action']) ? $_POST['action'] : '';
+       $id_acao = isset($_POST['id_acao']) ? $_POST['id_acao'] : '';
 
  
        $action_participante = Container::getModel('AcaoParticipante');
        $action_participante->__set('id_usuario', $_SESSION['id']);
        $action_participante->__set('id_acao', $id_acao);
-
         if($action == 'participar') {
             $action_participante->participarAcao();
-            $url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
+            //$url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
 
-            header('Location:'. $url );
+            //header('Location:'. $url );
 
         } else if($action == 'deixar_de_participar' ) {
             $action_participante->deixarParticiparAcao();
             
-            $url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
+            //$url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
 
-            header('Location:'. $url );
+            //header('Location:'. $url );
 
         }
 
