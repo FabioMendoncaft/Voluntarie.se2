@@ -129,7 +129,7 @@
                                 <?php } ?>
                     <div class="card-body">
                         <a href="/participantes_acoes?id_acao=<?=$acoes['id']?>" class="text-light">
-                            <p class="qtd_part"><?=$acoes['qtd_participantes']?></p>
+                            <p id="qtd_part<?=$acoes['id']?>" class="qtd_part"><?=$acoes['qtd_participantes']?></p>
                             <span class="material-icons qtd_part_ic">person</span>
                         </a> 
                         <h5 class="card-title"><?=$acoes['titulo']?></h5>
@@ -137,7 +137,7 @@
                         <?php $dataInput = date('d-m-Y H:i:s', strtotime($acoes['data_evento'])); ?>
                         <p class="text-light">Data: <?= $dataInput ?></p>   
                         <?php if($acoes['participando_sn'] == 0) { ?> 
-                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-participar<?=$acoes['id']?>">Participar</button> 
+                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" style="" id="btn-participar<?=$acoes['id']?>">Participar</button> 
                             <button onclick="removeParticipar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-deixar_participar<?=$acoes['id']?>" style="display: none;">Deixar de Participar</button>
                         <?php } ?>
                         <?php if($acoes['participando_sn'] >= 1) { ?>

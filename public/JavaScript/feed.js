@@ -218,8 +218,6 @@ function comboxSelect(select) {
 }
 
 function participar(value) {
-
-    alert("Participando...");
     var id_acao = value;
     var action = "participar";
 
@@ -239,12 +237,15 @@ function participar(value) {
     })
     $(`#btn-deixar_participar${id_acao}`).css('display', 'block');
     $(`#btn-participar${id_acao}`).css('display', 'none'); 
+
+    let qtd_partcipantes = document.getElementById(`qtd_part${id_acao}`).innerHTML;
+    qtd_partcipantes+= 1;
+    var qtd = parseInt(qtd_partcipantes);
+    document.getElementById(`qtd_part${id_acao}`).innerHTML = qtd;
     
 }
 
 function removeParticipar(value) {
-
-alert("Deixou de participar...");
     var id_acao = value;
     var action = "deixar_de_participar";
 
@@ -264,4 +265,13 @@ alert("Deixou de participar...");
     })
     $(`#btn-participar${id_acao}`).css('display', 'block');
     $(`#btn-deixar_participar${id_acao}`).css('display', 'none');
+
+    let qtd_partcipantes = document.getElementById(`qtd_part${id_acao}`).innerHTML;
+    console.log(qtd_partcipantes);
+    if (qtd_partcipantes > 0) {
+        qtd_partcipantes-= 1;
+        var qtd = parseInt(qtd_partcipantes);
+        document.getElementById(`qtd_part${id_acao}`).innerHTML = qtd;       
+    }
+
 }
