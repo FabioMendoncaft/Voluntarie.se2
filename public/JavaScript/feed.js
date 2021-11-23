@@ -75,6 +75,10 @@ function buscarComentarios(valor) {
                         </div>
                     </div>`)
 
+                    if (element.imagem_url == '' || element.imagem_url == null) {
+                        $(`#${element.id}`).attr("src", "img/íconePerfil.jpg");
+                    }
+
                     let btn_editar_excluir = $(`.editar_excluir-${element.id_usuario}`)
 
                     if(id_usuario_logado == element.id_usuario) {
