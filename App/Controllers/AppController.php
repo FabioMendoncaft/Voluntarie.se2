@@ -343,19 +343,26 @@ class AppController extends Action {
 
         $usuario = Container::getModel('Usuario');
 
+        $this->view->senhaAlterada = '0';
+
         $this->render('alterarSenha', 'layout_app');
 
     }
 
     public function altSenha() {
 
-           $this->validaAutenticacao();
-           $usuario = Container::getModel('Usuario');
+        $this->validaAutenticacao();
 
-           $usuario->__set('id' , $_SESSION['id']);
-           $usuario->__set('senha' , $_POST['novaSenha']);
-       
-           $usuario->mudarSenha();
+        $usuario = Container::getModel('Usuario');
+
+        $usuario->__set('id' , $_SESSION['id']);
+        $usuario->__set('senha' , $_POST['novaSenha']);
+
+        $usuario->mudarSenha();
+
+
+        $this->view->senhaAlterada = 'ok';
+        $this->render('alterarSenha', 'layout_app');
 
     }
 

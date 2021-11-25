@@ -137,14 +137,14 @@
                         <?php $dataInput = date('d-m-Y H:i:s', strtotime($acoes['data_evento'])); ?>
                         <p class="text-light">Data: <?= $dataInput ?></p>   
                         <?php if($acoes['participando_sn'] == 0) { ?> 
-                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" style="" id="btn-participar<?=$acoes['id']?>">Participar</button> 
-                            <button onclick="removeParticipar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-deixar_participar<?=$acoes['id']?>" style="display: none;">Deixar de Participar</button>
+                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" style="float: left;" id="btn-participar<?=$acoes['id']?>">Participar</button> 
+                            <button onclick="removeParticipar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-deixar_participar<?=$acoes['id']?>" style="display: none; float: left;">Deixar de Participar</button>
                         <?php } ?>
                         <?php if($acoes['participando_sn'] >= 1) { ?>
-                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-participar<?=$acoes['id']?>" style="display: none">Participar</button> 
-                            <button onclick="removeParticipar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-deixar_participar<?=$acoes['id']?>">Deixar de Participar</button>
+                            <button onclick="participar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-participar<?=$acoes['id']?>" style="display: none; float: left;">Participar</button> 
+                            <button onclick="removeParticipar(<?=$acoes['id']?>);" class="btn btn-light corBotao acoesBtn" id="btn-deixar_participar<?=$acoes['id']?>" style="float: left;">Deixar de Participar</button>
                         <?php } ?>   
-                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes<?=$acoes['id']?>">Detalhes</a>
+                        <a href="#" class="btn btn-light corBotao acoesBtn" data-bs-toggle="modal" data-bs-target="#detalhes<?=$acoes['id']?>" style="margin-left: 3px;">Detalhes</a>
                     </div>
                     <hr>
                     <div class="card-body">
