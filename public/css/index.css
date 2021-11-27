@@ -282,7 +282,7 @@ header {
 .field-label {
     position: absolute;
     left: 0;
-    top: 2rem;
+    top: 0;
     font-size: 1rem;
     font-family: var(--font-secundary);
     text-transform: uppercase;
@@ -290,7 +290,7 @@ header {
   }
   
   .field:focus ~ label {
-    top: 0;
+    top: 0.7rem;
     font-size: 0.7rem;
   }
   
