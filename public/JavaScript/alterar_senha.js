@@ -2,14 +2,16 @@ $(document).ready(function () {
     $("#alterarSenha").validate({
         rules: {
             senhaAtual: {
-                required: true
+                required: true,
+                rangelength: [6, 20]
             },
             novaSenha: {
-                required: true
+                required: true,
+                rangelength: [6, 20]
             },
             confirmarSenha: {
                 required: true,
-                equalTo: "#novaSenha"
+                equalTo: "#novaSenha",
             }
         },
     })
