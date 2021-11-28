@@ -12,35 +12,35 @@
                 3º If : Se tentar logar com um usuario com e-mail ou senha invalido exibe um alerta
             --> 
             <?php if ($this->view->retorno_Cadastro == 'ja_existe') { ?>
-                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%; text-align: center;" role="alert" >
                     <strong class= "mx-auto">Usuário já cadastrado com este e-mail</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>  
             <?php } ?>
 
           <?php if ($this->view->retorno_Cadastro == 'cadastro_sucesso') { ?>
-                <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 0%; text-align: center;" role="alert" >
                     <strong class= "mx-auto">Cadastro realizado com sucesso</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php } ?>
 
             <?php if ($this->view->login == 'erroSenha') { ?>
-                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%; text-align: center;" role="alert" >
                     <strong class= "mx-auto">Senha inválida</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>  
             <?php } ?>
 
             <?php if ($this->view->login == 'emailInvalido') { ?>
-                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 0%; text-align: center;" role="alert" >
                     <strong class= "mx-auto">Usuário não cadastrado</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>  
             <?php } ?>
 
             <?php if ($this->view->retorno_Cadastro == 'email_enviado') { ?>
-                <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 0%" role="alert" >
+                <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 0%; text-align: center;" role="alert" >
                     <strong class= "mx-auto">Email enviado com sucesso! Verifique sua caixa de entrada.</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>

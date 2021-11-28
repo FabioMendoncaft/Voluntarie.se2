@@ -13,12 +13,12 @@
 <body>
 
     <?php if ($this->view->senhaAlterada == 'ok') { ?>
-        <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 8%" role="alert" >
+        <div class="alert alert-success alert-dismissible w-100" style="position: absolute; top: 8%; text-align: center;" role="alert" >
             <strong class= "mx-auto">Senha alterada com sucesso!</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php }elseif($this->view->senhaAlterada == 'nok'){ ?>
-        <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 8%" role="alert" >
+        <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 8%; text-align: center;" role="alert" >
             <strong class= "mx-auto">Senha atual Inválida!</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

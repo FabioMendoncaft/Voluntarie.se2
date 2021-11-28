@@ -190,6 +190,8 @@ class AppController extends Action {
         $acao->__set('numero', $_POST['numero'] );  
         $acao->__set('data_evento', $_POST['data_evento'] );
         $acao->__set('categoria', $_POST['categoria'] );
+        $acao->__set('latitude', $_POST['latitude'] );
+        $acao->__set('longitude', $_POST['longitude'] );
 
         $acao->editarAcao(); 
         

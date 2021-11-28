@@ -20,6 +20,8 @@ class Acao extends Model {
     private $data_criacao;
     private $data_evento;
     private $categoria;
+    private $latitude;
+    private $longitude;
     private $imagem;
 
 
