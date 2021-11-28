@@ -185,7 +185,7 @@
                                                         <h5 class="modal-title text-light">Editar Ação</h5>
                                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <form method="POST" action="/editar_acao?id_acao=<?=$acao['id']?>"  enctype="multipart/form-data" class="form formulario p-3" id="alterar">
+                                                    <form method="POST" action="/editar_acao?id_acao=<?=$acao['id']?>"  enctype="multipart/form-data" class="form formulario p-3" id="alterarAcao">
                                                         <div class="mb-3">
                                                             <label class="form-label text-light mt-3">Título</label>
                                                             <input type="text" value="<?= $acao['titulo'] ?>" class="form-control bg-dark text-light" name="titulo" id=" exampleFormControlInput1" required>
@@ -202,14 +202,15 @@
                                                         </div>
                                                         <div class="mb-3 w-50 left">
                                                             <label class="form-label text-light">Categoria</label>
-                                                            <select class="form-select bg-dark text-light" aria-label="Default select example" name="categoria" required>
+                                                            <select class="form-select bg-dark text-light" aria-label="Default select example" name="categoria" id="categoria">
                                                                 <option disabled="disabled" selected="selected"><?= $acao['categoria'] ?></option>
-                                                                <option value="1">Visitações</option>
-                                                                <option value="2">Doação de sangue</option>
-                                                                <option value="3">Doação de suprimentos</option>
-                                                                <option value="4">Distribuição suprimentos</option>
-                                                                <option value="5">Adoção de animais</option>
-                                                                <option value="6">Passeio com animais</option>
+                                                                <option value="Visitações">Visitações</option>
+                                                                <option value="Doação de sangue">Doação de sangue</option>
+                                                                <option value="Doação de suprimentos">Doação de suprimentos</option>
+                                                                <option value="Distribuição suprimentos">Distribuição suprimentos</option>
+                                                                <option value="Adoção de animais">Adoção de animais</option>
+                                                                <option value="Passeio com animais">Passeio com animais</option>
+                                                                <option value="Limpeza de locais">Limpeza de locais</option>
                                                             </select>
                                                         </div>
                                                         <div id="quadrado">
@@ -222,8 +223,13 @@
                                                             <div class="mb-3">
                                                                 <input type="text" value="<?= $acao['logradouro'] ?>" class="form-control bg-dark text-light" placeholder="Logradouro" aria-label="Recipient's username" aria-describedby="button-addon2" id="logradouro" name="logradouro" required>
                                                             </div>
+
                                                             <div class="mb-3">
                                                                 <input type="text" value="<?= $acao['complemento'] ?>" class="form-control bg-dark text-light" placeholder="Complemento" aria-label="Recipient's username" aria-describedby="button-addon2" id="complemento" name="complemento">
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <input type="text" value="<?= $acao['numero'] ?>" class="form-control bg-dark text-light" placeholder="Nº" aria-label="Recipient's username" aria-describedby="button-addon2" id="numero" name="numero" required>
                                                             </div>
 
                                                             <div class="mb-3">
@@ -243,8 +249,13 @@
                                                             <label for="formFile" class="form-label text-light">Imagem</label>
                                                             <input class="form-control bg-dark text-light" type="file" id="escolherImagem" onchange="previewImagem()">
                                                         </div>
+
+                                                        <input type="hidden" name="latitude" id="latitude-acao">
+
+                                                        <input type="hidden" name="longitude" id="longitude-acao">
+
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-light corBotao">Alterar</button>
+                                                            <button type="submit" onclick="pegarEndereco()" class="btn btn-light corBotao">Alterar</button>
                                                         </div>
                                                     </form>
                                                 </div>

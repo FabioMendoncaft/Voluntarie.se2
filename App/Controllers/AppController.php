@@ -187,6 +187,7 @@ class AppController extends Action {
         $acao->__set('bairro', $_POST['bairro'] );
         $acao->__set('uf', $_POST['uf'] );
         $acao->__set('complemento', $_POST['complemento'] );  
+        $acao->__set('numero', $_POST['numero'] );  
         $acao->__set('data_evento', $_POST['data_evento'] );
         $acao->__set('categoria', $_POST['categoria'] );
 

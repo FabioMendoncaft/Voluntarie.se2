@@ -16,6 +16,7 @@ class Acao extends Model {
     private $bairro;
     private $uf;
     private $complemento;
+    private $numero;
     private $data_criacao;
     private $data_evento;
     private $categoria;
@@ -68,10 +69,20 @@ class Acao extends Model {
 
     public function editarAcao(){
 
-        $query = "update tb_acoes set titulo = :titulo, descricao = :descricao, 
-        logradouro = :logradouro, cidade = :cidade, bairro = :bairro, uf = :uf, 
-        complemento = :complemento, data_evento = :data_evento, categoria = :categoria 
-                where id = :id and id_usuario = :id_usuario; ";
+        $query = "update tb_acoes 
+                                set titulo = :titulo, 
+                                descricao = :descricao, 
+                                logradouro = :logradouro, 
+                                cidade = :cidade, 
+                                bairro = :bairro, 
+                                uf = :uf, 
+                                complemento = :complemento, 
+                                numero = :numero, 
+                                data_evento = :data_evento, 
+                                categoria = :categoria,
+                                latitude  = :latitude,
+                                longitude = :longitude 
+                        where id = :id and id_usuario = :id_usuario; ";
         
         $stmt = $this->db->prepare($query);
 
@@ -84,8 +95,11 @@ class Acao extends Model {
         $stmt->bindValue(':bairro' , $this->__get('bairro'));
         $stmt->bindValue(':uf' , $this->__get('uf'));
         $stmt->bindValue(':complemento' , $this->__get('complemento'));
+        $stmt->bindValue(':numero' , $this->__get('numero'));
         $stmt->bindValue(':data_evento' , date('Y-m-d H:i:s', strtotime($this->__get('data_evento'))));
         $stmt->bindValue(':categoria' , $this->__get('categoria'));
+        $stmt->bindValue(':latitude' , $this->__get('latitude'));
+        $stmt->bindValue(':longitude' , $this->__get('longitude'));
 
         $stmt->execute();
 
@@ -102,7 +116,7 @@ class Acao extends Model {
                             a.logradouro, a.cidade, 
                             a.bairro, a.uf, a.complemento, 
                             a.data_evento, a.data_criacao ,
-                            a.categoria, a.imagem,
+                            a.categoria, a.numero, a.imagem,
                             (SELECT count(*) from acoes_participantes where id_acao = a.id) as qtd_participantes
                 from tb_acoes a where id_usuario = :id_usuario order by data_criacao desc";
 
@@ -167,7 +181,8 @@ class Acao extends Model {
                              a.cidade, 
                              a.bairro, 
                              a.uf, 
-                             a.complemento, 
+                             a.complemento,
+                             a.numero, 
                              a.data_criacao, 
                              a.data_evento, 
                              a.categoria,

@@ -202,7 +202,11 @@
             </div>
             <form class="form"> 
                 <div class="modal-body">
-                    <img src="upload/acao/<?=$acoes['imagem']?>" class="card-img-top" alt="...">
+                    <?php if(empty($acoes['imagem'])) {?>
+                        <img src="img/acaoSocial2.jpg" class="card-img-top" alt="...">
+                    <?php } else if (file_exists('upload/acao/'. $acoes['imagem'])) { ?>
+                        <img src="upload/acao/<?=$acoes['imagem']?>" class="card-img-top" alt="...">
+                    <?php } ?>
                     <div class="card-body">
                         <p class="qtd_part text-light"><?=$acoes['qtd_participantes']?></p>
                         <span class="material-icons qtd_part_ic text-light">person</span>
@@ -213,6 +217,9 @@
                         <label>
                             <p class="text-light">Endereço: </p> 
                             <p id="ruaModal" name="ruaModal" class="text-light"><?=$acoes['logradouro']?>, </p> 
+                        </label>
+                        <label>
+                            <p id="bairroModal" name="numeroModal" class="text-light"><?=$acoes['numero']?>, </p>
                         </label>
                         <label>
                             <p id="bairroModal" name="bairroModal" class="text-light"><?=$acoes['bairro']?>, </p>
