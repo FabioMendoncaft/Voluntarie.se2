@@ -522,94 +522,123 @@ class AppController extends Action {
         }
     }    
 
-
 	public function mostrarComentarios() {
 
-            $comentario = Container::getModel('Comentario');
-            $comentario->__set('id_acao', $_POST['acao']);
-            $comentarios = $comentario->recuperarComentarios();
+        $comentario = Container::getModel('Comentario');
+        $comentario->__set('id_acao', $_POST['acao']);
+        $comentarios = $comentario->recuperarComentarios();
 
-            echo json_encode($comentarios);
+        echo json_encode($comentarios);
 
-        }
+    }
 
-        public function deletarComentario(){
+    public function deletarComentario(){
 
-            $comentario = Container::getModel('Comentario');
-            $comentario->__set('id', $_POST['id']);
-            $comentario->excluirComentario();
+        $comentario = Container::getModel('Comentario');
+        $comentario->__set('id', $_POST['id']);
+        $comentario->excluirComentario();
 
-        }
+    }
 
-        public function enviarComentario(){
+    public function enviarComentario(){
 
-            $this->validaAutenticacao();
+        $this->validaAutenticacao();
 
-            $comentario = Container::getModel('Comentario');
-            $comentario->__set('id_acao', $_POST['acao']);
-            $comentario->__set('comentario', $_POST['comentario']);
-            $comentario->__set('id_usuario', $_SESSION['id']);
+        $comentario = Container::getModel('Comentario');
+        $comentario->__set('id_acao', $_POST['acao']);
+        $comentario->__set('comentario', $_POST['comentario']);
+        $comentario->__set('id_usuario', $_SESSION['id']);
 
-            $comentario->inserirComentario();
+        $comentario->inserirComentario();
 
-        }
+    }
 
-        public function getComentarioPorId(){
+    public function getComentarioPorId(){
 
-            $comentario = Container::getModel('Comentario');
-            $comentario->__set('id', $_POST['id']);
+        $comentario = Container::getModel('Comentario');
+        $comentario->__set('id', $_POST['id']);
 
-            $comentario_caixa = $comentario->recuperarComentarioPorId();
+        $comentario_caixa = $comentario->recuperarComentarioPorId();
 
-            echo json_encode($comentario_caixa);
+        echo json_encode($comentario_caixa);
 
-        }
+    }
 
-        public function updateComentario(){
+    public function updateComentario(){
 
-            $comentario = Container::getModel('Comentario');
-            $comentario->__set('id', $_POST['id']);
-            $comentario->__set('comentario', $_POST['comentario']);
-            
-            $comentario->atualizaComentario();
-
-        }
-
-        public function comboxSelect(){
-
-            $combox = Container::getModel('Filter');
-            $combox->__set('estado', $_POST['estado']);
-            $comboxValue = $combox->readSelect();
-            echo json_encode($comboxValue);
-
-        }   
+        $comentario = Container::getModel('Comentario');
+        $comentario->__set('id', $_POST['id']);
+        $comentario->__set('comentario', $_POST['comentario']);
         
-        public function participantesAcoes(){
+        $comentario->atualizaComentario();
 
-            $this->validaAutenticacao();
-            
-            $participante_acoes = Container::getModel('AcaoParticipante');
-            $participante_acoes->__set('id_acao', $_GET['id_acao']);
-            $participantes =  $participante_acoes->participantesAcoes();
+    }
 
-            $imagem = Container::getModel('Imagem');
-            $imagem->__set('id_usuario', $_SESSION['id'] ); 
-            $imagem_perfil = $imagem->recuperarImagem();
+    public function comboxSelect(){
 
-            $this->view->participantes = $participantes;
-            $this->view->minha_imagem = $imagem_perfil;
+        $combox = Container::getModel('Filter');
+        $combox->__set('estado', $_POST['estado']);
+        $comboxValue = $combox->readSelect();
+        echo json_encode($comboxValue);
+
+    }   
     
-            $this->render('participantesAcoes', 'layout_app');
+    public function participantesAcoes(){
 
-        }
-		
-		 public function allAcoes(){
+        $this->validaAutenticacao();
+        
+        $participante_acoes = Container::getModel('AcaoParticipante');
+        $participante_acoes->__set('id_acao', $_GET['id_acao']);
+        $participantes =  $participante_acoes->participantesAcoes();
 
-           $acao = Container::getModel('Acao');
-           $acoes = $acao->allAcoesFeed();
+        $imagem = Container::getModel('Imagem');
+        $imagem->__set('id_usuario', $_SESSION['id'] ); 
+        $imagem_perfil = $imagem->recuperarImagem();
 
-           echo json_encode($acoes);
-        }
+        $this->view->participantes = $participantes;
+        $this->view->minha_imagem = $imagem_perfil;
+
+        $this->render('participantesAcoes', 'layout_app');
+
+    }
+    
+    public function allAcoes(){
+
+        $acao = Container::getModel('Acao');
+        $acoes = $acao->allAcoesFeed();
+
+        echo json_encode($acoes);
+    }
+
+    public function acao(){
+
+        $this->validaAutenticacao();
+
+        $action = isset($_GET['action']) ? $_GET['action'] : '';
+        $id_acao = isset($_GET['id_acao']) ? $_GET['id_acao'] : '';
+  
+        $action_participante = Container::getModel('AcaoParticipante');
+        $action_participante->__set('id_usuario', $_SESSION['id']);
+        $action_participante->__set('id_acao', $id_acao);
+ 
+         if($action == 'participar') {
+             $action_participante->participarAcao();
+             $url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
+ 
+             header('Location:'. $url );
+ 
+         } else if($action == 'deixar_de_participar' ) {
+             $action_participante->deixarParticiparAcao();
+             
+             $url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
+ 
+             header('Location:'. $url );
+ 
+         }
+ 
+         $action_participante->__set('id_acao', $id_acao);
+    }
+
 }    
 
 ?>
