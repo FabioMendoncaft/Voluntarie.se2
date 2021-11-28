@@ -379,17 +379,9 @@ class AppController extends Action {
        $action_participante->__set('id_acao', $id_acao);
         if($action == 'participar') {
             $action_participante->participarAcao();
-            //$url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
-
-            //header('Location:'. $url );
 
         } else if($action == 'deixar_de_participar' ) {
             $action_participante->deixarParticiparAcao();
-            
-            //$url = str_replace('http://localhost:8080' , '' , $_SERVER['HTTP_REFERER']);
-
-            //header('Location:'. $url );
-
         }
 
         $action_participante->__set('id_acao', $id_acao);
