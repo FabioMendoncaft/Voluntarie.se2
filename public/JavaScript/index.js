@@ -28,7 +28,7 @@ $(document).ready(function () {
             },
             senha: {
                 required: true,
-                rangelength: [6, 10]
+                rangelength: [6, 20]
             },
             confirmar: {
                 required: true,

@@ -63,6 +63,7 @@ class Filter extends Model {
                     a.bairro, 
                     a.uf, 
                     a.complemento, 
+                    a.numero,
                     a.data_criacao, 
                     a.data_evento, 
                     a.categoria, 

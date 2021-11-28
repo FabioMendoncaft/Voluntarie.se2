@@ -20,13 +20,19 @@ class AuthController extends Action {
             $_SESSION['id'] = $usuario->__get('id');
             $_SESSION['nome'] = $usuario->__get('nome');
             $_SESSION['email'] = $usuario->__get('email');
-            
-          /*  $this->render('index', 'layout_app'); */
 
             header('Location: /feed'); 
 
         }else {
-            header('Location: /?login=erro');
+            
+            $email = $usuario->getUsuarioPorEmail();
+
+            if($email[0]['email'] == '' || $email[0]['email'] == null){
+                header('Location: /?login=emailInvalido');
+            }else{
+                header('Location: /?login=erroSenha');
+            }
+            
         }
     }
 
