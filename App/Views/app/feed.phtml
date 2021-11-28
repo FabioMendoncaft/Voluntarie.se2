@@ -106,8 +106,11 @@
 
     <!--MEIO - Ações criadas pelos usuários -->
     <div class="acoes mt-5">
-        <div class="row row-cols-1 cols-ms-6 g-4" id="acoesGeral">
-          <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
+        <div class="row row-cols-1 cols-ms-6 g-4" id="acoesGeral">  
+            <?php if(empty($this->view->all_acoes)) { ?>
+              <p class="text-light">Nenhuma ação encontrada.</p>
+            <?php } ?> 
+            <?php foreach($this->view->all_acoes as $id => $acoes) { ?>
             <div class="col">
                 <div class="card h-100 acoesCard">
                     <div class="userCard">
