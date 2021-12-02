@@ -20,6 +20,25 @@ body{
     border: 0px;
 }
 
+.mapaMobile{
+    animation-name: cores;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    margin-left: 87%; 
+    margin-bottom: 60px; 
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+@keyframes cores{
+    0%   { background: #f83600; }
+    25%  { background: #fe5200; }
+    50%  { background: #fe8c00; }
+    75%  { background: #fe5200; }
+    100% { background: #f83600; }
+}
+
 .corBotao:not(:hover) {
     color: white;
 }
@@ -204,10 +223,18 @@ body{
     background: #282a2e;
     height: 240px;
 }
+
 .anuncio #map {
     background: #282a2e;
     height: 240px;
     margin-top: 15px;
+}
+
+#mapModal {
+    background: #282a2e;
+    height: 240px;
+    margin-top: 15px;
+    margin: auto;
 }
 /* FIM - Body Direita */
 
@@ -217,11 +244,3 @@ body{
     background: #1b1c1f;
 }
 /* FIM - Modal detalhes */
-
-
-/*
-#map {
-
-    background: #282a2e;
-    height: 235px;
-}

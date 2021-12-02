@@ -72,4 +72,10 @@
         width: 85%;
     }
 }
+
+@media(min-width: 771px){
+    .mapaMobile{
+        display: none;
+    }
+}
 /* FIM - RESPONSIVIDADE FEED */

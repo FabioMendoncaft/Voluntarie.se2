@@ -23,8 +23,9 @@
                 center: { lat: parseFloat(latitude), lng: parseFloat(longitude) },
                 zoom: 15
             }
-
-            let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+           
+            let map      = new google.maps.Map(document.getElementById('map'), mapOptions);
+            let mapModal = new google.maps.Map(document.getElementById('mapModal'), mapOptions);
 
             $.ajax({
                 type: 'POST',
@@ -46,12 +47,26 @@
                                 icon: "./img/favicon-32x32.png"
                             });
 
+                        let markerModal = new google.maps.Marker({
+                            position: { lat: parseFloat(latitude), lng: parseFloat(longitude) },
+                            map: mapModal,
+                            optimized: false,
+                            title: titulo,
+                            animation: google.maps.Animation.BOUNCE,
+                            icon: "./img/favicon-32x32.png"
+                        });    
+
                         infowindow = new google.maps.InfoWindow({});
 
                         marker.addListener('click' , (googleMapsEvent) => {
                              populateInfoWindow(marker, infowindow )
                              infowindow.open(map, marker)
-                         })   
+                         })  
+                         
+                        markerModal.addListener('click' , (googleMapsEvent) => {
+                            populateInfoWindow(markerModal, infowindow )
+                            infowindow.open(mapModal, markerModal)
+                        })    
 
                         function populateInfoWindow(marker, info){
                             info.setContent('')

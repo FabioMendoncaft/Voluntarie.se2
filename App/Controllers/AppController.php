@@ -360,16 +360,21 @@ class AppController extends Action {
         $usuario->__set('id' , $_SESSION['id']);
         $senhaAtual = $usuario->verificaSenhaAtual();
 
-        if($senhaAtual['senha'] == $_POST['senhaAtual']){
+        if($_POST['senhaAtual'] == $_POST['novaSenha']){
+
+            $this->view->senhaAlterada = 'nok1';
+            
+        }elseif($senhaAtual['senha'] == $_POST['senhaAtual']){
             
             $usuario->__set('id' , $_SESSION['id']);
             $usuario->__set('senha' , $_POST['novaSenha']);
             $usuario->mudarSenha();
 
             $this->view->senhaAlterada = 'ok';
-
-        }else{
-            $this->view->senhaAlterada = 'nok';
+        
+        }
+        else{
+            $this->view->senhaAlterada = 'nok2';
         }
  
         $this->render('alterarSenha', 'layout_app');

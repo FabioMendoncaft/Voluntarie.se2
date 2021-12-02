@@ -105,6 +105,7 @@
     <!-- (FIM)lateral - Dados do usuário e filtro de pesquisa(ESQUERDA) -->
 
     <!--MEIO - Ações criadas pelos usuários -->
+
     <div class="acoes mt-5">
         <div class="row row-cols-1 cols-ms-6 g-4" id="acoesGeral">  
             <?php if(empty($this->view->all_acoes)) { ?>
@@ -169,6 +170,8 @@
             </div>
             <?php } ?>
         </div>
+
+        <button id="mapaMobile" class="mapaMobile ml-50 fixed-bottom" data-bs-toggle="modal" data-bs-target="#mapaMob"><span class="material-icons text-light" style="margin-top: 4px; margin-left: 2px; margin-right: 2px" id="icon">place</span></button>
     </div>
     <!-- (FIM) MEIO - Ações criadas pelos usuários -->
 
@@ -191,8 +194,20 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjjmdWbOmBAkWXbjpMVVEVkot9WwFw7VI">
     </script>
-    <!-- (FIM) Anúncio -->
+    
+    <div class="modal" id="mapaMob" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content"> 
+                <div class="modal-body">
+                    <div id="mapModal" >
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
 
+    <!-- (FIM) Anúncio -->
 
 <!-- MODAL VER DETALHES DA AÇÃO -->
 <?php foreach($this->view->all_acoes as $id => $acoes) { ?>

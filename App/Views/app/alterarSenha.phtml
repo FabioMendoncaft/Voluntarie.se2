@@ -17,12 +17,17 @@
             <strong class= "mx-auto">Senha alterada com sucesso!</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    <?php }elseif($this->view->senhaAlterada == 'nok'){ ?>
+    <?php }elseif($this->view->senhaAlterada == 'nok1'){ ?>
+        <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 8%; text-align: center;" role="alert" >
+            <strong class= "mx-auto">Escolha uma nova senha diferente da sua senha atual!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php } elseif($this->view->senhaAlterada == 'nok2'){ ?>  
         <div class="alert alert-danger alert-dismissible w-100" style="position: absolute; top: 8%; text-align: center;" role="alert" >
             <strong class= "mx-auto">Senha atual Inválida!</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    <?php } ?>    
+    <?php } ?>   
 
     <!-- Alterar Senha -->
     <form class="form" id="alterarSenha" action="/alt_senha" method="POST">

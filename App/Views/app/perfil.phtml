@@ -28,6 +28,11 @@
     <!-- Body Perfil -->
     <?php foreach ($this->view->info_usuario as $id => $info) { ?>
         <div class="perfil m-auto mt-5">
+            <a id="menuMobile" href="/sair" class="text-light" style="position: absolute; margin-left: 90%; ">
+                <span class="material-icons">
+                    logout
+                </span>
+            </a>
             <?php  if (empty($this->view->minha_imagem)) { ?>
                     <div class="fotoPerfil">
                         <img src="img/íconePerfil.jpg" alt="" class="img-fluid rounded-circle" id="fotoPerfil">
@@ -429,7 +434,6 @@
             </div>
         </div>
     </div> 
-    
     <!-- FIM - MODAL QUEM EU SIGO  -->
 </body>
 
