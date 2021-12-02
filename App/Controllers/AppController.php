@@ -176,6 +176,9 @@ class AppController extends Action {
        
         $this->validaAutenticacao();
 
+        $imagem = Container::getModel('Imagem');
+        $nome_imagem = $imagem->validaImagemAcao();
+
         $acao = Container::getModel('Acao'); 
 
         $acao->__set('id', $_GET['id_acao'] );
@@ -192,6 +195,7 @@ class AppController extends Action {
         $acao->__set('categoria', $_POST['categoria'] );
         $acao->__set('latitude', $_POST['latitude'] );
         $acao->__set('longitude', $_POST['longitude'] );
+        $acao->__set('imagem',  $nome_imagem); 
 
         $acao->editarAcao(); 
         
