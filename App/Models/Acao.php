@@ -83,8 +83,7 @@ class Acao extends Model {
                                 data_evento = :data_evento, 
                                 categoria = :categoria,
                                 latitude  = :latitude,
-                                longitude = :longitude,
-                                imagem = :imagem
+                                longitude = :longitude
                         where id = :id and id_usuario = :id_usuario; ";
         
         $stmt = $this->db->prepare($query);
@@ -103,7 +102,6 @@ class Acao extends Model {
         $stmt->bindValue(':categoria' , $this->__get('categoria'));
         $stmt->bindValue(':latitude' , $this->__get('latitude'));
         $stmt->bindValue(':longitude' , $this->__get('longitude'));
-        $stmt->bindValue(':imagem' , $this->__get('imagem'));
 
         $stmt->execute();
 
